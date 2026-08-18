@@ -26,3 +26,9 @@
 
 - [x] Remove the specified SaaS AI Coach explanatory sentence without affecting the surrounding section.
 - [x] Verify the landing section remains visually balanced after the copy removal.
+
+## Document-Based Content Update
+
+- [x] Extract approved positioning copy for the three numbered landing blocks.
+- [x] Replace the current block copy without changing the block layout.
+- [x] Verify the updated section after applying the document copy.
