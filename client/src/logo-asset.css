@@ -1,0 +1,60 @@
+/* Editorial Operating System, exact supplied bilingual mark stays prominent, crisp, and contrast-safe across public and workspace shells. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+  min-height: 44px;
+}
+
+.brand-signal-asset {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  object-fit: contain;
+}
+
+/* The logo's own aspect ratio is ~2.57:1 (viewBox 889.77x346.35). Boxes below
+   match that ratio so object-fit:contain fills the box instead of leaving
+   blank space on one side, that mismatch was part of why it read as small. */
+.brand-logo-asset {
+  display: block;
+  width: 254px;
+  height: 99px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.product-topbar .brand-logo-asset,
+.signup-topbar .brand-logo-asset,
+.account-logo .brand-logo-asset {
+  width: 224px;
+  height: 87px;
+}
+
+.site-footer .brand-logo-asset {
+  width: 236px;
+  height: 92px;
+}
+
+@media (max-width: 720px) {
+  .brand-logo-asset,
+  .product-topbar .brand-logo-asset,
+  .signup-topbar .brand-logo-asset,
+  .account-logo .brand-logo-asset {
+    width: 190px;
+    height: 74px;
+  }
+
+  .brand-signal-asset {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  .site-footer .brand-logo-asset {
+    width: 200px;
+    height: 78px;
+  }
+}

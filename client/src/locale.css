@@ -1,0 +1,97 @@
+/* Editorial Operating System, bilingual layout keeps the shared editorial rhythm while directionally mirroring navigation, rails, form cues, and action arrows. */
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(12, 35, 66, .16);
+  background: rgba(255, 255, 255, .72);
+  border-radius: var(--radius-pill);
+}
+
+.language-toggle button {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 4px 7px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--muted);
+  font: 600 10px/1 "IBM Plex Mono", "IBM Plex Sans Arabic", monospace;
+  letter-spacing: .04em;
+}
+
+.language-toggle button.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.language-toggle-compact { transform: scale(.94); transform-origin: center; }
+
+/* Arabic typography, pairs with the Latin system instead of falling back to a generic system
+   Arabic face: IBM Plex Sans Arabic completes the Plex family already used for mono/labels, and
+   Cairo stands in for Space Grotesk on headings (which has no Arabic glyphs) with the same
+   confident, slightly geometric weight. */
+.locale-ar { font-family: "IBM Plex Sans Arabic", "DM Sans", sans-serif; }
+.locale-ar .mono { font-family: "IBM Plex Mono", "IBM Plex Sans Arabic", monospace; letter-spacing: .04em; }
+.locale-ar h1, .locale-ar h2, .locale-ar h3 { font-family: "Cairo", "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: 0; line-height: 1.35; }
+
+.locale-ar .nav-row,
+.locale-ar .network-strip .container,
+.locale-ar .product-topbar-inner,
+.locale-ar .product-top-actions,
+.locale-ar .footer-bottom,
+.locale-ar .product-shell-grid,
+.locale-ar .workspace-profile,
+.locale-ar .workspace-nav a,
+.locale-ar .mode-switcher-current,
+.locale-ar .sidebar-brief a { direction: rtl; }
+
+.locale-ar .nav-mega-intro { border-right: 0; border-left: 1px solid rgba(6, 43, 85, .12); }
+.locale-ar .nav-mega-feature { border-left: 0; border-right: 1px solid rgba(6, 43, 85, .12); }
+.locale-ar .mobile-nav-trigger, .locale-ar .mobile-subgroup, .locale-ar .workspace-nav a, .locale-ar .sidebar-brief { text-align: right; }
+.locale-ar .workspace-nav small { margin-left: 0; margin-right: auto; }
+.locale-ar .mode-switcher-current svg:last-child { margin-left: 0; margin-right: auto; }
+.locale-ar .product-context { border-left: 0; border-right: 1px solid rgba(12, 35, 66, .16); padding-left: 0; padding-right: 18px; }
+.locale-ar .product-public-link { border-left: 0; border-right: 1px solid rgba(12, 35, 66, .16); padding-left: 0; padding-right: 14px; }
+.locale-ar .product-main, .locale-ar .page-hero, .locale-ar .section, .locale-ar .account-form, .locale-ar .signup-card { text-align: right; }
+.locale-ar .page-hero-note, .locale-ar .fit-reason, .locale-ar .access-explainer { border-left: 0; border-right: 3px solid var(--saffron); }
+.locale-ar .filter-menu, .locale-ar .filter-popover { left: 0; right: auto; }
+.locale-ar .learning-path-rail { right: 0; left: auto; }
+.locale-ar .learning-steps { padding-left: 0; padding-right: 56px; }
+/* In an RTL grid the first track renders on the right, so the sidebar (first in DOM order)
+   just needs its own width here — no grid-column override needed to land it on the right. */
+.locale-ar .product-shell-grid { grid-template-columns: 276px minmax(0, 1fr); }
+.locale-ar .product-hero-dashboard { grid-template-columns: 1.2fr .8fr; }
+.locale-ar .dashboard-signal-card { direction: rtl; }
+.locale-ar .hero-proof strong, .locale-ar .hero-proof span { text-align: right; }
+.locale-ar .job-card-bottom, .locale-ar .section-link, .locale-ar .event-meta { direction: rtl; }
+/* Lucide renders each icon with a class of "lucide lucide-<kebab-name>" (no data-lucide
+   attribute exists), so that's the real hook for mirroring directional icons in RTL. */
+.locale-ar .lucide-arrow-right,
+.locale-ar .lucide-arrow-left,
+.locale-ar .lucide-chevron-right,
+.locale-ar .lucide-chevron-left,
+.locale-ar .lucide-arrow-up-right,
+.locale-ar .lucide-corner-down-right { transform: scaleX(-1); }
+
+/* Same mirroring for the plain-glyph arrows ("→", "↗") baked into markup instead of
+   rendered as Lucide icons — section-link "read more" arrows, job-card and roadmap-step
+   diagonal arrows. */
+.locale-ar .section-link span,
+.locale-ar .job-arrow,
+.locale-ar .connection-route__arrow,
+.locale-ar .roadmap-route__arrow { display: inline-block; transform: scaleX(-1); }
+
+@media (max-width: 900px) {
+  .language-toggle { margin-inline-start: auto; }
+  .locale-ar .mobile-submenu { padding-left: 0; padding-right: 18px; }
+  .locale-ar .product-context { border-right: 0; padding-right: 0; }
+  .locale-ar .product-shell-grid { grid-template-columns: 1fr; }
+  .locale-ar .workspace-sidebar-wrap, .locale-ar .product-main { grid-column: auto; }
+  .locale-ar .workspace-sidebar-wrap, .locale-ar .product-main { grid-row: auto; }
+}
+
+@media (max-width: 620px) {
+  .locale-ar .learning-steps { padding-right: 42px; }
+}

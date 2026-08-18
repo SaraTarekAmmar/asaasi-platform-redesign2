@@ -1,49 +1,10 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle, Home } from "lucide-react";
-import { useLocation } from "wouter";
+/* Editorial Operating System, recoverable empty state for unknown routes. */
+import { ArrowLeft, ArrowRight, Search } from "lucide-react";
+import { Link } from "wouter";
+import { SectionLabel, SignalTag } from "../components/site";
+import { useLocale } from "../contexts/LocaleContext";
 
 export default function NotFound() {
-  const [, setLocation] = useLocation();
-
-  const handleGoHome = () => {
-    setLocation("/");
-  };
-
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-      <Card className="w-full max-w-lg mx-4 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-        <CardContent className="pt-8 pb-8 text-center">
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
-              <AlertCircle className="relative h-16 w-16 text-red-500" />
-            </div>
-          </div>
-
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">404</h1>
-
-          <h2 className="text-xl font-semibold text-slate-700 mb-4">
-            Page Not Found
-          </h2>
-
-          <p className="text-slate-600 mb-8 leading-relaxed">
-            Sorry, the page you are looking for doesn't exist.
-            <br />
-            It may have been moved or deleted.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button
-              onClick={handleGoHome}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
-            >
-              <Home className="w-4 h-4 mr-2" />
-              Go Home
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
+  const { t, isRTL } = useLocale();
+  return <section className="section" style={{ minHeight: "70vh" }}><div className="container" style={{ maxWidth: 760 }}><SectionLabel>{t("404 / Missing signal", "٤٠٤ / إشارة مفقودة")}</SectionLabel><h1 className="display" style={{ fontSize: "clamp(32px, 4.4vw, 54px)", margin: "20px 0 16px", color: "var(--ink)" }}>{t("This page moved.", "انتقلت هذه الصفحة.")}</h1><p style={{ maxWidth: 500, color: "var(--muted)", fontSize: 17, lineHeight: 1.6 }}>{t("The page you're looking for is not in this route map. Let's get you back to a useful next step.", "الصفحة التي تبحث عنها ليست في خريطة المسارات هذه. دعنا نعيدك إلى خطوة تالية مفيدة.")}</p><div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 28 }}><Link href="/" className="button button-dark">{t("Return home", "العودة إلى الرئيسية")} {isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link><Link href="/connect" className="button button-ghost"><Search size={15} /> {t("Find a person", "ابحث عن شخص")}</Link></div><div style={{ marginTop: 70 }}><SignalTag tone="clay">{t("Try these", "جرب هذه")}</SignalTag><div className="story-list" style={{ maxWidth: 520 }}><Link href="/events" className="story-list"><div><strong>{t("See what's happening", "شاهد ما يحدث")}</strong><span>{t("Events", "الفعاليات")} →</span></div></Link><Link href="/learn" className="story-list"><div><strong>{t("Open the field guide", "افتح الدليل الميداني")}</strong><span>{t("Learn", "تعلم")} →</span></div></Link></div></div></div></section>;
 }

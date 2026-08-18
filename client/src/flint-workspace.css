@@ -1,0 +1,55 @@
+/* Site-wide Flint re-skin: every non-landing route already renders through the shared
+   --ink/--saffron/--radius-* token system (editorial.css), so matching the Flint landing's
+   navy/gold look everywhere means overriding the token *values* on .app-product (which
+   SiteShell now applies to every route) instead of touching each page's markup. Buttons,
+   chips, borders, and cards across Connect/Community/Learn/dashboard/etc. restyle automatically. */
+.app-product {
+  --ink: #071b3d;
+  --ink-soft: #0c2b5e;
+  --saffron: #f6c915;
+  --brand-blue: #071b3d;
+  --paper: #fbfbf8;
+  --white: #fff;
+  --clay: #f7f7f3;
+  --mint: #f2f6f0;
+  --mist: #f7f7f3;
+  --graphite: #242520;
+  --muted: #74766c;
+  --line: #dfe3ea;
+  --radius-chip: 999px;
+  --radius-control: 9px;
+  --radius-card: 14px;
+  --radius-media: 16px;
+}
+
+/* !important: editorial.css's page/section-specific heading rules (e.g. .page-hero h1) tie this
+   rule's specificity and load after it (index.css is imported after App.tsx in main.tsx), so
+   without !important the cascade would fall back to editorial's Space Grotesk on those headings. */
+.app-product h1,
+.app-product h2,
+.app-product h3,
+.app-product .display {
+  font-family: "Manrope", "DM Sans", sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+.app-product .site-header.workspace-header {
+  background: rgba(251, 251, 248, 0.92);
+  border-bottom: 1px solid #dfe3ea;
+  backdrop-filter: blur(14px);
+  box-shadow: none;
+}
+
+.app-product .icon-button {
+  border-radius: 999px;
+}
+
+.app-product .avatar-button {
+  background: var(--ink);
+  color: var(--saffron);
+  border-radius: 999px;
+}
+
+.app-product .button {
+  border-radius: var(--radius-control);
+}

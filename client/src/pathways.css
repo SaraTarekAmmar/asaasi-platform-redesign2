@@ -1,0 +1,310 @@
+/* Editorial Operating System, Events and Tools use a lead decision, contextual rail, and action list instead of equal-weight grids. */
+.event-pathway-section,
+.tool-pathway-section { background: var(--paper); }
+.event-pathway-layout,
+.tool-pathway-layout { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); gap: 3rem; align-items: stretch; }
+.event-pathway-brief,
+.tool-pathway-brief { border-left: 2px solid var(--saffron); padding: .25rem 0 0 1.5rem; }
+.event-pathway-brief h2,
+.tool-pathway-brief h2 { max-width: 15ch; margin: .65rem 0 1rem; font-size: clamp(1.8rem, 3vw, 3rem); line-height: .98; letter-spacing: -.055em; }
+.event-pathway-brief > p,
+.tool-pathway-brief > p { max-width: 34rem; color: var(--muted); }
+.event-pathway-index,
+.tool-pathway-index { display: grid; gap: .55rem; margin-top: 2rem; }
+.event-pathway-index .mono,
+.tool-pathway-index .mono { color: var(--brand-blue); font-size: .68rem; letter-spacing: .12em; }
+.event-pathway-index strong,
+.tool-pathway-index strong { font-size: .98rem; font-weight: 600; padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+.event-featured-card,
+.tool-featured-card { min-height: 100%; padding: clamp(1.5rem, 3vw, 3rem); background: var(--brand-blue); color: white; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+.event-featured-card > *,
+.tool-featured-card > * { position: relative; z-index: 1; }
+.event-featured-top,
+.tool-featured-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 2.2rem; }
+.event-featured-top .mono,
+.tool-featured-top .mono { color: rgba(255,255,255,.72); }
+.event-featured-card h2,
+.tool-featured-card h2 { max-width: 15ch; margin: 0 0 1rem; font-size: clamp(2rem, 4vw, 4rem); line-height: .94; letter-spacing: -.06em; }
+.event-featured-card p,
+.tool-featured-card p { max-width: 38rem; color: rgba(255,255,255,.78); font-size: 1.08rem; }
+.event-featured-meta { display: flex; flex-wrap: wrap; gap: .6rem 1.25rem; margin: 1.5rem 0 2rem; color: var(--saffron); font-family: "IBM Plex Mono", monospace; font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+.event-date-large { width: 4.2rem; height: 4.2rem; border-color: rgba(255,255,255,.3); color: white; }
+.event-date-large strong { font-size: 2rem; }
+.event-date-large span { color: var(--saffron); }
+.event-intent-controls,
+.tool-intent-controls { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; padding: .85rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.event-intent-controls > svg,
+.tool-intent-controls > svg { color: var(--brand-blue); margin-right: .2rem; }
+.event-intent-controls .mono,
+.tool-intent-controls .mono { margin-right: .55rem; color: var(--muted); }
+.event-intent-controls button,
+.tool-intent-controls button { min-height: 2.35rem; padding: .45rem .75rem; border: 1px solid transparent; background: transparent; color: var(--muted); font: inherit; cursor: pointer; }
+.event-intent-controls button:hover,
+.event-intent-controls button:focus-visible,
+.tool-intent-controls button:hover,
+.tool-intent-controls button:focus-visible { border-color: var(--brand-blue); color: var(--brand-blue); }
+.event-intent-controls button.is-active,
+.tool-intent-controls button.is-active { background: var(--brand-blue); color: white; border-color: var(--brand-blue); }
+.event-results-summary,
+.tool-results-summary { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; color: var(--muted); font-size: .86rem; }
+.event-editorial-list,
+.tool-pathway-list { display: grid; gap: 0; border-top: 2px solid var(--brand-blue); }
+.event-editorial-list .event-card,
+.tool-pathway-list .tool-card { border-left: 0; border-right: 0; border-top: 0; }
+.event-card-main { min-width: 0; }
+.event-card-outcome { display: block; margin-top: 1rem; color: var(--brand-blue); font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.event-card-meta { position: relative; padding-right: 2rem; }
+.card-arrow { position: absolute; right: 0; bottom: 0; color: var(--brand-blue); }
+.tool-card-main { min-width: 0; }
+.tool-card .tool-meta { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.tool-featured-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: 1.5rem 0 2rem; }
+.tool-featured-steps span { display: grid; gap: .55rem; padding-top: .65rem; border-top: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.72); font-size: .8rem; }
+.tool-featured-steps b { color: var(--saffron); font-family: "IBM Plex Mono", monospace; font-size: .72rem; }
+.event-followup-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items: end; }
+.event-followup-grid > div:first-child { max-width: 35rem; }
+.event-followup-note { display: grid; gap: .75rem; padding-left: 1.25rem; border-left: 1px solid var(--ink); }
+.event-followup-note .mono { font-size: .68rem; letter-spacing: .1em; }
+.event-followup-note strong { max-width: 22ch; font-size: 1.5rem; line-height: 1.05; letter-spacing: -.03em; }
+@media (max-width: 860px) {
+  .event-pathway-layout,
+  .tool-pathway-layout,
+  .event-followup-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .event-featured-card,
+  .tool-featured-card { min-height: 30rem; }
+  .event-results-summary,
+  .tool-results-summary { align-items: flex-start; flex-direction: column; gap: .3rem; }
+}
+@media (max-width: 560px) {
+  .event-intent-controls,
+  .tool-intent-controls { align-items: flex-start; }
+  .event-intent-controls .mono,
+  .tool-intent-controls .mono { width: 100%; margin: 0; }
+  .tool-featured-steps { grid-template-columns: 1fr; gap: .8rem; }
+  .event-featured-top { align-items: flex-start; flex-direction: column; }
+  .event-featured-card .product-actions,
+  .tool-featured-card .product-actions { align-items: stretch; flex-direction: column; }
+}
+
+/* Community, post feed with reactions and comments (mirrors the event-editorial-list
+   rhythm above, but posts need an avatar + author line + reaction/comment actions
+   instead of a date badge). */
+.post-list { display: grid; gap: 0; border-top: 2px solid var(--brand-blue); }
+.post-card { display: flex; gap: 1.1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
+.post-card-main { min-width: 0; flex: 1; }
+.post-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-bottom: .4rem; color: var(--muted); font-size: .82rem; }
+.post-card-meta strong { color: var(--ink); font-size: .9rem; }
+.post-card-meta .mono { color: var(--brand-blue); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
+.post-card h3 { margin: 0 0 .4rem; font-size: 1.15rem; line-height: 1.3; letter-spacing: -.02em; }
+.post-card p { margin: 0; max-width: 46rem; color: var(--muted); }
+.post-card-image { display: block; width: 100%; max-width: 46rem; aspect-ratio: 21 / 9; max-height: 220px; margin-top: .8rem; border: 1px solid var(--line); object-fit: cover; background: var(--mist); }
+.post-card-actions { display: flex; gap: .6rem; margin-top: .9rem; }
+.post-card-actions .icon-button { width: auto; height: auto; padding: .4rem .75rem; border-radius: var(--radius-pill); display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; color: var(--muted); }
+.post-card-actions .icon-button[aria-pressed="true"] { background: var(--brand-blue); color: white; border-color: var(--brand-blue); }
+.post-card-stats { gap: 1rem; color: var(--muted); font-size: .82rem; }
+.post-card-stats span { display: inline-flex; align-items: center; gap: .35rem; }
+a.post-card { color: inherit; text-decoration: none; transition: background-color .16s var(--ease-out); }
+a.post-card:hover { background: rgba(12, 35, 66, .03); }
+
+/* Community, opened post: image, reactions, and comments all live inside one tight
+   card (Facebook-style) instead of being spread across separate sections. */
+.post-detail-card { max-width: 42rem; margin: 0 auto; padding: 1.75rem; border: 1px solid var(--line); background: var(--white); }
+.post-detail-head { display: flex; align-items: center; gap: .7rem; margin-bottom: 1rem; }
+.post-detail-head-meta { display: grid; gap: .1rem; }
+.post-detail-head-meta strong { font-size: .92rem; }
+.post-detail-head-meta span { color: var(--muted); font-size: .78rem; }
+.post-detail-head-meta .mono { color: var(--brand-blue); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; }
+.post-detail-title { margin: 0 0 .5rem; font: 600 clamp(22px, 3vw, 30px)/1.2 "Space Grotesk", sans-serif; letter-spacing: -.03em; }
+.post-detail-body { margin: 0; color: var(--graphite); font-size: .96rem; line-height: 1.55; }
+.post-detail-image { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 420px; margin-top: 1.1rem; border: 1px solid var(--line); object-fit: cover; background: var(--mist); }
+.post-detail-stats { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-top: 1.1rem; padding-top: .8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .8rem; }
+.post-detail-stats span { display: inline-flex; align-items: center; gap: .35rem; }
+.post-detail-actionbar { display: flex; gap: .3rem; margin: .6rem 0 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--line); }
+.post-detail-actionbar button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; padding: .55rem; border: 0; border-radius: var(--radius-chip); background: transparent; color: var(--muted); font: 600 .85rem "DM Sans", sans-serif; transition: background-color .15s ease, color .15s ease; }
+.post-detail-actionbar button:hover { background: rgba(6, 43, 85, .05); }
+.post-detail-actionbar button.is-active { color: var(--brand-blue); }
+.post-detail-comments { display: grid; gap: .85rem; margin-bottom: 1.2rem; }
+.comment-row { display: flex; align-items: flex-start; gap: .6rem; }
+.comment-bubble { flex: 1; min-width: 0; padding: .55rem .85rem; border-radius: 16px; background: var(--mist); }
+.comment-bubble strong { display: block; font-size: .82rem; }
+.comment-bubble p { margin: .2rem 0 0; color: var(--ink); font-size: .88rem; line-height: 1.45; }
+.post-detail-composer { display: flex; align-items: center; gap: .6rem; }
+.post-detail-composer input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: .6rem 1rem; background: var(--mist); color: var(--ink); font-size: .85rem; }
+.post-detail-composer button { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 50%; background: transparent; color: var(--brand-blue); transition: background-color .15s ease; }
+.post-detail-composer button:hover { background: rgba(11, 103, 178, .1); }
+.avatar-sm { width: 34px; height: 34px; font-size: 11px; }
+@media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } }
+
+/* Community, "Ask a question" composer: attach-photo control and its preview,
+   styled for the dark .coach-composer background it lives inside. */
+.composer-attach-row { display: flex; align-items: center; gap: .8rem; }
+.composer-attach { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .85rem; border: 1px solid rgba(247, 244, 236, .24); border-radius: var(--radius-pill); color: var(--paper); font-size: .78rem; font-weight: 600; cursor: pointer; transition: background-color .15s ease; }
+.composer-attach:hover { background: rgba(247, 244, 236, .08); }
+.composer-attach input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.composer-image-preview { position: relative; display: inline-flex; }
+.composer-image-preview img { width: 64px; height: 64px; border: 1px solid rgba(247, 244, 236, .24); object-fit: cover; }
+.composer-image-preview button { position: absolute; top: -8px; right: -8px; display: grid; place-items: center; width: 20px; height: 20px; border: 0; border-radius: 50%; background: var(--paper); color: var(--ink); cursor: pointer; }
+
+/* Community, Popular this week: a ranked list, deliberately different from the plain post feed. */
+.popular-week-list { display: grid; gap: .6rem; list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.popular-week-list a { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--ink); color: var(--paper); text-decoration: none; transition: transform .16s var(--ease-out); }
+.popular-week-list a:hover { transform: translateY(-2px); }
+.popular-week-rank { font: 700 22px/1 "Space Grotesk", sans-serif; color: var(--saffron); min-width: 2ch; }
+.popular-week-list a > div:nth-child(2) { flex: 1; min-width: 0; display: grid; gap: .2rem; }
+.popular-week-list strong { font-size: .95rem; }
+.popular-week-list a > div:nth-child(2) span { color: rgba(247, 244, 236, .68); font-size: .78rem; }
+.popular-week-stats { display: flex; gap: .8rem; color: rgba(247, 244, 236, .68); font-size: .78rem; flex-shrink: 0; }
+.popular-week-stats span { display: inline-flex; align-items: center; gap: .3rem; }
+@media (max-width: 560px) {
+  .popular-week-stats { display: none; }
+}
+
+/* Community, Answered questions: compact rows with a resolved badge. */
+.answered-list { display: grid; gap: 1px; margin-top: 1.6rem; background: var(--line); border: 1px solid var(--line); }
+.answered-row { display: flex; align-items: center; gap: 1rem; padding: .9rem 1.1rem; background: var(--white); color: inherit; text-decoration: none; }
+.answered-row strong { flex: 1; min-width: 0; font-size: .9rem; }
+.answered-row span { color: var(--muted); font-size: .78rem; white-space: nowrap; }
+
+/* Providers, a distinct, hired-specialist card look (not the peer-profile directory-row style). */
+.provider-list { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin: 1.4rem 0; }
+.provider-row { display: grid; gap: .5rem; padding: 1.2rem 1.3rem; background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--brand-blue); }
+.provider-row-top { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+.provider-row-top strong { font: 700 15px "Space Grotesk", sans-serif; letter-spacing: -.01em; }
+.provider-row .mono { color: var(--brand-blue); font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; }
+.provider-row p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.provider-row-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: .3rem; font-size: .85rem; font-weight: 700; }
+
+/* Membership perks hub, vendor perks, masterminds, mentor slots, and reports share one card grid. */
+.perk-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-top: 1.2rem; }
+.perk-card { display: grid; gap: .5rem; padding: 1.1rem 1.2rem; background: var(--paper); border: 1px solid var(--line); }
+.perk-card strong { font: 700 15px "Space Grotesk", sans-serif; letter-spacing: -.01em; }
+.perk-card .mono { color: var(--brand-blue); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; }
+.perk-card p { margin: 0; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.perk-card .button { justify-self: start; margin-top: .3rem; }
+.perk-card .inline-success { display: flex; align-items: center; gap: .4rem; margin: 0; color: var(--ink); font-size: .85rem; }
+
+.load-more-row { display: flex; justify-content: center; margin-top: 1.5rem; }
+
+/* Dashboard home, a tasteful, non-modal subscribe nudge for free members, closing the page
+   instead of just ending after the last content block. */
+.dashboard-upgrade-nudge { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-top: 2rem; padding: 1.6rem 1.8rem; background: var(--mint); }
+.dashboard-upgrade-nudge h2 { margin: .3rem 0; font-size: 1.3rem; }
+.dashboard-upgrade-nudge p { margin: 0; color: var(--muted); max-width: 46rem; }
+.dashboard-upgrade-nudge .button { flex-shrink: 0; }
+@media (max-width: 720px) {
+  .dashboard-upgrade-nudge { flex-direction: column; align-items: flex-start; }
+}
+
+/* Learn hub, format library grows to 7 cards, and the save-strip drops from 4 to 3.
+   Compound selectors (not just the new class alone) so these beat editorial.css's base
+   .resource-grid / .proof-strip rules regardless of CSS bundle order. */
+.resource-grid.resource-grid-7 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.proof-strip.proof-strip-3 { grid-template-columns: repeat(3, 1fr); }
+.resource-badge { display: inline-block; margin-inline-start: .5rem; padding: .1rem .5rem; border: 1px solid currentColor; border-radius: var(--radius-pill); font-size: .65rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; opacity: .85; }
+
+/* Learn hub, AI experience: animated MENA-motif rosette (slow rotation + pulsing center node). */
+.ai-experience-grid { display: grid; max-width: 700px; }
+
+.quiz-card { margin-top: 1.4rem; padding: 1.4rem 1.5rem; background: rgba(247, 244, 236, .06); border: 1px solid rgba(247, 244, 236, .18); }
+.quiz-card > .mono { color: var(--saffron); }
+.quiz-card h3 { margin: .4rem 0 1rem; color: var(--paper); }
+.quiz-options { display: grid; gap: .6rem; }
+.quiz-options button { display: flex; align-items: center; justify-content: space-between; padding: .8rem 1rem; background: transparent; border: 1px solid rgba(247, 244, 236, .3); color: var(--paper); text-align: start; cursor: pointer; transition: background-color .16s var(--ease-out); }
+.quiz-options button:hover { background: rgba(247, 244, 236, .1); }
+.quiz-result { display: grid; gap: .8rem; justify-items: start; }
+.quiz-result-resource { display: flex; align-items: center; gap: .5rem; color: var(--saffron); font-weight: 700; }
+
+.framework-recap { display: grid; gap: 1.4rem; margin-top: 1.4rem; }
+.framework-recap-stages { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.framework-recap-stages li { display: flex; align-items: center; gap: .4rem; padding: .4rem .8rem; background: var(--white); border: 1px solid var(--line); font-size: .8rem; font-weight: 600; }
+.framework-recap-stages .mono { color: var(--brand-blue); font-size: .68rem; }
+.framework-recap-pillars { display: flex; flex-wrap: wrap; gap: .5rem; }
+.framework-recap-pillars span { padding: .35rem .7rem; background: var(--ink); color: var(--paper); font-size: .75rem; font-weight: 600; }
+.section-dark .framework-recap-stages li { background: rgba(247, 244, 236, .06); border-color: rgba(247, 244, 236, .22); color: var(--paper); }
+.section-dark .framework-recap-stages .mono { color: var(--saffron); }
+.section-dark .framework-recap-pillars span { background: var(--saffron); color: var(--ink); }
+
+/* Learn hub, format library as an editorial row list (matches "Curated for focus" above it)
+   instead of a card grid: fixes uneven card heights and an awkward half-empty last row. */
+.format-list .learning-row { grid-template-columns: 150px 1fr auto; align-items: start; }
+.format-list .learning-row .mono { display: flex; flex-direction: column; align-items: flex-start; gap: .4rem; }
+.format-badge { padding: .15rem .55rem; border: 1px solid var(--line); border-radius: var(--radius-pill); background: var(--white); color: var(--muted); font: 600 10px/1.4 "IBM Plex Mono", monospace; letter-spacing: .02em; text-transform: none; }
+@media (max-width: 620px) {
+  .format-list .learning-row { grid-template-columns: 1fr auto; }
+  .format-list .learning-row .mono { flex-direction: row; align-items: center; grid-column: 1 / -1; order: -1; margin-bottom: .3rem; }
+}
+
+.past-events-list { display: grid; gap: 1px; margin-top: 1.4rem; background: var(--line); border: 1px solid var(--line); }
+.past-event-row { display: flex; align-items: center; gap: 1rem; padding: .9rem 1.1rem; background: var(--white); opacity: .82; }
+.past-event-row strong { display: block; font-size: .9rem; }
+.past-event-row span { color: var(--muted); font-size: .78rem; }
+a.past-event-row { color: inherit; text-decoration: none; justify-content: space-between; opacity: 1; transition: background-color .16s var(--ease-out); }
+a.past-event-row:hover { background: var(--paper); }
+a.past-event-row > div { flex: 1; }
+@media (max-width: 560px) {
+  .post-card { flex-direction: column; gap: .6rem; }
+}
+
+/* Home, 7-stage roadmap visual: an ascending glowing path (stages 1-2 saffron, the
+   live focus; 3-7 blue, fading slightly with distance) sitting above the detailed
+   route list below. Decorative SVG line + absolutely-positioned HTML nodes so the
+   nodes stay real, keyboard-reachable links, not baked into the graphic. */
+.roadmap-path-scroll { overflow-x: auto; margin: 2.4rem -2px 0; padding: 2px; }
+.roadmap-path { position: relative; aspect-ratio: 2.5 / 1; min-height: 220px; }
+.roadmap-path-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.roadmap-path-line { fill: none; stroke: url(#roadmap-gradient); stroke-width: 3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.roadmap-path-line-glow { fill: none; stroke: url(#roadmap-gradient); stroke-width: 9; stroke-linecap: round; opacity: .55; filter: blur(5px); vector-effect: non-scaling-stroke; }
+.roadmap-path-node { position: absolute; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(255,255,255,.14), transparent 60%), var(--ink); border: 1.5px solid rgba(11, 103, 178, .55); box-shadow: 0 0 0 6px rgba(11, 103, 178, .12), 0 0 20px rgba(11, 103, 178, .4); color: var(--paper); text-decoration: none; z-index: 2; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
+.roadmap-path-node:hover, .roadmap-path-node:focus-visible { transform: translate(-50%, -50%) scale(1.08); }
+.roadmap-path-node.is-early { border-color: rgba(255, 210, 26, .8); box-shadow: 0 0 0 8px rgba(255, 210, 26, .18), 0 0 28px rgba(255, 210, 26, .6); }
+.roadmap-path-node-number { font: 700 clamp(15px, 2.4vw, 22px)/1 "Space Grotesk", sans-serif; }
+.roadmap-path-node-label { position: absolute; bottom: 100%; margin-bottom: .5rem; white-space: nowrap; font: 600 .72rem/1 "Space Grotesk", sans-serif; letter-spacing: -.01em; color: rgba(247, 244, 236, .82); }
+.roadmap-path-node.is-early .roadmap-path-node-label { color: var(--saffron); }
+@media (max-width: 760px) {
+  .roadmap-path { min-width: 640px; aspect-ratio: 2 / 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roadmap-path-node { transition: none; }
+}
+
+/* Home, 7-stage growth roadmap, v2: a premium connected route (not a flat bordered
+   table). Each stage is a real link into the part of the site built for it, with
+   connecting arrows to read as one continuous journey instead of seven disconnected boxes. */
+.roadmap-route { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; list-style: none; margin: 2.6rem 0 0; padding: 0; }
+.roadmap-route li { display: flex; align-items: center; flex: 1 1 190px; }
+.roadmap-route li > a { display: flex; flex-direction: column; gap: .6rem; flex: 1; padding: 1.5rem 1.3rem; background: rgba(247, 244, 236, .05); border: 1px solid rgba(247, 244, 236, .16); color: inherit; text-decoration: none; transition: background-color .2s var(--ease-out), transform .2s var(--ease-out), border-color .2s var(--ease-out); }
+.roadmap-route li > a:hover { background: rgba(247, 244, 236, .1); border-color: rgba(255, 210, 26, .5); transform: translateY(-3px); }
+.roadmap-route li.is-active > a { background: rgba(255, 210, 26, .1); border-color: var(--saffron); }
+.roadmap-route__index { font: 700 26px/1 "Space Grotesk", sans-serif; color: var(--saffron); }
+.roadmap-route li > a strong { color: var(--paper); font-size: 1rem; letter-spacing: -.01em; }
+.roadmap-route li > a p { margin: 0; flex: 1; color: rgba(247, 244, 236, .68); font-size: .82rem; line-height: 1.5; }
+.roadmap-route__link { display: inline-flex; align-items: center; gap: .3rem; color: var(--saffron); font: 700 11px/1 "IBM Plex Mono", monospace; letter-spacing: .03em; text-transform: uppercase; }
+.roadmap-route__arrow { flex-shrink: 0; width: 1.6rem; display: flex; align-items: center; justify-content: center; color: rgba(255, 210, 26, .5); font-size: 1.1rem; }
+@media (max-width: 900px) {
+  .roadmap-route__arrow { display: none; }
+  .roadmap-route li { flex: 1 1 45%; }
+}
+@media (max-width: 560px) {
+  .roadmap-route li { flex: 1 1 100%; }
+}
+
+/* Home, 7-stage growth roadmap: a single connected row of the founder journey. */
+.growth-roadmap { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; list-style: none; margin: 2rem 0 0; padding: 0; background: rgba(12, 35, 66, .16); border: 1px solid rgba(12, 35, 66, .16); }
+.growth-roadmap li { position: relative; display: flex; flex-direction: column; gap: .5rem; padding: 1.35rem 1rem 1.5rem; background: var(--white); }
+.growth-roadmap li:not(:last-child)::after { content: "→"; position: absolute; top: 1.35rem; right: -.85rem; z-index: 1; color: var(--muted); font-size: .75rem; }
+:root.locale-ar .growth-roadmap li:not(:last-child)::after { content: "←"; right: auto; left: -.85rem; }
+.growth-roadmap .mono { color: var(--brand-blue); font: 700 10px/1 "IBM Plex Mono", monospace; letter-spacing: .1em; }
+.growth-roadmap strong { font: 700 15px/1.2 "Space Grotesk", sans-serif; letter-spacing: -.02em; }
+.growth-roadmap p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.45; }
+@media (max-width: 900px) {
+  .growth-roadmap { grid-template-columns: repeat(2, 1fr); }
+  .growth-roadmap li:not(:last-child)::after { display: none; }
+  .growth-roadmap li:last-child { grid-column: 1 / -1; }
+}
+
+/* Event registration card, one-time-purchase coupon row for paid events. */
+.coupon-row { display: flex; gap: .5rem; margin: .8rem 0; }
+.coupon-row input { flex: 1; min-width: 0; }
+
+/* Demo Day, apply form sits inside a section-clay band, narrower than the full container. */
+.form-shell-narrow { max-width: 560px; margin: 0 auto; }
+.form-shell-narrow .application-form { margin-top: 1.2rem; }
