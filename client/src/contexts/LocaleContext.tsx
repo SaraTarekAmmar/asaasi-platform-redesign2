@@ -56,9 +56,8 @@ export function useLocale() {
 }
 
 export function LanguageToggle({ compact = false }: { compact?: boolean }) {
-  const { locale, setLocale, t } = useLocale();
-  return <div className={`language-toggle ${compact ? "language-toggle-compact" : ""}`} aria-label={t("Language selection", "اختيار اللغة")}>
-    <button type="button" className={locale === "en" ? "is-active" : ""} aria-pressed={locale === "en"} onClick={() => setLocale("en")}>EN</button>
-    <button type="button" className={locale === "ar" ? "is-active" : ""} aria-pressed={locale === "ar"} onClick={() => setLocale("ar")}>العربية</button>
-  </div>;
+  const { toggleLocale, t } = useLocale();
+  return <button type="button" className={`sign-in language-toggle${compact ? " language-toggle-compact" : ""}`} onClick={toggleLocale} aria-label={t("Switch to Arabic", "التبديل إلى الإنجليزية")}>
+    {t("العربية", "EN")}
+  </button>;
 }

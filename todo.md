@@ -15,3 +15,9 @@
 - [x] Identify the global override collapsing hero copy into narrow columns.
 - [x] Restore stable, page-specific content widths and grid behaviour on affected inner pages.
 - [x] Validate repaired desktop and mobile compositions before checkpointing.
+
+## Language Switcher Alignment
+
+- [x] Compare the landing language control against the shared inner-page header control.
+- [x] Apply the landing control’s exact structure and styling to every non-landing header.
+- [x] Verify the component at desktop and mobile breakpoints.
