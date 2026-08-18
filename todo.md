@@ -9,3 +9,9 @@
 - [x] Remove the added signal icon from every non-landing page and shared component.
 - [x] Reuse the landing page’s header/footer, typography, button, card, border, and colour treatments site-wide.
 - [x] Verify public and workspace pages share the landing’s exact component language while the landing stays unchanged.
+
+## Layout Repair
+
+- [x] Identify the global override collapsing hero copy into narrow columns.
+- [x] Restore stable, page-specific content widths and grid behaviour on affected inner pages.
+- [x] Validate repaired desktop and mobile compositions before checkpointing.
