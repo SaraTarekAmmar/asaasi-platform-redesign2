@@ -8,9 +8,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import "../../navigation.css";
 import "../../logo-asset.css";
 
-export function Logo({ inverted = false }: { inverted?: boolean }) {
+export function Logo({ inverted = false, showSignal = !inverted }: { inverted?: boolean; showSignal?: boolean }) {
   const src = inverted ? "/manus-storage/asaasi-logo-white_c6d1d735.svg" : "/manus-storage/asaasi-logo-navy_b67d2a37.svg";
-  return <Link href="/" className="brand" aria-label="ASaaSI home">{!inverted && <img className="brand-signal-asset" src="/manus-storage/asaasi-signal-mark_26ea66a8.png" alt="" aria-hidden="true" />}<img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" /></Link>;
+  return <Link href="/" className="brand" aria-label="ASaaSI home">{showSignal && <img className="brand-signal-asset" src="/manus-storage/asaasi-signal-mark_26ea66a8.png" alt="" aria-hidden="true" />}<img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" /></Link>;
 }
 
 // "Forward" icons need to point the other way in RTL, since they follow reading direction.

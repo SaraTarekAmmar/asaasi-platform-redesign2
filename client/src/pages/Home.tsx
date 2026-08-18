@@ -7,10 +7,10 @@ import { Logo, navigationMenus } from "../components/site";
 import { LanguageToggle, useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
 
-const heroArtwork = "/manus-storage/asaasi-network-banner_0cdd760d.jpg";
-const pageProductArtwork = "/manus-storage/asaasi-learning-banner_320d2519.jpg";
-const agentProductArtwork = "/manus-storage/asaasi-events-banner_d431b18d.jpg";
-const announcementArtwork = "/manus-storage/asaasi-tools-banner_7d9db6e2.jpg";
+const heroArtwork = "/manus-storage/asaasi-ecosystem-hero-original_eb1b1abe.webp";
+const pageProductArtwork = "/manus-storage/asaasi-community-network-original_df78b7ff.webp";
+const agentProductArtwork = "/manus-storage/asaasi-events-learning-original_c75bc81e.webp";
+const announcementArtwork = "/manus-storage/asaasi-founder-briefing-thumb-original_024a9eac.webp";
 
 // Shared with framer-motion so scroll-triggered cards/links stay real <a> tags for
 // wouter routing instead of losing client-side navigation to a wrapping motion.div.
@@ -126,7 +126,7 @@ export default function Home() {
   return <div id="top" className="flint-landing" dir={isRTL ? "rtl" : "ltr"}>
     <header className="site-header">
       <div className="site-header-inner">
-      <div className="wordmark"><Logo /></div>
+      <div className="wordmark"><Logo showSignal={false} /></div>
       <nav className="desktop-nav" aria-label={t("Primary navigation", "التنقل الرئيسي")}>
         {navigationMenus.map((menu) => <NavDropdown menu={menu} isRTL={isRTL} key={menu.id} />)}
       </nav>
