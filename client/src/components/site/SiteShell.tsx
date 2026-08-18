@@ -8,9 +8,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import "../../navigation.css";
 import "../../logo-asset.css";
 
-export function Logo({ inverted = false }: { inverted?: boolean }) {
+export function Logo({ inverted = false, className = "" }: { inverted?: boolean; className?: string }) {
+  const [location] = useLocation();
   const src = inverted ? "/manus-storage/asaasi-logo-white_c6d1d735.svg" : "/manus-storage/asaasi-logo-navy_b67d2a37.svg";
-  return <Link href="/" className="brand" aria-label="ASaaSI home"><img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" /></Link>;
+  const classes = `brand ${className}`.trim();
+  const image = <img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" />;
+  // Login and signup wrap Logo in a route link for their bespoke account layouts; avoid rendering a second anchor inside it.
+  if (location === "/login" || location === "/signup") return <span className={classes}>{image}</span>;
+  return <Link href="/" className={classes} aria-label="ASaaSI home">{image}</Link>;
 }
 
 // "Forward" icons need to point the other way in RTL, since they follow reading direction.

@@ -32,3 +32,9 @@
 - [x] Extract approved positioning copy for the three numbered landing blocks.
 - [x] Replace the current block copy without changing the block layout.
 - [x] Verify the updated section after applying the document copy.
+
+## Pricing Markup Repair
+
+- [x] Locate the nested anchor markup on the pricing route.
+- [x] Replace the invalid nesting while preserving the visible plan-card behavior.
+- [x] Verify the pricing route no longer reports a DOM nesting error.
