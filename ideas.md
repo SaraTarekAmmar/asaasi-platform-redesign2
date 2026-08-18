@@ -43,3 +43,5 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Saffron is a signal, not a broad surface.** It denotes nodes, active rules, index numerals, provenance labels, and one focused emphasis per section.
 - **Each route owns a functional editorial archetype:** Connect uses a matching rail; Community uses a stepped thread stack; Learn uses a field-guide index; Events uses a dated timeline; Tools uses a workbench/worksheet pattern; Pricing uses a membership decision map.
 - **The node-and-ring motif is structural.** It recurs in page labels, list statuses, rails, and account identity surfaces so ASaaSI remains recognizable even when the wordmark is not in view.
+- **Major routes must have a distinct first-screen silhouette.** Connect is a matching rail, Community is a thread stack, Events is a dated timeline, Tools is a workbench, and Pricing begins with a membership decision map before any plan comparison.
+- **Membership is framed around a founder constraint and unlocked momentum.** Tier cards remain a detailed comparison only after the decision path.

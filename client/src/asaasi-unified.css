@@ -414,3 +414,250 @@
   .app-product > .site-footer .footer-grid { grid-template-columns: 1fr 1fr; }
   .app-product > .site-footer .footer-brand { grid-column: 1 / -1; }
 }
+
+/* Landing component system: named primitives used by every non-landing route. */
+.app-product .landing-site-header,
+.app-product .landing-site-footer,
+.app-product .landing-page-intro,
+.app-product .landing-editorial-card {
+  font-family: "DM Sans", sans-serif;
+}
+.app-product .landing-site-header .landing-header-row {
+  min-height: 108px;
+  height: auto;
+}
+.app-product .landing-site-header .landing-header-nav { gap: 24px; }
+.app-product .landing-site-header .landing-header-actions { gap: 18px; }
+.app-product .landing-site-footer { background: #071b3d; }
+.app-product .landing-page-intro {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: 76px 0 66px;
+  border-top: 0;
+  border-bottom: 1px solid #dfe3ea;
+  background: #fbfbf8;
+}
+.app-product .landing-page-intro .landing-page-intro__inner {
+  width: min(1120px, 100%);
+  display: block !important;
+  text-align: center;
+}
+.app-product .landing-page-intro .landing-page-intro__content { max-width: 900px; margin: 0 auto; }
+.app-product .landing-page-intro .landing-route-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 22px;
+  color: #6c7687;
+  font: 600 9px/1 "DM Sans", sans-serif;
+  letter-spacing: .15em;
+}
+.app-product .landing-page-intro .landing-route-mark i {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #caa515;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(202,165,21,.12);
+}
+.app-product .landing-page-intro .landing-page-intro__content .eyebrow { justify-content: center; }
+.app-product .landing-page-intro .landing-page-intro__content h1 {
+  max-width: 900px;
+  margin: 20px auto 21px;
+  font: 500 clamp(42px, 5.4vw, 76px)/.95 "Manrope", "DM Sans", sans-serif !important;
+  letter-spacing: -0.075em;
+}
+.app-product .landing-page-intro .landing-page-intro__content > p {
+  max-width: 690px;
+  color: #2d4263;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.app-product .landing-page-intro .landing-page-intro__note {
+  width: min(430px, 100%);
+  margin: 30px auto 0;
+  padding: 15px 18px;
+  border: 1px solid #dfe3ea;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(7, 27, 61, .11);
+  text-align: left;
+}
+.app-product .landing-editorial-card {
+  border: 1px solid #dfe3ea;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+  transition: transform .2s cubic-bezier(.23, 1, .32, 1), border-color .2s ease, box-shadow .2s ease;
+}
+.app-product .landing-editorial-card:hover {
+  transform: translateY(-4px);
+  border-color: #bcc7d5;
+  box-shadow: 0 16px 34px rgba(7, 27, 61, .09);
+}
+.app-product .landing-editorial-card h3 {
+  color: #071b3d;
+  font: 500 clamp(23px, 2vw, 32px)/1.04 "Manrope", "DM Sans", sans-serif !important;
+  letter-spacing: -0.055em;
+}
+.app-product .landing-editorial-card p { color: #5d687b; line-height: 1.48; }
+.app-product .landing-editorial-card .signal-tag {
+  padding: 5px 8px;
+  border-radius: 0;
+  background: #fff8d8;
+  color: #69500a;
+}
+.app-product .landing-editorial-card--resource.featured,
+.app-product .landing-editorial-card--event.is-featured { background: #071b3d; }
+.app-product .landing-editorial-card--resource.featured h3,
+.app-product .landing-editorial-card--resource.featured p { color: #fff; }
+.app-product .landing-page-intro--connect .landing-route-mark,
+.app-product .landing-page-intro--tools .landing-route-mark { margin-left: 8%; }
+.app-product .landing-page-intro--connect .landing-page-intro__content,
+.app-product .landing-page-intro--tools .landing-page-intro__content { transform: translateX(-4%); }
+.app-product .landing-page-intro--events .landing-route-mark::after {
+  content: "2026";
+  margin-left: 14px;
+  color: #caa515;
+  font: 500 22px/1 "Manrope", sans-serif;
+  letter-spacing: -.06em;
+}
+.app-product .landing-page-intro--community .landing-route-mark i { border-radius: 0; transform: rotate(45deg); }
+.app-product .landing-page-intro--pricing .landing-route-mark i { width: 12px; height: 12px; box-shadow: 0 0 0 4px rgba(202,165,21,.12), 0 0 0 8px rgba(202,165,21,.06); }
+.app-product .pricing-decision-section { padding-top: 78px; padding-bottom: 28px; }
+.app-product .pricing-decision-heading { margin-bottom: 32px; }
+.app-product .pricing-decision-map { margin: 0; padding: 0; list-style: none; border-top: 1px solid #dfe3ea; }
+.app-product .pricing-decision-map li { display: grid; grid-template-columns: 62px minmax(0,1.1fr) minmax(0,1fr) 170px; gap: 22px; align-items: center; min-height: 158px; padding: 24px 18px; border-bottom: 1px solid #dfe3ea; background: #fff; }
+.app-product .pricing-decision-map li.is-current { background: #071b3d; color: #fff; }
+.app-product .pricing-decision-node { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid #dfe3ea; border-radius: 50%; color: #071b3d; font: 500 12px "DM Sans", sans-serif; }
+.app-product .pricing-decision-map li.is-current .pricing-decision-node { border-color: #caa515; background: #caa515; color: #071b3d; box-shadow: 0 0 0 8px rgba(202,165,21,.13); }
+.app-product .pricing-decision-map .mono { color: #687386; font-size: 9px; letter-spacing: .13em; }
+.app-product .pricing-decision-map li.is-current .mono { color: #cfd9e7; }
+.app-product .pricing-decision-map h3 { margin: 8px 0 0; color: inherit; font: 500 21px/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
+.app-product .pricing-decision-map p { margin: 8px 0 0; color: #52627a; font-size: 13px; line-height: 1.45; }
+.app-product .pricing-decision-map li.is-current p { color: #cfd9e7; }
+.app-product .pricing-decision-map strong { justify-self: end; color: #071b3d; font: 600 11px "DM Sans", sans-serif; text-align: right; }
+.app-product .pricing-decision-map li.is-current strong { color: #f6d863; }
+.app-product .product-main .product-page-heading,
+.app-product .product-main .product-hero-dashboard {
+  border-bottom: 1px solid #dfe3ea;
+}
+.app-product .product-main .panel-card,
+.app-product .product-main .briefing-panel,
+.app-product .product-main .next-moves,
+.app-product .product-main .workspace-section {
+  border-radius: 0;
+  border-color: #dfe3ea;
+  box-shadow: none;
+}
+@media (max-width: 900px) {
+  .app-product .landing-site-header .landing-header-row { min-height: 84px; }
+  .app-product .landing-page-intro { min-height: 0; padding: 60px 0 55px; }
+  .app-product .landing-page-intro .landing-page-intro__content h1 { font-size: clamp(39px, 9.5vw, 60px); }
+  .app-product .landing-page-intro--connect .landing-route-mark,
+  .app-product .landing-page-intro--tools .landing-route-mark { margin-left: 0; }
+  .app-product .landing-page-intro--connect .landing-page-intro__content,
+  .app-product .landing-page-intro--tools .landing-page-intro__content { transform: none; }
+  .app-product .pricing-decision-map li { grid-template-columns: 42px minmax(0,1fr); gap: 13px; padding: 20px 0; background: transparent; }
+  .app-product .pricing-decision-map li > div:nth-of-type(2),
+  .app-product .pricing-decision-map strong { grid-column: 2; justify-self: start; text-align: left; }
+  .app-product .pricing-decision-map li.is-current { padding-inline: 14px; }
+}
+@media (max-width: 520px) {
+  .app-product .landing-site-header .container { padding-left: 18px; padding-right: 18px; }
+  .app-product .landing-site-header .landing-header-row { gap: 8px; }
+  .app-product .landing-site-header .brand-logo-asset { width: 68px; }
+  .app-product .landing-site-header .landing-header-actions { gap: 8px; margin-left: auto; }
+  .app-product .landing-site-header .landing-header-actions .language-toggle { padding: 9px 11px; font-size: 11px; }
+  .app-product .landing-site-header .landing-header-actions .button { padding: 10px 11px; font-size: 10px; white-space: nowrap; }
+}
+
+/* Workspace uses the same landing primitives, with the extra density needed for founder tasks. */
+.app-product .product-shell,
+.app-product .signup-flow { background: #fbfbf8; color: #071b3d; font-family: "DM Sans", sans-serif; }
+.app-product .product-topbar { background: rgba(251,251,248,.94); border-bottom-color: #dfe3ea; }
+.app-product .product-topbar-inner { min-height: 104px; height: auto; }
+.app-product .product-context { border-left-color: #dfe3ea; }
+.app-product .product-context strong,
+.app-product .workspace-profile strong,
+.app-product .mode-switcher button,
+.app-product .workspace-nav a,
+.app-product .sidebar-brief strong,
+.app-product .product-main h1,
+.app-product .product-main h2,
+.app-product .product-main h3,
+.app-product .account-flow h1,
+.app-product .account-flow h2,
+.app-product .signup-flow h1,
+.app-product .signup-flow h2 { font-family: "Manrope", "DM Sans", sans-serif !important; }
+.app-product .workspace-profile,
+.app-product .mode-switcher,
+.app-product .briefing-panel,
+.app-product .next-moves,
+.app-product .panel-card,
+.app-product .profile-preview,
+.app-product .settings-panel,
+.app-product .match-card,
+.app-product .org-form,
+.app-product .registration-card,
+.app-product .learning-path,
+.app-product .coach-message,
+.app-product .request-form,
+.app-product .tool-workbench,
+.app-product .signup-card { border-color: #dfe3ea; border-radius: 0; box-shadow: none; }
+.app-product .workspace-profile,
+.app-product .mode-switcher,
+.app-product .briefing-panel,
+.app-product .panel-card,
+.app-product .settings-panel,
+.app-product .match-card,
+.app-product .learning-path,
+.app-product .coach-message,
+.app-product .request-form,
+.app-product .tool-workbench,
+.app-product .signup-card { background: #fff; }
+.app-product .workspace-nav a { border-left: 2px solid transparent; }
+.app-product .workspace-nav a:hover { background: #fff; color: #071b3d; transform: none; }
+.app-product .workspace-nav a.active { border-left-color: #caa515; background: #071b3d; color: #fff; }
+.app-product .sidebar-brief,
+.app-product .dashboard-signal-card,
+.app-product .workspace-section,
+.app-product .event-room-hero,
+.app-product .tool-room-hero,
+.app-product .account-flow .account-visual { background: #071b3d; }
+.app-product .next-moves,
+.app-product .registration-card { background: #fff8d8; }
+.app-product .coach-callout { background: #fff8d8; }
+.app-product .progress-step.done > span,
+.app-product .progress-step.current > span,
+.app-product .path-dot.active,
+.app-product .saved-node,
+.app-product .complete-node { background: #caa515; border-color: #caa515; }
+.app-product .product-main .product-hero h1,
+.app-product .product-main .product-page-heading h1,
+.app-product .account-visual h1,
+.app-product .signup-aside h1 { color: #071b3d; font-weight: 500 !important; }
+.app-product .account-visual h1 { color: #fff; }
+.app-product .product-main .product-hero-dashboard,
+.app-product .product-main .product-page-heading { padding-bottom: 34px; }
+.app-product .product-main .lead,
+.app-product .product-main .product-page-heading p { color: #42546f; }
+.app-product .product-main .heading-stat,
+.app-product .product-main .result-grid,
+.app-product .product-main .org-metrics { border-color: #dfe3ea; background: #dfe3ea; }
+.app-product .product-main .heading-stat,
+.app-product .product-main .result-grid > div,
+.app-product .product-main .org-metrics > div { background: #fff; }
+.app-product .saved-row,
+.app-product .notification-row { border-color: #dfe3ea; border-radius: 0; box-shadow: none; }
+.app-product .saved-row:hover,
+.app-product .notification-row:hover { border-color: #caa515; transform: none; }
+.app-product .account-form-wrap { background: #fbfbf8; }
+.app-product .account-form input,
+.app-product .signup-step input,
+.app-product .signup-step textarea,
+.app-product .signup-step select { border-color: #dfe3ea; background: #fff; border-radius: 0; }
+@media (max-width: 900px) {
+  .app-product .product-topbar-inner { min-height: 74px; }
+}

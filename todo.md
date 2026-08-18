@@ -38,3 +38,10 @@
 - [x] Locate the nested anchor markup on the pricing route.
 - [x] Replace the invalid nesting while preserving the visible plan-card behavior.
 - [x] Verify the pricing route no longer reports a DOM nesting error.
+
+## Landing Component-System Alignment
+
+- [x] Inventory the landing’s reusable component patterns against public and workspace routes.
+- [x] Build shared landing-derived primitives for headers, page intros, editorial cards, rails, actions, and footers.
+- [x] Recompose representative public and workspace pages using those primitives rather than broad visual overrides.
+- [x] Verify component consistency across desktop and mobile routes.
