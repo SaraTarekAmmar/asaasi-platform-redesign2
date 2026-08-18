@@ -45,3 +45,9 @@
 - [x] Build shared landing-derived primitives for headers, page intros, editorial cards, rails, actions, and footers.
 - [x] Recompose representative public and workspace pages using those primitives rather than broad visual overrides.
 - [x] Verify component consistency across desktop and mobile routes.
+
+## Connect Page Redesign
+
+- [x] Replace the current centred Connect hero with an asymmetric founder-matching experience.
+- [x] Rebuild the page around a connection map, matching inputs, and introduction outcomes.
+- [x] Verify the redesigned Connect page on desktop and mobile before checkpointing.
