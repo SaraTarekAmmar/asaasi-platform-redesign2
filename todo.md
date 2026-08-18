@@ -21,3 +21,8 @@
 - [x] Compare the landing language control against the shared inner-page header control.
 - [x] Apply the landing control’s exact structure and styling to every non-landing header.
 - [x] Verify the component at desktop and mobile breakpoints.
+
+## Landing Copy Removal
+
+- [x] Remove the specified SaaS AI Coach explanatory sentence without affecting the surrounding section.
+- [x] Verify the landing section remains visually balanced after the copy removal.

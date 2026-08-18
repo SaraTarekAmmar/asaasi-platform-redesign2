@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       <section className="system-section section-pad">
-        <motion.div className="section-head system-heading" {...reveal()}><p className="eyebrow eyebrow-line">{t("THE THREE PILLARS", "الركائز الثلاث")}</p><h2>{t("Education, Community, and Tools.", "التعليم والمجتمع والأدوات.")}<br />{t("Run by one SaaS AI Coach.", "يديرها مرشد SaaS واحد بالذكاء الاصطناعي.")}</h2><p>{t("Not three products sharing a logo — the SaaS AI Coach is the kernel running underneath and across all three, the reason they behave like one system.", "ليست ثلاثة منتجات تتشارك شعارا واحدا، فمرشد SaaS بالذكاء الاصطناعي هو النواة التي تعمل تحت الركائز الثلاث وعبرها، وهو ما يجعلها تتصرف كمنظومة واحدة.")}</p></motion.div>
+        <motion.div className="section-head system-heading" {...reveal()}><p className="eyebrow eyebrow-line">{t("THE THREE PILLARS", "الركائز الثلاث")}</p><h2>{t("Education, Community, and Tools.", "التعليم والمجتمع والأدوات.")}<br />{t("Run by one SaaS AI Coach.", "يديرها مرشد SaaS واحد بالذكاء الاصطناعي.")}</h2></motion.div>
         <div className="system-rows">
           <motion.div className="system-row" {...reveal()}>
             <div className="system-label"><span>{formatNum("01")}</span><h3>{t("Education: learn exactly what your stage needs.", "التعليم: تعلم ما تحتاجه مرحلتك بالضبط.")}</h3></div>
