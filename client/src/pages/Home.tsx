@@ -126,7 +126,7 @@ export default function Home() {
   return <div id="top" className="flint-landing" dir={isRTL ? "rtl" : "ltr"}>
     <header className="site-header">
       <div className="site-header-inner">
-      <div className="wordmark"><Logo showSignal={false} /></div>
+      <div className="wordmark"><Logo /></div>
       <nav className="desktop-nav" aria-label={t("Primary navigation", "التنقل الرئيسي")}>
         {navigationMenus.map((menu) => <NavDropdown menu={menu} isRTL={isRTL} key={menu.id} />)}
       </nav>

@@ -3,3 +3,9 @@
 - [x] Restore the landing page’s original supplied imagery and header lockup.
 - [x] Remove the added signal icon from the landing page only, preserving it on inner pages.
 - [x] Verify the landing and representative inner routes independently before delivering the corrected checkpoint.
+
+## Uniform Landing-System Alignment
+
+- [x] Remove the added signal icon from every non-landing page and shared component.
+- [x] Reuse the landing page’s header/footer, typography, button, card, border, and colour treatments site-wide.
+- [x] Verify public and workspace pages share the landing’s exact component language while the landing stays unchanged.

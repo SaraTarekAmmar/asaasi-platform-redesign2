@@ -1,4 +1,4 @@
-/* Landing-aligned ASaaSI shell: shared warm paper navigation, navy structure, saffron signals, and bilingual brand presence for every non-landing route. */
+/* Landing-aligned ASaaSI shell: the supplied wordmark, warm paper navigation, navy structure, and landing-page components are shared across every non-landing route. */
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, useLocation } from "wouter";
 import { ArrowLeft, ArrowRight, Bell, ChevronDown, ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
@@ -8,9 +8,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import "../../navigation.css";
 import "../../logo-asset.css";
 
-export function Logo({ inverted = false, showSignal = !inverted }: { inverted?: boolean; showSignal?: boolean }) {
+export function Logo({ inverted = false }: { inverted?: boolean }) {
   const src = inverted ? "/manus-storage/asaasi-logo-white_c6d1d735.svg" : "/manus-storage/asaasi-logo-navy_b67d2a37.svg";
-  return <Link href="/" className="brand" aria-label="ASaaSI home">{showSignal && <img className="brand-signal-asset" src="/manus-storage/asaasi-signal-mark_26ea66a8.png" alt="" aria-hidden="true" />}<img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" /></Link>;
+  return <Link href="/" className="brand" aria-label="ASaaSI home"><img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" /></Link>;
 }
 
 // "Forward" icons need to point the other way in RTL, since they follow reading direction.
