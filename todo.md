@@ -90,3 +90,10 @@
 - [x] Inspect public, account, and authenticated workspace entry pages one by one against the landing reference.
 - [x] Apply a focused shared-component and route-composition refinement pass without changing the landing page.
 - [x] Validate updated pages at desktop and mobile widths, then checkpoint the next iteration.
+
+## Ongoing Full-Site Consistency Cycle
+
+- [x] Re-inspect remaining route states, long-form details, and utility flows for residual generic composition.
+- [x] Recompose the highest-impact remaining workspace and public surfaces using landing-derived editorial patterns.
+- [x] Verify both default and interactive states at desktop and mobile widths without modifying the landing page.
+- [x] Record audit findings and save the next landing-system consistency checkpoint.
