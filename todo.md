@@ -69,3 +69,10 @@
 - [x] Preserve the existing profile form data and update behavior.
 - [x] Replace the generic profile layout with a founder identity, company context, and shareable signal workspace.
 - [x] Verify the authenticated profile workspace, editable signal, photo control, interests, sharing levels, and responsive layout rules before checkpointing.
+
+## Full Site Landing-System Alignment
+
+- [x] Audit every public, workspace, and account route against the landing page’s visual and component system.
+- [x] Standardize shared typography, navigation, actions, cards, dividers, imagery, and responsive behavior.
+- [x] Redesign each remaining route family using landing-derived components and page-specific editorial structures.
+- [x] Verify representative public, account, detail, and authenticated workspace route families at desktop and mobile sizes, then resolve visual inconsistencies.

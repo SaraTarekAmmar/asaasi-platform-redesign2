@@ -45,3 +45,5 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **The node-and-ring motif is structural.** It recurs in page labels, list statuses, rails, and account identity surfaces so ASaaSI remains recognizable even when the wordmark is not in view.
 - **Major routes must have a distinct first-screen silhouette.** Connect is a matching rail, Community is a thread stack, Events is a dated timeline, Tools is a workbench, and Pricing begins with a membership decision map before any plan comparison.
 - **Membership is framed around a founder constraint and unlocked momentum.** Tier cards remain a detailed comparison only after the decision path.
+- **Route identity must be visible before scrolling.** Community opens with a stepped thread model, Learn with a field-guide index, Events with a dated event path, Tools with an operational worksheet, Pricing with a decision map, Support with a routing desk, and About with a network manifesto.
+- **Reusable guidance is an editorial object, never a generic floating SaaS card.** Use a labelled rail, evidence panel, decision strip, or node-and-ring annotation to carry supporting context.

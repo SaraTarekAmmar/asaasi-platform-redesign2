@@ -38,7 +38,9 @@ export function PageIntro({ label, title, copy, note }: { label: string; title: 
   const [location] = useLocation();
   const route = location.split("/").filter(Boolean)[0] || "home";
   const routeMark: Record<string, string> = { connect: "01 / MATCH", community: "02 / THREAD", events: "03 / DATE", tools: "04 / WORK", pricing: "05 / MOVE", learn: "06 / FIELD" };
-  return <section className={`page-hero landing-page-intro landing-page-intro--${route}`}><div className="container page-hero-grid landing-page-intro__inner"><span className="landing-route-mark" aria-hidden="true"><i />{routeMark[route] ?? "ASaaSI / MENA"}</span><div className="landing-page-intro__content"><SectionLabel light>{label}</SectionLabel><h1>{title}</h1><p>{copy}</p></div>{note && <div className="page-hero-note landing-page-intro__note">{note}</div>}</div></section>;
+  const routeTrace: Record<string, [string, string, string]> = { community: ["QUESTION", "REPLY", "MOMENTUM"], learn: ["STAGE", "FIELD NOTE", "MOVE"], events: ["DATE", "ROOM", "FOLLOW-UP"], tools: ["INPUT", "WORK", "OUTPUT"], pricing: ["CONSTRAINT", "ACCESS", "MOMENTUM"], providers: ["PRACTICE", "CONTEXT", "INTRO"], support: ["ROUTE", "CONTEXT", "ANSWER"], about: ["PEOPLE", "WORK", "MOMENTUM"] };
+  const trace = routeTrace[route] ?? ["SIGNAL", "CONTEXT", "MOVE"];
+  return <section className={`page-hero landing-page-intro landing-page-intro--${route}`}><div className="container page-hero-grid landing-page-intro__inner"><span className="landing-route-mark" aria-hidden="true"><i />{routeMark[route] ?? "ASaaSI / MENA"}</span><div className="landing-page-intro__content"><SectionLabel light>{label}</SectionLabel><h1>{title}</h1><p>{copy}</p></div>{note && <div className="page-hero-note landing-page-intro__note">{note}</div>}<div className="landing-page-intro__trace" aria-hidden="true">{trace.map((item, index) => <span key={item} className={index === 1 ? "is-active" : ""}><i>{String(index + 1).padStart(2, "0")}</i>{item}</span>)}</div></div></section>;
 }
 
 type MenuItem = { href: string; label: string; labelAr: string; description: string; descriptionAr: string; badge?: string; badgeAr?: string };
