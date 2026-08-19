@@ -202,3 +202,10 @@
 - [x] Refine the highest-impact event and application archetypes with landing-derived readiness, routing, and operating-record structures.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Account, Membership, and Fallback-State Continuation
+
+- [x] Inspect remaining account, membership, and fallback route variants for residual generic hierarchy or repeated system-state silhouettes.
+- [x] Refine the highest-impact account, membership, and fallback archetypes with landing-derived access, status, or recovery structures.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
