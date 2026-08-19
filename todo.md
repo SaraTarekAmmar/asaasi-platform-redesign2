@@ -181,3 +181,10 @@
 - [x] Refine the highest-impact destination-specific access patterns with landing-derived return rails and operational language.
 - [x] Verify the updated access-state family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Roadmap, Learning-Path, and Discovery Continuation
+
+- [x] Inspect remaining roadmap, course, learning-path, and discovery routes for residual generic hierarchy or repeated silhouettes.
+- [x] Refine the highest-impact learning and roadmap archetypes with landing-derived readiness, evidence, and next-move structures.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.

@@ -147,6 +147,16 @@ const stageArtifacts: Record<string, { label: Pair; items: Pair[] }> = {
   governance: { label: ["Decision register", "سجل القرارات"], items: [["Decision", "القرار"], ["Owner", "المالك"], ["Quality threshold", "عتبة الجودة"]] },
 };
 
+const stageWorkingObjects: Record<string, { label: Pair; heading: Pair; copy: Pair; evidence: Pair }> = {
+  validation: { label: ["Proof gate", "بوابة الدليل"], heading: ["A proof gate, not a feature list.", "بوابة دليل، لا قائمة ميزات."], copy: ["The next move is earned when the buyer, painful job, and commitment are visible in the same record.", "تُكتسب الخطوة التالية عندما يكون المشتري والمهمة المؤلمة والالتزام ظاهرين في السجل نفسه."], evidence: ["Proof to carry forward", "دليل تحمله معك"] },
+  mvp: { label: ["Build loop", "حلقة البناء"], heading: ["Turn commitment into repeatable use.", "حوّل الالتزام إلى استخدام متكرر."], copy: ["Keep one workflow inside the loop: narrow the scope, test it with the cohort, then release the outcome they can actually use.", "أبقِ سير عمل واحد داخل الحلقة: ضيّق النطاق، اختبره مع المجموعة، ثم أطلق النتيجة التي يمكنهم استخدامها فعلا."], evidence: ["Build-loop record", "سجل حلقة البناء"] },
+  acquisition: { label: ["Channel map", "خريطة القنوات"], heading: ["Map the route before you add spend.", "ارسم المسار قبل أن تضيف إنفاقا."], copy: ["A channel only becomes useful when the buyer, message, and conversion checkpoint are connected and explainable.", "لا تصبح القناة مفيدة إلا عندما يكون المشتري والرسالة ونقطة التحويل متصلين وقابلين للشرح."], evidence: ["Channel evidence", "دليل القنوات"] },
+  retention: { label: ["Retention loop", "حلقة الاحتفاظ"], heading: ["Keep the customer value loop intact.", "أبقِ حلقة قيمة العميل سليمة."], copy: ["Trace the first value moment through the renewal conversation so silence becomes a signal, not a surprise.", "تتبّع أول لحظة قيمة حتى محادثة التجديد ليصبح الصمت إشارة لا مفاجأة."], evidence: ["Retention signals", "إشارات الاحتفاظ"] },
+  focus: { label: ["Focus worksheet", "ورقة التركيز"], heading: ["Choose what stays inside the promise.", "اختر ما يبقى داخل الوعد."], copy: ["Use a visible worksheet to name the best customer, the promise they repeat, and the work you now refuse.", "استخدم ورقة ظاهرة لتسمية أفضل عميل والوعد الذي يكرره والعمل الذي ترفضه الآن."], evidence: ["Focus decisions", "قرارات التركيز"] },
+  scale: { label: ["Scale ladder", "سلم التوسع"], heading: ["Climb one capacity constraint at a time.", "اصعد قيد قدرة واحدا في كل مرة."], copy: ["Growth stays deliberate when each new rung names the constraint, the repeatable system, and the expansion test.", "يبقى النمو مدروسا عندما تسمي كل درجة القيد والنظام المتكرر واختبار التوسع."], evidence: ["Scale readiness", "جاهزية التوسع"] },
+  governance: { label: ["Decision register", "سجل القرارات"], heading: ["Make the operating record legible.", "اجعل السجل التشغيلي واضحا."], copy: ["A decision register keeps the bet, accountable owner, and quality threshold together before complexity hides the work.", "يبقي سجل القرارات الرهان والمالك المسؤول وعتبة الجودة معا قبل أن يخفي التعقيد العمل."], evidence: ["Decision record", "سجل القرار"] },
+};
+
 export default function RoadmapStagePage() {
   const { stage: requestedStage } = useParams<{ stage?: string }>();
   const { t, isRTL, formatNum } = useLocale();
@@ -154,11 +164,12 @@ export default function RoadmapStagePage() {
   const stage = stages[activeIndex];
   const courseReady = Number(stage.number) <= 2;
   const artifact = stageArtifacts[stage.slug];
+  const workingObject = stageWorkingObjects[stage.slug];
   const previous = stages[activeIndex - 1];
   const next = stages[activeIndex + 1];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
-  return <main className="roadmap-stage-route" dir={isRTL ? "rtl" : "ltr"}>
+  return <main className={`roadmap-stage-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
     <section className="roadmap-stage-hero">
       <div className="container roadmap-stage-hero__inner">
         <div className="roadmap-stage-hero__copy">
@@ -178,22 +189,22 @@ export default function RoadmapStagePage() {
             <Link href={`/roadmap/${item.slug}`} aria-current={index === activeIndex ? "page" : undefined}><span>{formatNum(item.number)}</span><b>{t(item.title[0], item.title[1])}</b></Link>
           </li>)}
         </ol>
-        <div className="roadmap-stage-artifact" aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === activeIndex % 3 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
+        <div className={`roadmap-stage-artifact roadmap-stage-artifact--${stage.slug}`} aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === activeIndex % 3 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>
     </section>
 
     <section className="roadmap-stage-work">
       <div className="container roadmap-stage-work__grid">
         <div className="roadmap-stage-work__intro">
-          <SectionLabel>{t("What this stage makes clear", "ما الذي توضحه هذه المرحلة")}</SectionLabel>
-          <h2>{t("The proof that lets you move to the next stage.", "الدليل الذي يسمح لك بالانتقال إلى المرحلة التالية.")}</h2>
-          <p>{t("The work is deliberately narrow: one disciplined set of signals, decisions, and deliverables that make the next growth move less speculative.", "العمل ضيق عمدا: مجموعة منضبطة من الإشارات والقرارات والمخرجات التي تجعل خطوة النمو التالية أقل تخمينا.")}</p>
+          <SectionLabel>{t(workingObject.label[0], workingObject.label[1])}</SectionLabel>
+          <h2>{t(workingObject.heading[0], workingObject.heading[1])}</h2>
+          <p>{t(workingObject.copy[0], workingObject.copy[1])}</p>
           <div className="roadmap-stage-moves">
             {stage.moves.map((move, index) => <div key={move[0]}><span>{formatNum(`0${index + 1}`)}</span><p>{t(move[0], move[1])}</p></div>)}
           </div>
         </div>
         <div className="roadmap-stage-outcomes">
-          <span className="mono">{t("Evidence to leave with", "دليل تغادر به")}</span>
+          <span className="mono">{t(workingObject.evidence[0], workingObject.evidence[1])}</span>
           {stage.outcomes.map((outcome, index) => <article key={outcome.title[0]}>
             <span>{formatNum(`0${index + 1}`)}</span>
             <div><h3>{t(outcome.title[0], outcome.title[1])}</h3><p>{t(outcome.detail[0], outcome.detail[1])}</p></div>
@@ -230,9 +241,10 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
   const stage = stages.find((item) => item.slug === (stageSlug ?? requestedStage)) ?? stages[0];
   const courseReady = Number(stage.number) <= 2;
   const artifact = stageArtifacts[stage.slug];
+  const workingObject = stageWorkingObjects[stage.slug];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
-  return <main className="roadmap-stage-route roadmap-course-route" dir={isRTL ? "rtl" : "ltr"}>
+  return <main className={`roadmap-stage-route roadmap-course-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
     <section className="roadmap-stage-hero roadmap-course-hero">
       <div className="container roadmap-stage-hero__inner">
         <div className="roadmap-stage-hero__copy">
@@ -247,22 +259,22 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
           <strong>{courseReady ? t(stage.courseMeta[0], stage.courseMeta[1]) : t("Curriculum development in progress", "تطوير المنهج جارٍ")}</strong>
           <p>{courseReady ? t("A practical stage guide built around decisions, evidence, and working deliverables — not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية — لا نظرية عامة.") : t("Follow the stage briefing, not a premature course promise. The roadmap keeps the next operating questions visible while the curriculum is built.", "تابع موجز المرحلة، لا وعد دورة مبكر. تُبقي الخارطة أسئلة التشغيل التالية ظاهرة أثناء بناء المنهج.")}</p>
         </aside>
-        <div className="roadmap-stage-artifact roadmap-stage-artifact--course" aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === 0 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
+        <div className={`roadmap-stage-artifact roadmap-stage-artifact--course roadmap-stage-artifact--${stage.slug}`} aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === 0 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>
     </section>
 
     <section className="roadmap-stage-work roadmap-course-outline">
       <div className="container roadmap-stage-work__grid">
         <div className="roadmap-stage-work__intro">
-          <SectionLabel>{t("Course pathway", "مسار الدورة")}</SectionLabel>
-          <h2>{t("Do the work that earns the next stage.", "أنجز العمل الذي يكسبك المرحلة التالية.")}</h2>
-          <p>{t("Every section is designed to leave the founder with a usable decision, an evidence-backed asset, or a clearer operating move.", "صُمم كل قسم ليترك للمؤسس قرارا قابلا للاستخدام أو أصلا مدعوما بالدليل أو خطوة تشغيلية أوضح.")}</p>
+          <SectionLabel>{t(workingObject.label[0], workingObject.label[1])}</SectionLabel>
+          <h2>{t(workingObject.heading[0], workingObject.heading[1])}</h2>
+          <p>{t(workingObject.copy[0], workingObject.copy[1])}</p>
           <div className="roadmap-stage-moves">
             {stage.moves.map((move, index) => <div key={move[0]}><span>{t("MODULE", "وحدة")} {formatNum(`0${index + 1}`)}</span><p>{t(move[0], move[1])}</p></div>)}
           </div>
         </div>
         <div className="roadmap-stage-outcomes">
-          <span className="mono">{t("What you leave with", "ما الذي تغادر به")}</span>
+          <span className="mono">{t(workingObject.evidence[0], workingObject.evidence[1])}</span>
           {stage.outcomes.map((outcome, index) => <article key={outcome.title[0]}>
             <span>{formatNum(`0${index + 1}`)}</span>
             <div><h3>{t(outcome.title[0], outcome.title[1])}</h3><p>{t(outcome.detail[0], outcome.detail[1])}</p></div>
