@@ -53,3 +53,6 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Roadmap stages open with their working object.** Validation uses a proof gate, MVP a build loop, Acquisition a channel map, Retention a retention loop, Focus a focus worksheet, Scale a scale ladder, and Governance a decision register.
 - **Node-and-ring signals carry status.** Use them for stage readiness, member access, evidence completion, and account identity—not merely as decorative bullets.
 - **Pricing leads with the founder constraint and access sequence.** Membership states are evidence of the decision path, not conventional subscription-tier cards.
+- **Connect begins with a matching object, not only a promise.** The visible brief follows Decision → Context → Introduction, and people discovery defaults to indexed evidence rails rather than equal profile cards.
+- **Community begins with a thread stack, not only a headline.** Post → Reply → Answer remains a live first-screen object and a recurring node-and-ring language in the discussion flow.
+- **Repeated content defaults to editorial systems.** Directories, matching results, posts, tools, events, and access states use rails, timelines, evidence panels, or decision strips unless the content itself is a specifically annotated editorial object.

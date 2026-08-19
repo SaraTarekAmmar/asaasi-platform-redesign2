@@ -56,3 +56,13 @@
 | Revenue and access path | `/pricing` now expresses Visitor → Registered → Subscriber before a paid Stage 1–2 cohort or workshop, and removes unapproved public membership, workshop, and provider-listing prices. | The three-year planning view is clearly labelled as illustrative internal-model output, not public financial guidance or a pricing claim. |
 | Organisation and role flow | `/organizations/workspace` now exposes Founder / Owner, Operator / Team member, Advisor / Mentor, and Operations / Finance as role contexts alongside existing Overview, People, Requests, and Settings pathways. | Authenticated review confirms all four functional role contexts are selectable and the shared workspace keeps role, request, and activity context visible. |
 | Roadmap readiness | Stage 1 and Stage 2 retain course routes; Stages 3–7 present public stage briefings and free-profile CTAs until their curricula are complete. Stage and course routes now begin with distinct proof-gate, build-loop, channel-map, retention-loop, focus-worksheet, scale-ladder, or decision-register artifacts. | Desktop and mobile checks confirm active stage status, evidence, future-release wording, and access CTAs remain visually clear. |
+
+## Route archetype refinement — verified
+
+| Route | Final landing-derived treatment | Verification outcome |
+|---|---|---|
+| `/connect` | The hero now carries a visible Decision → Context → Introduction matching object, and the people collection is a numbered evidence rail rather than a directory-card grid. | Desktop and mobile checks show the matching method before the image band, with compact accessible records beneath. |
+| `/community` | The hero now exposes a live Post → Reply → Answer thread stack beside the central question, before the larger community route begins. | The working object is visible in the first viewport at both widths while the post, filter, and reply flows remain intact. |
+| `/tools` | Tool safety retains the workbench logic while saffron is restricted to a top rule and node, not a large panel fill. | The safety section reads as an evidence strip at desktop and mobile sizes. |
+| `/pricing` | Access sequencing precedes tier detail, and plan cells retain a ruled decision-record hierarchy. | The subscriber pathway stays legible without a generic pricing-card silhouette. |
+| `/dashboard` | The founder command center maintains a strong operating-line slab, momentum rail, signal ring, weekly focus, and orbit context. | Authenticated browser review found no generic-card or interaction hierarchy drift requiring further changes in this pass. |
