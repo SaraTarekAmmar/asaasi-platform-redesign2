@@ -57,3 +57,9 @@
 - [x] Replace the dark matching-map treatment with a landing-style white hero, visual image band, and floating context panel.
 - [x] Recompose the matching modules into the landing’s warm editorial blocks and card rhythm.
 - [x] Verify desktop and mobile alignment against the landing page’s actual visual language.
+
+## Dashboard Command-Centre Redesign
+
+- [x] Preserve the useful dashboard data while replacing the current generic workspace layout.
+- [x] Build a founder command-centre around momentum, decisions, network context, and the next useful action.
+- [x] Verify the authenticated desktop command-centre preview and responsive layout rules before checkpointing.
