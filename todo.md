@@ -167,3 +167,10 @@
 - [x] Refine the highest-impact residual archetypes with landing-derived decision objects, rails, or record structures.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Organization, Account, Policy, and System-State Continuation
+
+- [x] Inspect remaining organization, account, policy, and system-state routes for generic hierarchy or weak recovery-state identity.
+- [x] Refine the highest-impact operational, trust, and recovery surfaces with landing-derived evidence rails, ownership records, or state maps.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
