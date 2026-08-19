@@ -13,7 +13,7 @@ import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
 import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
 import { Dashboard, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
-import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
+import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PerksPublicPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
 import "./product-flows.css";
 import "./missing-pages.css";
 import "./ux-system.css";
@@ -112,6 +112,7 @@ function Router() {
     <Route path="/stories" component={() => <PublicDetailPage type="story" />} />
     <Route path="/tools/:slug" component={ToolFlow} />
     <Route path="/tools" component={Tools} />
+    <Route path="/perks" component={PerksPublicPage} />
     <Route path="/workshops" component={() => <WorkshopsPage />} />
     <Route path="/membership" component={Pricing} />
     <Route path="/pricing" component={Pricing} />

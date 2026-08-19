@@ -238,3 +238,11 @@
 - [x] Refine the strongest ASaaSI tools and residual route patterns using validated benchmark patterns in the shared landing-derived system.
 - [x] Verify the updated tools and routes at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record benchmark findings and save the next visual-alignment checkpoint.
+
+## Expanded Tool Library and Perks
+
+- [x] Document the public ASaaSI and SaaStr tool libraries, their outcome patterns, and the requested perk direction without copying competitor branding or claims.
+- [x] Audit ASaaSI tool, perk, and route foundations for suitable extension points.
+- [x] Build expanded ASaaSI workbenches and a stage-aware perks experience in the landing-derived editorial system.
+- [x] Verify expanded tools and perks at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record the implementation choices and save the next visual-alignment checkpoint.
