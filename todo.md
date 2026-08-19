@@ -277,3 +277,11 @@
 - [x] Refine the highest-impact route-specific operating objects and interaction feedback.
 - [x] Verify desktop, tablet, and mobile layouts without modifying the landing page.
 - [x] Document the refinements and save the next visual-alignment checkpoint.
+
+## Comprehensive Non-Landing Experience Audit
+
+- [x] Inventory all non-landing routes, shared controls, call-to-action destinations, em-dash copy, and interactive states.
+- [x] Align shared component tokens, softness, focus feedback, and button behavior with the landing-derived system.
+- [x] Repair route destinations, Arabic RTL presentation, and interaction feedback where needed.
+- [x] Verify public, protected, workspace, mobile, tablet, desktop, English, and Arabic route families.
+- [x] Document the audit and save the next visual-alignment checkpoint.

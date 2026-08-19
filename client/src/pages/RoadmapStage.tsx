@@ -27,14 +27,14 @@ const stages: Stage[] = [
     number: "01", slug: "validation", title: ["Validation", "التحقق"], routeLabel: ["Find proof before you build", "اعثر على الدليل قبل أن تبني"],
     promise: ["Find one person with one burning problem who will pay.", "اعثر على شخص واحد لديه مشكلة ملحّة ومستعد للدفع."],
     intro: ["Stage 1 turns a promising idea into evidence. Talk to buyers, score the signal, make a specific offer, and ask for a commitment before you invest in a larger build.", "تحوّل المرحلة الأولى الفكرة الواعدة إلى دليل. تحدث مع المشترين، وقيّم الإشارة، وقدّم عرضا محددا، واطلب التزاما قبل الاستثمار في بناء أكبر."],
-    workingRule: ["Until paying customers prove the assumption, the founder is a researcher — not a feature factory.", "حتى يثبت العملاء الدافعون الافتراض، يكون المؤسس باحثا لا مصنع ميزات."],
-    courseName: ["MENA SaaS Foundation Masterclass — Stage 1", "ماستر كلاس أساسيات SaaS في الشرق الأوسط — المرحلة الأولى"],
+    workingRule: ["Until paying customers prove the assumption, the founder is a researcher, not a feature factory.", "حتى يثبت العملاء الدافعون الافتراض، يكون المؤسس باحثا لا مصنع ميزات."],
+    courseName: ["MENA SaaS Foundation Masterclass, Stage 1", "ماستر كلاس أساسيات SaaS في الشرق الأوسط، المرحلة الأولى"],
     courseMeta: ["6 modules · 17 steps · build-as-you-go", "٦ وحدات · ١٧ خطوة · بناء أثناء التعلم"],
     courseNote: ["Leave with working buyer evidence, an outbound engine, committed pilots, and a price you can defend.", "غادر بدليل مشترين فعلي، ومحرك تواصل، وتجارب ملتزمة، وسعر يمكنك الدفاع عنه."],
     courseHref: "/courses/roadmap-validation",
     outcomes: [
       { title: ["Validated ICP", "شريحة عميل مؤكدة"], detail: ["Three scored buyer profiles backed by real BANT+ evidence.", "ثلاثة ملفات مشترين مقيّمة ومدعومة بدليل BANT+ حقيقي."] },
-      { title: ["Committed pilots", "تجارب ملتزمة"], detail: ["Signed LOIs or paid concierge pilots — not compliments.", "خطابات نوايا موقعة أو تجارب مدفوعة — لا مجاملات."] },
+      { title: ["Committed pilots", "تجارب ملتزمة"], detail: ["Signed LOIs or paid concierge pilots, not compliments.", "خطابات نوايا موقعة أو تجارب مدفوعة، لا مجاملات."] },
       { title: ["Defensible price", "سعر قابل للدفاع"], detail: ["A value-based price you can hold under pressure.", "سعر قائم على القيمة يمكنك التمسك به تحت الضغط."] },
     ],
     moves: [["Name the buyer and the painful job", "سمِّ المشتري والمهمة المؤلمة"], ["Run conversations that test willingness to pay", "أجرِ محادثات تختبر الاستعداد للدفع"], ["Turn proof into a focused pilot offer", "حوّل الدليل إلى عرض تجريبي مركز"]],
@@ -44,14 +44,14 @@ const stages: Stage[] = [
     promise: ["Build the MVP with your committed cohort that is closest to product-market fit.", "ابنِ المنتج الأولي مع مجموعتك الملتزمة الأقرب لملاءمة المنتج للسوق."],
     intro: ["Stage 2 narrows the build to the workflow buyers already asked for. Your job is not to launch every idea; it is to make one promised outcome reliably usable.", "تضيّق المرحلة الثانية البناء إلى سير العمل الذي طلبه المشترون بالفعل. مهمتك ليست إطلاق كل فكرة، بل جعل نتيجة واحدة موعودة قابلة للاستخدام بثقة."],
     workingRule: ["Build the shortest path from the buyer’s recurring problem to one observable outcome.", "ابنِ أقصر طريق من مشكلة المشتري المتكررة إلى نتيجة واحدة قابلة للملاحظة."],
-    courseName: ["Stage 2 course — MVP with a committed cohort", "دورة المرحلة الثانية — المنتج الأولي مع مجموعة ملتزمة"],
+    courseName: ["Stage 2 course, MVP with a committed cohort", "دورة المرحلة الثانية، المنتج الأولي مع مجموعة ملتزمة"],
     courseMeta: ["Course track · build, test, tighten", "مسار الدورة · ابنِ، اختبر، شدد"],
     courseNote: ["Use the course to turn pilot learning into a minimum product your earliest customers can actually use.", "استخدم الدورة لتحويل تعلم التجارب إلى منتج أدنى يمكن لعملائك الأوائل استخدامه فعليا."],
     courseHref: "/courses/roadmap-mvp",
     outcomes: [
       { title: ["Committed build scope", "نطاق بناء ملتزم"], detail: ["A narrow product promise tied to the highest-value buyer workflow.", "وعد منتج ضيق مرتبط بسير عمل المشتري الأعلى قيمة."] },
       { title: ["Cohort feedback loop", "حلقة تغذية راجعة للمجموعة"], detail: ["Weekly proof from the people who agreed to try the product.", "دليل أسبوعي من الأشخاص الذين وافقوا على تجربة المنتج."] },
-      { title: ["Usable first release", "إصدار أول قابل للاستخدام"], detail: ["A reliable path to the outcome you sold — without needless surface area.", "طريق موثوق إلى النتيجة التي بعتها — دون نطاق زائد."] },
+      { title: ["Usable first release", "إصدار أول قابل للاستخدام"], detail: ["A reliable path to the outcome you sold, without needless surface area.", "طريق موثوق إلى النتيجة التي بعتها، دون نطاق زائد."] },
     ],
     moves: [["Choose the one workflow to make reliable", "اختر سير العمل الواحد الذي ستجعله موثوقا"], ["Ship only what the cohort needs to finish it", "أطلق فقط ما تحتاجه المجموعة لإكماله"], ["Measure use, friction, and return intent", "قِس الاستخدام والاحتكاك ونية العودة"]],
   },
@@ -60,7 +60,7 @@ const stages: Stage[] = [
     promise: ["Learn how and where to find repeatable lead channels.", "تعلّم كيف وأين تجد قنوات عملاء محتملين قابلة للتكرار."],
     intro: ["Stage 3 converts one-off outreach into a repeatable customer path. Test channels deliberately, make the message sharper, and keep the numbers visible before scaling spend.", "تحوّل المرحلة الثالثة التواصل الفردي إلى مسار عملاء متكرر. اختبر القنوات بوعي، واجعل الرسالة أدق، وأبق الأرقام ظاهرة قبل توسيع الإنفاق."],
     workingRule: ["A channel is not real until you can explain its audience, message, conversion, and cost.", "القناة ليست حقيقية حتى تستطيع شرح جمهورها ورسالتها وتحويلها وتكلفتها."],
-    courseName: ["Stage 3 course — Acquisition & distribution", "دورة المرحلة الثالثة — الاكتساب والتوزيع"],
+    courseName: ["Stage 3 course, Acquisition & distribution", "دورة المرحلة الثالثة، الاكتساب والتوزيع"],
     courseMeta: ["Course track · message, channel, conversion", "مسار الدورة · رسالة، قناة، تحويل"],
     courseNote: ["Build a channel test plan that replaces activity with an explainable route to qualified conversations.", "ابنِ خطة اختبار قنوات تستبدل النشاط بمسار قابل للشرح نحو محادثات مؤهلة."],
     courseHref: "/courses/roadmap-acquisition",
@@ -75,8 +75,8 @@ const stages: Stage[] = [
     number: "04", slug: "retention", title: ["Customer retention", "الاحتفاظ بالعملاء"], routeLabel: ["Fix the leaky bucket before you scale", "أصلح الدلو المتسرب قبل أن تتوسع"],
     promise: ["Fix the leaky bucket before aggressive scaling.", "أصلح الدلو المتسرب قبل التوسع العنيف."],
     intro: ["Stage 4 makes the product essential after the first sale. Find where value drops, speak to customers before they disappear, and create a habit that earns the next renewal.", "تجعل المرحلة الرابعة المنتج ضروريا بعد أول بيع. اعثر على موضع انخفاض القيمة، وتحدث إلى العملاء قبل اختفائهم، واصنع عادة تكسب التجديد التالي."],
-    workingRule: ["Retention is a customer outcome and a company habit — not a late rescue campaign.", "الاحتفاظ نتيجة للعميل وعادة للشركة — لا حملة إنقاذ متأخرة."],
-    courseName: ["Stage 4 course — Customer retention", "دورة المرحلة الرابعة — الاحتفاظ بالعملاء"],
+    workingRule: ["Retention is a customer outcome and a company habit, not a late rescue campaign.", "الاحتفاظ نتيجة للعميل وعادة للشركة، لا حملة إنقاذ متأخرة."],
+    courseName: ["Stage 4 course, Customer retention", "دورة المرحلة الرابعة، الاحتفاظ بالعملاء"],
     courseMeta: ["Course track · activation, value, renewal", "مسار الدورة · تفعيل، قيمة، تجديد"],
     courseNote: ["Turn customer evidence into a visible retention system before adding more top-of-funnel volume.", "حوّل دليل العملاء إلى نظام احتفاظ ظاهر قبل إضافة مزيد من حجم أعلى القمع."],
     courseHref: "/courses/roadmap-retention",
@@ -89,10 +89,10 @@ const stages: Stage[] = [
   },
   {
     number: "05", slug: "focus", title: ["Product focus", "تركيز المنتج"], routeLabel: ["Become the clear choice for a specific niche", "كن الخيار الواضح لشريحة محددة"],
-    promise: ["Be recognized as number one in your niche — and have the power to say no.", "كن معروفا كرقم واحد في شريحتك — وامتلك القدرة على قول لا."],
+    promise: ["Be recognized as number one in your niche, and have the power to say no.", "كن معروفا كرقم واحد في شريحتك، وامتلك القدرة على قول لا."],
     intro: ["Stage 5 is where a useful product becomes a clear category choice. Narrow the promise, decide what you will not build, and let the right customers recognize themselves in the story.", "المرحلة الخامسة هي حيث يتحول المنتج المفيد إلى خيار فئة واضح. ضيّق الوعد، وقرر ما لن تبنيه، ودع العملاء المناسبين يرون أنفسهم في القصة."],
     workingRule: ["Focus is a strategic refusal that makes your strongest customer say, ‘this is for me.’", "التركيز هو رفض استراتيجي يجعل أقوى عملائك يقول: هذا لي."],
-    courseName: ["Stage 5 course — Product focus", "دورة المرحلة الخامسة — تركيز المنتج"],
+    courseName: ["Stage 5 course, Product focus", "دورة المرحلة الخامسة، تركيز المنتج"],
     courseMeta: ["Course track · niche, promise, restraint", "مسار الدورة · شريحة، وعد، انضباط"],
     courseNote: ["Use the course to sharpen your category story and choose the work that strengthens it.", "استخدم الدورة لصقل قصة فئتك واختيار العمل الذي يقويها."],
     courseHref: "/courses/roadmap-focus",
@@ -108,7 +108,7 @@ const stages: Stage[] = [
     promise: ["Grow beyond your normal capacity into new products or markets.", "انمُ بعد قدرتك المعتادة إلى منتجات أو أسواق جديدة."],
     intro: ["Stage 6 expands what is already working. Add capacity, talent, and new-market tests only when the core engine is clear enough to reproduce without founder heroics.", "توسع المرحلة السادسة ما يعمل بالفعل. أضف القدرة والمواهب واختبارات الأسواق الجديدة فقط عندما يكون المحرك الأساسي واضحا بما يكفي لتكراره دون بطولات المؤسس."],
     workingRule: ["Scale a proven operating system, not the founder’s personal stamina.", "وسّع نظام تشغيل مثبت، لا قدرة المؤسس الشخصية على التحمل."],
-    courseName: ["Stage 6 course — Scalability & growth", "دورة المرحلة السادسة — القابلية للتوسع والنمو"],
+    courseName: ["Stage 6 course, Scalability & growth", "دورة المرحلة السادسة، القابلية للتوسع والنمو"],
     courseMeta: ["Course track · capacity, market, operating rhythm", "مسار الدورة · قدرة، سوق، إيقاع تشغيلي"],
     courseNote: ["Build the capacity map and decision rules that let growth travel further than the founding team.", "ابنِ خريطة القدرة وقواعد القرار التي تجعل النمو يتجاوز فريق التأسيس."],
     courseHref: "/courses/roadmap-scale",
@@ -124,7 +124,7 @@ const stages: Stage[] = [
     promise: ["Control the expansion and regain your operations quality.", "اضبط التوسع واستعد جودة عملياتك."],
     intro: ["Stage 7 gives the company the structure to keep its promises as complexity grows. Make decisions traceable, define ownership, and protect the standards that customers already trust.", "تمنح المرحلة السابعة الشركة الهيكل للحفاظ على وعودها مع نمو التعقيد. اجعل القرارات قابلة للتتبع، وحدد الملكية، واحمِ المعايير التي يثق بها العملاء بالفعل."],
     workingRule: ["Governance is how a growing company stays legible to its team, customers, and future partners.", "الحوكمة هي كيف تبقى الشركة النامية واضحة لفريقها وعملائها وشركائها المستقبليين."],
-    courseName: ["Stage 7 course — Governance", "دورة المرحلة السابعة — الحوكمة"],
+    courseName: ["Stage 7 course, Governance", "دورة المرحلة السابعة، الحوكمة"],
     courseMeta: ["Course track · ownership, controls, quality", "مسار الدورة · ملكية، ضوابط، جودة"],
     courseNote: ["Use the course to set the operating guardrails that keep expansion deliberate and dependable.", "استخدم الدورة لوضع حواجز التشغيل التي تجعل التوسع مدروسا ويمكن الاعتماد عليه."],
     courseHref: "/courses/roadmap-governance",
@@ -257,7 +257,7 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
         <aside className="roadmap-stage-hero__evidence">
           <span className="mono">{courseReady ? t("Course format", "تنسيق الدورة") : t("READINESS", "الجاهزية")}</span>
           <strong>{courseReady ? t(stage.courseMeta[0], stage.courseMeta[1]) : t("Curriculum development in progress", "تطوير المنهج جارٍ")}</strong>
-          <p>{courseReady ? t("A practical stage guide built around decisions, evidence, and working deliverables — not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية — لا نظرية عامة.") : t("Follow the stage briefing, not a premature course promise. The roadmap keeps the next operating questions visible while the curriculum is built.", "تابع موجز المرحلة، لا وعد دورة مبكر. تُبقي الخارطة أسئلة التشغيل التالية ظاهرة أثناء بناء المنهج.")}</p>
+          <p>{courseReady ? t("A practical stage guide built around decisions, evidence, and working deliverables, not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية، لا نظرية عامة.") : t("Follow the stage briefing, not a premature course promise. The roadmap keeps the next operating questions visible while the curriculum is built.", "تابع موجز المرحلة، لا وعد دورة مبكر. تُبقي الخارطة أسئلة التشغيل التالية ظاهرة أثناء بناء المنهج.")}</p>
         </aside>
         <div className={`roadmap-stage-artifact roadmap-stage-artifact--course roadmap-stage-artifact--${stage.slug}`} aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === 0 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>

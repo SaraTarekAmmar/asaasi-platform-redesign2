@@ -1,0 +1,53 @@
+/* Landing-derived interaction system for non-landing routes: soft utility corners, visible focus, calm press feedback, and no sharp generic controls. */
+
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) .button,
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) button:not(.icon-button):not(.view-toggle button) {
+  border-radius: 9px;
+  transition: transform 160ms cubic-bezier(.23,1,.32,1), background-color 160ms cubic-bezier(.23,1,.32,1), border-color 160ms cubic-bezier(.23,1,.32,1), color 160ms cubic-bezier(.23,1,.32,1), box-shadow 160ms cubic-bezier(.23,1,.32,1);
+}
+
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) .button:active,
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) button:not(.icon-button):not(.view-toggle button):active {
+  transform: scale(.97);
+}
+
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) :is(input, textarea, select) {
+  border-radius: 8px;
+  border-color: #d5dce6;
+  background: #fffefb;
+  box-shadow: inset 0 1px 0 rgba(7,27,61,.025);
+  transition: border-color 160ms cubic-bezier(.23,1,.32,1), box-shadow 160ms cubic-bezier(.23,1,.32,1), background-color 160ms cubic-bezier(.23,1,.32,1);
+}
+
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) :is(input, textarea, select):focus {
+  outline: 0;
+  border-color: #caa515;
+  box-shadow: 0 0 0 3px rgba(202,165,21,.14), inset 0 1px 0 rgba(7,27,61,.025);
+}
+
+.app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) :is(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid #caa515;
+  outline-offset: 3px;
+}
+
+.app-product :is(.missing-public, .product-shell) .text-link {
+  text-underline-offset: 3px;
+  transition: color 160ms cubic-bezier(.23,1,.32,1), gap 160ms cubic-bezier(.23,1,.32,1);
+}
+
+.app-product :is(.missing-public, .product-shell) .text-link:hover { color: #caa515; }
+
+.app-product :is(.missing-public, .product-shell) :is(.filter-button, .request-type, .role-option, .request-tabs button, .tool-intent-controls button) {
+  border-radius: 8px;
+}
+
+.app-product :is(.missing-public, .product-shell) :is(.filter-button, .request-type, .role-option, .request-tabs button, .tool-intent-controls button).active,
+.app-product :is(.missing-public, .product-shell) :is(.filter-button, .request-type, .role-option, .request-tabs button, .tool-intent-controls button).is-active,
+.app-product :is(.missing-public, .product-shell) .role-option.selected {
+  border-color: #caa515;
+  box-shadow: inset 3px 0 0 #caa515;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-product :is(.missing-public, .product-shell, .account-flow, .signup-flow, .tool-flow) * { transition-duration: 0.01ms !important; }
+}

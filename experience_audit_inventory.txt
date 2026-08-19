@@ -1,0 +1,210 @@
+--- ROUTES ---
+33:    <Route path="/" component={Home} />
+34:    <Route path="/login" component={LoginFlow} />
+35:    <Route path="/signup" component={SignupFlow} />
+36:    <Route path="/forgot-password" component={() => <RecoveryFlow mode="forgot" />} />
+37:    <Route path="/reset-password" component={() => <RecoveryFlow mode="reset" />} />
+38:    <Route path="/verify-email" component={() => <RecoveryFlow mode="verify" />} />
+40:    <Route path="/dashboard/home" component={Dashboard} />
+41:    <Route path="/dashboard" component={Dashboard} />
+42:    <Route path="/dashboard/learner/courses" component={LearnerWorkspace} />
+43:    <Route path="/dashboard/learner/live" component={LearnerWorkspace} />
+44:    <Route path="/dashboard/learner/knowledge" component={KnowledgeWorkspace} />
+45:    <Route path="/dashboard/learner/progress" component={LearnerWorkspace} />
+46:    <Route path="/dashboard/progress" component={LearnerWorkspace} />
+47:    <Route path="/dashboard/learner" component={LearnerWorkspace} />
+48:    <Route path="/dashboard/coach/sessions" component={CoachWorkspace} />
+49:    <Route path="/dashboard/coach/history" component={CoachWorkspace} />
+50:    <Route path="/dashboard/coach" component={CoachWorkspace} />
+51:    <Route path="/dashboard/network" component={() => <WorkspaceDirectoryPage />} />
+52:    <Route path="/dashboard/discussions" component={WorkspaceCommunityPage} />
+53:    <Route path="/dashboard/professionals" component={() => <WorkspaceDirectoryPage professionals />} />
+54:    <Route path="/dashboard/members/:id" component={() => <MemberProfilePage workspace />} />
+55:    <Route path="/dashboard/events/:slug" component={EventFlow} />
+56:    <Route path="/dashboard/rooms" component={() => <WorkspaceEventsPage discovery />} />
+57:    <Route path="/dashboard/events" component={() => <WorkspaceEventsPage />} />
+58:    <Route path="/dashboard/registrations" component={RegistrationsPage} />
+59:    <Route path="/dashboard/requests/:id" component={() => <RequestDetailPage workspace />} />
+60:    <Route path="/dashboard/requests" component={WorkspaceRequestsPage} />
+61:    <Route path="/dashboard/organizations" component={OrganizationHubPage} />
+62:    <Route path="/dashboard/profile" component={ProfileWorkspace} />
+63:    <Route path="/dashboard/saved" component={SavedWorkspace} />
+64:    <Route path="/dashboard/following" component={FollowingWorkspace} />
+65:    <Route path="/dashboard/invitations" component={InvitationsWorkspace} />
+66:    <Route path="/dashboard/billing" component={BillingWorkspace} />
+67:    <Route path="/dashboard/perks" component={() => <MembershipHubPage />} />
+68:    <Route path="/dashboard/assessment" component={AssessmentWorkspace} />
+69:    <Route path="/assessment" component={AssessmentWorkspace} />
+70:    <Route path="/dashboard/settings" component={SettingsWorkspace} />
+71:    <Route path="/dashboard/notifications" component={NotificationsWorkspace} />
+72:    <Route path="/admin" component={AdminWorkspacePage} />
+74:    <Route path="/knowledge" component={KnowledgeWorkspace} />
+75:    <Route path="/matching" component={MatchingWorkspace} />
+76:    <Route path="/requests/new" component={RequestFlow} />
+77:    <Route path="/requests/browse" component={RequestBrowsePage} />
+78:    <Route path="/requests/:id" component={() => <RequestDetailPage />} />
+79:    <Route path="/organizations/new" component={() => <OrganizationFlow mode="new" />} />
+80:    <Route path="/organizations/join" component={() => <OrganizationFlow mode="join" />} />
+81:    <Route path="/organizations/workspace" component={() => <OrganizationFlow mode="workspace" />} />
+82:    <Route path="/events/host" component={() => <HostEventPage />} />
+83:    <Route path="/events/:slug" component={EventFlow} />
+84:    <Route path="/events" component={Events} />
+86:    <Route path="/connect" component={Connect} />
+87:    <Route path="/directory" component={() => <DirectoryPage />} />
+88:    <Route path="/search" component={() => <DirectoryPage gated />} />
+89:    <Route path="/members/:id" component={() => <MemberProfilePage />} />
+90:    <Route path="/members" component={Connect} />
+91:    <Route path="/mentors" component={() => <DirectoryPage kind="mentors" />} />
+92:    <Route path="/providers" component={() => <DirectoryPage kind="providers" />} />
+93:    <Route path="/startups" component={() => <DirectoryPage kind="startups" />} />
+94:    <Route path="/community" component={Community} />
+95:<Route path="/community/:id" component={CommunityPost} />
+96:    <Route path="/groups/:slug" component={() => <PublicDetailPage type="group" />} />
+97:    <Route path="/groups" component={Connect} />
+98:    <Route path="/learn" component={Learn} />
+99:    <Route path="/roadmap/:stage" component={RoadmapStagePage} />
+100:    <Route path="/articles/:slug" component={() => <PublicDetailPage type="article" />} />
+101:    <Route path="/articles" component={() => <ContentIndexPage kind="article" />} />
+102:    <Route path="/podcasts/:slug" component={() => <PublicDetailPage type="podcast" />} />
+103:    <Route path="/podcasts" component={() => <ContentIndexPage kind="podcast" />} />
+104:    <Route path="/webinars/:slug" component={() => <PublicDetailPage type="webinar" gated />} />
+105:    <Route path="/webinars" component={() => <WebinarsPage />} />
+106:    <Route path="/courses/roadmap-validation" component={() => <RoadmapCoursePage stageSlug="validation" />} />
+107:    <Route path="/courses/roadmap-mvp" component={() => <RoadmapCoursePage stageSlug="mvp" />} />
+108:    <Route path="/courses/roadmap-acquisition" component={() => <RoadmapCoursePage stageSlug="acquisition" />} />
+109:    <Route path="/courses/roadmap-retention" component={() => <RoadmapCoursePage stageSlug="retention" />} />
+110:    <Route path="/courses/roadmap-focus" component={() => <RoadmapCoursePage stageSlug="focus" />} />
+111:    <Route path="/courses/roadmap-scale" component={() => <RoadmapCoursePage stageSlug="scale" />} />
+112:    <Route path="/courses/roadmap-governance" component={() => <RoadmapCoursePage stageSlug="governance" />} />
+113:    <Route path="/courses/:slug" component={() => <PublicDetailPage type="course" />} />
+114:    <Route path="/playbooks" component={() => <PublicDetailPage type="course" gated />} />
+115:    <Route path="/videos" component={() => <PublicDetailPage type="article" />} />
+116:    <Route path="/stories" component={() => <PublicDetailPage type="story" />} />
+117:    <Route path="/tools/:slug" component={ToolFlow} />
+118:    <Route path="/tools" component={Tools} />
+119:    <Route path="/perks" component={PerksPublicPage} />
+120:    <Route path="/workshops" component={() => <WorkshopsPage />} />
+121:    <Route path="/membership" component={Pricing} />
+122:    <Route path="/pricing" component={Pricing} />
+123:    <Route path="/operating-model" component={OperatingModel} />
+125:    <Route path="/sponsors" component={() => <CommercialPage kind="sponsors" />} />
+126:    <Route path="/featured" component={() => <CommercialPage kind="featured" />} />
+127:    <Route path="/partners" component={() => <CommercialPage kind="partners" />} />
+128:    <Route path="/sponsorship" component={() => <CommercialPage kind="sponsors" />} />
+129:    <Route path="/applications" component={() => <ApplicationsPage />} />
+130:    <Route path="/providers/join" component={() => <ApplicationsPage kind="provider" />} />
+131:    <Route path="/demo-day" component={() => <DemoDayPage />} />
+133:    <Route path="/contact" component={ContactFlow} />
+134:    <Route path="/support" component={Support} />
+135:    <Route path="/about" component={() => <InformationPage kind="about" />} />
+136:    <Route path="/privacy" component={() => <InformationPage kind="privacy" />} />
+137:    <Route path="/terms" component={() => <InformationPage kind="terms" />} />
+138:    <Route path="/accessibility" component={() => <InformationPage kind="accessibility" />} />
+139:    <Route path="/403" component={() => <SystemStatePage code="403" />} />
+140:    <Route path="/429" component={() => <SystemStatePage code="429" />} />
+141:    <Route path="/500" component={() => <SystemStatePage code="500" />} />
+142:    <Route path="/offline" component={() => <SystemStatePage code="offline" />} />
+143:    <Route path="/maintenance" component={() => <SystemStatePage code="maintenance" />} />
+144:    <Route path="/invitation/expired" component={() => <SystemStatePage code="invitation-expired" />} />
+145:    <Route path="/404" component={NotFound} />
+--- INTERNAL LINK TARGETS ---
+/#how-it-works"
+/${prefix}/${item.slug}`}
+/accessibility"
+/applications"
+/articles/first-10-customers"
+/articles/the-good-request"
+/assessment"
+/community"
+/community/${post.id}`}
+/connect"
+/contact"
+/dashboard"
+/dashboard/billing"
+/dashboard/coach"
+/dashboard/discussions"
+/dashboard/events"
+/dashboard/events/founder-briefing"
+/dashboard/events/saas-summit-mena-2026"
+/dashboard/learner"
+/dashboard/members/${index + 1}`}
+/dashboard/members/${selectedIndex}`}
+/dashboard/notifications"
+/dashboard/profile"
+/dashboard/registrations"
+/dashboard/requests"
+/dashboard/requests/${index + 1}`}
+/dashboard/rooms"
+/events"
+/events/founder-briefing"
+/events/host"
+/forgot-password"
+/learn"
+/login"
+/matching"
+/members/${index + 1}`}
+/members/${person.id}`}
+/membership"
+/operating-model"
+/organizations/join"
+/organizations/new"
+/organizations/workspace"
+/partners"
+/playbooks"
+/podcasts"
+/podcasts/pricing-without-theatre"
+/pricing"
+/privacy"
+/providers"
+/providers/join"
+/providers?service=${category.query}`}
+/requests/${index + 1}`}
+/requests/browse"
+/requests/new"
+/roadmap/${item.slug}`}
+/roadmap/${next.slug}`}
+/roadmap/${previous.slug}`}
+/roadmap/${stage.slug}`}
+/roadmap/validation"
+/search"
+/signup"
+/sponsors"
+/stories"
+/support"
+/terms"
+/tools"
+/tools/pricing"
+/tools/pricing-advisor"
+/webinars/${webinar.slug}`}
+--- EM DASHES ---
+client/src/components/site/SiteShell.tsx:54:  { id: "connect", label: "Connect", href: "/connect", eyebrow: "People / asks / introductions", eyebrowAr: "أشخاص / طلبات / تعارف", description: "The MENA SaaS founder who has already faced your exact decision — not a generic accelerator alumni list.", descriptionAr: "مؤسس SaaS في المنطقة واجه قرارك بالضبط من قبل، لا قائمة خريجي برنامج تسريع عام.", groups: [
+client/src/components/site/SiteShell.tsx:61:  { id: "providers", label: "Providers", href: "/providers", eyebrow: "Specialist help / verified", eyebrowAr: "مساعدة متخصصة / موثقة", description: "A capped, vetted layer — about 20 spots a year — not another generic freelancer marketplace.", descriptionAr: "طبقة موثقة ومحدودة، نحو ٢٠ مكانا في السنة، لا سوق مستقلين عام آخر.", groups: [
+client/src/components/site/SiteShell.tsx:65:  { id: "learn", label: "Learn", href: "/learn", eyebrow: "7-stage roadmap / 9 functions", eyebrowAr: "٧ مراحل / ٩ وظائف", description: "Mapped to the MENA SaaS 7-Stage Growth Roadmap and its 9 functional pillars — not generic startup advice repackaged for SaaS.", descriptionAr: "مرتبط بخريطة نمو SaaS ذات السبع مراحل في المنطقة وركائزها الوظيفية التسع، لا نصائح عامة عن الشركات الناشئة أعيد تغليفها لـ SaaS.", groups: [
+client/src/components/site/SiteShell.tsx:69:  { id: "events", label: "Events", href: "/events", eyebrow: "Webinars / Summit / Demo Days", eyebrowAr: "ندوات / قمة / أيام عرض", description: "From monthly webinars to the SaaS Summit and Demo Days — choose the event by the outcome you want, not the size of the calendar.", descriptionAr: "من الندوات الشهرية إلى قمة SaaS وأيام العرض، اختر الفعالية حسب النتيجة التي تريدها، لا حسب حجم التقويم.", groups: [
+client/src/components/site/SiteShell.tsx:77:  { id: "membership", label: "Membership", href: "/pricing", eyebrow: "Profile first, Subscriber access when you need the full system", eyebrowAr: "الملف أولا، ثم وصول المشترك حين تحتاج النظام الكامل", description: "A free profile gets you into the directory. Subscriber access unlocks the full video library and the SaaS AI Coach when it is ready — and is the required gate before any paid cohort course.", descriptionAr: "الملف المجاني يدخلك الدليل. وصول المشترك يفتح مكتبة الفيديو الكاملة ومرشد SaaS بالذكاء الاصطناعي عند جاهزيته، وهو الشرط المطلوب قبل أي دورة جماعية مدفوعة.", groups: [
+client/src/flint-landing.css:2:   never touches the shared editorial system used by the rest of the app — this page
+client/src/locale.css:63:   just needs its own width here — no grid-column override needed to land it on the right. */
+client/src/locale.css:79:   rendered as Lucide icons — section-link "read more" arrows, job-card and roadmap-step
+client/src/pages/Home.tsx:45:  { number: "01", quote: ["Learn exactly what your stage needs, from people who've built it.", "تعلّم بالضبط ما تحتاجه مرحلتك، من أشخاص بنوا ذلك من قبل."], label: ["Education", "التعليم"], detail: ["Content is never generic — it is mapped to the founder's exact position on the 7-stage roadmap and the function they're stuck on.", "المحتوى ليس عاما أبدا؛ بل يرتبط بموقع المؤسس الدقيق على خريطة الطريق ذات المراحل السبع وبالمجال الذي يواجه فيه التحدي."] },
+client/src/pages/Home.tsx:164:          <p className="hero-subtitle">{t("The structured education, curated network, and practical tools you need to build, run, and scale a sustainable recurring-revenue business — in one place.", "التعليم المنظم والشبكة المنسقة والأدوات العملية التي تحتاجها لبناء وتشغيل وتوسيع عمل مستدام بإيرادات متكررة، في مكان واحد.")}</p>
+client/src/pages/Learn.tsx:2:/* Editorial operating system: Learn is a field guide—route labels, evidence rails, and practical next moves replace generic resource cards. */
+client/src/pages/Pricing.tsx:31:    <section className="section"><div className="container">{isPricingView ? <div className="pricing-value-ledger"><div className="pricing-value-ledger__head"><SectionLabel>{t("Price hypothesis record", "سجل فرضية السعر")}</SectionLabel><p>{t("A price is reviewed against a buyer, a value proof, and a delivery boundary—not presented as a broad public promise.", "يُراجع السعر مقابل المشتري ودليل القيمة وحد التسليم، ولا يقدم كوعد عام واسع.")}</p></div>{decisionSteps.map((step, index) => <article key={step.plan}><span>{formatNum(index + 1)}</span><div><small>{step.plan}</small><h3>{step.trigger}</h3></div><p>{step.unlock}</p><Link href="/tools/pricing" className="text-link">{index === 0 ? t("Define buyer", "حدد المشتري") : index === 1 ? t("Record proof", "سجل الدليل") : t("Test hypothesis", "اختبر الفرضية")} <Arrow size={14} /></Link></article>)}</div> : <div className="pricing-grid">{accessStates.map((state) => <article key={state.name} className={`plan ${state.highlight ? "highlight" : ""}`}>{state.highlight && <SignalTag>{t("The useful first commitment", "الالتزام الأول المفيد")}</SignalTag>}<span className="mono">{t(state.state, state.stateAr)}</span><h3>{t(state.name, state.nameAr)}</h3><p>{t(state.copy, state.copyAr)}</p><div className="plan-price">{t(state.state, state.stateAr)}</div><div className="plan-features">{state.features.map((feature, index) => <div key={feature}><Check className="check" size={15} />{t(feature, state.featuresAr[index])}</div>)}</div><Link href={state.href} className={`button ${state.highlight ? "button-primary" : "button-ghost"}`}>{t(state.cta, state.ctaAr)} <Arrow size={14} /></Link></article>)}</div>}</div></section>
+client/src/pages/ProductFlows.tsx:470:    resultTagline: ["Market brief / ready", "موجز السوق / جاهز"], signalTitle: ["A market claim gets stronger when the alternative is visible.", "يقوى ادعاء السوق عندما يكون البديل مرئيا."], signalBody: ["The map should help you compare the current method, the customer job, and the evidence still missing—not declare a winner from a distance.", "يجب أن تساعدك الخريطة على مقارنة الطريقة الحالية ووظيفة العميل والدليل الذي لا يزال مفقودا، لا إعلان فائز من بعيد."], nextTitle: ["Collect one comparable replacement story.", "اجمع قصة استبدال متشابهة واحدة."], nextBody: ["Keep the customer job, current alternative, and decision evidence together before you change the market narrative.", "أبقِ وظيفة العميل والبديل الحالي ودليل القرار معا قبل تغيير سردية السوق."], fileSlug: "market-evidence-map", briefTitle: ["ASaaSI market evidence brief", "موجز دليل السوق من أساسي"],
+client/src/pages/ProductFlows.tsx:488:    resultTagline: ["Activation path / ready", "مسار التفعيل / جاهز"], signalTitle: ["Activation is a first-value path, not a completed checklist.", "التفعيل مسار قيمة أولى، لا قائمة تحقق مكتملة."], signalBody: ["Keep the customer intent, first-value action, friction, and cohort intervention in one record before redesigning the whole onboarding flow.", "أبقِ نية العميل وفعل القيمة الأولى والاحتكاك وتدخل المجموعة في سجل واحد قبل إعادة تصميم مسار التهيئة كاملا."], nextTitle: ["Run one cohort intervention and review the observed action.", "شغّل تدخل مجموعة واحدة وراجع الفعل الملحوظ."], nextBody: ["Set the review point in advance, then decide whether to keep, refine, or remove the intervention based on the customer action—not a vanity completion rate.", "حدد نقطة المراجعة مسبقا، ثم قرر الإبقاء على التدخل أو تحسينه أو إزالته بناء على فعل العميل، لا معدل إكمال شكلي."], fileSlug: "activation-evidence-path", briefTitle: ["ASaaSI activation evidence path", "مسار دليل التفعيل من أساسي"],
+client/src/pages/Tools.tsx:2:/* Editorial operating system: Tools is a workbench—transparent inputs, visible assumptions, and a concrete next action. */
+client/src/pages/Tools.tsx:36:    <PageIntro label={t("Grow / Founder tools", "انمُ / أدوات المؤسس")} title={t("Turn uncertainty into a plan you can act on this week.", "حول عدم اليقين إلى خطة يمكنك تنفيذها هذا الأسبوع.")} copy={t("A small library of decision tools for founders who want to see the assumptions, make the call, and keep moving.", "مكتبة صغيرة من أدوات القرار للمؤسسين الذين يريدون رؤية الافتراضات واتخاذ القرار والاستمرار.")} note={<div className="tools-hero-workbench"><span className="mono">{t("WORKBENCH / PRIVATE BY DEFAULT", "طاولة عمل / خاص افتراضيا")}</span><div><span><b>01</b>{t("Input", "مدخل")}</span><span><b>02</b>{t("Test", "اختبر")}</span><span><b>03</b>{t("Act", "تحرك")}</span></div><p>{t("The tool shows what it asks, what it calculates, and the next test—not a mystery score.", "توضح الأداة ما تطلبه وما تحسبه والاختبار التالي، لا درجة غامضة.")}</p><button className="button button-primary button-small" onClick={() => showToast(t("Tool recommendation started with your founder brief.", "بدأت توصية أداة من موجز مؤسسك."))}>{t("Recommend a tool", "اقترح أداة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</button></div>} />
+client/src/pages/RoadmapStage.tsx:30:    workingRule: ["Until paying customers prove the assumption, the founder is a researcher — not a feature factory.", "حتى يثبت العملاء الدافعون الافتراض، يكون المؤسس باحثا لا مصنع ميزات."],
+client/src/pages/RoadmapStage.tsx:31:    courseName: ["MENA SaaS Foundation Masterclass — Stage 1", "ماستر كلاس أساسيات SaaS في الشرق الأوسط — المرحلة الأولى"],
+client/src/pages/RoadmapStage.tsx:37:      { title: ["Committed pilots", "تجارب ملتزمة"], detail: ["Signed LOIs or paid concierge pilots — not compliments.", "خطابات نوايا موقعة أو تجارب مدفوعة — لا مجاملات."] },
+client/src/pages/RoadmapStage.tsx:47:    courseName: ["Stage 2 course — MVP with a committed cohort", "دورة المرحلة الثانية — المنتج الأولي مع مجموعة ملتزمة"],
+client/src/pages/RoadmapStage.tsx:54:      { title: ["Usable first release", "إصدار أول قابل للاستخدام"], detail: ["A reliable path to the outcome you sold — without needless surface area.", "طريق موثوق إلى النتيجة التي بعتها — دون نطاق زائد."] },
+client/src/pages/RoadmapStage.tsx:63:    courseName: ["Stage 3 course — Acquisition & distribution", "دورة المرحلة الثالثة — الاكتساب والتوزيع"],
+client/src/pages/RoadmapStage.tsx:78:    workingRule: ["Retention is a customer outcome and a company habit — not a late rescue campaign.", "الاحتفاظ نتيجة للعميل وعادة للشركة — لا حملة إنقاذ متأخرة."],
+client/src/pages/RoadmapStage.tsx:79:    courseName: ["Stage 4 course — Customer retention", "دورة المرحلة الرابعة — الاحتفاظ بالعملاء"],
+client/src/pages/RoadmapStage.tsx:92:    promise: ["Be recognized as number one in your niche — and have the power to say no.", "كن معروفا كرقم واحد في شريحتك — وامتلك القدرة على قول لا."],
+client/src/pages/RoadmapStage.tsx:95:    courseName: ["Stage 5 course — Product focus", "دورة المرحلة الخامسة — تركيز المنتج"],
+client/src/pages/RoadmapStage.tsx:111:    courseName: ["Stage 6 course — Scalability & growth", "دورة المرحلة السادسة — القابلية للتوسع والنمو"],
+client/src/pages/RoadmapStage.tsx:127:    courseName: ["Stage 7 course — Governance", "دورة المرحلة السابعة — الحوكمة"],
+client/src/pages/RoadmapStage.tsx:260:          <p>{courseReady ? t("A practical stage guide built around decisions, evidence, and working deliverables — not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية — لا نظرية عامة.") : t("Follow the stage briefing, not a premature course promise. The roadmap keeps the next operating questions visible while the curriculum is built.", "تابع موجز المرحلة، لا وعد دورة مبكر. تُبقي الخارطة أسئلة التشغيل التالية ظاهرة أثناء بناء المنهج.")}</p>
+client/src/pages/OperatingModel.tsx:39:    <section className="section operating-model-principles"><div className="container"><div className="section-header"><div><SectionLabel>{t("Mission / vision", "المهمة / الرؤية")}</SectionLabel><h2>{t("Foundational, regional, integrated, evidence-led, and compounding.", "تأسيسي وإقليمي ومتكامل وقائم على الدليل ومتراكم الأثر.")}</h2></div><p>{t("The product is not a course catalogue or a community feed. Education, Community, and Tools are one connected system; the SaaS AI Coach is the layer that makes their context useful together.", "المنتج ليس فهرس دورات أو موجز مجتمع. التعليم والمجتمع والأدوات نظام واحد متصل؛ ومرشد SaaS بالذكاء الاصطناعي هو الطبقة التي تجعل سياقها مفيدا معا.")}</p></div><div className="operating-model-principles__grid"><article><span>01</span><h3>{t("Mission", "المهمة")}</h3><p>{t("Give every MENA SaaS founder the structured education, curated network, and practical tools needed to build, run, and scale a sustainable recurring-revenue business.", "منح كل مؤسس SaaS في المنطقة التعليم المنظم والشبكة المنتقاة والأدوات العملية اللازمة لبناء وتشغيل وتوسيع عمل إيرادات متكررة مستدام.")}</p></article><article><span>02</span><h3>{t("Vision", "الرؤية")}</h3><p>{t("Become the first place a founder in the region turns to learn, connect, find tools, and get guided from the first paying customer through to exit.", "أن نصبح المكان الأول الذي يلجأ إليه مؤسس في المنطقة للتعلم والتواصل والعثور على الأدوات والحصول على الإرشاد من أول عميل دافع حتى التخارج.")}</p></article><article><span>03</span><h3>{t("Working rule", "قاعدة العمل")}</h3><p>{t("Every path must name the founder stage, the function at stake, and the evidence they should leave with — never generic startup motivation.", "يجب أن يسمي كل مسار مرحلة المؤسس والوظيفة المعنية والدليل الذي ينبغي أن يغادر به — لا تحفيزا عاما للشركات الناشئة.")}</p></article></div></div></section>
+client/src/asaasi-unified.css:930:/* Editorial operating system: public perks are access records—job, eligibility, and outcome—not promotional coupon cards. */
