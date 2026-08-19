@@ -76,3 +76,10 @@
 - [x] Standardize shared typography, navigation, actions, cards, dividers, imagery, and responsive behavior.
 - [x] Redesign each remaining route family using landing-derived components and page-specific editorial structures.
 - [x] Verify representative public, account, detail, and authenticated workspace route families at desktop and mobile sizes, then resolve visual inconsistencies.
+
+## Iterative Full-Site Refinement
+
+- [ ] Re-audit each route family for any remaining template-like layouts or landing-system drift.
+- [ ] Refine shared visual primitives and the highest-impact public route compositions.
+- [ ] Refine account and workspace route interactions and component hierarchy.
+- [ ] Verify desktop and mobile route families after the enhancement pass.

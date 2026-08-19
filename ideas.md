@@ -47,3 +47,6 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Membership is framed around a founder constraint and unlocked momentum.** Tier cards remain a detailed comparison only after the decision path.
 - **Route identity must be visible before scrolling.** Community opens with a stepped thread model, Learn with a field-guide index, Events with a dated event path, Tools with an operational worksheet, Pricing with a decision map, Support with a routing desk, and About with a network manifesto.
 - **Reusable guidance is an editorial object, never a generic floating SaaS card.** Use a labelled rail, evidence panel, decision strip, or node-and-ring annotation to carry supporting context.
+- **Route archetypes arrive immediately.** The first viewport must expose the working object of the route—thread stack, field-guide prompt, event date path, workbench question, membership constraint, routing choice, or member evidence—not only a shared headline pattern.
+- **Saffron never becomes the default panel fill.** It is limited to active rails, node/ring markers, index numerals, provenance, and one narrow emphasis edge within a section.
+- **Images carry proof, not decoration.** When imagery appears, frame it as a founder-work artifact, regional context, or annotated field note rather than a lifestyle filler.

@@ -19,3 +19,8 @@
 
 | `/dashboard/settings` | Two deliberate control panels, navy/saffron top rules, large editorial settings headings, and visible account boundaries now align with the workspace component system. | Treat this as the standard control-panel treatment. |
 | `/dashboard/saved` | Saved content is presented as a clean signal queue with large labels, muted provenance, and a focused removal action rather than generic cards. | Reuse this operational-list pattern for following, invitations, and registrations. |
+
+| `/dashboard/organizations` | The organization route uses an editorial workspace heading, a visible account role, and direct organization actions in a restrained field layout. | Preserve the contextual workspace treatment; extend its activity and role tabs with the same rule-led rail language as dashboard queues. |
+| `/dashboard/invitations` | Pending invitations have a decisive editorial heading, clear provenance, sizable action controls, and an uncluttered vertical queue. | Preserve this as the pattern for approval-oriented workflow pages. |
+| `/dashboard/organizations` (refined) | Organization choices now read as indexed operational records with a node marker, a visible ownership line, a contextual summary, and direct next action. | Preserve the organization record format for additional team workspaces. |
+| `/dashboard/billing` (refined) | Membership access now reads as a comparison ledger with visible constraints, unlocks, status, and action rather than a stack of broad plan cards. | Preserve this as the authenticated membership decision record. |
