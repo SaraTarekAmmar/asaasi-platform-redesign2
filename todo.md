@@ -209,3 +209,10 @@
 - [x] Refine the highest-impact account, membership, and fallback archetypes with landing-derived access, status, or recovery structures.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Localized and Navigation-State Continuation
+
+- [x] Inspect localized and remaining navigation-state variants for generic hierarchy, weak RTL composition, or shared-state drift.
+- [x] Refine the highest-impact localized and navigation patterns with landing-derived route objects, rails, and signal states.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
