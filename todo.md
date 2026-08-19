@@ -270,3 +270,10 @@
 - [x] Refine the highest-impact page and tool interactions in the shared landing-derived system.
 - [x] Verify updated routes at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Document the audit and save the next visual-alignment checkpoint.
+
+## Account, Learning, and Event Route Audit
+
+- [x] Audit remaining account, learning, event, and interaction states for generic composition or landing-system drift.
+- [x] Refine the highest-impact route-specific operating objects and interaction feedback.
+- [x] Verify desktop, tablet, and mobile layouts without modifying the landing page.
+- [x] Document the refinements and save the next visual-alignment checkpoint.

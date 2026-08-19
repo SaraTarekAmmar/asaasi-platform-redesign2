@@ -1,0 +1,82 @@
+/* Editorial operating system: auth panels carry named operating states; saffron remains a small state signal, never a decorative visual mass. */
+
+.app-product .account-flow .account-visual::before,
+.app-product .account-flow .account-visual::after {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.app-product .account-flow .account-return-object {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(223, 227, 234, 0.32);
+  background: transparent !important;
+}
+
+.app-product .account-flow .account-return-object::before {
+  display: block;
+  width: 2rem;
+  height: 1px;
+  margin-bottom: 0.75rem;
+  background: #f6c915;
+  content: "";
+}
+
+.app-product .account-flow .account-return-object li.is-active i {
+  background: #f6c915;
+  color: #071b3d;
+}
+
+.app-product .account-flow--network .account-visual h1 { max-width: 11ch; }
+.app-product .account-flow--network .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+
+/* Dashboard, profile, and settings arrive through the expanded return object while preserving the composed account-panel grammar. */
+.app-product .account-flow--network .account-return-object > .mono + ol { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(223, 227, 234, 0.28); }
+.app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 78px; padding: .75rem .7rem; border-inline-end: 1px solid rgba(223, 227, 234, 0.2); }
+.app-product .account-flow--network .account-return-object > .mono + ol li:last-child { border-inline-end: 0; }
+.app-product .account-flow--network .account-return-object > .mono + ol li strong { display: block; margin-top: .55rem; color: #fbfbf8; font: 500 .7rem/1.25 "DM Sans", sans-serif; }
+
+/* Signup records the four founder signals that change the workspace; the active signal carries a narrow saffron state rather than a broad fill. */
+.app-product .signup-aside .signup-trail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  max-width: 530px;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(223, 227, 234, 0.3);
+  border-inline-start: 1px solid rgba(223, 227, 234, 0.2);
+}
+
+.app-product .signup-aside .signup-trail span {
+  position: relative;
+  min-height: 72px;
+  padding: 1rem 1rem 1rem 2.6rem;
+  border-bottom: 1px solid rgba(223, 227, 234, 0.22);
+  border-inline-end: 1px solid rgba(223, 227, 234, 0.2);
+  color: rgba(251, 251, 248, 0.65);
+  font: 500 .76rem/1.3 "DM Sans", sans-serif;
+}
+
+.app-product .signup-aside .signup-trail span::before {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: 1.05rem;
+  width: .8rem;
+  height: .8rem;
+  border: 1px solid #f6c915;
+  border-radius: 50%;
+  content: "";
+}
+
+.app-product .signup-aside .signup-trail span.active { color: #fbfbf8; background: rgba(255,255,255,.045); }
+.app-product .signup-aside .signup-trail span.active::before { background: #f6c915; box-shadow: 0 0 0 4px rgba(246,201,21,.1); }
+.app-product .signup-aside .signup-trail span.done { color: #fbfbf8; }
+.app-product .signup-aside .signup-trail span.done::before { background: #f6c915; }
+
+@media (max-width: 760px) {
+  .app-product .account-flow--network .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+  .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 52px; padding: .65rem 0; border-inline-end: 0; border-top: 1px solid rgba(223, 227, 234, 0.2); }
+  .app-product .account-flow--network .account-return-object > .mono + ol li strong { display: inline-block; margin: 0 0 0 .6rem; }
+  .app-product .signup-aside .signup-trail { grid-template-columns: 1fr; }
+  .app-product .signup-aside .signup-trail span { min-height: 50px; padding-top: .75rem; padding-bottom: .75rem; }
+}
