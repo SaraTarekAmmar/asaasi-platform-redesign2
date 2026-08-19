@@ -66,3 +66,12 @@
 | `/tools` | Tool safety retains the workbench logic while saffron is restricted to a top rule and node, not a large panel fill. | The safety section reads as an evidence strip at desktop and mobile sizes. |
 | `/pricing` | Access sequencing precedes tier detail, and plan cells retain a ruled decision-record hierarchy. | The subscriber pathway stays legible without a generic pricing-card silhouette. |
 | `/dashboard` | The founder command center maintains a strong operating-line slab, momentum rail, signal ring, weekly focus, and orbit context. | Authenticated browser review found no generic-card or interaction hierarchy drift requiring further changes in this pass. |
+
+## Remaining first-screen archetypes — verified
+
+| Route | Final working object | Verification outcome |
+|---|---|---|
+| `/support` | A three-row routing desk now directs Guides, Community, and Trust through labelled operational rows rather than raised support cards. | The current step ring, rail-linked human-support context, FAQ answers, and mobile sequence remain clear. |
+| `/providers` | The hero context is an explicit provenance rail, and the results remain verified specialist rows with rate/context/introduction evidence. | First-screen and mobile views now make verification and service relevance visible before a request action. |
+| `/events/host` | The date marker, review status, Date → Room → Follow-up trace, and Brief → Review → Listed submission path form the primary route silhouette. | Desktop and mobile checks retain a focused event-submission flow without generic cards. |
+| `/operating-model` | The hero context is now an Education → Network → Tools operating map with readiness, provenance, and decision-support signals. | The public model reads as a system map instead of another hero-with-card composition at both breakpoints. |

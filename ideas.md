@@ -56,3 +56,7 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Connect begins with a matching object, not only a promise.** The visible brief follows Decision → Context → Introduction, and people discovery defaults to indexed evidence rails rather than equal profile cards.
 - **Community begins with a thread stack, not only a headline.** Post → Reply → Answer remains a live first-screen object and a recurring node-and-ring language in the discussion flow.
 - **Repeated content defaults to editorial systems.** Directories, matching results, posts, tools, events, and access states use rails, timelines, evidence panels, or decision strips unless the content itself is a specifically annotated editorial object.
+- **Support is a routing desk, not a card grid.** Guides, Community, and Trust appear as labelled operational rows, while human support uses a current-step context rail.
+- **Providers lead with provenance.** Verification, scope, rate, and relevance form an evidence rail before an introduction is requested.
+- **Event hosting begins with the date and review path.** Date → Room → Follow-up and Brief → Review → Listed must carry the first-screen event-submission identity.
+- **The operating model begins as a map.** Education, Network, and Tools are mapped with readiness and decision-support node states before the narrative sections begin.

@@ -132,3 +132,10 @@
 - [x] Refine the highest-impact shared component or route composition still drifting from the landing reference.
 - [x] Verify the updated screens at desktop and mobile widths while keeping the landing page unchanged.
 - [x] Record the audit result and save the next visual-alignment checkpoint.
+
+## First-Screen Archetype Continuation
+
+- [x] Re-inspect remaining public, account, and workspace first screens for any residual generic editorial rhythm.
+- [x] Strengthen the highest-impact route archetypes with landing-derived working objects, rails, or operational evidence.
+- [x] Verify the updated screens at desktop and mobile sizes while keeping the landing page unchanged.
+- [x] Document the findings and save the next visual-alignment checkpoint.
