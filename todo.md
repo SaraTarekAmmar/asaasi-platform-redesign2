@@ -285,3 +285,12 @@
 - [x] Repair route destinations, Arabic RTL presentation, and interaction feedback where needed.
 - [x] Verify public, protected, workspace, mobile, tablet, desktop, English, and Arabic route families.
 - [x] Document the audit and save the next visual-alignment checkpoint.
+
+## Deep Route, Motion, Roadmap, Course, and Partner Audit
+
+- [x] Research public competitor interaction, course, and partner-directory patterns worth adapting without copying claims, brands, or interfaces.
+- [x] Audit all public, protected, workspace, subpage, and recovery states for generic hierarchy or weak route identity.
+- [x] Redesign the seven-stage roadmap details, course journey, and ASaaSI partner directory and application flow.
+- [x] Add purposeful Framer Motion with reduced-motion support across shared non-landing experiences.
+- [x] Verify desktop, tablet, mobile, English, and Arabic RTL journeys without modifying the landing page.
+- [x] Document the audit and save the next visual-alignment checkpoint.

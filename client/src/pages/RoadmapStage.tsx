@@ -1,5 +1,6 @@
 /* Landing-roadmap detail page: Manrope display type, DM Sans body, warm paper, navy structure, and saffron-only progress signals. */
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
+import { motion } from "framer-motion";
 import { Link, useParams } from "wouter";
 import { SectionLabel } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
@@ -169,7 +170,7 @@ export default function RoadmapStagePage() {
   const next = stages[activeIndex + 1];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
-  return <main className={`roadmap-stage-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
+  return <motion.main initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.48, ease: [0.23, 1, 0.32, 1] }} className={`roadmap-stage-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
     <section className="roadmap-stage-hero">
       <div className="container roadmap-stage-hero__inner">
         <div className="roadmap-stage-hero__copy">
@@ -232,7 +233,7 @@ export default function RoadmapStagePage() {
       {previous ? <Link href={`/roadmap/${previous.slug}`} className="roadmap-stage-neighbour roadmap-stage-neighbour--previous"><span>{t("Previous stage", "المرحلة السابقة")}</span><strong>{t(previous.title[0], previous.title[1])}</strong></Link> : <span />}
       {next ? <Link href={`/roadmap/${next.slug}`} className="roadmap-stage-neighbour roadmap-stage-neighbour--next"><span>{t("Next stage", "المرحلة التالية")}</span><strong>{t(next.title[0], next.title[1])}</strong></Link> : <Link href="/assessment" className="roadmap-stage-neighbour roadmap-stage-neighbour--next"><span>{t("Not sure where to start?", "غير متأكد من أين تبدأ؟")}</span><strong>{t("Take the founder test", "أجر اختبار المؤسس")}</strong></Link>}
     </nav>
-  </main>;
+  </motion.main>;
 }
 
 export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
@@ -244,7 +245,7 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
   const workingObject = stageWorkingObjects[stage.slug];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
-  return <main className={`roadmap-stage-route roadmap-course-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
+  return <motion.main initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.48, ease: [0.23, 1, 0.32, 1] }} className={`roadmap-stage-route roadmap-course-route roadmap-stage-route--${stage.slug}`} dir={isRTL ? "rtl" : "ltr"}>
     <section className="roadmap-stage-hero roadmap-course-hero">
       <div className="container roadmap-stage-hero__inner">
         <div className="roadmap-stage-hero__copy">
@@ -297,5 +298,5 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
         </div>
       </div>
     </section>
-  </main>;
+  </motion.main>;
 }

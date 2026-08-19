@@ -13,7 +13,7 @@ import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
 import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
 import { Dashboard, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
-import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PerksPublicPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
+import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PartnerDirectoryPage, PerksPublicPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
 import "./product-flows.css";
 import "./missing-pages.css";
 import "./ux-system.css";
@@ -27,6 +27,7 @@ import "./commercial-contact-refinement.css";
 import "./discovery-content-refinement.css";
 import "./account-access-refinement.css";
 import "./nonlanding-controls-refinement.css";
+import "./partner-motion-refinement.css";
 import { SiteShell } from "./components/site";
 
 function Router() {
@@ -125,7 +126,8 @@ function Router() {
 
     <Route path="/sponsors" component={() => <CommercialPage kind="sponsors" />} />
     <Route path="/featured" component={() => <CommercialPage kind="featured" />} />
-    <Route path="/partners" component={() => <CommercialPage kind="partners" />} />
+    <Route path="/partners" component={PartnerDirectoryPage} />
+    <Route path="/partners/apply" component={() => <ApplicationsPage kind="partner" />} />
     <Route path="/sponsorship" component={() => <CommercialPage kind="sponsors" />} />
     <Route path="/applications" component={() => <ApplicationsPage />} />
     <Route path="/providers/join" component={() => <ApplicationsPage kind="provider" />} />
