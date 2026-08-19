@@ -51,3 +51,9 @@
 - [x] Replace the current centred Connect hero with an asymmetric founder-matching experience.
 - [x] Rebuild the page around a connection map, matching inputs, and introduction outcomes.
 - [x] Verify the redesigned Connect page on desktop and mobile before checkpointing.
+
+## Connect Landing-Composition Rebuild
+
+- [x] Replace the dark matching-map treatment with a landing-style white hero, visual image band, and floating context panel.
+- [x] Recompose the matching modules into the landing’s warm editorial blocks and card rhythm.
+- [x] Verify desktop and mobile alignment against the landing page’s actual visual language.
