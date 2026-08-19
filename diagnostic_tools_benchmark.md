@@ -18,8 +18,19 @@ ASaaSI will preserve the landing-derived editorial visual system: off-white canv
 
 Each tool will expose a functional working object in the first viewport and conclude with one **bounded experiment record**, not a verdict, benchmark score, funding recommendation, or automated financial advice.
 
+## Additional validation and positioning patterns
+
+| Source | Public pattern observed | ASaaSI adaptation |
+|---|---|---|
+| [April Dunford, “A Product Positioning Exercise”](https://www.aprildunford.com/post/a-product-positioning-exercise) | Positioning begins by separating the product’s historical label from the differentiated value and by choosing a market frame that helps the buyer understand the value. | Add a **Positioning Evidence Record** that keeps the customer’s current alternative, the differentiated capability, the buyer-recognised value, and a single category/frame test together. It avoids prescribed category labels or claims of product-market fit. |
+| [Koji, “Startup Idea Validation: How to Test Your Idea with Customer Interviews”](https://www.koji.so/docs/startup-idea-validation-guide) | Document assumptions, look for recurring customer-problem language, seek commitment rather than compliments, and evaluate observed behaviour rather than stated opinion. | Add a **Customer Evidence Loop** that moves from an assumption to a customer-language note to one commitment signal. Its output is a bounded next interview or test, not a validation score. |
+
+These additions reinforce ASaaSI’s existing workbench distinction: it treats explicit assumptions, observable evidence, and a reversible next move as primary objects, rather than using AI-generated certainty or unqualified market claims.
+
 ## References
 
 1. [Gainsight, “Customer Health Score Explained: Metrics, Models & Tools.”](https://www.gainsight.com/blog/customer-health-scores/)
 2. [PlanMySaaS, “Free SaaS Pricing Calculator.”](https://www.planmysaas.com/tools/saas-pricing-calculator)
 3. [StartupCFO, “Free SaaS Runway Calculator.”](https://www.startupcfo.ai/tools/runway)
+4. [April Dunford, “A Product Positioning Exercise.”](https://www.aprildunford.com/post/a-product-positioning-exercise)
+5. [Koji, “Startup Idea Validation: How to Test Your Idea with Customer Interviews.”](https://www.koji.so/docs/startup-idea-validation-guide)

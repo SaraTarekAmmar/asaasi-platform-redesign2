@@ -254,3 +254,11 @@
 - [x] Build the remaining ASaaSI diagnostic workbenches as evidence-led decision records in the landing-derived system.
 - [x] Verify updated tools at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Document the adaptations and save the next visual-alignment checkpoint.
+
+## Continuing Route and Workbench Audit
+
+- [x] Review additional public workbench patterns for practical evidence, operating-context, and next-action mechanics worth adapting.
+- [x] Audit residual public and workspace route states for any remaining generic composition or landing-system drift.
+- [x] Refine the highest-impact route and tool behaviors in the landing-derived editorial system.
+- [x] Verify the refinements at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Document the changes and save the next visual-alignment checkpoint.
