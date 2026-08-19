@@ -146,3 +146,10 @@
 - [x] Refine the highest-impact remaining components with landing-derived rails, evidence, status, and action patterns.
 - [x] Verify the updated screens at desktop, tablet, and mobile widths without changing the landing page.
 - [x] Record the findings and save the next full-site alignment checkpoint.
+
+## Public, Organisation, and Membership Route Continuation
+
+- [x] Re-inspect remaining public, organisation, and membership route variants for residual generic structure or weak route identity.
+- [x] Refine the highest-impact remaining page or shared component with landing-derived operational patterns.
+- [x] Verify the updated routes at desktop, tablet, and mobile widths while leaving the landing page unchanged.
+- [x] Record findings and save the next visual-alignment checkpoint.

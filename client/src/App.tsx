@@ -113,6 +113,7 @@ function Router() {
     <Route path="/tools/:slug" component={ToolFlow} />
     <Route path="/tools" component={Tools} />
     <Route path="/workshops" component={() => <WorkshopsPage />} />
+    <Route path="/membership" component={Pricing} />
     <Route path="/pricing" component={Pricing} />
     <Route path="/operating-model" component={OperatingModel} />
 

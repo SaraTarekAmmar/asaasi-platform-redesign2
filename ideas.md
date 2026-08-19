@@ -60,3 +60,6 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Providers lead with provenance.** Verification, scope, rate, and relevance form an evidence rail before an introduction is requested.
 - **Event hosting begins with the date and review path.** Date → Room → Follow-up and Brief → Review → Listed must carry the first-screen event-submission identity.
 - **The operating model begins as a map.** Education, Network, and Tools are mapped with readiness and decision-support node states before the narrative sections begin.
+- **Organization routes have separate operating maps.** Partner pages use Audience frame → Program design → Founder handoff, while Sponsor pages use Audience evidence → Outcome agreement → Placement review; shared primitives do not justify shared content structures.
+- **Live learning exposes its operating object before the listing.** Webinars lead with Date → Live room → Field note and appear as dated timeline records; workshops lead with Input → Working session → Shipped deliverable and appear as workbench ledgers.
+- **Membership navigation always resolves to the membership decision map.** `/membership` is a first-class destination for the Visitor → Registered → Subscriber access sequence rather than a missing route.
