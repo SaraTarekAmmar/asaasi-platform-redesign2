@@ -139,3 +139,10 @@
 - [x] Strengthen the highest-impact route archetypes with landing-derived working objects, rails, or operational evidence.
 - [x] Verify the updated screens at desktop and mobile sizes while keeping the landing page unchanged.
 - [x] Document the findings and save the next visual-alignment checkpoint.
+
+## Continued Interactive-State Alignment
+
+- [x] Re-inspect remaining public, account, and workspace interaction states for residual generic composition or weak visual feedback.
+- [x] Refine the highest-impact remaining components with landing-derived rails, evidence, status, and action patterns.
+- [x] Verify the updated screens at desktop, tablet, and mobile widths without changing the landing page.
+- [x] Record the findings and save the next full-site alignment checkpoint.

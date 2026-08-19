@@ -75,3 +75,13 @@
 | `/providers` | The hero context is an explicit provenance rail, and the results remain verified specialist rows with rate/context/introduction evidence. | First-screen and mobile views now make verification and service relevance visible before a request action. |
 | `/events/host` | The date marker, review status, Date → Room → Follow-up trace, and Brief → Review → Listed submission path form the primary route silhouette. | Desktop and mobile checks retain a focused event-submission flow without generic cards. |
 | `/operating-model` | The hero context is now an Education → Network → Tools operating map with readiness, provenance, and decision-support signals. | The public model reads as a system map instead of another hero-with-card composition at both breakpoints. |
+
+## Interactive state refinement — verified
+
+| Route | Interaction-state treatment | Verification outcome |
+|---|---|---|
+| `/matching` | The expanded Founder stage and Focus area controls now form an inline “Narrow the signal” rail with scope markers, ruled inputs, and an attached clear action instead of a floating filter popover. | Authenticated review confirms the rail remains attached to the match evidence and preserves search, stage, focus, saved, review-fit, and no-results states. |
+| `/dashboard/assessment` | The diagnostic retains a sparse prompt-led decision screen with four large answer records and a visible signal marker. | Authenticated review found the question, answer affordances, and founder-workspace context clear without generic-card drift. |
+| `/dashboard/notifications` | Notification records retain their compact signal-list hierarchy, timestamp provenance, unread status, and direct next-action arrow. | Authenticated review found the operational queue already aligned; no visual change required in this pass. |
+| `/forgot-password`, `/reset-password`, `/verify-email` | Account-recovery modes preserve the navy signal slab, ring identity mark, compact form route, and footer context at mobile size. | All registered recovery modes render correctly at the mobile breakpoint; `/recovery` intentionally remains a missing-page recovery state rather than a registered account URL. |
+| `/dashboard/settings` | The control panel retains two distinct ruled notification and account zones, compact switches, direct account actions, and a single save outcome. | Authenticated review found settings already aligned with the landing-derived control-panel language; no visual change required in this pass. |
