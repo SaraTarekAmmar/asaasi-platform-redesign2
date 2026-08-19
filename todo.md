@@ -188,3 +188,10 @@
 - [x] Refine the highest-impact learning and roadmap archetypes with landing-derived readiness, evidence, and next-move structures.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Founder Utility, Matching, and Operational Continuation
+
+- [x] Inspect remaining founder utility, matching, and authenticated operational routes for residual generic hierarchy or repeated silhouettes.
+- [x] Refine the highest-impact operational route archetypes with landing-derived decision objects, evidence rails, or status paths.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
