@@ -153,3 +153,10 @@
 - [x] Refine the highest-impact remaining page or shared component with landing-derived operational patterns.
 - [x] Verify the updated routes at desktop, tablet, and mobile widths while leaving the landing page unchanged.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Detail, Discovery, and Workspace Continuation
+
+- [x] Inspect the remaining public detail, discovery, and workspace route variants for generic hierarchy or repeated page silhouettes.
+- [x] Refine the highest-impact residual archetypes with landing-derived evidence rails, decision strips, or editorial route objects.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.

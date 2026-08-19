@@ -28,9 +28,10 @@ function addNewPost(post: (typeof posts)[number]) { newPostsStore = [post, ...ne
 function subscribeNewPosts(listener: () => void) { newPostsListeners.add(listener); return () => newPostsListeners.delete(listener); }
 function useNewPosts() { return useSyncExternalStore(subscribeNewPosts, () => newPostsStore); }
 
-function SignInGate({ title, copy }: { title: string; copy: string }) {
-  const { t, isRTL } = useLocale();
-  return <section className="section"><div className="container"><div className="empty-state" style={{ margin: "0 auto", maxWidth: 460 }}><LockKeyhole size={20} /><h2>{title}</h2><p>{copy}</p><Link href="/login" className="button button-dark">{t("Sign in to continue", "سجل الدخول للمتابعة")} {isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link></div></div></section>;
+function ThreadRouteState({ title, copy, unavailable = false }: { title: string; copy: string; unavailable?: boolean }) {
+  const { t, formatNum, isRTL } = useLocale();
+  const note = <div className="community-hero-thread-stack thread-route-state__map"><span className="mono">{t("THREAD / ROUTE / ANSWER", "الموضوع / المسار / الإجابة")}</span><ol><li className="is-active"><i>{formatNum("01")}</i><div><strong>{unavailable ? t("Route", "المسار") : t("Thread", "الموضوع")}</strong><small>{unavailable ? t("find an active question", "اعثر على سؤال نشط") : t("read the context first", "اقرأ السياق أولا")}</small></div></li><li><i>{formatNum("02")}</i><div><strong>{t("Reply", "رد")}</strong><small>{t("add useful context", "أضف سياقا مفيدا")}</small></div></li><li><i>{formatNum("03")}</i><div><strong>{t("Answer", "إجابة")}</strong><small>{t("carry one next move", "احمل خطوة تالية واحدة")}</small></div></li></ol></div>;
+  return <><PageIntro label={t("Community / Thread", "المجتمع / موضوع")} title={title} copy={copy} note={note} /><section className="section"><div className="container"><div className="thread-route-state"><div><SectionLabel>{unavailable ? t("Thread routing desk", "مكتب توجيه المواضيع") : t("Member thread access", "وصول عضو للموضوع")}</SectionLabel><h2>{unavailable ? t("The useful question is still in the room.", "السؤال المفيد ما زال في الغرفة.") : t("Keep the context connected to the reply.", "أبقِ السياق متصلا بالرد.")}</h2><p>{unavailable ? t("Choose a live founder question, then add the experience that moves it forward.", "اختر سؤالا حيا لمؤسس، ثم أضف الخبرة التي تدفعه للأمام.") : t("Your member profile keeps the people, replies, and decisions around this conversation in one place.", "يحفظ ملف عضويتك الأشخاص والردود والقرارات حول هذه المحادثة في مكان واحد.")}</p></div><ol><li><span>{formatNum("01")}</span><Link href="/community">{t("Browse active questions", "تصفح الأسئلة النشطة")} <ArrowRight size={14} /></Link></li><li><span>{formatNum("02")}</span><Link href={unavailable ? "/community#ask" : "/login?continue=/dashboard/discussions"}>{unavailable ? t("Write a focused question", "اكتب سؤالا مركزا") : t("Sign in to open the thread", "سجل الدخول لفتح الموضوع")} <ArrowRight size={14} /></Link></li></ol></div></div></section></>;
 }
 
 function useHashScroll() {
@@ -120,12 +121,12 @@ export function CommunityPost() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState(() => post?.seedComments ?? []);
 
-  if (!post) return <SignInGate title={t("Post not found.", "لم يُعثر على المنشور.")} copy={t("This thread may have been removed.", "قد يكون هذا الموضوع قد أُزيل.")} />;
+  if (!post) return <ThreadRouteState unavailable title={t("This thread is no longer active.", "هذا الموضوع لم يعد نشطا.")} copy={t("The network can still route you to a live founder question with room for a useful answer.", "لا تزال الشبكة قادرة على توجيهك إلى سؤال حي لمؤسس يتسع لإجابة مفيدة.")} />;
 
   const title = t(post.title, post.arTitle);
   const topicLabel = t(post.topic, topicArabic[post.topic as (typeof postTopics)[number]]);
 
-  if (!isAuthed) return <SignInGate title={t("Sign in to read this thread.", "سجل الدخول لقراءة هذا الموضوع.")} copy={t(`"${title}" and its comments are visible once you’re signed in.`, `"${title}" وتعليقاته مرئية بمجرد تسجيل الدخول.`)} />;
+  if (!isAuthed) return <ThreadRouteState title={t("Sign in to read this thread.", "سجل الدخول لقراءة هذا الموضوع.")} copy={t(`"${title}" and its comments are visible once you’re signed in.`, `"${title}" وتعليقاته مرئية بمجرد تسجيل الدخول.`)} />;
 
   const submitComment = (event: FormEvent) => {
     event.preventDefault();
