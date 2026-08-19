@@ -301,3 +301,11 @@
 - [x] Refine the highest-impact route-specific structures, controls, and interaction states in the landing-derived system.
 - [x] Verify desktop, tablet, mobile, English, and Arabic RTL examples without modifying the landing page.
 - [x] Document the refinements and save the next visual-alignment checkpoint.
+
+## Motif Removal, Target Redesign, and Bug Hunt
+
+- [x] Inventory non-landing circular, ring, and decorative shape motifs, plus target-route rendering and behavior issues.
+- [x] Remove AI-like shape treatments and rebuild Sponsors, Requests Browse, Login, Signup, and Password Recovery with clean editorial structures.
+- [x] Fix discovered navigation, rendering, interaction, RTL, and responsive defects.
+- [x] Verify desktop, tablet, mobile, and Arabic RTL routes without modifying the landing page.
+- [x] Document the changes and save the bug-fix checkpoint.
