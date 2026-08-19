@@ -160,3 +160,10 @@
 - [x] Refine the highest-impact residual archetypes with landing-derived evidence rails, decision strips, or editorial route objects.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Collection, Creation, and Event-Detail Continuation
+
+- [x] Inspect remaining collection, creation, and event-detail routes for residual generic hierarchy or repeated page silhouettes.
+- [x] Refine the highest-impact residual archetypes with landing-derived decision objects, rails, or record structures.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
