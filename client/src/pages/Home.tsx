@@ -32,13 +32,13 @@ const introCards = [
 ] as const;
 
 const roadmapStages = [
-  { number: "01", title: ["Validate", "تحقق"], text: ["Find a painful, payable problem.", "اعثر على مشكلة مؤلمة تستحق الدفع لحلها."], channel: ["Learning", "التعلم"], href: "/learn" },
-  { number: "02", title: ["Build", "ابنِ"], text: ["Turn the strongest signal into an MVP.", "حول أقوى إشارة إلى منتج أولي."], channel: ["Tools", "الأدوات"], href: "/tools" },
-  { number: "03", title: ["Acquire", "اكتسب"], text: ["Prove a repeatable customer path.", "اثبت مسارا متكررا للوصول إلى العملاء."], channel: ["Community", "المجتمع"], href: "/community" },
-  { number: "04", title: ["Retain", "احتفظ"], text: ["Make the product essential, not optional.", "اجعل المنتج ضروريا لا اختياريا."], channel: ["Company insight", "رؤى الشركات"], href: "/startups" },
-  { number: "05", title: ["Focus", "ركز"], text: ["Own the category that fits you best.", "امتلك الفئة التي تناسبك أكثر."], channel: ["Connection", "الربط"], href: "/connect" },
-  { number: "06", title: ["Scale", "توسع"], text: ["Expand with capacity, talent, and focus.", "انمُ بالقدرة والمواهب والتركيز."], channel: ["Growth room", "غرفة النمو"], href: "/events" },
-  { number: "07", title: ["Govern", "أدر"], text: ["Build the operating discipline for what is next.", "ابنِ الانضباط التشغيلي لما هو قادم."], channel: ["Specialists", "المتخصصون"], href: "/providers" },
+  { number: "01", title: ["Validate", "تحقق"], text: ["Find a painful, payable problem.", "اعثر على مشكلة مؤلمة تستحق الدفع لحلها."], channel: ["Learning", "التعلم"], href: "/roadmap/validation" },
+  { number: "02", title: ["Build", "ابنِ"], text: ["Turn the strongest signal into an MVP.", "حول أقوى إشارة إلى منتج أولي."], channel: ["Tools", "الأدوات"], href: "/roadmap/mvp" },
+  { number: "03", title: ["Acquire", "اكتسب"], text: ["Prove a repeatable customer path.", "اثبت مسارا متكررا للوصول إلى العملاء."], channel: ["Community", "المجتمع"], href: "/roadmap/acquisition" },
+  { number: "04", title: ["Retain", "احتفظ"], text: ["Make the product essential, not optional.", "اجعل المنتج ضروريا لا اختياريا."], channel: ["Company insight", "رؤى الشركات"], href: "/roadmap/retention" },
+  { number: "05", title: ["Focus", "ركز"], text: ["Own the category that fits you best.", "امتلك الفئة التي تناسبك أكثر."], channel: ["Connection", "الربط"], href: "/roadmap/focus" },
+  { number: "06", title: ["Scale", "توسع"], text: ["Expand with capacity, talent, and focus.", "انمُ بالقدرة والمواهب والتركيز."], channel: ["Growth room", "غرفة النمو"], href: "/roadmap/scale" },
+  { number: "07", title: ["Govern", "أدر"], text: ["Build the operating discipline for what is next.", "ابنِ الانضباط التشغيلي لما هو قادم."], channel: ["Specialists", "المتخصصون"], href: "/roadmap/governance" },
 ] as const;
 
 const quotes = [

@@ -1,0 +1,514 @@
+{
+  "input": "/home/ubuntu/upload/MENA-SaaS-Foundation-Masterclass-Stage-1(1).pptx",
+  "slide_count": 15,
+  "slide_size": {
+    "width_emu": 12191695,
+    "height_emu": 6858000,
+    "width_inches": 13.33299978127734,
+    "height_inches": 7.5
+  },
+  "colors": {
+    "fill": [
+      {
+        "hex": "000000",
+        "share": 0.913
+      },
+      {
+        "hex": "DADBF1",
+        "share": 0.078
+      }
+    ],
+    "text": [
+      {
+        "hex": "272525",
+        "share": 0.868
+      },
+      {
+        "hex": "000000",
+        "share": 0.121
+      },
+      {
+        "hex": "FFFFFF",
+        "share": 0.012
+      }
+    ],
+    "theme": {
+      "accent1": "4472C4",
+      "accent2": "ED7D31",
+      "accent3": "A5A5A5",
+      "accent4": "FFC000",
+      "accent5": "5B9BD5",
+      "accent6": "70AD47",
+      "dk1": "000000",
+      "dk2": "44546A",
+      "folHlink": "954F72",
+      "hlink": "0563C1",
+      "lt1": "FFFFFF",
+      "lt2": "E7E6E6"
+    }
+  },
+  "fonts": {
+    "title": "Calibri Light",
+    "body": "Inter",
+    "usage": [
+      {
+        "name": "Inter",
+        "share": 0.722
+      },
+      {
+        "name": "Inter Bold",
+        "share": 0.277
+      }
+    ],
+    "theme_major": "Calibri Light",
+    "theme_minor": "Calibri"
+  },
+  "embedded_fonts": [
+    "Inter Bold",
+    "Inter",
+    "Inter Black"
+  ],
+  "pages_rendered": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "overview_sheet": "/home/ubuntu/asaasi-redesign/.analysis-stage1/sheets/overview.webp",
+  "overview_pages": [
+    1,
+    2,
+    3,
+    4,
+    12,
+    13,
+    14,
+    15
+  ],
+  "sheets": [
+    "/home/ubuntu/asaasi-redesign/.analysis-stage1/sheets/sheet-1.webp",
+    "/home/ubuntu/asaasi-redesign/.analysis-stage1/sheets/sheet-2.webp"
+  ],
+  "content_path": "/home/ubuntu/asaasi-redesign/.analysis-stage1/content/deck.md",
+  "content_dir": "/home/ubuntu/asaasi-redesign/.analysis-stage1/content",
+  "media_files": [
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-01/image1.jpeg"
+      ],
+      "slides": [
+        1
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-01/image2.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-04/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-08/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-09/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-10/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-12/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-13/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-14/image1.png"
+      ],
+      "slides": [
+        1,
+        4,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-10/image2.jpeg"
+      ],
+      "slides": [
+        10
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-14/image2.jpeg"
+      ],
+      "slides": [
+        14
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image1.png"
+      ],
+      "slides": [
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image2.png"
+      ],
+      "slides": [
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image3.svg"
+      ],
+      "slides": [
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image4.png"
+      ],
+      "slides": [
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image5.svg"
+      ],
+      "slides": [
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-02/image1.png"
+      ],
+      "slides": [
+        2
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-02/image2.svg"
+      ],
+      "slides": [
+        2
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-02/image3.png"
+      ],
+      "slides": [
+        2
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-02/image4.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-03/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-06/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-11/image1.png",
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-15/image6.png"
+      ],
+      "slides": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        11,
+        15
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image2.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image3.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image4.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image5.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image6.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image7.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image8.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image9.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image10.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image11.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image12.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image13.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image14.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image15.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image16.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image17.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image18.svg"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-05/image19.png"
+      ],
+      "slides": [
+        5
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image2.png"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image3.svg"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image4.svg"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image5.png"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image6.svg"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image7.png"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image8.svg"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image9.png"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image10.svg"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-07/image11.png"
+      ],
+      "slides": [
+        7
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-08/image2.png"
+      ],
+      "slides": [
+        8
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-08/image3.svg"
+      ],
+      "slides": [
+        8
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-08/image4.png"
+      ],
+      "slides": [
+        8
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-08/image5.svg"
+      ],
+      "slides": [
+        8
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-09/image2.png"
+      ],
+      "slides": [
+        9
+      ]
+    },
+    {
+      "paths": [
+        "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/media/page-09/image3.svg"
+      ],
+      "slides": [
+        9
+      ]
+    }
+  ],
+  "font_files": [
+    "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/fonts/201314.fntdata",
+    "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/fonts/201315.fntdata",
+    "/home/ubuntu/asaasi-redesign/.analysis-stage1/assets/fonts/201316.fntdata"
+  ]
+}

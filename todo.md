@@ -111,3 +111,10 @@
 - [x] Refine residual shared patterns into landing-derived editorials, records, rails, or decision strips.
 - [x] Verify the updated patterns at desktop and mobile widths while keeping the landing page unchanged.
 - [x] Document findings and save the next page-by-page alignment checkpoint.
+
+## Seven-Stage Roadmap Detail Pages
+
+- [x] Analyze the supplied Stage 1 masterclass and map its useful teaching structure to the growth roadmap.
+- [x] Define shared stage detail-page content, navigation, and course CTA patterns for all seven stages.
+- [x] Build a landing-derived detail route for each roadmap stage and connect each roadmap control to its page.
+- [x] Verify desktop and mobile navigation, detail content, and course CTA routes, then checkpoint the enhancement.

@@ -10,6 +10,7 @@ import Learn from "./pages/Learn";
 import Tools from "./pages/Tools";
 import Pricing from "./pages/Pricing";
 import Support from "./pages/Support";
+import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
 import { Dashboard, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
 import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
 import "./product-flows.css";
@@ -90,12 +91,20 @@ function Router() {
     <Route path="/groups/:slug" component={() => <PublicDetailPage type="group" />} />
     <Route path="/groups" component={Connect} />
     <Route path="/learn" component={Learn} />
+    <Route path="/roadmap/:stage" component={RoadmapStagePage} />
     <Route path="/articles/:slug" component={() => <PublicDetailPage type="article" />} />
     <Route path="/articles" component={() => <ContentIndexPage kind="article" />} />
     <Route path="/podcasts/:slug" component={() => <PublicDetailPage type="podcast" />} />
     <Route path="/podcasts" component={() => <ContentIndexPage kind="podcast" />} />
     <Route path="/webinars/:slug" component={() => <PublicDetailPage type="webinar" gated />} />
     <Route path="/webinars" component={() => <WebinarsPage />} />
+    <Route path="/courses/roadmap-validation" component={() => <RoadmapCoursePage stageSlug="validation" />} />
+    <Route path="/courses/roadmap-mvp" component={() => <RoadmapCoursePage stageSlug="mvp" />} />
+    <Route path="/courses/roadmap-acquisition" component={() => <RoadmapCoursePage stageSlug="acquisition" />} />
+    <Route path="/courses/roadmap-retention" component={() => <RoadmapCoursePage stageSlug="retention" />} />
+    <Route path="/courses/roadmap-focus" component={() => <RoadmapCoursePage stageSlug="focus" />} />
+    <Route path="/courses/roadmap-scale" component={() => <RoadmapCoursePage stageSlug="scale" />} />
+    <Route path="/courses/roadmap-governance" component={() => <RoadmapCoursePage stageSlug="governance" />} />
     <Route path="/courses/:slug" component={() => <PublicDetailPage type="course" />} />
     <Route path="/playbooks" component={() => <PublicDetailPage type="course" gated />} />
     <Route path="/videos" component={() => <PublicDetailPage type="article" />} />
