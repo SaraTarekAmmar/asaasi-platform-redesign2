@@ -50,3 +50,6 @@ The supplied ASaaSI landing page is the visual reference for this redesign. Its 
 - **Route archetypes arrive immediately.** The first viewport must expose the working object of the route—thread stack, field-guide prompt, event date path, workbench question, membership constraint, routing choice, or member evidence—not only a shared headline pattern.
 - **Saffron never becomes the default panel fill.** It is limited to active rails, node/ring markers, index numerals, provenance, and one narrow emphasis edge within a section.
 - **Images carry proof, not decoration.** When imagery appears, frame it as a founder-work artifact, regional context, or annotated field note rather than a lifestyle filler.
+- **Roadmap stages open with their working object.** Validation uses a proof gate, MVP a build loop, Acquisition a channel map, Retention a retention loop, Focus a focus worksheet, Scale a scale ladder, and Governance a decision register.
+- **Node-and-ring signals carry status.** Use them for stage readiness, member access, evidence completion, and account identity—not merely as decorative bullets.
+- **Pricing leads with the founder constraint and access sequence.** Membership states are evidence of the decision path, not conventional subscription-tier cards.

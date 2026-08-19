@@ -137,11 +137,23 @@ const stages: Stage[] = [
   },
 ];
 
+const stageArtifacts: Record<string, { label: Pair; items: Pair[] }> = {
+  validation: { label: ["Proof gate", "بوابة الدليل"], items: [["Buyer named", "تمت تسمية المشتري"], ["Pain scored", "تم تقييم الألم"], ["Commitment asked", "تم طلب الالتزام"]] },
+  mvp: { label: ["Build loop", "حلقة البناء"], items: [["One workflow", "سير عمل واحد"], ["Cohort test", "اختبار المجموعة"], ["Usable release", "إصدار قابل للاستخدام"]] },
+  acquisition: { label: ["Channel map", "خريطة القنوات"], items: [["Buyer", "المشتري"], ["Message", "الرسالة"], ["Conversion", "التحويل"]] },
+  retention: { label: ["Retention loop", "حلقة الاحتفاظ"], items: [["Activation", "التفعيل"], ["Value moment", "لحظة القيمة"], ["Renewal", "التجديد"]] },
+  focus: { label: ["Focus worksheet", "ورقة التركيز"], items: [["Best customer", "أفضل عميل"], ["Clear promise", "وعد واضح"], ["Strategic no", "رفض استراتيجي"]] },
+  scale: { label: ["Scale ladder", "سلم التوسع"], items: [["Constraint", "القيد"], ["Repeatable system", "نظام متكرر"], ["Expansion test", "اختبار التوسع"]] },
+  governance: { label: ["Decision register", "سجل القرارات"], items: [["Decision", "القرار"], ["Owner", "المالك"], ["Quality threshold", "عتبة الجودة"]] },
+};
+
 export default function RoadmapStagePage() {
   const { stage: requestedStage } = useParams<{ stage?: string }>();
   const { t, isRTL, formatNum } = useLocale();
   const activeIndex = Math.max(0, stages.findIndex((item) => item.slug === requestedStage));
   const stage = stages[activeIndex];
+  const courseReady = Number(stage.number) <= 2;
+  const artifact = stageArtifacts[stage.slug];
   const previous = stages[activeIndex - 1];
   const next = stages[activeIndex + 1];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
@@ -166,6 +178,7 @@ export default function RoadmapStagePage() {
             <Link href={`/roadmap/${item.slug}`} aria-current={index === activeIndex ? "page" : undefined}><span>{formatNum(item.number)}</span><b>{t(item.title[0], item.title[1])}</b></Link>
           </li>)}
         </ol>
+        <div className="roadmap-stage-artifact" aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === activeIndex % 3 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>
     </section>
 
@@ -193,13 +206,13 @@ export default function RoadmapStagePage() {
     <section className="roadmap-stage-course">
       <div className="container roadmap-stage-course__inner">
         <div>
-          <SectionLabel>{t("Course for this stage", "دورة هذه المرحلة")}</SectionLabel>
-          <h2>{t(stage.courseName[0], stage.courseName[1])}</h2>
-          <p>{t(stage.courseNote[0], stage.courseNote[1])}</p>
+          <SectionLabel>{courseReady ? t("Course for this stage", "دورة هذه المرحلة") : t("Stage briefing", "موجز المرحلة")}</SectionLabel>
+          <h2>{courseReady ? t(stage.courseName[0], stage.courseName[1]) : t(`Stage ${stage.number} curriculum is in development.`, `منهج المرحلة ${stage.number} قيد التطوير.`)}</h2>
+          <p>{courseReady ? t(stage.courseNote[0], stage.courseNote[1]) : t("The stage framework is public now. Create a founder profile to keep its working rules, evidence, and future release signal attached to your company context.", "إطار المرحلة متاح علنا الآن. أنشئ ملف مؤسس للاحتفاظ بقواعد العمل والدليل وإشارة الإصدار المستقبلي المرتبطة بسياق شركتك.")}</p>
         </div>
         <div className="roadmap-stage-course__action">
-          <span className="mono">{t(stage.courseMeta[0], stage.courseMeta[1])}</span>
-          <Link href={stage.courseHref} className="button button-primary">{t("Open the course", "افتح الدورة")} <Arrow size={15} /></Link>
+          <span className="mono">{courseReady ? t(stage.courseMeta[0], stage.courseMeta[1]) : t("ROADMAP / FUTURE RELEASE", "خارطة النمو / إصدار مستقبلي")}</span>
+          <Link href={courseReady ? stage.courseHref : "/signup"} className="button button-primary">{courseReady ? t("Open the course", "افتح الدورة") : t("Get the stage briefing", "احصل على موجز المرحلة")} <Arrow size={15} /></Link>
         </div>
       </div>
     </section>
@@ -215,6 +228,8 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
   const { stage: requestedStage } = useParams<{ stage?: string }>();
   const { t, isRTL, formatNum } = useLocale();
   const stage = stages.find((item) => item.slug === (stageSlug ?? requestedStage)) ?? stages[0];
+  const courseReady = Number(stage.number) <= 2;
+  const artifact = stageArtifacts[stage.slug];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;
 
   return <main className="roadmap-stage-route roadmap-course-route" dir={isRTL ? "rtl" : "ltr"}>
@@ -224,14 +239,15 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
           <Link href={`/roadmap/${stage.slug}`} className="roadmap-stage-back">{isRTL ? <ArrowRight size={14} /> : <ArrowLeft size={14} />} {t("Back to stage", "العودة إلى المرحلة")} {formatNum(stage.number)}</Link>
           <span className="roadmap-stage-mark"><i /> {t("Course", "الدورة")} / {t("Stage", "المرحلة")} {formatNum(stage.number)}</span>
           <SectionLabel>{t("MENA SaaS growth roadmap", "خارطة نمو SaaS في المنطقة")}</SectionLabel>
-          <h1>{t(stage.courseName[0], stage.courseName[1])}</h1>
-          <p>{t(stage.courseNote[0], stage.courseNote[1])}</p>
+          <h1>{courseReady ? t(stage.courseName[0], stage.courseName[1]) : t(`Stage ${stage.number} curriculum / in development`, `منهج المرحلة ${stage.number} / قيد التطوير`)}</h1>
+          <p>{courseReady ? t(stage.courseNote[0], stage.courseNote[1]) : t("The company-stage framework is ready to use; the facilitated curriculum will open only after its MENA-specific content and delivery sequence are complete.", "إطار مرحلة الشركة جاهز للاستخدام؛ سيفتح المنهج الميسّر فقط بعد اكتمال محتواه وتسلسل تقديمه الخاص بالمنطقة.")}</p>
         </div>
         <aside className="roadmap-stage-hero__evidence">
-          <span className="mono">{t("Course format", "تنسيق الدورة")}</span>
-          <strong>{t(stage.courseMeta[0], stage.courseMeta[1])}</strong>
-          <p>{t("A practical stage guide built around decisions, evidence, and working deliverables — not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية — لا نظرية عامة.")}</p>
+          <span className="mono">{courseReady ? t("Course format", "تنسيق الدورة") : t("READINESS", "الجاهزية")}</span>
+          <strong>{courseReady ? t(stage.courseMeta[0], stage.courseMeta[1]) : t("Curriculum development in progress", "تطوير المنهج جارٍ")}</strong>
+          <p>{courseReady ? t("A practical stage guide built around decisions, evidence, and working deliverables — not generic theory.", "دليل عملي للمرحلة مبني حول القرارات والدليل والمخرجات العملية — لا نظرية عامة.") : t("Follow the stage briefing, not a premature course promise. The roadmap keeps the next operating questions visible while the curriculum is built.", "تابع موجز المرحلة، لا وعد دورة مبكر. تُبقي الخارطة أسئلة التشغيل التالية ظاهرة أثناء بناء المنهج.")}</p>
         </aside>
+        <div className="roadmap-stage-artifact roadmap-stage-artifact--course" aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === 0 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>
     </section>
 
@@ -259,13 +275,13 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
     <section className="roadmap-stage-course roadmap-course-enrol">
       <div className="container roadmap-stage-course__inner">
         <div>
-          <SectionLabel>{t("Start this course", "ابدأ هذه الدورة")}</SectionLabel>
-          <h2>{t("Bring your company context. Leave with a working next move.", "أحضر سياق شركتك. وغادر بخطوة تالية عملية.")}</h2>
-          <p>{t("Join ASaaSI to access this stage’s practical learning pathway and keep the work connected to the rest of your founder journey.", "انضم إلى ASaaSI للوصول إلى مسار التعلم العملي لهذه المرحلة ولإبقاء العمل متصلا ببقية رحلة مؤسسك.")}</p>
+          <SectionLabel>{courseReady ? t("Start this course", "ابدأ هذه الدورة") : t("Stay close to this stage", "ابق قريبا من هذه المرحلة")}</SectionLabel>
+          <h2>{courseReady ? t("Bring your company context. Leave with a working next move.", "أحضر سياق شركتك. وغادر بخطوة تالية عملية.") : t("Put your company context next to the work the curriculum will need to solve.", "ضع سياق شركتك بجانب العمل الذي سيحتاج المنهج إلى حله.")}</h2>
+          <p>{courseReady ? t("Create your profile, then move to active Subscriber access before buying a paid stage cohort.", "أنشئ ملفك، ثم انتقل إلى وصول مشترك نشط قبل شراء دفعة مرحلة مدفوعة.") : t("Create a free founder profile to follow the stage framework and receive the future course release when it is ready.", "أنشئ ملف مؤسس مجانيا لمتابعة إطار المرحلة وتلقي إصدار الدورة المستقبلي عند جاهزيته.")}</p>
         </div>
         <div className="roadmap-stage-course__action">
           <span className="mono">{t("STAGE", "المرحلة")} {formatNum(stage.number)} / {t(stage.title[0], stage.title[1])}</span>
-          <Link href="/signup" className="button button-primary">{t("Join to access the course", "انضم للوصول إلى الدورة")} <Arrow size={15} /></Link>
+          <Link href={courseReady ? "/pricing" : "/signup"} className="button button-primary">{courseReady ? t("See Subscriber access", "شاهد وصول المشترك") : t("Create my founder profile", "أنشئ ملف مؤسسي")} <Arrow size={15} /></Link>
         </div>
       </div>
     </section>

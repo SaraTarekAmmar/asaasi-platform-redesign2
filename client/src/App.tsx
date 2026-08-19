@@ -9,6 +9,7 @@ import Events from "./pages/Events";
 import Learn from "./pages/Learn";
 import Tools from "./pages/Tools";
 import Pricing from "./pages/Pricing";
+import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
 import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
 import { Dashboard, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
@@ -113,6 +114,7 @@ function Router() {
     <Route path="/tools" component={Tools} />
     <Route path="/workshops" component={() => <WorkshopsPage />} />
     <Route path="/pricing" component={Pricing} />
+    <Route path="/operating-model" component={OperatingModel} />
 
     <Route path="/sponsors" component={() => <CommercialPage kind="sponsors" />} />
     <Route path="/featured" component={() => <CommercialPage kind="featured" />} />
