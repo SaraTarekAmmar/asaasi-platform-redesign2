@@ -27,6 +27,15 @@ Each tool will expose a functional working object in the first viewport and conc
 
 These additions reinforce ASaaSI’s existing workbench distinction: it treats explicit assumptions, observable evidence, and a reversible next move as primary objects, rather than using AI-generated certainty or unqualified market claims.
 
+## Activation and first-value patterns
+
+| Source | Public pattern observed | ASaaSI adaptation |
+|---|---|---|
+| [Arcade, “SaaS Onboarding Best Practices”](https://www.arcade.software/post/saas-onboarding-complete-playbook) | Frames onboarding around a named activation event, then sequences setup, first value, repeat use, and expansion. It emphasises behavior-triggered movement over calendar-driven messages. | Build an **Activation Evidence Path** that names one first-value event, the setup friction preventing it, and one behavior-triggered intervention. The record ends with a cohort review date, not a benchmark target or generic feature tour. |
+| [Customer Success Collective, “How to perfect customer onboarding in a startup business”](https://www.customersuccesscollective.com/onboarding-for-startups/) | Advises lean milestones, clear early success, and observation of time-to-value, activation, engagement, and drop-off. | Keep the ASaaSI workbench focused on the founder’s smallest observable path: customer intent, first value, drop-off point, and next intervention. Treat metrics as founder-provided context rather than platform-generated performance claims. |
+
+The proposed tool continues ASaaSI’s evidence discipline: it identifies a single activation action and a small customer cohort, then asks what the team will do if the behavior changes or fails to change.
+
 ## References
 
 1. [Gainsight, “Customer Health Score Explained: Metrics, Models & Tools.”](https://www.gainsight.com/blog/customer-health-scores/)
@@ -34,3 +43,5 @@ These additions reinforce ASaaSI’s existing workbench distinction: it treats e
 3. [StartupCFO, “Free SaaS Runway Calculator.”](https://www.startupcfo.ai/tools/runway)
 4. [April Dunford, “A Product Positioning Exercise.”](https://www.aprildunford.com/post/a-product-positioning-exercise)
 5. [Koji, “Startup Idea Validation: How to Test Your Idea with Customer Interviews.”](https://www.koji.so/docs/startup-idea-validation-guide)
+6. [Arcade, “SaaS Onboarding Best Practices: The Complete 2026 Playbook.”](https://www.arcade.software/post/saas-onboarding-complete-playbook)
+7. [Customer Success Collective, “How to perfect customer onboarding in a startup business.”](https://www.customersuccesscollective.com/onboarding-for-startups/)
