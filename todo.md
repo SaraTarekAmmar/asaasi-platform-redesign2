@@ -79,7 +79,14 @@
 
 ## Iterative Full-Site Refinement
 
-- [ ] Re-audit each route family for any remaining template-like layouts or landing-system drift.
-- [ ] Refine shared visual primitives and the highest-impact public route compositions.
-- [ ] Refine account and workspace route interactions and component hierarchy.
-- [ ] Verify desktop and mobile route families after the enhancement pass.
+- [x] Re-audit each route family for any remaining template-like layouts or landing-system drift.
+- [x] Refine shared visual primitives and the highest-impact public route compositions.
+- [x] Refine account and workspace route interactions and component hierarchy.
+- [x] Verify desktop and mobile route families after the enhancement pass.
+
+## Continued Page-by-Page Landing Alignment
+
+- [x] Re-open the landing-system specification and identify the next residual-drift route family.
+- [x] Inspect public, account, and authenticated workspace entry pages one by one against the landing reference.
+- [x] Apply a focused shared-component and route-composition refinement pass without changing the landing page.
+- [x] Validate updated pages at desktop and mobile widths, then checkpoint the next iteration.
