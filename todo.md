@@ -104,3 +104,10 @@
 - [x] Rework any residual cards, panels, or route intros into landing-derived records, rails, or decision strips.
 - [x] Confirm the refinements at desktop and mobile widths without changing the landing page.
 - [x] Update the route audit and save the next consistency checkpoint.
+
+## Continued Component-State Alignment
+
+- [x] Inspect remaining nested variants and reusable component states for visual drift from the landing system.
+- [x] Refine residual shared patterns into landing-derived editorials, records, rails, or decision strips.
+- [x] Verify the updated patterns at desktop and mobile widths while keeping the landing page unchanged.
+- [x] Document findings and save the next page-by-page alignment checkpoint.
