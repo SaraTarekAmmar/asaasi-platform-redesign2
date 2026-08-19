@@ -195,3 +195,10 @@
 - [x] Refine the highest-impact operational route archetypes with landing-derived decision objects, evidence rails, or status paths.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Event, Application, and Partner-Program Continuation
+
+- [x] Inspect remaining event-hosting, application, partner-program, and supporting route variants for residual generic hierarchy or repeated silhouettes.
+- [x] Refine the highest-impact event and application archetypes with landing-derived readiness, routing, and operating-record structures.
+- [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
