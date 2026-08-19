@@ -63,3 +63,9 @@
 - [x] Preserve the useful dashboard data while replacing the current generic workspace layout.
 - [x] Build a founder command-centre around momentum, decisions, network context, and the next useful action.
 - [x] Verify the authenticated desktop command-centre preview and responsive layout rules before checkpointing.
+
+## Founder Profile Workspace Redesign
+
+- [x] Preserve the existing profile form data and update behavior.
+- [x] Replace the generic profile layout with a founder identity, company context, and shareable signal workspace.
+- [x] Verify the authenticated profile workspace, editable signal, photo control, interests, sharing levels, and responsive layout rules before checkpointing.
