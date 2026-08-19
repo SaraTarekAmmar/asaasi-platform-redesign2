@@ -1,0 +1,23 @@
+/* Editorial operating system: residual routes lead with a named work object, fine rules, and state nodes instead of generic card or backdrop treatment. */
+.app-product .pricing-grid { gap: 0; border-top: 2px solid #071b3d; }
+.app-product .pricing-grid .plan { min-height: 0; padding: 26px 22px; border: 0; border-inline-end: 1px solid #dfe3ea; border-radius: 0; box-shadow: none; background: transparent; }
+.app-product .pricing-grid .plan:last-child { border-inline-end: 0; }
+.app-product .pricing-grid .plan.highlight { background: #071b3d; color: #fbfbf8; }
+.app-product .pricing-grid .plan.highlight :is(h3,p,.plan-price,.plan-features) { color: #fbfbf8; }
+.app-product .pricing-grid .plan::before { display: block; width: 8px; height: 8px; margin-bottom: 17px; border: 1px solid #caa515; border-radius: 50%; content: ""; }
+.app-product .pricing-grid .plan.highlight::before { background: #f6c915; box-shadow: 0 0 0 5px rgba(246,201,21,.12); }
+.app-product .account-return-object--notifications ol li:nth-child(2) { border-inline-start-color: #f6c915; }
+.app-product .account-return-object--invitations ol li:nth-child(1) { border-inline-start-color: #f6c915; }
+.app-product .account-return-object--settings ol li:nth-child(3) { border-inline-start-color: #f6c915; }
+.app-product .account-return-object--notifications::after,
+.app-product .account-return-object--invitations::after,
+.app-product .account-return-object--settings::after { display: block; margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.22); color: #f6c915; font: 600 10px/1 "DM Sans", sans-serif; letter-spacing: .12em; }
+.app-product .account-return-object--notifications::after { content: "SORT / REVIEW / RESPOND"; }
+.app-product .account-return-object--invitations::after { content: "VERIFY / HANDOFF / JOIN"; }
+.app-product .account-return-object--settings::after { content: "PRIVACY / SIGNALS / CONTROL"; }
+.app-product .system-state-record { background-image: none; }
+.app-product .system-state-record::before { opacity: .28; }
+.app-product .system-recovery-path { border-top: 1px solid rgba(255,255,255,.32); }
+.app-product .system-recovery-path li { min-height: 58px; align-items: center; }
+.app-product .system-recovery-path li span { color: #f6c915; }
+@media (max-width: 760px) { .app-product .pricing-grid { display: block; }.app-product .pricing-grid .plan { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }.app-product .pricing-grid .plan:last-child { border-bottom: 0; } }

@@ -294,3 +294,10 @@
 - [x] Add purposeful Framer Motion with reduced-motion support across shared non-landing experiences.
 - [x] Verify desktop, tablet, mobile, English, and Arabic RTL journeys without modifying the landing page.
 - [x] Document the audit and save the next visual-alignment checkpoint.
+
+## Continuing Residual Route Review
+
+- [x] Audit remaining public, protected, workspace, empty, and recovery route families for generic composition or component drift.
+- [x] Refine the highest-impact route-specific structures, controls, and interaction states in the landing-derived system.
+- [x] Verify desktop, tablet, mobile, English, and Arabic RTL examples without modifying the landing page.
+- [x] Document the refinements and save the next visual-alignment checkpoint.
