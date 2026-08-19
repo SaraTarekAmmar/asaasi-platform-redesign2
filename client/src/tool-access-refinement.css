@@ -1,0 +1,157 @@
+/* Editorial operating system: protected tools lead with a route-specific working object; navy carries structure and saffron marks only active evidence, nodes, and provenance. */
+
+.account-flow--pricing .account-visual::before,
+.account-flow--pricing .account-visual::after,
+.account-flow--health .account-visual::before,
+.account-flow--health .account-visual::after,
+.account-flow--market .account-visual::before,
+.account-flow--market .account-visual::after,
+.account-flow--runway .account-visual::before,
+.account-flow--runway .account-visual::after {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.account-flow--pricing .account-return-object,
+.account-flow--health .account-return-object,
+.account-flow--market .account-return-object,
+.account-flow--runway .account-return-object {
+  position: relative;
+  margin: 1.5rem 0 1.4rem;
+  max-width: 560px;
+  padding: 1rem 0 0;
+  border-top: 1px solid rgba(223, 227, 234, 0.35);
+  background: transparent;
+}
+
+.account-flow--pricing .account-visual h1,
+.account-flow--health .account-visual h1,
+.account-flow--market .account-visual h1,
+.account-flow--runway .account-visual h1 {
+  max-width: 9.5ch;
+  margin: 1rem 0 0.7rem;
+  font-size: clamp(3.7rem, 5.4vw, 5.7rem);
+  line-height: 0.94;
+}
+
+.account-flow--pricing .account-visual > p,
+.account-flow--health .account-visual > p,
+.account-flow--market .account-visual > p,
+.account-flow--runway .account-visual > p {
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+.account-flow--pricing .account-return-object > .mono,
+.account-flow--health .account-return-object > .mono,
+.account-flow--market .account-return-object > .mono,
+.account-flow--runway .account-return-object > .mono {
+  display: block;
+  margin-bottom: 0.95rem;
+  color: #f6c915;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+}
+
+.account-flow--pricing .account-return-object ol,
+.account-flow--health .account-return-object ol,
+.account-flow--market .account-return-object ol,
+.account-flow--runway .account-return-object ol {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account-flow--pricing .account-return-object li,
+.account-flow--health .account-return-object li,
+.account-flow--market .account-return-object li,
+.account-flow--runway .account-return-object li {
+  position: relative;
+  min-height: 70px;
+  color: #fbfbf8;
+}
+
+.account-flow--pricing .account-return-object li i,
+.account-flow--health .account-return-object li i,
+.account-flow--market .account-return-object li i,
+.account-flow--runway .account-return-object li i {
+  display: inline-grid;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: 1px solid #f6c915;
+  border-radius: 50%;
+  color: #f6c915;
+  font: 600 0.58rem/1 "DM Sans", sans-serif;
+  font-style: normal;
+}
+
+.account-flow--pricing .account-return-object li strong,
+.account-flow--health .account-return-object li strong,
+.account-flow--market .account-return-object li strong,
+.account-flow--runway .account-return-object li strong {
+  display: block;
+  margin-top: 0.65rem;
+  color: #fbfbf8;
+  font: 500 0.82rem/1.2 "DM Sans", sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* Pricing: a horizontal buyer–value–price ledger. */
+.account-flow--pricing .account-return-object ol {
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(223, 227, 234, 0.35);
+}
+
+.account-flow--pricing .account-return-object li {
+  padding: 1rem 1rem 0.5rem 0;
+  border-inline-end: 1px solid rgba(223, 227, 234, 0.24);
+}
+
+.account-flow--pricing .account-return-object li:last-child { border-inline-end: 0; }
+.account-flow--pricing .account-return-object li.is-active { background: rgba(255, 255, 255, 0.035); }
+
+/* Health: a diagnostic stack that makes the active diagnosis the dominant row. */
+.account-flow--health .account-return-object ol { gap: 0.45rem; }
+.account-flow--health .account-return-object li {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  align-items: center;
+  min-height: 54px;
+  padding: 0 0.8rem;
+  border-inline-start: 1px solid rgba(223, 227, 234, 0.28);
+}
+.account-flow--health .account-return-object li.is-active { border-inline-start: 2px solid #f6c915; background: rgba(255, 255, 255, 0.055); }
+.account-flow--health .account-return-object li strong { margin: 0; }
+
+/* Market: a three-part customer/evidence/positioning map with an evidence spine. */
+.account-flow--market .account-return-object ol { grid-template-columns: 1.2fr 0.8fr 1.2fr; align-items: end; }
+.account-flow--market .account-return-object li { min-height: 90px; padding: 0.75rem; border-top: 1px solid rgba(223, 227, 234, 0.3); }
+.account-flow--market .account-return-object li:nth-child(2) { min-height: 124px; border-color: #f6c915; }
+.account-flow--market .account-return-object li:nth-child(2)::after { position: absolute; inset-inline-start: 50%; bottom: -24px; width: 1px; height: 24px; background: #f6c915; content: ""; }
+
+/* Runway: a ledger strip whose active cash-and-burn relationship reads as a calculation path. */
+.account-flow--runway .account-return-object ol { grid-template-columns: 1fr 1fr 1.15fr; gap: 0.45rem; }
+.account-flow--runway .account-return-object li { min-height: 82px; padding: 0.8rem 0.9rem; border: 1px solid rgba(223, 227, 234, 0.22); }
+.account-flow--runway .account-return-object li.is-active { border-color: #f6c915; }
+.account-flow--runway .account-return-object li:not(:last-child)::after { position: absolute; inset-inline-end: -0.45rem; top: 1.55rem; z-index: 1; width: 0.45rem; height: 1px; background: #f6c915; content: ""; }
+
+@media (max-width: 760px) {
+  .account-flow--pricing .account-visual h1,
+  .account-flow--health .account-visual h1,
+  .account-flow--market .account-visual h1,
+  .account-flow--runway .account-visual h1 { font-size: clamp(2.9rem, 12vw, 4rem); }
+  .account-flow--pricing .account-return-object ol,
+  .account-flow--market .account-return-object ol,
+  .account-flow--runway .account-return-object ol { grid-template-columns: 1fr; gap: 0; }
+  .account-flow--pricing .account-return-object li,
+  .account-flow--market .account-return-object li,
+  .account-flow--runway .account-return-object li { min-height: 54px; padding: 0.7rem 0; border-inline-end: 0; border-top: 1px solid rgba(223, 227, 234, 0.22); }
+  .account-flow--pricing .account-return-object li strong,
+  .account-flow--market .account-return-object li strong,
+  .account-flow--runway .account-return-object li strong { display: inline-block; margin: 0 0 0 0.65rem; }
+  .account-flow--market .account-return-object li:nth-child(2)::after,
+  .account-flow--runway .account-return-object li:not(:last-child)::after { display: none; }
+}

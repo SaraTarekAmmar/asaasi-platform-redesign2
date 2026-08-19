@@ -246,3 +246,11 @@
 - [x] Build expanded ASaaSI workbenches and a stage-aware perks experience in the landing-derived editorial system.
 - [x] Verify expanded tools and perks at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record the implementation choices and save the next visual-alignment checkpoint.
+
+## Remaining Diagnostic Workbenches
+
+- [x] Research additional public diagnostic, pricing, health, and market-workbench patterns worth adapting without copying competitor claims or branding.
+- [x] Audit unfinished ASaaSI pricing, SaaS health, market-map, and runway tool routes and outputs.
+- [x] Build the remaining ASaaSI diagnostic workbenches as evidence-led decision records in the landing-derived system.
+- [x] Verify updated tools at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Document the adaptations and save the next visual-alignment checkpoint.
