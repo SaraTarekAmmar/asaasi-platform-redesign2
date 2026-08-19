@@ -174,3 +174,10 @@
 - [x] Refine the highest-impact operational, trust, and recovery surfaces with landing-derived evidence rails, ownership records, or state maps.
 - [x] Verify the updated route family at desktop, tablet, and mobile widths without modifying the landing page.
 - [x] Record findings and save the next visual-alignment checkpoint.
+
+## Workspace Access and Account-Destination Continuation
+
+- [x] Inspect remaining protected workspace destinations and their sign-in return states for generic hierarchy or missing route context.
+- [x] Refine the highest-impact destination-specific access patterns with landing-derived return rails and operational language.
+- [x] Verify the updated access-state family at desktop, tablet, and mobile widths without modifying the landing page.
+- [x] Record findings and save the next visual-alignment checkpoint.
