@@ -97,3 +97,10 @@
 - [x] Recompose the highest-impact remaining workspace and public surfaces using landing-derived editorial patterns.
 - [x] Verify both default and interactive states at desktop and mobile widths without modifying the landing page.
 - [x] Record audit findings and save the next landing-system consistency checkpoint.
+
+## Residual Route-State Refinement
+
+- [x] Audit alternate route variants, interaction states, and empty states for remaining generic visual patterns.
+- [x] Rework any residual cards, panels, or route intros into landing-derived records, rails, or decision strips.
+- [x] Confirm the refinements at desktop and mobile widths without changing the landing page.
+- [x] Update the route audit and save the next consistency checkpoint.
