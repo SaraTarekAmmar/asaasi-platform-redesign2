@@ -20,6 +20,9 @@ export type WorkflowRecord = {
   outcome?: "keep" | "change" | "stop";
   outcomeAt?: string;
   linkedDecisionId?: string;
+  introductionReflection?: string;
+  introductionReflectionAt?: string;
+  followUpDraft?: string;
   updatedAt: string;
 };
 

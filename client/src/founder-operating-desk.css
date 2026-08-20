@@ -73,6 +73,20 @@
 .app-product .activity-introduction-summary { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 24px; margin: 18px 0; padding: clamp(22px,3vw,30px); border: 1px solid rgba(7,27,61,.11); border-radius: 20px; background: #fffdf5; }
 .app-product .activity-introduction-summary h2 { max-width: 710px; margin: 7px 0 9px; color: #071b3d; font: 500 clamp(23px,2.6vw,34px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .activity-introduction-summary p { max-width: 700px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .activity-introduction-reflection { display: grid; gap: 10px; width: 100%; min-width: 260px; padding: 14px; border: 1px solid rgba(7,27,61,.12); border-radius: 14px; background: #fffdf5; }
+.app-product .activity-introduction-reflection label, .app-product .activity-introduction-learning label { display: grid; gap: 7px; color: #071b3d; font: 600 11px/1.4 "DM Sans",sans-serif; }
+.app-product .activity-introduction-reflection textarea, .app-product .activity-introduction-learning textarea { min-height: 94px; resize: vertical; border: 1px solid rgba(7,27,61,.17); border-radius: 9px; background: #fff; padding: 10px; color: #071b3d; font: 12px/1.55 "DM Sans",sans-serif; }
+.app-product .activity-introduction-reflection > div { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; }
+.app-product .activity-introduction-reflection .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
+.app-product .activity-introduction-learning { display: grid; gap: 8px; margin-top: 13px; padding-top: 13px; border-top: 1px solid rgba(7,27,61,.11); }
+.app-product .activity-introduction-learning strong { color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .activity-introduction-learning p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .weekly-introduction-learning { display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.9fr) auto; gap: 24px; align-items: start; margin: 18px 0; padding: 24px; border: 1px solid rgba(7,27,61,.11); border-radius: 18px; background: #fffdf5; }
+.app-product .weekly-introduction-learning h2 { max-width: 480px; margin: 7px 0 0; color: #071b3d; font: 500 clamp(21px,2.2vw,29px)/1.1 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .weekly-introduction-learning > div:last-of-type { display: grid; gap: 9px; }
+.app-product .weekly-introduction-learning article { padding-inline-start: 12px; border-inline-start: 2px solid #caa515; }
+.app-product .weekly-introduction-learning strong { color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
+.app-product .weekly-introduction-learning p { margin: 5px 0 0; color: #53627a; font-size: 12px; line-height: 1.55; }
 .app-product .founder-profile-refresh { display: grid; gap: 6px; margin-top: 16px; padding: 14px; border-inline-start: 2px solid #caa515; background: rgba(202,165,21,.06); }
 .app-product .founder-profile-refresh strong { color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
 .app-product .founder-profile-refresh p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
@@ -263,6 +277,7 @@
   .app-product .workspace-feedback-recovery { grid-template-columns: 1fr; }
   .app-product .founder-desk-match-feedback { grid-template-columns: 1fr; align-items: start; }
   .app-product .activity-introduction-summary { grid-template-columns: 1fr; align-items: start; }
+  .app-product .weekly-introduction-learning { grid-template-columns: 1fr; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }

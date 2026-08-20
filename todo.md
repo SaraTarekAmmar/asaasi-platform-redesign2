@@ -632,3 +632,12 @@
 - [x] Add a profile prompt that appears after saving a changed stage or market.
 - [x] Verify authenticated desktop English and Arabic RTL Activity states, responsive CSS, TypeScript, and production build.
 - [x] Validate and save the closed introduction-loop checkpoint.
+
+## Post-Introduction Learning Loop
+
+- [x] Inspect introduction completion state, weekly review records, and follow-up handoff points.
+- [x] Define concise conversation reflection and linked-decision evidence behavior.
+- [x] Require a saved reflection before completing an introduction and prepare an editable follow-up draft.
+- [x] Surface completed introduction learning in Weekly Review and append it to the linked decision evidence.
+- [x] Verify authenticated desktop English and Arabic RTL weekly-review states, responsive CSS, TypeScript, and production build.
+- [x] Validate and save the post-introduction learning checkpoint.
