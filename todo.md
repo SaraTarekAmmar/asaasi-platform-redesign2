@@ -469,3 +469,11 @@
 - [x] Connect selected public actions and the Founder Operating Desk to the shared records.
 - [x] Verify workflow continuity across desktop, mobile, English, and Arabic RTL states.
 - [x] Validate and save the connected workflow checkpoint.
+
+## Connected Workspace Activity Enhancements
+
+- [x] Inspect existing workflow records and workspace route affordances for application activity, saved-event calendar actions, reminders, and history.
+- [x] Define concise desk and registration interactions that make activity and follow-up states clear.
+- [x] Implement visible application activity, saved-event actions, and workflow-history improvements.
+- [x] Verify desktop, mobile, English, and Arabic RTL workflow clarity.
+- [x] Validate and save the enhanced connected-workspace checkpoint.
