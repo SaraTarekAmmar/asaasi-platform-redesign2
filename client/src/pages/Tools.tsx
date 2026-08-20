@@ -1,5 +1,5 @@
 /* Editorial Operating System, bilingual tools are an editorial workbench: lead decision, visible assumptions, and a concrete next move. */
-/* Editorial operating system: Tools is a workbench—transparent inputs, visible assumptions, and a concrete next action. */
+/* Editorial operating system: Tools is a workbench; transparent inputs, visible assumptions, and a concrete next action. */
 import { useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, Calculator, CheckSquare2, CircleGauge, LineChart, ShieldCheck, SlidersHorizontal } from "lucide-react";
 import { ToolCard, PageIntro, SectionLabel, SignalTag, Toast, useToast } from "../components/site";

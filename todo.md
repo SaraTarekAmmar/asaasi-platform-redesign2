@@ -332,3 +332,11 @@
 - [x] Refine non-landing wide-screen centering and responsive spacing without changing the landing page.
 - [x] Verify representative routes at wide, desktop, tablet, and mobile widths in English and Arabic RTL.
 - [x] Document the responsive refinements and save the next visual-alignment checkpoint.
+
+## Copy, Alignment, and Information-Architecture Audit
+
+- [x] Inventory all non-landing visible em dashes and identify English and Arabic route-level copy, alignment, and information-architecture issues.
+- [x] Remove all em dashes and refine the highest-impact UX writing, route labels, and next-action copy.
+- [x] Correct bilingual layout alignment and responsive directionality issues across representative route families.
+- [x] Verify English and Arabic routes at desktop, tablet, and mobile widths without changing the landing page.
+- [x] Document the audit and save the next visual-alignment checkpoint.

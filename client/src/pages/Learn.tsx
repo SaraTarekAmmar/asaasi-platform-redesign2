@@ -1,5 +1,5 @@
 /* Editorial Operating System, bilingual learning hub for content, audio, and practical playbooks. */
-/* Editorial operating system: Learn is a field guide—route labels, evidence rails, and practical next moves replace generic resource cards. */
+/* Editorial operating system: Learn is a field guide; route labels, evidence rails, and practical next moves replace generic resource cards. */
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, BookOpen, Bookmark, Check, Headphones, Sparkles } from "lucide-react";
 import { Link } from "wouter";

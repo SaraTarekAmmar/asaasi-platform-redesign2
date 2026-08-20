@@ -1,5 +1,5 @@
 /* Flint-inspired ASaaSI landing page. Scoped entirely under .flint-landing so it
-   never touches the shared editorial system used by the rest of the app — this page
+   never touches the shared editorial system used by the rest of the app; this page
    renders its own self-contained header/footer instead of SiteHeader/SiteFooter. */
 .flint-landing { overflow: hidden; background: #fbfbf8; }
 .flint-landing .site-header { height: 108px; display: flex; align-items: center; justify-content: center; padding: 0 30px; border-bottom: 1px solid #dfe3ea; background: rgba(251,251,248,.92); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
