@@ -606,3 +606,11 @@
 - [x] Add a standards-based primary-bet ICS calendar export with a Monday, Tuesday, or Thursday check-in.
 - [x] Verify authenticated English and Arabic RTL rendering, responsive CSS rules, TypeScript, and production build.
 - [x] Validate and save the recommendation-feedback and calendar commitment checkpoint.
+
+## Explainable Matching Feedback
+
+- [x] Inspect persisted recommendation feedback and matching recovery states.
+- [x] Replace simple dismissals with stage, market, focus, timing, or other feedback reasons.
+- [x] Add a recovery panel that preserves feedback context and restores dismissed recommendations on demand.
+- [x] Verify English and Arabic RTL recovery states, responsive CSS behavior, TypeScript, and production build.
+- [x] Validate and save the explainable matching-feedback checkpoint.
