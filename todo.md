@@ -446,3 +446,10 @@
 - [x] Replace the highest-impact remaining visual drift across public, account, workspace, commercial, and detail route families.
 - [x] Verify desktop, mobile, English, and Arabic RTL routes for visual clarity and polish.
 - [x] Validate and save the strict visual-cleanup checkpoint.
+
+## Immediate-Use Public Route Enhancements
+
+- [x] Inspect Tools, Events, Partner application, and Support for the clearest immediate first-screen task.
+- [x] Implement first-screen task interactions that retain the landing-derived visual system.
+- [x] Verify desktop, mobile, English, and Arabic RTL task clarity and feedback.
+- [x] Validate and save the immediate-use route enhancement checkpoint.

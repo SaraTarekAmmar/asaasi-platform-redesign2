@@ -301,3 +301,38 @@
 .app-product .contact-route-ledger ol li + li {
   margin-top: 7px;
 }
+
+/* Application routes lead directly into useful context, not a visual submission sequence. */
+.app-product .relationship-thread {
+  display: none !important;
+}
+
+.app-product :is(.hero-aside-note, .partner-register-map) {
+  display: none !important;
+}
+
+.app-product .application-form {
+  margin-top: 0 !important;
+  scroll-margin-top: 110px;
+}
+
+.app-product .application-form + * {
+  margin-top: 16px;
+}
+
+.app-product .application-form {
+  padding: 24px 0 0 !important;
+  border-top: 1px solid rgba(7, 27, 61, 0.14) !important;
+  background: transparent !important;
+}
+
+.app-product .application-form::before,
+.app-product .application-form::after,
+.app-product .application-form label::before {
+  display: none !important;
+  content: none !important;
+}
+
+.app-product .application-form label {
+  padding-inline: 0 !important;
+}
