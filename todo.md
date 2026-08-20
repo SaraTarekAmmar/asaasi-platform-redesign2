@@ -485,3 +485,11 @@
 - [x] Implement an actionable workflow-history and event follow-up experience.
 - [x] Verify desktop, mobile, English, and Arabic RTL activity clarity.
 - [x] Validate and save the workflow-history enhancement checkpoint.
+
+## Proactive Founder Desk Guidance
+
+- [x] Inspect the current desk, workflow records, and follow-through actions.
+- [x] Define a concise guided follow-through model for active founder work.
+- [x] Implement proactive desk guidance and connected actions.
+- [x] Verify desktop, mobile, English, and Arabic RTL guidance states.
+- [x] Validate and save the guided workspace enhancement checkpoint.

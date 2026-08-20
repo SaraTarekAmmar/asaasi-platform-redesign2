@@ -37,6 +37,14 @@
 .app-product .founder-desk-next__actions { display: grid; justify-items: start; gap: 13px; flex: 0 0 auto; }
 .app-product .founder-desk-next .button-dark { background: #f6c915; color: #071b3d; }
 .app-product .founder-desk-next .text-link { color: #fff; }
+.app-product .founder-desk-guidance { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 18px; padding: clamp(25px, 4vw, 38px); border: 1px solid rgba(202, 165, 21, 0.34); border-radius: 22px; background: rgba(246, 201, 21, 0.1); }
+.app-product .founder-desk-guidance > div { max-width: 690px; }
+.app-product .founder-desk-guidance h2 { margin: 8px 0 10px; color: #071b3d; font: 500 clamp(25px, 3vw, 38px)/1.08 "Manrope", sans-serif; letter-spacing: -0.05em; }
+.app-product .founder-desk-guidance p { max-width: 625px; margin: 0; color: #53627a; line-height: 1.6; }
+.app-product .founder-desk-guidance .section-label { color: #927204; }
+.app-product .founder-desk-guidance .button-dark { flex: 0 0 auto; background: #071b3d; color: #fff; }
+.app-product .founder-desk-guidance__count { display: inline-flex; align-items: center; gap: 7px; margin-top: 18px; color: #53627a; font: 600 12px "DM Sans", sans-serif; }
+.app-product .founder-desk-guidance__count svg { color: #caa515; }
 .app-product .activity-row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 10px; }
 .app-product .activity-row-actions .text-link { border: 0; background: transparent; color: #53627a; cursor: pointer; font: 600 13px "DM Sans", sans-serif; }
 
@@ -46,6 +54,7 @@
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
   .app-product .founder-desk-records article { min-height: 0; }
+  .app-product .founder-desk-guidance { align-items: flex-start; flex-direction: column; }
 }
 
 @media (max-width: 620px) {
