@@ -11,4 +11,14 @@
   .app-product .page-hero p,
   .app-product .product-main .workspace-intro > p { max-width: 100%; }
   .locale-ar .app-product :is(.product-actions,.result-actions,.form-actions) { flex-direction: column; align-items: stretch; }
+  .locale-ar .app-product .landing-page-intro .landing-page-intro__content,
+  .locale-ar .app-product .landing-page-intro .landing-page-intro__content :is(h1, > p) {
+    text-align: start !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+  }
+  .locale-ar .app-product .landing-page-intro .landing-page-intro__content h1 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
 }

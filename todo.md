@@ -346,3 +346,10 @@
 - [x] Inspect non-landing application structure, validation output, routing, and duplication for concrete code-quality issues.
 - [x] Refactor the highest-impact maintainability or reliability concerns without modifying the landing page.
 - [x] Run type, build, and focused route validation; document the result and save a checkpoint.
+
+## End-to-End Journey, UX, UI, and Reliability Audit
+
+- [x] Define the representative founder journeys and observable success criteria across public discovery, access, workspace, and recovery states.
+- [x] Test English and Arabic RTL public, account, protected-workspace, and tool journeys across desktop and mobile breakpoints.
+- [x] Repair the highest-impact navigation, action feedback, accessibility, responsive, copy, and route-return issues without changing the landing page.
+- [x] Revalidate the revised journeys with type, production-build, and visual checks; document outcomes and save an audit checkpoint.
