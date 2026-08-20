@@ -509,3 +509,11 @@
 - [x] Implement the activity-review workspace enhancements.
 - [x] Verify desktop, mobile, English, and Arabic RTL activity-review states.
 - [x] Validate and save the activity-review enhancement checkpoint.
+
+## Connected Event Handoff
+
+- [x] Inspect public event actions and existing workspace handoff states.
+- [x] Define the event save, registration, and workspace follow-up journey.
+- [x] Implement connected public event handoff and follow-up improvements.
+- [x] Verify desktop, mobile, English, and Arabic RTL event handoff states.
+- [x] Validate and save the connected event-handoff enhancement checkpoint.

@@ -70,6 +70,10 @@
 .app-product .event-landing-feature__meta svg { color: #caa515; }
 .app-product .event-landing-feature__actions { display: grid; gap: 8px; min-width: 126px; }
 .app-product .event-landing-feature__actions .button { justify-content: center; }
+.app-product .event-registration-handoff { display: grid; gap: 7px; margin-top: 16px; padding: 15px 0 0; border-top: 1px solid rgba(7,27,61,.16); }
+.app-product .event-registration-handoff .mono { color: #927204; font-size: 9px; }
+.app-product .event-registration-handoff strong { color: #071b3d; font: 600 13px/1.35 "DM Sans", sans-serif; }
+.app-product .event-registration-handoff .text-link { justify-self: start; color: #071b3d; }
 .app-product .landing-page-intro--events .landing-page-intro__inner { display: block !important; text-align: center !important; }
 .app-product .landing-page-intro--events .landing-page-intro__content { max-width: 900px !important; margin-inline: auto !important; transform: none !important; }
 .app-product .landing-page-intro--events .landing-page-intro__content .eyebrow { justify-content: center !important; }
