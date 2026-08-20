@@ -167,9 +167,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const { t } = useLocale();
   const [location] = useLocation();
   const routeName = location.replace(/^\//, "").split("/")[0] || "home";
-  // Account routes (login/signup) are full-bleed 100vh flows with their own embedded logo, // the site header pushes their form off-screen, so they stay header-free. Every other
+  // Account and recovery routes are full-bleed 100vh flows with their own embedded logo; the site header pushes their form off-screen, so they stay header-free. Every other
   // authenticated app route now gets the same header as the public site, just without the footer.
-  const accountRoute = /^\/(login|signup)/.test(location);
+  const accountRoute = /^\/(login|signup|forgot-password|reset-password|verify-email)/.test(location);
   const appRoute = /^\/(dashboard|knowledge|matching|organizations|requests\/(new|[^/]+)|tools\/[^/]+|admin)/.test(location);
   // The landing page ("/") ships its own self-contained header and footer (see Home.tsx +
   // flint-landing.css) in a different visual system, so it opts out of the shared chrome too.

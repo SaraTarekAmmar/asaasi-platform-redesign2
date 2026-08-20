@@ -360,3 +360,10 @@
 - [x] Audit the residual pages at desktop, mobile, English, and Arabic RTL states, including public detail, account, workspace, policy, and system routes.
 - [x] Rebuild the highest-impact remaining route structures and shared controls using landing-derived editorial patterns without changing the landing page.
 - [x] Validate the refined routes and save the next landing-system alignment checkpoint.
+
+## Workspace, Account, and Interaction Continuation
+
+- [x] Identify the next highest-impact residual workspace, account, interaction, accessibility, responsive, or Arabic RTL issues.
+- [x] Audit the selected route states and shared controls at desktop and mobile breakpoints in English and Arabic.
+- [x] Implement targeted landing-system refinements and repair concrete behavior or clarity gaps without changing the landing page.
+- [x] Validate the updated route family and save the next refinement checkpoint.
