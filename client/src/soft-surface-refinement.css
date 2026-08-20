@@ -99,3 +99,205 @@
     border-radius: var(--soft-radius-md) !important;
   }
 }
+
+/* Professional composition pass: quiet paper surfaces replace hard grid geometry on non-landing routes. */
+.app-product :is(
+  .pricing-grid,
+  .access-tier-grid,
+  .contact-routing-desk,
+  .knowledge-grid,
+  .billing-grid,
+  .result-grid,
+  .settings-grid,
+  .workspace-content-grid
+) {
+  gap: 16px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.app-product :is(
+  .pricing-grid .plan,
+  .access-tier-card,
+  .contact-route-ledger,
+  .contact-context-form,
+  .knowledge-feature,
+  .billing-current,
+  .billing-invoices,
+  .result-grid > div,
+  .roadmap-stage-hero__evidence,
+  .roadmap-stage-course,
+  .events-feature-overlay,
+  .system-state,
+  .workspace-sidebar
+) {
+  border: 1px solid rgba(7, 27, 61, 0.1) !important;
+  border-top-width: 1px !important;
+  border-radius: var(--soft-radius-lg) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: 0 16px 38px rgba(7, 27, 61, 0.07) !important;
+}
+
+.app-product :is(
+  .saved-row,
+  .invoice-row,
+  .settings-row,
+  .notification-row,
+  .request-row,
+  .directory-row,
+  .event-timeline-row,
+  .partner-ledger-row,
+  .perks-ledger-row,
+  .tool-option,
+  .roadmap-stage-outcomes article
+) {
+  border: 1px solid rgba(7, 27, 61, 0.09) !important;
+  background: rgba(255, 255, 255, 0.64) !important;
+  box-shadow: 0 8px 22px rgba(7, 27, 61, 0.045) !important;
+}
+
+.app-product :is(
+  .pricing-grid .plan.highlight,
+  .access-tier-card.is-active,
+  .access-tier-card.subscriber,
+  .events-feature-overlay
+) {
+  background: #fffdf8 !important;
+  box-shadow: 0 20px 48px rgba(7, 27, 61, 0.1) !important;
+}
+
+.app-product .roadmap-stage-course {
+  background: #071b3d !important;
+  color: #fff !important;
+}
+
+.app-product :is(.pricing-grid .plan, .access-tier-card, .contact-route-ledger, .contact-context-form) > :first-child {
+  border-top-left-radius: calc(var(--soft-radius-lg) - 1px);
+  border-top-right-radius: calc(var(--soft-radius-lg) - 1px);
+}
+
+.app-product :is(.pricing-grid .plan, .access-tier-card, .contact-route-ledger, .contact-context-form) > :last-child {
+  border-bottom-left-radius: calc(var(--soft-radius-lg) - 1px);
+  border-bottom-right-radius: calc(var(--soft-radius-lg) - 1px);
+}
+
+@media (max-width: 760px) {
+  .app-product :is(
+    .pricing-grid,
+    .access-tier-grid,
+    .contact-routing-desk,
+    .knowledge-grid,
+    .billing-grid,
+    .result-grid,
+    .settings-grid,
+    .workspace-content-grid
+  ) {
+    gap: 12px !important;
+  }
+
+  .app-product :is(.pricing-grid .plan, .access-tier-card, .contact-route-ledger, .contact-context-form, .roadmap-stage-hero__evidence) {
+    border-radius: var(--soft-radius-md) !important;
+    box-shadow: 0 10px 28px rgba(7, 27, 61, 0.06) !important;
+  }
+}
+
+/* Residual route-family cleanup: every content surface inherits the same soft editorial edge language. */
+.app-product :is(
+  [class*="-card"],
+  [class*="-panel"],
+  [class*="-ledger"],
+  [class*="-desk"],
+  [class*="-tile"],
+  [class*="-feature"],
+  [class*="-record"],
+  [class*="-callout"],
+  [class*="-row"]
+) {
+  border-radius: var(--soft-radius-lg) !important;
+}
+
+.app-product :is(
+  [class*="-card"],
+  [class*="-panel"],
+  [class*="-ledger"],
+  [class*="-desk"],
+  [class*="-tile"],
+  [class*="-feature"],
+  [class*="-record"],
+  [class*="-callout"]
+) {
+  overflow: clip;
+}
+
+.app-product :is(
+  .tool-option,
+  .filter-chip,
+  .filter-button,
+  .tabs-trigger,
+  .access-tier-card,
+  .event-timeline-row,
+  .partner-ledger-row,
+  .perks-ledger-row
+) {
+  border-radius: 14px !important;
+}
+
+.app-product :is(.contact-route-ledger, .contact-context-form, .pricing-grid .plan, .access-tier-card, .tool-option) {
+  border-color: rgba(7, 27, 61, 0.08) !important;
+}
+
+/* Remove residual process-panel geometry in favour of direct route content. */
+.app-product .tool-pathway-section {
+  display: none !important;
+}
+
+.app-product .tools-hero-workbench {
+  display: none !important;
+}
+
+.app-product .tool-intent-controls {
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  overflow-x: auto;
+  padding: 10px 12px !important;
+  border: 1px solid rgba(7, 27, 61, 0.08) !important;
+  border-radius: var(--soft-radius-md) !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  box-shadow: 0 8px 22px rgba(7, 27, 61, 0.04) !important;
+  scrollbar-width: none;
+}
+
+.app-product .tool-intent-controls::-webkit-scrollbar {
+  display: none;
+}
+
+.app-product .tool-intent-controls > button {
+  flex: 0 0 auto;
+  border-radius: 999px !important;
+}
+
+.app-product .proof-strip {
+  gap: 12px !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+.app-product .proof-cell {
+  border: 1px solid rgba(7, 27, 61, 0.08) !important;
+  border-radius: var(--soft-radius-md) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 8px 22px rgba(7, 27, 61, 0.04) !important;
+}
+
+.app-product .contact-route-ledger ol li > button > span:first-child {
+  display: none !important;
+}
+
+.app-product .contact-route-ledger ol li > button {
+  grid-template-columns: minmax(0, 1fr) auto !important;
+  padding-inline: 18px !important;
+}
+
+.app-product .contact-route-ledger ol li + li {
+  margin-top: 7px;
+}

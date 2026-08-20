@@ -438,3 +438,11 @@
 - [x] Apply a landing-derived soft-edge surface treatment without changing the landing page.
 - [x] Verify public, account, workspace, mobile, English, and Arabic RTL compositions.
 - [x] Validate and save the soft-surface design checkpoint.
+
+## Strict Visual-Professionalism Cleanup
+
+- [x] Inventory remaining sharp borders, rigid geometry, visual clutter, and inconsistent non-landing compositions.
+- [x] Define and apply a stricter landing-derived professional surface and layout system.
+- [x] Replace the highest-impact remaining visual drift across public, account, workspace, commercial, and detail route families.
+- [x] Verify desktop, mobile, English, and Arabic RTL routes for visual clarity and polish.
+- [x] Validate and save the strict visual-cleanup checkpoint.
