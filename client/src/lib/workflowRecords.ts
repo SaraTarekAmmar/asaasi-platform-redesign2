@@ -1,4 +1,4 @@
-export type WorkflowRecordKind = "decision" | "event" | "application";
+export type WorkflowRecordKind = "decision" | "event" | "application" | "introduction";
 
 export type WorkflowRecord = {
   id: string;

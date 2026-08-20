@@ -614,3 +614,12 @@
 - [x] Add a recovery panel that preserves feedback context and restores dismissed recommendations on demand.
 - [x] Verify English and Arabic RTL recovery states, responsive CSS behavior, TypeScript, and production build.
 - [x] Validate and save the explainable matching-feedback checkpoint.
+
+## Matching to Introduction Journey
+
+- [x] Inspect member introduction requests, matching feedback records, and desk integration points.
+- [x] Define a structured introduction brief saved as a shared workflow record.
+- [x] Add direct introduction drafting with a focused-question requirement and Founder Operating Desk handoff.
+- [x] Add matching-feedback guidance to the Founder Operating Desk.
+- [x] Verify authenticated desktop English and Arabic RTL states, responsive CSS, TypeScript, and production build.
+- [x] Validate and save the introduction and feedback guidance checkpoint.
