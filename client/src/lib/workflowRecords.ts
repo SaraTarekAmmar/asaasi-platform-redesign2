@@ -23,6 +23,9 @@ export type WorkflowRecord = {
   introductionReflection?: string;
   introductionReflectionAt?: string;
   followUpDraft?: string;
+  followUpCopiedAt?: string;
+  outcomeCheckDue?: string;
+  outcomeCheckCompletedAt?: string;
   updatedAt: string;
 };
 
