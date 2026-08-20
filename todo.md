@@ -423,3 +423,11 @@
 - [x] Replace the former map and dark-panel structure with the new landing-style editorial feature.
 - [x] Verify the feature at desktop and mobile sizes in English and Arabic RTL.
 - [x] Validate and save the landing-style Events feature checkpoint.
+
+## Comprehensive Non-Landing Product Audit
+
+- [x] Inventory every non-landing route, navigation target, protected destination, form, and representative user journey.
+- [x] Audit public discovery, learning, events, tools, membership, commercial, account, recovery, workspace, and system-state route families for information architecture, UX, UI, accessibility, responsive, and RTL issues.
+- [x] Implement the highest-impact cross-route fixes without changing the landing page.
+- [x] Revalidate public, account, protected-workspace, desktop, mobile, English, and Arabic RTL journeys.
+- [x] Save the comprehensive audit checkpoint.

@@ -22,6 +22,11 @@
   content: "";
 }
 
+.app-product .account-flow .account-return-object,
+.app-product .account-flow .account-route-rail {
+  display: none;
+}
+
 .app-product .account-flow .account-return-object li.is-active i {
   background: #f6c915;
   color: #071b3d;
@@ -74,6 +79,19 @@
 .app-product .signup-aside .signup-trail span.done::before { background: #f6c915; }
 
 @media (max-width: 760px) {
+  .app-product .account-flow .account-visual {
+    display: none;
+  }
+
+  .app-product .account-flow .account-form-wrap {
+    min-height: calc(100dvh - 66px);
+    padding: 38px 24px 56px;
+  }
+
+  .app-product .account-flow .account-return-object {
+    display: none;
+  }
+
   .app-product .account-flow--network .account-return-object > .mono + ol { grid-template-columns: 1fr; }
   .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 52px; padding: .65rem 0; border-inline-end: 0; border-top: 1px solid rgba(223, 227, 234, 0.2); }
   .app-product .account-flow--network .account-return-object > .mono + ol li strong { display: inline-block; margin: 0 0 0 .6rem; }

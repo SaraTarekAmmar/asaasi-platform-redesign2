@@ -7,11 +7,15 @@
   .startup-proof-map,
   .content-index-map,
   .detail-route-map,
+  .contact-hero-route,
+  .contact-response-rail,
   .webinar-detail-map,
   .webinar-live-map,
   .commercial-route-map,
   .commercial-path,
   .operating-model-route-map,
+  .roadmap-stage-progress,
+  .roadmap-stage-artifact,
   .workshop-route-map,
   .about-manifesto-map,
   .trust-route-rail,
@@ -44,6 +48,23 @@
 
 .app-product .assessment-layout > .product-page-heading > .eyebrow {
   display: none !important;
+}
+
+.app-product .contact-route-ledger__heading .eyebrow,
+.app-product .contact-form-head .eyebrow {
+  display: none !important;
+}
+
+.app-product .roadmap-stage-mark {
+  display: none !important;
+}
+
+.app-product .roadmap-stage-outcomes article::before {
+  display: none !important;
+}
+
+.app-product .roadmap-stage-outcomes article {
+  padding-inline-start: 22px !important;
 }
 
 @media (max-width: 760px) {
