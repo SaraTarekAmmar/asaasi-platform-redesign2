@@ -23,6 +23,16 @@
 .app-product .founder-desk-priority__selector > span { margin-bottom: 4px; color: #6f7b8d; font-size: 9px; }
 .app-product .founder-desk-priority__selector button { width: 100%; border: 1px solid transparent; border-radius: 12px; background: transparent; padding: 11px 12px; color: #53627a; font: 600 13px "DM Sans", sans-serif; text-align: start; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
 .app-product .founder-desk-priority__selector button.is-active { border-color: rgba(202, 165, 21, 0.34); background: rgba(246, 201, 21, 0.13); color: #071b3d; }
+.app-product .founder-context-status { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 28px; align-items: center; margin-top: 18px; padding: clamp(22px, 3.4vw, 31px); border: 1px solid rgba(202,165,21,.34); border-radius: 20px; background: rgba(255,253,245,.72); }
+.app-product .founder-context-status .mono { color: #8c7110; font-size: 9px; }
+.app-product .founder-context-status h2 { max-width: 680px; margin: 8px 0 9px; color: #071b3d; font: 500 clamp(24px, 3vw, 37px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
+.app-product .founder-context-status p { max-width: 690px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .founder-context-status__metric { min-width: 92px; padding-inline-start: 22px; border-inline-start: 1px solid rgba(7,27,61,.13); }
+.app-product .founder-context-status__metric strong, .app-product .founder-context-status__metric small { display: block; }
+.app-product .founder-context-status__metric strong { color: #071b3d; font: 500 29px/1 "Manrope", sans-serif; letter-spacing: -.055em; white-space: nowrap; }
+.app-product .founder-context-status__metric small { margin-top: 6px; color: #6d7889; font: 600 9px/1.35 "DM Sans", sans-serif; letter-spacing: .05em; }
+.app-product .founder-context-status.is-complete { border-color: rgba(7,27,61,.14); background: rgba(255,255,255,.72); }
+.app-product .founder-context-status.is-complete .mono { color: #176b4b; }
 .app-product .founder-desk-records { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
 .app-product .founder-desk-records article { display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; border: 1px solid rgba(7, 27, 61, 0.09); border-radius: 20px; background: rgba(255, 255, 255, 0.7); padding: 24px; box-shadow: 0 10px 28px rgba(7, 27, 61, 0.045); }
 .app-product .founder-desk-records .mono { color: #6d7889; font-size: 9px; letter-spacing: 0.12em; }
@@ -192,6 +202,8 @@
 
 @media (max-width: 900px) {
   .app-product .founder-desk-priority { grid-template-columns: 1fr; }
+  .app-product .founder-context-status { grid-template-columns: 1fr auto; gap: 18px; }
+  .app-product .founder-context-status > .button { grid-column: 1 / -1; justify-self: start; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
@@ -225,6 +237,9 @@
   .app-product .weekly-review-brief { grid-template-columns: 1fr; align-items: start; }
   .app-product .weekly-review-row { grid-template-columns: 32px 1fr; gap: 12px; }
   .app-product .weekly-review-row__evidence, .app-product .weekly-review-row__actions { grid-column: 2; }
+  .app-product .founder-context-status { grid-template-columns: 1fr; }
+  .app-product .founder-context-status__metric { padding: 14px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7,27,61,.13); }
+  .app-product .founder-context-status > .button { grid-column: auto; }
   .app-product .weekly-primary-bet, .app-product .founder-desk-weekly-bet { align-items: flex-start; flex-direction: column; }
   .app-product .weekly-friday-reflection { grid-template-columns: 1fr; }
   .app-product .weekly-friday-reflection__actions { grid-column: 1; }
