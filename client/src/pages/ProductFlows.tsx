@@ -213,7 +213,7 @@ function AccountableDashboard() {
   const { t, formatNum, isRTL } = useLocale();
   const today = new Date().toISOString().slice(0, 10);
   const overdue = getWorkflowRecords().filter((record) => record.kind === "decision" && !record.outcome && record.reviewDue && record.reviewDue < today);
-  return <><DashboardHome />{overdue.length > 0 && <Link href="/dashboard/decision-accountability" className="decision-accountability-float"><span><strong>{t(`${formatNum(overdue.length)} decision review${overdue.length === 1 ? "" : "s"} overdue`, `${formatNum(overdue.length)} مراجعة قرار متأخرة`)}</strong><small>{t("Return before the next task hides the evidence", "عد قبل أن تخفي المهمة التالية الدليل")}</small></span>{isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link>}</>;
+  return <><DashboardHome /><Link href="/dashboard/weekly-review" className="weekly-review-float"><CalendarPlus size={15} /><span><strong>{t("Weekly decision review", "المراجعة الأسبوعية للقرارات")}</strong><small>{t("Choose the bets worth this week", "اختر الرهانات التي تستحق هذا الأسبوع")}</small></span>{isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link>{overdue.length > 0 && <Link href="/dashboard/decision-accountability" className="decision-accountability-float"><span><strong>{t(`${formatNum(overdue.length)} decision review${overdue.length === 1 ? "" : "s"} overdue`, `${formatNum(overdue.length)} مراجعة قرار متأخرة`)}</strong><small>{t("Return before the next task hides the evidence", "عد قبل أن تخفي المهمة التالية الدليل")}</small></span>{isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link>}</>;
 }
 
 function LearnerWorkspace() {

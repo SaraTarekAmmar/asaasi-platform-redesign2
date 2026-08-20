@@ -10,6 +10,7 @@ import Learn from "./pages/Learn";
 import Tools from "./pages/Tools";
 import { AccountableActivityWorkspace } from "./pages/AccountableActivity";
 import { DecisionAccountabilityWorkspace } from "./pages/DecisionAccountability";
+import { WeeklyDecisionReviewWorkspace } from "./pages/WeeklyDecisionReview";
 import Pricing from "./pages/Pricing";
 import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
@@ -71,6 +72,7 @@ function Router() {
     <Route path="/dashboard/registrations" component={AccountableActivityWorkspace} />
     <Route path="/dashboard/decision-review" component={DecisionReviewWorkspace} />
     <Route path="/dashboard/decision-accountability" component={DecisionAccountabilityWorkspace} />
+    <Route path="/dashboard/weekly-review" component={WeeklyDecisionReviewWorkspace} />
     <Route path="/dashboard/requests/:id" component={() => <RequestDetailPage workspace />} />
     <Route path="/dashboard/requests" component={WorkspaceRequestsPage} />
     <Route path="/dashboard/organizations" component={OrganizationHubPage} />

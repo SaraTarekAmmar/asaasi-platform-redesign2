@@ -85,6 +85,36 @@
 .app-product .decision-accountability-float strong, .app-product .decision-accountability-float small { display: block; }
 .app-product .decision-accountability-float strong { color: #f6c915; font: 600 12px "DM Sans", sans-serif; }
 .app-product .decision-accountability-float small { margin-top: 3px; color: rgba(255,255,255,.7); font: 11px/1.35 "DM Sans", sans-serif; }
+.app-product .weekly-review-float { position: fixed; right: 24px; bottom: 24px; z-index: 59; display: flex; align-items: center; gap: 11px; max-width: min(370px, calc(100vw - 48px)); border: 1px solid rgba(7,27,61,.16); border-radius: 14px; background: #fbfbf8; box-shadow: 0 16px 38px rgba(7,27,61,.14); padding: 14px 16px; color: #071b3d; text-decoration: none; }
+.app-product .weekly-review-float span { min-width: 0; flex: 1; }
+.app-product .weekly-review-float strong, .app-product .weekly-review-float small { display: block; }
+.app-product .weekly-review-float strong { font: 600 12px "DM Sans", sans-serif; }
+.app-product .weekly-review-float small { margin-top: 3px; color: #53627a; font: 11px/1.35 "DM Sans", sans-serif; }
+.app-product .weekly-review-float:has(+ .decision-accountability-float) { bottom: 92px; }
+.app-product .weekly-review-brief { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(230px,.7fr) auto; gap: 25px; align-items: end; margin: 18px 0; padding: clamp(24px,4vw,38px); border-top: 3px solid #caa515; border-radius: 22px; background: #071b3d; color: #fff; }
+.app-product .weekly-review-brief .section-label { color: #f6c915; }
+.app-product .weekly-review-brief h2 { max-width: 590px; margin: 8px 0 10px; font: 500 clamp(28px,3.6vw,45px)/1.05 "Manrope", sans-serif; letter-spacing: -.06em; }
+.app-product .weekly-review-brief > div > p { max-width: 600px; margin: 0; color: rgba(255,255,255,.7); font-size: 14px; line-height: 1.6; }
+.app-product .weekly-review-brief dl { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 0; }
+.app-product .weekly-review-brief dl > div { padding-inline-start: 12px; border-inline-start: 1px solid rgba(255,255,255,.22); }
+.app-product .weekly-review-brief dt { color: rgba(255,255,255,.6); font: 600 9px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.app-product .weekly-review-brief dd { margin: 6px 0 0; color: #f6c915; font: 500 28px/1 "Manrope", sans-serif; }
+.app-product .weekly-review-brief .button-light { white-space: nowrap; background: #f6c915; color: #071b3d; }
+.app-product .weekly-review-agenda { padding: clamp(23px,3.5vw,34px); border-radius: 22px; background: rgba(255,255,255,.68); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
+.app-product .weekly-review-agenda__heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(7,27,61,.11); }
+.app-product .weekly-review-agenda__heading h2 { margin: 8px 0 0; color: #071b3d; font: 500 clamp(24px,3vw,37px)/1.05 "Manrope", sans-serif; letter-spacing: -.055em; }
+.app-product .weekly-review-row { display: grid; grid-template-columns: 44px minmax(0,1fr) minmax(180px,.72fr) auto; gap: 18px; align-items: center; padding: 20px 0; border-bottom: 1px solid rgba(7,27,61,.1); }
+.app-product .weekly-review-row:last-child { border-bottom: 0; }
+.app-product .weekly-review-row__index { color: #caa515; font: 600 11px "DM Sans", sans-serif; letter-spacing: .08em; }
+.app-product .weekly-review-row__main header { display: flex; gap: 9px; align-items: center; color: #53627a; font: 600 10px "DM Sans", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .weekly-review-row__main header span { color: #caa515; }
+.app-product .weekly-review-row.is-overdue .weekly-review-row__main header span { color: #a84d45; }
+.app-product .weekly-review-row__main header small { color: #788396; font: 500 10px "DM Sans", sans-serif; }
+.app-product .weekly-review-row h3 { margin: 8px 0 5px; color: #071b3d; font: 500 20px/1.18 "Manrope", sans-serif; letter-spacing: -.04em; }
+.app-product .weekly-review-row__main p, .app-product .weekly-review-row__evidence p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .weekly-review-row__evidence { padding-inline-start: 14px; border-inline-start: 1px solid rgba(7,27,61,.1); }
+.app-product .weekly-review-row__evidence > span { display: block; margin-bottom: 5px; color: #788396; font: 600 9px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.app-product .weekly-review-row__actions { display: grid; justify-items: start; gap: 9px; }
 .app-product .activity-learning-summary { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, .7fr) auto; gap: 26px; align-items: end; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border-top: 3px solid #caa515; border-radius: 22px; background: #071b3d; color: #fff; }
 .app-product .activity-learning-summary .section-label { color: #f6c915; }
 .app-product .activity-learning-summary h2 { max-width: 550px; margin: 8px 0 9px; font: 500 clamp(28px, 3.6vw, 46px)/1.05 "Manrope", sans-serif; letter-spacing: -.06em; }
@@ -169,6 +199,11 @@
   .app-product .decision-outcome-options { grid-template-columns: 1fr; }
   .app-product .accountability-fields { grid-template-columns: 1fr; }
   .app-product .decision-accountability-float { right: 16px; bottom: 16px; max-width: calc(100vw - 32px); }
+  .app-product .weekly-review-float { right: 16px; bottom: 16px; max-width: calc(100vw - 32px); }
+  .app-product .weekly-review-float:has(+ .decision-accountability-float) { bottom: 84px; }
+  .app-product .weekly-review-brief { grid-template-columns: 1fr; align-items: start; }
+  .app-product .weekly-review-row { grid-template-columns: 32px 1fr; gap: 12px; }
+  .app-product .weekly-review-row__evidence, .app-product .weekly-review-row__actions { grid-column: 2; }
   .app-product .activity-learning-summary__metrics { gap: 8px; }
   .app-product .activity-learning-ledger__heading { display: grid; align-items: start; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }

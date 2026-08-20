@@ -557,3 +557,11 @@
 - [x] Implement accountability fields and overdue workflow cues.
 - [x] Verify desktop, mobile, English, and Arabic RTL accountability states.
 - [x] Validate and save the accountable decision-review enhancement checkpoint.
+
+## Weekly Decision Review
+
+- [x] Inspect decision ownership, due-date, and learning states for weekly review inputs.
+- [x] Define a concise weekly agenda and decision prioritization model.
+- [x] Implement the weekly decision-review agenda and connected return actions.
+- [x] Verify desktop, mobile, English, and Arabic RTL weekly review states.
+- [x] Validate and save the weekly decision-review enhancement checkpoint.
