@@ -18,6 +18,7 @@
   .partner-register-map,
   .perks-access-map,
   .proof-strip,
+  .assessment-diagnostic-object,
   .connect-landing-hero__object,
   .connect-landing-hero__rail,
   .connect-landing-principles
@@ -27,6 +28,18 @@
 .app-product .landing-page-intro__inner::after {
   display: none !important;
   content: none !important;
+}
+
+.app-product .assessment-options .assessment-choice-index {
+  display: none !important;
+}
+
+.app-product .assessment-options .tool-option {
+  padding-inline: 24px !important;
+}
+
+.app-product .assessment-layout > .product-page-heading > .eyebrow {
+  display: none !important;
 }
 
 @media (max-width: 760px) {

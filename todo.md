@@ -402,3 +402,10 @@
 - [x] Remove the decorative treatments while retaining functional controls and meaningful status information.
 - [x] Verify the simplified experience at desktop and mobile widths in English and Arabic RTL.
 - [x] Validate and save the motif-removal checkpoint.
+
+## Founder-Signal Record Panel Removal
+
+- [x] Locate all founder-signal record and constraint/evidence/next-move diagnostic panels across non-landing routes.
+- [x] Remove the numbered diagnostic visual treatment while preserving assessment content and actions.
+- [x] Verify desktop, mobile, English, and Arabic RTL assessment states.
+- [x] Validate and save the simplified assessment checkpoint.
