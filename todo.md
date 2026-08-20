@@ -525,3 +525,11 @@
 - [x] Implement event preparation, calendar handoff, and reflection controls.
 - [x] Verify desktop, mobile, English, and Arabic RTL participation states.
 - [x] Validate and save the event-participation enhancement checkpoint.
+
+## Structured Tool Decisions
+
+- [x] Inspect current tool result flows, workflow records, and Founder Desk decision usage.
+- [x] Define a structured decision record with owner, next action, and review date.
+- [x] Implement structured decision outcomes and desk review cues.
+- [x] Verify desktop, mobile, English, and Arabic RTL decision states.
+- [x] Validate and save the structured decision enhancement checkpoint.

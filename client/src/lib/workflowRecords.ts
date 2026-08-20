@@ -7,6 +7,12 @@ export type WorkflowRecord = {
   titleAr: string;
   href: string;
   status: "saved" | "submitted" | "registered";
+  owner?: string;
+  ownerAr?: string;
+  nextAction?: string;
+  nextActionAr?: string;
+  reviewDate?: string;
+  reviewDateAr?: string;
   updatedAt: string;
 };
 

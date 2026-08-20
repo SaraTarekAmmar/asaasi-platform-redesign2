@@ -79,6 +79,32 @@
 .app-product .signup-aside .signup-trail span.done::before { background: #f6c915; }
 
 @media (max-width: 760px) {
+  .account-flow {
+    display: block !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    min-height: 100dvh !important;
+    overflow-x: hidden !important;
+  }
+
+  .account-flow .account-visual {
+    display: none !important;
+  }
+
+  .account-flow .account-form-wrap {
+    display: flex;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100dvh !important;
+    box-sizing: border-box;
+    padding: 38px 24px 56px !important;
+  }
+
+  .account-flow .account-form {
+    width: min(100%, 430px);
+  }
+
   .app-product .account-flow {
     display: block;
     width: 100%;
