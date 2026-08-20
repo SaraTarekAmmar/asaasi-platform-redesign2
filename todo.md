@@ -598,3 +598,11 @@
 - [x] Add persistent Tuesday or Thursday primary-bet reminders visible from Weekly Review and the Founder Operating Desk.
 - [x] Verify authenticated English and Arabic RTL states, responsive CSS rules, TypeScript, and production build.
 - [x] Validate and save the connected enhancement checkpoint.
+
+## Recommendation Feedback and Calendar Commitments
+
+- [x] Inspect matching recommendation state and weekly primary-bet commitment data.
+- [x] Add persistent not-relevant feedback that removes weak contextual recommendations from the active shortlist.
+- [x] Add a standards-based primary-bet ICS calendar export with a Monday, Tuesday, or Thursday check-in.
+- [x] Verify authenticated English and Arabic RTL rendering, responsive CSS rules, TypeScript, and production build.
+- [x] Validate and save the recommendation-feedback and calendar commitment checkpoint.
