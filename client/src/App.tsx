@@ -12,7 +12,7 @@ import Pricing from "./pages/Pricing";
 import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
 import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
-import { Dashboard, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
+import { Dashboard, DecisionReviewWorkspace, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
 import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PartnerDirectoryPage, PerksPublicPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
 import "./product-flows.css";
 import "./missing-pages.css";
@@ -67,6 +67,7 @@ function Router() {
     <Route path="/dashboard/rooms" component={() => <WorkspaceEventsPage discovery />} />
     <Route path="/dashboard/events" component={() => <WorkspaceEventsPage />} />
     <Route path="/dashboard/registrations" component={RegistrationsPage} />
+    <Route path="/dashboard/decision-review" component={DecisionReviewWorkspace} />
     <Route path="/dashboard/requests/:id" component={() => <RequestDetailPage workspace />} />
     <Route path="/dashboard/requests" component={WorkspaceRequestsPage} />
     <Route path="/dashboard/organizations" component={OrganizationHubPage} />

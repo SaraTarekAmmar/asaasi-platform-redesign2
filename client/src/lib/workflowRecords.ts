@@ -13,6 +13,9 @@ export type WorkflowRecord = {
   nextActionAr?: string;
   reviewDate?: string;
   reviewDateAr?: string;
+  evidence?: string;
+  outcome?: "keep" | "change" | "stop";
+  outcomeAt?: string;
   updatedAt: string;
 };
 

@@ -533,3 +533,11 @@
 - [x] Implement structured decision outcomes and desk review cues.
 - [x] Verify desktop, mobile, English, and Arabic RTL decision states.
 - [x] Validate and save the structured decision enhancement checkpoint.
+
+## Decision Review and Learning
+
+- [x] Inspect existing decision records, review metadata, and Activity presentation.
+- [x] Define evidence capture and outcome states for saved decisions.
+- [x] Implement the decision review, outcome capture, and Activity handoff.
+- [x] Verify desktop, mobile, English, and Arabic RTL decision-review states.
+- [x] Validate and save the decision-review enhancement checkpoint.
