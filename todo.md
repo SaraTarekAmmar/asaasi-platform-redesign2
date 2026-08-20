@@ -660,3 +660,13 @@
 - [x] Carry the latest completed outcome learning into the next introduction brief as compact routing context.
 - [x] Verify TypeScript and production build.
 - [x] Validate and save the structured introduction outcome checkpoint.
+
+## Outcome-Led Matching Guidance
+
+- [x] Inspect introduction outcome records, matching filters, and decision-review integration points.
+- [x] Define aggregate outcome trends and near-term next-step matching intent.
+- [x] Add a Founder Operating Desk outcome signal with next-step and useful-learning counts.
+- [x] Add next-step-aware matching that prioritizes people available for a near-term conversation and keeps the rationale visible.
+- [x] Preserve linked-decision evidence and aligned review timing as the decision-review handoff.
+- [x] Verify authenticated English and Arabic RTL matching states, TypeScript, and production build.
+- [x] Validate and save the outcome-led guidance checkpoint.

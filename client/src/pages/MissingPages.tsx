@@ -265,6 +265,7 @@ export function WorkspaceDirectoryPage({ professionals = false }: { professional
   const [relevanceFeedback, setRelevanceFeedback] = useState(() => getRecommendationFeedback());
   const [feedbackTarget, setFeedbackTarget] = useState<string | null>(null);
   const [recoveryOpen, setRecoveryOpen] = useState(false);
+  const requestedIntent = typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("intent") ?? "";
   const founderContext = getFounderContext();
   const contextStatus = getFounderContextStatus(founderContext);
   const founderStage = founderContext?.stage === "Idea" ? "Validate" : founderContext?.stage === "First revenue" ? "Build" : founderContext?.stage === "Growth" ? "Scale" : undefined;
@@ -278,6 +279,7 @@ export function WorkspaceDirectoryPage({ professionals = false }: { professional
     if (founderCity === person.city) reasons.push(t("near your market", "قريب من سوقك"));
     if (/pricing|price|تسعير/.test(contextWords) && /pricing/.test(`${person.role} ${person.focus}`.toLowerCase())) reasons.push(t("pricing context", "سياق التسعير"));
     if (/customer|discovery|enterprise|growth|عميل|اكتشاف|مؤسسي|نمو/.test(contextWords) && /growth|enterprise|product/.test(`${person.role} ${person.focus}`.toLowerCase())) reasons.push(t("current operating focus", "التركيز التشغيلي الحالي"));
+    if (requestedIntent === "next-step" && person.availability === "Available this month") reasons.push(t("available for a near-term next step", "متاح لخطوة تالية قريبة"));
     return reasons;
   };
   const filtered = useMemo(() => people.filter((person) => !relevanceFeedback[person.name] && `${person.name} ${person.role} ${person.city} ${person.focus}`.toLowerCase().includes(query.toLowerCase()) && (stage === "All stages" || person.stage === stage) && (city === "All cities" || person.city === city) && (availability === "Any availability" || person.availability === availability)).sort((a, b) => matchReasons(b).length - matchReasons(a).length), [availability, city, query, stage, contextWords, founderCity, founderStage, relevanceFeedback]);

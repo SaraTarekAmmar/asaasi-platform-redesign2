@@ -102,6 +102,17 @@
 .app-product .founder-desk-introduction-outcome { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 24px; margin: 18px 0; padding: 24px 28px; border: 1px solid rgba(7,27,61,.11); border-radius: 18px; background: #fffdf5; }
 .app-product .founder-desk-introduction-outcome h2 { margin: 7px 0 8px; color: #071b3d; font: 500 clamp(22px,2.4vw,31px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .founder-desk-introduction-outcome p { max-width: 700px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .founder-desk-outcome-trend { display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: center; gap: 24px; margin: 18px 0; padding: 24px 28px; border: 1px solid rgba(7,27,61,.11); border-radius: 18px; background: #fff; }
+.app-product .founder-desk-outcome-trend h2 { max-width: 600px; margin: 7px 0 8px; color: #071b3d; font: 500 clamp(22px,2.4vw,31px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .founder-desk-outcome-trend p { max-width: 630px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .founder-desk-outcome-trend dl { display: grid; grid-template-columns: repeat(2,minmax(78px,1fr)); gap: 12px; margin: 0; }
+.app-product .founder-desk-outcome-trend dl div { padding-inline-start: 11px; border-inline-start: 2px solid #caa515; }
+.app-product .founder-desk-outcome-trend dt { color: #53627a; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .founder-desk-outcome-trend dd { margin: 4px 0 0; color: #071b3d; font: 500 24px/1 "Manrope",sans-serif; }
+.app-product .decision-review-introduction-prompt { display: grid; gap: 7px; margin: 15px 0; padding: 13px 14px; border-inline-start: 2px solid #caa515; background: #fffdf5; }
+.app-product .decision-review-introduction-prompt > span { color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; }
+.app-product .decision-review-introduction-prompt p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .decision-review-introduction-prompt strong { color: #071b3d; font: 600 12px/1.45 "DM Sans",sans-serif; }
 .app-product .founder-profile-refresh { display: grid; gap: 6px; margin-top: 16px; padding: 14px; border-inline-start: 2px solid #caa515; background: rgba(202,165,21,.06); }
 .app-product .founder-profile-refresh strong { color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
 .app-product .founder-profile-refresh p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
@@ -294,6 +305,7 @@
   .app-product .activity-introduction-summary { grid-template-columns: 1fr; align-items: start; }
   .app-product .weekly-introduction-learning { grid-template-columns: 1fr; }
   .app-product .founder-desk-introduction-outcome { grid-template-columns: 1fr; align-items: start; }
+  .app-product .founder-desk-outcome-trend { grid-template-columns: 1fr; align-items: start; }
   .app-product .activity-outcome-check { grid-template-columns: 1fr; padding: 21px; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
