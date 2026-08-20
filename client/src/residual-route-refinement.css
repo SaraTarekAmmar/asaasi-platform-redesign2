@@ -20,4 +20,15 @@
 .app-product .system-recovery-path { border-top: 1px solid rgba(255,255,255,.32); }
 .app-product .system-recovery-path li { min-height: 58px; align-items: center; }
 .app-product .system-recovery-path li span { color: #f6c915; }
+.app-product .system-state-page { min-height: calc(100vh - 92px); padding: 84px 28px; background: #fbfbf8 !important; color: #071b3d !important; }
+.app-product .system-state-page::before { display: none; content: none; }
+.app-product .system-state-record { width: min(100%, 880px); padding: 48px 0 52px 30px; border-inline-start: 2px solid #caa515; background: transparent; }
+.app-product .system-state-record header .mono { color: #657287; }
+.app-product .system-state-record h1 { color: #071b3d !important; }
+.app-product .system-state-record > p { color: #53627a !important; }
+.app-product .system-recovery-path { border-top-color: #dfe3ea !important; background: #dfe3ea !important; }
+.app-product .system-recovery-path li { background: #fbfbf8 !important; }
+.app-product .system-recovery-path strong { color: #071b3d !important; }
+.app-product .system-state-record .button-primary { background: #071b3d !important; color: #fbfbf8 !important; }
+.app-product .system-state-record .button-ghost { border-color: #c6cfdb !important; color: #071b3d !important; }
 @media (max-width: 760px) { .app-product .pricing-grid { display: block; }.app-product .pricing-grid .plan { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }.app-product .pricing-grid .plan:last-child { border-bottom: 0; } }

@@ -353,3 +353,10 @@
 - [x] Test English and Arabic RTL public, account, protected-workspace, and tool journeys across desktop and mobile breakpoints.
 - [x] Repair the highest-impact navigation, action feedback, accessibility, responsive, copy, and route-return issues without changing the landing page.
 - [x] Revalidate the revised journeys with type, production-build, and visual checks; document outcomes and save an audit checkpoint.
+
+## Continued Route-by-Route Landing-System Refinement
+
+- [x] Inventory remaining non-landing page families and identify any residual visual, interaction, typography, or component drift from the fixed landing-page system.
+- [x] Audit the residual pages at desktop, mobile, English, and Arabic RTL states, including public detail, account, workspace, policy, and system routes.
+- [x] Rebuild the highest-impact remaining route structures and shared controls using landing-derived editorial patterns without changing the landing page.
+- [x] Validate the refined routes and save the next landing-system alignment checkpoint.
