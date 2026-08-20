@@ -33,6 +33,14 @@
 .app-product .founder-context-status__metric small { margin-top: 6px; color: #6d7889; font: 600 9px/1.35 "DM Sans", sans-serif; letter-spacing: .05em; }
 .app-product .founder-context-status.is-complete { border-color: rgba(7,27,61,.14); background: rgba(255,255,255,.72); }
 .app-product .founder-context-status.is-complete .mono { color: #176b4b; }
+.app-product .workspace-context-match { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 28px; align-items: end; margin: 18px 0; padding: clamp(23px,3.5vw,33px); border: 1px solid rgba(7,27,61,.11); border-radius: 20px; background: rgba(255,255,255,.72); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
+.app-product .workspace-context-match .section-label { color: #8c7110; }
+.app-product .workspace-context-match h2 { max-width: 710px; margin: 8px 0 10px; color: #071b3d; font: 500 clamp(24px,3vw,38px)/1.08 "Manrope",sans-serif; letter-spacing: -.055em; }
+.app-product .workspace-context-match p { max-width: 730px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .workspace-context-match__metric { padding-inline-start: 22px; border-inline-start: 1px solid rgba(7,27,61,.13); color: #071b3d; font: 500 20px/1.15 "Manrope",sans-serif; letter-spacing: -.04em; white-space: nowrap; }
+.app-product .workspace-context-match.is-ready { border-color: rgba(202,165,21,.34); background: #fffdf5; }
+.app-product .workspace-person-card__reason { margin-top: 12px !important; padding-top: 12px; border-top: 1px solid rgba(7,27,61,.1); color: #53627a !important; font-size: 12px !important; line-height: 1.5; }
+.app-product .workspace-person-card__reason strong { color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .05em; }
 .app-product .founder-desk-records { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
 .app-product .founder-desk-records article { display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; border: 1px solid rgba(7, 27, 61, 0.09); border-radius: 20px; background: rgba(255, 255, 255, 0.7); padding: 24px; box-shadow: 0 10px 28px rgba(7, 27, 61, 0.045); }
 .app-product .founder-desk-records .mono { color: #6d7889; font-size: 9px; letter-spacing: 0.12em; }
@@ -110,6 +118,8 @@
 .app-product .weekly-review-brief dt { color: rgba(255,255,255,.6); font: 600 9px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .app-product .weekly-review-brief dd { margin: 6px 0 0; color: #f6c915; font: 500 28px/1 "Manrope", sans-serif; }
 .app-product .weekly-review-brief .button-light { white-space: nowrap; background: #f6c915; color: #071b3d; }
+.app-product .weekly-review-brief__actions { display: grid; justify-items: start; gap: 12px; }
+.app-product .weekly-review-brief__actions .text-link { display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; color: #fff; cursor: pointer; font: 600 12px "DM Sans",sans-serif; }
 .app-product .weekly-review-agenda { padding: clamp(23px,3.5vw,34px); border-radius: 22px; background: rgba(255,255,255,.68); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
 .app-product .weekly-review-agenda__heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(7,27,61,.11); }
 .app-product .weekly-review-agenda__heading h2 { margin: 8px 0 0; color: #071b3d; font: 500 clamp(24px,3vw,37px)/1.05 "Manrope", sans-serif; letter-spacing: -.055em; }
@@ -131,7 +141,12 @@
 .app-product .weekly-primary-bet .section-label, .app-product .founder-desk-weekly-bet .section-label { color: #8c7110; }
 .app-product .weekly-primary-bet h2, .app-product .founder-desk-weekly-bet h2 { max-width: 650px; margin: 8px 0; color: #071b3d; font: 500 clamp(25px,3vw,37px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
 .app-product .weekly-primary-bet p, .app-product .founder-desk-weekly-bet p { max-width: 720px; margin: 0; color: #53627a; line-height: 1.6; }
+.app-product .founder-desk-weekly-bet__reminder { margin-top: 10px !important; color: #8c7110 !important; font: 600 10px "DM Sans",sans-serif; letter-spacing: .04em; }
 .app-product .weekly-primary-bet__actions, .app-product .founder-desk-weekly-bet > div:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.app-product .weekly-primary-reminder { display: flex; align-items: center; gap: 10px; width: 100%; padding-top: 12px; border-top: 1px solid rgba(7,27,61,.12); color: #6d7889; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .weekly-primary-reminder > div { display: flex; flex-wrap: wrap; gap: 7px; }
+.app-product .weekly-primary-reminder button { border: 1px solid rgba(7,27,61,.14); border-radius: 8px; background: transparent; padding: 6px 8px; color: #53627a; cursor: pointer; font: 600 10px "DM Sans",sans-serif; letter-spacing: 0; text-transform: none; }
+.app-product .weekly-primary-reminder button.is-active { border-color: rgba(202,165,21,.52); background: rgba(246,201,21,.14); color: #071b3d; }
 .app-product .weekly-primary-bet.is-complete, .app-product .founder-desk-weekly-bet.is-complete { border-color: rgba(7,27,61,.15); background: rgba(255,255,255,.66); }
 .app-product .weekly-friday-reflection { display: grid; grid-template-columns: minmax(0,.82fr) minmax(0,1fr); gap: 24px; margin: 18px 0; padding: clamp(23px,3.6vw,32px); border-radius: 20px; background: rgba(255,255,255,.72); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
 .app-product .weekly-friday-reflection h2 { margin: 8px 0 10px; color: #071b3d; font: 500 clamp(24px,3vw,36px)/1.08 "Manrope", sans-serif; letter-spacing: -.05em; }
@@ -204,6 +219,8 @@
   .app-product .founder-desk-priority { grid-template-columns: 1fr; }
   .app-product .founder-context-status { grid-template-columns: 1fr auto; gap: 18px; }
   .app-product .founder-context-status > .button { grid-column: 1 / -1; justify-self: start; }
+  .app-product .workspace-context-match { grid-template-columns: 1fr; align-items: start; }
+  .app-product .workspace-context-match__metric { padding: 14px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7,27,61,.13); }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
@@ -235,6 +252,7 @@
   .app-product .weekly-review-float { right: 16px; bottom: 16px; max-width: calc(100vw - 32px); }
   .app-product .weekly-review-float:has(+ .decision-accountability-float) { bottom: 84px; }
   .app-product .weekly-review-brief { grid-template-columns: 1fr; align-items: start; }
+  .app-product .weekly-review-brief__actions { justify-items: start; }
   .app-product .weekly-review-row { grid-template-columns: 32px 1fr; gap: 12px; }
   .app-product .weekly-review-row__evidence, .app-product .weekly-review-row__actions { grid-column: 2; }
   .app-product .founder-context-status { grid-template-columns: 1fr; }

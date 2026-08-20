@@ -4,6 +4,7 @@ export type WeeklyPrimaryBet = {
   weekStart: string;
   selectedAt: string;
   completedAt?: string;
+  reminderDay?: "tuesday" | "thursday";
 };
 
 const STORAGE_KEY = "asaasi-weekly-primary-bet";
@@ -42,6 +43,14 @@ export function completeWeeklyPrimaryBet() {
   const current = getWeeklyPrimaryBet();
   if (!current) return null;
   const value = { ...current, completedAt: new Date().toISOString() };
+  persist(value);
+  return value;
+}
+
+export function setWeeklyPrimaryBetReminder(reminderDay?: WeeklyPrimaryBet["reminderDay"]) {
+  const current = getWeeklyPrimaryBet();
+  if (!current) return null;
+  const value = { ...current, reminderDay };
   persist(value);
   return value;
 }

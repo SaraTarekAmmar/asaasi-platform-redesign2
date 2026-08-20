@@ -589,3 +589,12 @@
 - [x] Implement profile persistence plus Founder Operating Desk completion guidance.
 - [x] Verify authenticated desktop English and Arabic RTL states and responsive CSS collapse rules.
 - [x] Validate and save the founder-context completion enhancement checkpoint.
+
+## Context-Aware Matching and Weekly Follow-Through
+
+- [x] Inspect matching, week-in-review, and reminder integration points.
+- [x] Rank workspace recommendations by founder context and keep the reason for each fit visible.
+- [x] Add a downloadable week-in-review summary with open decisions, primary bet, plan status, and Friday reflection.
+- [x] Add persistent Tuesday or Thursday primary-bet reminders visible from Weekly Review and the Founder Operating Desk.
+- [x] Verify authenticated English and Arabic RTL states, responsive CSS rules, TypeScript, and production build.
+- [x] Validate and save the connected enhancement checkpoint.
