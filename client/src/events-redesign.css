@@ -53,6 +53,28 @@
 .app-product .event-spotlight-details svg { color: #caa515; flex: 0 0 auto; }
 .app-product .event-spotlight-actions { display: grid; gap: 8px; min-width: 155px; padding-top: 3px; }
 .app-product .event-spotlight-actions .button { justify-content: center; }
+.app-product .event-landing-feature { padding: 0 0 88px; background: #fbfbf8; }
+.app-product .event-landing-feature__image { position: relative; min-height: 496px; overflow: hidden; background: #e8e9df; }
+.app-product .event-landing-feature__image > img { display: block; width: 100%; height: 496px; object-fit: cover; object-position: center; }
+.app-product .event-landing-feature__wash { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(251,251,248,.05) 25%, rgba(7,27,61,.18) 100%); pointer-events: none; }
+.app-product .event-landing-feature__card { position: absolute; inset-inline-start: 50%; bottom: 38px; display: grid; grid-template-columns: 72px minmax(0,1fr) auto; gap: 20px; align-items: center; width: min(680px, calc(100% - 48px)); padding: 21px 24px; transform: translateX(-50%); border: 1px solid rgba(223,227,234,.9); border-radius: 16px; background: rgba(251,251,248,.96); box-shadow: 0 14px 35px rgba(7,27,61,.12); backdrop-filter: blur(8px); }
+.app-product .event-landing-feature__date { display: grid; align-content: center; gap: 4px; min-height: 74px; padding-inline-end: 19px; border-inline-end: 1px solid #dfe3ea; color: #071b3d; }
+.app-product .event-landing-feature__date strong { font: 500 46px/.78 "Manrope", sans-serif; letter-spacing: -.09em; }
+.app-product .event-landing-feature__date span { color: #657287; font: 700 9px "DM Sans", sans-serif; letter-spacing: .14em; }
+.app-product .event-landing-feature__copy { min-width: 0; }
+.app-product .event-landing-feature__copy .eyebrow { margin-bottom: 7px; }
+.app-product .event-landing-feature__copy h2 { margin: 0 0 5px; color: #071b3d; font: 500 clamp(21px, 2.25vw, 31px)/1.04 "Manrope", sans-serif; letter-spacing: -.06em; }
+.app-product .event-landing-feature__copy > p { margin: 0; color: #53627a; font: 12px/1.48 "DM Sans", sans-serif; }
+.app-product .event-landing-feature__meta { display: flex; flex-wrap: wrap; gap: 8px 15px; margin-top: 10px; color: #657287; font: 600 9px/1.3 "DM Sans", sans-serif; letter-spacing: .04em; }
+.app-product .event-landing-feature__meta span { display: flex; align-items: center; gap: 5px; }
+.app-product .event-landing-feature__meta svg { color: #caa515; }
+.app-product .event-landing-feature__actions { display: grid; gap: 8px; min-width: 126px; }
+.app-product .event-landing-feature__actions .button { justify-content: center; }
+.app-product .landing-page-intro--events .landing-page-intro__inner { display: block !important; text-align: center !important; }
+.app-product .landing-page-intro--events .landing-page-intro__content { max-width: 900px !important; margin-inline: auto !important; transform: none !important; }
+.app-product .landing-page-intro--events .landing-page-intro__content .eyebrow { justify-content: center !important; }
+.app-product .landing-page-intro--events .landing-page-intro__content h1,
+.app-product .landing-page-intro--events .landing-page-intro__content > p { margin-inline: auto !important; text-align: center !important; }
 @media (max-width: 900px) { .app-product .event-next-heading { grid-template-columns: 1fr; gap: 16px; }.app-product .event-next-record { grid-template-columns: 100px minmax(0, 1fr); }.app-product .event-next-meta, .app-product .event-next-actions { grid-column: 2; }.app-product .event-next-actions { display: flex; flex-wrap: wrap; }.app-product .event-timeline-row { grid-template-columns: 88px minmax(0, 1fr) 18px; }.app-product .event-timeline-meta { grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: -5px; }.app-product .event-timeline-arrow { grid-column: 3; grid-row: 1; }.app-product .event-timeline-date { grid-row: 1 / span 2; } }
 @media (max-width: 620px) { .app-product .event-next-section { padding-top: 20px; }.app-product .event-next-heading h2 { font-size: clamp(38px, 12vw, 52px); }.app-product .event-next-record { grid-template-columns: 72px minmax(0, 1fr); gap: 17px; padding: 22px 0 24px; }.app-product .event-next-date { min-height: 92px; padding-inline-end: 14px; }.app-product .event-next-date strong { font-size: 51px; }.app-product .event-next-copy h3 { font-size: 30px; }.app-product .event-next-meta { grid-template-columns: 1fr; gap: 7px; }.app-product .event-next-actions { display: grid; min-width: 0; }.app-product .event-directory-section { padding-top: 54px; }.app-product .event-timeline-row { grid-template-columns: 55px minmax(0, 1fr) 15px; gap: 13px; min-height: auto; padding: 19px 0; }.app-product .event-timeline-row.is-next { padding-inline-start: 11px; }.app-product .event-timeline-date { min-height: 68px; padding-inline-end: 10px; }.app-product .event-timeline-date strong { font-size: 37px; }.app-product .event-timeline-main h3 { font-size: 24px; }.app-product .event-timeline-main > p { font-size: 12px; }.app-product .event-timeline-meta { grid-template-columns: 1fr; gap: 6px; margin-top: 10px; font-size: 9px; }.app-product .event-takeaway { font-size: 8px; line-height: 1.45; }.app-product .event-timeline-arrow { margin-top: 6px; } }
 
@@ -68,4 +90,15 @@
   .app-product .event-spotlight-copy > span { font-size: 8px; line-height: 1.45; }
   .app-product .event-spotlight-details { grid-column: 2; gap: 6px; padding-top: 0; font-size: 9px; }
   .app-product .event-spotlight-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; min-width: 0; padding-top: 4px; }
+  .app-product .event-landing-feature { padding-bottom: 55px; }
+  .app-product .event-landing-feature__image { min-height: 532px; }
+  .app-product .event-landing-feature__image > img { height: 294px; object-position: center; }
+  .app-product .event-landing-feature__wash { background: linear-gradient(180deg, rgba(251,251,248,0) 15%, rgba(7,27,61,.13) 100%); }
+  .app-product .event-landing-feature__card { inset-inline-start: 18px; inset-inline-end: 18px; bottom: 0; grid-template-columns: 54px minmax(0,1fr); gap: 13px; width: auto; padding: 18px; transform: translateY(28px); border-radius: 13px; }
+  .app-product .event-landing-feature__date { min-height: 66px; padding-inline-end: 10px; }
+  .app-product .event-landing-feature__date strong { font-size: 36px; }
+  .app-product .event-landing-feature__copy h2 { font-size: 23px; }
+  .app-product .event-landing-feature__copy > p { font-size: 11px; }
+  .app-product .event-landing-feature__meta { display: grid; gap: 5px; margin-top: 8px; font-size: 8px; }
+  .app-product .event-landing-feature__actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; min-width: 0; }
 }

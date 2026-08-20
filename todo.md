@@ -416,3 +416,10 @@
 - [x] Audit residual custom non-landing visual treatments against the landing reference.
 - [x] Remove or refine the highest-impact style drift without changing the landing page.
 - [x] Validate landing-style consistency and save a checkpoint.
+
+## Landing-Style Events Feature Redesign
+
+- [x] Define the landing-derived Events feature composition with contextual imagery and direct event actions.
+- [x] Replace the former map and dark-panel structure with the new landing-style editorial feature.
+- [x] Verify the feature at desktop and mobile sizes in English and Arabic RTL.
+- [x] Validate and save the landing-style Events feature checkpoint.
