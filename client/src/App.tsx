@@ -36,6 +36,7 @@ import "./bilingual-alignment-refinement.css";
 import "./decorative-process-removal.css";
 import "./events-redesign.css";
 import "./soft-surface-refinement.css";
+import "./founder-operating-desk.css";
 import { SiteShell } from "./components/site";
 
 function Router() {

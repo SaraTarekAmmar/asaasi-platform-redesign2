@@ -453,3 +453,11 @@
 - [x] Implement first-screen task interactions that retain the landing-derived visual system.
 - [x] Verify desktop, mobile, English, and Arabic RTL task clarity and feedback.
 - [x] Validate and save the immediate-use route enhancement checkpoint.
+
+## Founder Operating Desk
+
+- [x] Inspect existing dashboard, workspace, and local-state patterns for reusable Founder Operating Desk foundations.
+- [x] Define the desk information architecture for current priority, saved work, applications, upcoming events, and recommended next action.
+- [x] Implement the first Founder Operating Desk within the landing-derived workspace system.
+- [x] Verify desktop, mobile, English, and Arabic RTL behavior.
+- [x] Validate and save the Founder Operating Desk checkpoint.
