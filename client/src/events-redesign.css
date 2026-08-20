@@ -35,5 +35,37 @@
 .app-product .event-timeline-arrow { color: #071b3d; transition: transform 180ms cubic-bezier(.23,1,.32,1); }
 .app-product .event-timeline-row:hover .event-timeline-arrow { transform: translate(3px, -3px); }
 .locale-ar .app-product .event-timeline-row:hover .event-timeline-arrow { transform: translate(-3px, -3px); }
+.app-product .event-spotlight-section { padding-top: 48px; }
+.app-product .event-spotlight-header { display: flex; align-items: baseline; justify-content: space-between; gap: 28px; margin-bottom: 13px; }
+.app-product .event-spotlight-header > p { max-width: 410px; margin: 0; color: #53627a; font: 13px/1.5 "DM Sans", sans-serif; }
+.app-product .event-spotlight { display: grid; grid-template-columns: 106px minmax(0, 1.35fr) minmax(190px, .55fr) auto; gap: 25px; align-items: start; padding: 25px 0 28px; border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
+.app-product .event-spotlight-date { display: grid; align-content: start; gap: 4px; min-height: 102px; padding-inline-end: 24px; border-inline-end: 1px solid #dfe3ea; color: #071b3d; }
+.app-product .event-spotlight-date strong { font: 500 62px/.8 "Manrope", sans-serif; letter-spacing: -.1em; }
+.app-product .event-spotlight-date span { color: #657287; font: 700 9px "DM Sans", sans-serif; letter-spacing: .14em; }
+.app-product .event-spotlight-copy { min-width: 0; }
+.app-product .event-spotlight-copy .signal-tag { margin-bottom: 10px; }
+.app-product .event-spotlight-copy h2 { max-width: 700px; margin: 0 0 8px; color: #071b3d; font: 500 clamp(26px, 2.7vw, 40px)/1 "Manrope", sans-serif; letter-spacing: -.065em; }
+.app-product .event-spotlight-copy > p { max-width: 650px; margin: 0; color: #53627a; font: 13px/1.5 "DM Sans", sans-serif; }
+.app-product .event-spotlight-copy > span { display: block; margin-top: 13px; color: #657287; font: 600 10px/1.4 "DM Sans", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .event-spotlight-copy > span strong { color: #071b3d; font-weight: 700; }
+.app-product .event-spotlight-details { display: grid; gap: 10px; padding-top: 9px; color: #53627a; font: 600 10px/1.35 "DM Sans", sans-serif; letter-spacing: .04em; }
+.app-product .event-spotlight-details span { display: flex; align-items: center; gap: 7px; }
+.app-product .event-spotlight-details svg { color: #caa515; flex: 0 0 auto; }
+.app-product .event-spotlight-actions { display: grid; gap: 8px; min-width: 155px; padding-top: 3px; }
+.app-product .event-spotlight-actions .button { justify-content: center; }
 @media (max-width: 900px) { .app-product .event-next-heading { grid-template-columns: 1fr; gap: 16px; }.app-product .event-next-record { grid-template-columns: 100px minmax(0, 1fr); }.app-product .event-next-meta, .app-product .event-next-actions { grid-column: 2; }.app-product .event-next-actions { display: flex; flex-wrap: wrap; }.app-product .event-timeline-row { grid-template-columns: 88px minmax(0, 1fr) 18px; }.app-product .event-timeline-meta { grid-column: 2; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: -5px; }.app-product .event-timeline-arrow { grid-column: 3; grid-row: 1; }.app-product .event-timeline-date { grid-row: 1 / span 2; } }
 @media (max-width: 620px) { .app-product .event-next-section { padding-top: 20px; }.app-product .event-next-heading h2 { font-size: clamp(38px, 12vw, 52px); }.app-product .event-next-record { grid-template-columns: 72px minmax(0, 1fr); gap: 17px; padding: 22px 0 24px; }.app-product .event-next-date { min-height: 92px; padding-inline-end: 14px; }.app-product .event-next-date strong { font-size: 51px; }.app-product .event-next-copy h3 { font-size: 30px; }.app-product .event-next-meta { grid-template-columns: 1fr; gap: 7px; }.app-product .event-next-actions { display: grid; min-width: 0; }.app-product .event-directory-section { padding-top: 54px; }.app-product .event-timeline-row { grid-template-columns: 55px minmax(0, 1fr) 15px; gap: 13px; min-height: auto; padding: 19px 0; }.app-product .event-timeline-row.is-next { padding-inline-start: 11px; }.app-product .event-timeline-date { min-height: 68px; padding-inline-end: 10px; }.app-product .event-timeline-date strong { font-size: 37px; }.app-product .event-timeline-main h3 { font-size: 24px; }.app-product .event-timeline-main > p { font-size: 12px; }.app-product .event-timeline-meta { grid-template-columns: 1fr; gap: 6px; margin-top: 10px; font-size: 9px; }.app-product .event-takeaway { font-size: 8px; line-height: 1.45; }.app-product .event-timeline-arrow { margin-top: 6px; } }
+
+@media (max-width: 620px) {
+  .app-product .event-spotlight-section { padding-top: 25px; }
+  .app-product .event-spotlight-header { display: grid; gap: 8px; margin-bottom: 12px; }
+  .app-product .event-spotlight-header > p { max-width: 100%; font-size: 11px; }
+  .app-product .event-spotlight { grid-template-columns: 55px minmax(0, 1fr); gap: 13px; padding: 20px 0 23px; }
+  .app-product .event-spotlight-date { min-height: 72px; padding-inline-end: 10px; }
+  .app-product .event-spotlight-date strong { font-size: 39px; }
+  .app-product .event-spotlight-copy h2 { font-size: 26px; line-height: 1.04; }
+  .app-product .event-spotlight-copy > p { font-size: 12px; line-height: 1.48; }
+  .app-product .event-spotlight-copy > span { font-size: 8px; line-height: 1.45; }
+  .app-product .event-spotlight-details { grid-column: 2; gap: 6px; padding-top: 0; font-size: 9px; }
+  .app-product .event-spotlight-actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; min-width: 0; padding-top: 4px; }
+}

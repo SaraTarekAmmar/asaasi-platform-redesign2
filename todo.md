@@ -388,3 +388,10 @@
 - [x] Rebuild the Events timeline and event selection using the landing-derived system without rule cards or numbered process strips.
 - [x] Verify Events at desktop and mobile breakpoints in English and Arabic RTL.
 - [x] Validate the route and save the Events redesign checkpoint.
+
+## Focused Next-Event Composition Redesign
+
+- [x] Inspect the current next-event composition and identify a calmer, more useful replacement for the former map and dark-card treatment.
+- [x] Rebuild the next-event composition without decorative rule, process, or dark-panel treatments.
+- [x] Verify the updated Events composition at desktop and mobile sizes in English and Arabic RTL.
+- [x] Validate the focused redesign and save a checkpoint.
