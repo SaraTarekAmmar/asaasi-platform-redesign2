@@ -541,3 +541,11 @@
 - [x] Implement the decision review, outcome capture, and Activity handoff.
 - [x] Verify desktop, mobile, English, and Arabic RTL decision-review states.
 - [x] Validate and save the decision-review enhancement checkpoint.
+
+## Activity Decision Learning Summary
+
+- [x] Inspect Activity presentation and structured decision-review metadata.
+- [x] Define a concise decision-learning summary and return actions.
+- [x] Implement the Activity decision-learning summary.
+- [x] Verify desktop, mobile, English, and Arabic RTL Activity learning states.
+- [x] Validate and save the Activity learning-summary enhancement checkpoint.
