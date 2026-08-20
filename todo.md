@@ -409,3 +409,10 @@
 - [x] Remove the numbered diagnostic visual treatment while preserving assessment content and actions.
 - [x] Verify desktop, mobile, English, and Arabic RTL assessment states.
 - [x] Validate and save the simplified assessment checkpoint.
+
+## Exact Landing-Style Alignment Guardrail
+
+- [x] Record the landing page’s non-negotiable visual characteristics for all remaining non-landing refinement work.
+- [x] Audit residual custom non-landing visual treatments against the landing reference.
+- [x] Remove or refine the highest-impact style drift without changing the landing page.
+- [x] Validate landing-style consistency and save a checkpoint.

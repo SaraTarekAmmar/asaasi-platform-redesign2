@@ -30,6 +30,10 @@
   content: none !important;
 }
 
+.app-product .landing-page-intro .landing-route-mark {
+  display: none !important;
+}
+
 .app-product .assessment-options .assessment-choice-index {
   display: none !important;
 }
