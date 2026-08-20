@@ -431,3 +431,10 @@
 - [x] Implement the highest-impact cross-route fixes without changing the landing page.
 - [x] Revalidate public, account, protected-workspace, desktop, mobile, English, and Arabic RTL journeys.
 - [x] Save the comprehensive audit checkpoint.
+
+## Soft-Edge Non-Landing Design Refinement
+
+- [x] Inventory sharp card, panel, row, image overlay, form, and control edges across non-landing route families.
+- [x] Apply a landing-derived soft-edge surface treatment without changing the landing page.
+- [x] Verify public, account, workspace, mobile, English, and Arabic RTL compositions.
+- [x] Validate and save the soft-surface design checkpoint.

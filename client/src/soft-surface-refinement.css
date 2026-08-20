@@ -1,0 +1,101 @@
+/* Landing-derived soft-surface reminder: non-landing UI uses calm off-white surfaces, navy hierarchy, restrained saffron, and generous softened corners. */
+
+.app-product {
+  --soft-radius-sm: 10px;
+  --soft-radius-md: 16px;
+  --soft-radius-lg: 22px;
+}
+
+.app-product :is(
+  .panel-card,
+  .account-visual,
+  .account-form,
+  .account-form-wrap,
+  .signup-card,
+  .signup-aside,
+  .event-feature-card,
+  .events-feature-overlay,
+  .event-room-hero,
+  .tool-room-hero,
+  .knowledge-feature,
+  .access-tier-card,
+  .system-state,
+  .public-success,
+  .success-state,
+  .empty-state,
+  .contact-routing-desk,
+  .contact-route-ledger,
+  .contact-context-form,
+  .roadmap-stage-hero__evidence,
+  .roadmap-stage-course,
+  .workspace-sidebar,
+  .workspace-sidebar-wrap.open .workspace-sidebar,
+  .tool-option,
+  .saved-row,
+  .invoice-row,
+  .settings-row,
+  .notification-row,
+  .request-row,
+  .directory-row,
+  .event-timeline-row,
+  .partner-ledger-row,
+  .perks-ledger-row,
+  article
+) {
+  border-radius: var(--soft-radius-md) !important;
+}
+
+.app-product :is(
+  .button,
+  button,
+  input,
+  textarea,
+  select,
+  .filter-button,
+  .language-switcher,
+  .icon-button,
+  .avatar-button,
+  .site-header__action,
+  .form-divider
+) {
+  border-radius: var(--soft-radius-sm) !important;
+}
+
+.app-product :is(
+  .events-feature-image,
+  .events-feature-image img,
+  .event-image,
+  .event-image img,
+  .card-image,
+  .card-image img,
+  .featured-image,
+  .featured-image img
+) {
+  border-radius: var(--soft-radius-lg) !important;
+}
+
+.app-product :is(
+  .product-page-heading,
+  .page-intro,
+  .landing-page-intro,
+  .roadmap-stage-hero,
+  .roadmap-stage-work,
+  .section
+) {
+  overflow: clip;
+}
+
+.app-product :is(.tool-option, .saved-row, .invoice-row, .settings-row, .notification-row, .request-row) {
+  margin-block: 6px;
+}
+
+@media (max-width: 760px) {
+  .app-product {
+    --soft-radius-md: 14px;
+    --soft-radius-lg: 18px;
+  }
+
+  .app-product :is(.account-form-wrap, .account-form, .signup-card, .contact-routing-desk, .contact-context-form) {
+    border-radius: var(--soft-radius-md) !important;
+  }
+}
