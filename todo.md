@@ -670,3 +670,13 @@
 - [x] Preserve linked-decision evidence and aligned review timing as the decision-review handoff.
 - [x] Verify authenticated English and Arabic RTL matching states, TypeScript, and production build.
 - [x] Validate and save the outcome-led guidance checkpoint.
+
+## Monthly Introduction Learning
+
+- [x] Inspect introduction outcome records, priority data, and brief submission flow.
+- [x] Define the current-month outcome window and focused brief quality criteria.
+- [x] Limit Founder Operating Desk outcome signals to completed outcomes recorded this month.
+- [x] Require a focused, sufficiently specific question and a linked decision when saved decisions are available before a new brief persists.
+- [x] Preserve prior outcome learning in each accepted introduction brief.
+- [x] Verify TypeScript and production build.
+- [x] Validate and save the monthly learning and quality-check checkpoint.

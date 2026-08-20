@@ -148,7 +148,8 @@ function FounderOperatingDesk() {
   const savedDecision = Boolean(savedDecisionRecord);
   const weeklyPrimaryRecord = records.find((record) => record.id === weeklyPrimaryBet?.recordId);
   const pendingIntroductionOutcome = records.find((record) => record.kind === "introduction" && record.status === "completed" && !record.outcomeCheckCompletedAt);
-  const completedIntroductionOutcomes = records.filter((record) => record.kind === "introduction" && record.outcomeCheckCompletedAt && record.introductionOutcome);
+  const currentOutcomeMonth = new Date().toISOString().slice(0, 7);
+  const completedIntroductionOutcomes = records.filter((record) => record.kind === "introduction" && record.outcomeCheckCompletedAt?.slice(0, 7) === currentOutcomeMonth && record.introductionOutcome);
   const nextStepOutcomes = completedIntroductionOutcomes.filter((record) => record.introductionOutcome === "next-step").length;
   const usefulLearningOutcomes = completedIntroductionOutcomes.filter((record) => record.introductionOutcome === "useful-learning").length;
   const pausedMatchCount = Object.keys(recommendationFeedback).length;
