@@ -698,3 +698,12 @@
 - [x] Replace prominent placeholder tool actions with direct routes to the selected tool, Founder Operating Desk, and founder context.
 - [x] Verify authenticated English and Arabic RTL tools states, TypeScript, and production build.
 - [x] Validate and save the research-led UX enhancement checkpoint.
+
+## Research-Led Tool Rationale and Learning Return
+
+- [x] Benchmark guided onboarding and mentor-session workflows from Circle and GrowthMentor.
+- [x] Document the expected-value and decision-follow-through patterns in the competitor benchmark.
+- [x] Add a priority-specific “why this tool now” explanation to the active tools handoff.
+- [x] Add a direct return from the tool handoff to Decision Review.
+- [x] Verify authenticated English and Arabic RTL tools states, TypeScript, and production build.
+- [x] Validate and save the research-led tool handoff checkpoint.

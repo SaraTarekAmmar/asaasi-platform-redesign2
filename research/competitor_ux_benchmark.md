@@ -22,6 +22,18 @@ SaaStr AI organizes a broad tool catalog into clear problem families, using shor
 
 **ASaaSI implication:** tools should never be a disconnected catalog. Existing ASaaSI tool briefs should keep routing outcomes into the Founder Operating Desk and identify the next useful action, while the most relevant tool should be surfaced from the founder’s active priority. Categories should be succinct and purpose-based rather than feature-based.
 
+## Circle community onboarding
+
+Circle recommends one clear starting space, an immediate next action, and a small welcome checklist ordered from low to high lift. Its guidance explicitly cautions against presenting a long to-do list before a member has a first success.[4]
+
+**ASaaSI implication:** the Founder Operating Desk is already a strong “start here” space. Its recommended action should continue to stay singular, with contextual tool and introduction prompts appearing only when they advance that one action.
+
+## GrowthMentor session workflow
+
+GrowthMentor centers the user experience on a concrete current blockage, then makes the full assistance loop visible: describe the problem, see contextual fit, book a specific conversation, arrive prepared with questions, and retain a recording, summary, and takeaway afterward.[5]
+
+**ASaaSI implication:** ASaaSI should make the expected value of a recommended tool or introduction explicit before the click, and preserve the resulting evidence and next step in the linked decision record afterward. This validates the next improvement: short, priority-specific “why this tool now” language followed by a direct return to Decision Review.
+
 ## Candidate research-backed improvements
 
 | Priority | Improvement | Evidence source | ASaaSI implementation direction |
@@ -31,6 +43,8 @@ SaaStr AI organizes a broad tool catalog into clear problem families, using shor
 | Medium | Make trust and readiness explicit | YC’s profile and privacy framing | Keep the brief readiness message and decision link near the send action. |
 | Medium | Make operating evidence usable over time | EOS’s data and traction model | Export a compact monthly record only when enough real connected records exist. |
 | High | Pair every tool with an immediate next action | SaaStr AI’s concise tool promises and direct open actions | Surface priority-specific tool handoffs in the Founder Operating Desk and retain the resulting decision record. |
+| High | Keep first action singular and staged | Circle’s low-to-high-lift onboarding checklist | Keep the desk recommendation singular and avoid adding parallel setup work. |
+| High | Make the expected value and learning return explicit | GrowthMentor’s problem-to-session-to-takeaway loop | Show why a specific tool fits the active priority and return the result to a linked decision review. |
 
 ## ASaaSI audit observations
 
@@ -42,8 +56,12 @@ The research-led implementation priority is therefore a lightweight “best next
 
 The ASaaSI tools page now routes the primary recommendation directly into the selected tool, routes “View desk context” to the Founder Operating Desk, and routes the founder-brief CTA to profile context. The updated tools hierarchy rendered correctly in authenticated English and Arabic RTL without changing the landing page.
 
+The second research-led pass added an explicit “why this tool now” rationale and a direct Decision Review return from the active-priority tool handoff. The improved tool bridge rendered correctly in authenticated English and Arabic RTL.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
 [2]: https://foundersnetwork.com/entrepreneurial-operating-system-for-startups/ "Entrepreneurial Operating System for Startups"
 [3]: https://saastr.ai/tools "SaaStr AI Tools"
+[4]: https://circle.so/blog/community-onboarding "How to Build your Community Onboarding Experience"
+[5]: https://www.growthmentor.com/ "GrowthMentor"
