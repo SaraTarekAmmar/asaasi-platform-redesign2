@@ -650,3 +650,13 @@
 - [x] Add Founder Operating Desk guidance and a direct Activity handoff for pending introduction outcomes.
 - [x] Verify responsive CSS rules, TypeScript, and production build.
 - [x] Validate and save the introduction outcome follow-through checkpoint.
+
+## Structured Introduction Outcomes
+
+- [x] Inspect introduction outcome checks, weekly agenda records, and introduction drafting context.
+- [x] Define next-step, useful-learning, and not-a-fit outcome states with a concise evidence note.
+- [x] Add structured outcome capture and append results to the linked decision evidence.
+- [x] Align the linked decision review point with the seven-day outcome check so it appears in the weekly decision rhythm.
+- [x] Carry the latest completed outcome learning into the next introduction brief as compact routing context.
+- [x] Verify TypeScript and production build.
+- [x] Validate and save the structured introduction outcome checkpoint.

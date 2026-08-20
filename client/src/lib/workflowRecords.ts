@@ -26,6 +26,8 @@ export type WorkflowRecord = {
   followUpCopiedAt?: string;
   outcomeCheckDue?: string;
   outcomeCheckCompletedAt?: string;
+  introductionOutcome?: "next-step" | "useful-learning" | "not-a-fit";
+  introductionOutcomeNote?: string;
   updatedAt: string;
 };
 

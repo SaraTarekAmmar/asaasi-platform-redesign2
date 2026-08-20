@@ -84,6 +84,15 @@
 .app-product .activity-introduction-learning__actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .app-product .activity-introduction-learning__actions .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
 .app-product .activity-introduction-learning__actions .inline-success { font-size: 11px; }
+.app-product .activity-outcome-check { display: grid; grid-template-columns: minmax(0,1fr) minmax(330px,.85fr); gap: 28px; align-items: start; margin: 0 0 18px; padding: 25px 28px; border: 1px solid rgba(7,27,61,.13); border-radius: 19px; background: #fffdf5; }
+.app-product .activity-outcome-check h2 { max-width: 520px; margin: 7px 0 9px; color: #071b3d; font: 500 clamp(23px,2.5vw,32px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .activity-outcome-check p { max-width: 530px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.58; }
+.app-product .activity-outcome-check form { display: grid; gap: 11px; padding: 15px; border: 1px solid rgba(7,27,61,.1); border-radius: 14px; background: #fff; }
+.app-product .activity-outcome-check label { display: grid; gap: 7px; color: #071b3d; font: 600 11px "DM Sans",sans-serif; }
+.app-product .activity-outcome-check select, .app-product .activity-outcome-check textarea { width: 100%; border: 1px solid rgba(7,27,61,.17); border-radius: 9px; background: #fff; padding: 10px; color: #071b3d; font: 12px/1.55 "DM Sans",sans-serif; }
+.app-product .activity-outcome-check textarea { min-height: 88px; resize: vertical; }
+.app-product .activity-outcome-check form > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.app-product .activity-outcome-check .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
 .app-product .weekly-introduction-learning { display: grid; grid-template-columns: minmax(0,1fr) minmax(260px,.9fr) auto; gap: 24px; align-items: start; margin: 18px 0; padding: 24px; border: 1px solid rgba(7,27,61,.11); border-radius: 18px; background: #fffdf5; }
 .app-product .weekly-introduction-learning h2 { max-width: 480px; margin: 7px 0 0; color: #071b3d; font: 500 clamp(21px,2.2vw,29px)/1.1 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .weekly-introduction-learning > div:last-of-type { display: grid; gap: 9px; }
@@ -285,6 +294,7 @@
   .app-product .activity-introduction-summary { grid-template-columns: 1fr; align-items: start; }
   .app-product .weekly-introduction-learning { grid-template-columns: 1fr; }
   .app-product .founder-desk-introduction-outcome { grid-template-columns: 1fr; align-items: start; }
+  .app-product .activity-outcome-check { grid-template-columns: 1fr; padding: 21px; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
