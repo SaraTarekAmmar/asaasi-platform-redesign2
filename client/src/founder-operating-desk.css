@@ -47,6 +47,16 @@
 .app-product .founder-desk-guidance__count svg { color: #caa515; }
 .app-product .activity-row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 10px; }
 .app-product .activity-row-actions .text-link { border: 0; background: transparent; color: #53627a; cursor: pointer; font: 600 13px "DM Sans", sans-serif; }
+.app-product .activity-review-panel { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 26px; align-items: center; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 22px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 14px 34px rgba(7, 27, 61, 0.05); }
+.app-product .activity-review-panel h2 { max-width: 680px; margin: 9px 0 11px; color: #071b3d; font: 500 clamp(26px, 3vw, 39px)/1.07 "Manrope", sans-serif; letter-spacing: -0.052em; }
+.app-product .activity-review-panel p { max-width: 650px; margin: 0; color: #53627a; line-height: 1.6; }
+.app-product .activity-review-panel__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 21px; }
+.app-product .activity-review-panel aside { align-self: stretch; display: flex; flex-direction: column; justify-content: center; gap: 6px; padding-inline-start: 23px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .activity-review-panel aside .mono { color: #6d7889; font-size: 9px; }
+.app-product .activity-review-panel aside strong { color: #071b3d; font: 500 52px/0.95 "Manrope", sans-serif; letter-spacing: -0.07em; }
+.app-product .activity-review-panel aside p { font-size: 12px; }
+.app-product .receipt-list article.is-reviewed { background: rgba(247, 246, 239, 0.56); }
+.app-product .receipt-list article.is-reviewed .mono { color: #927204; }
 
 @media (max-width: 900px) {
   .app-product .founder-desk-priority { grid-template-columns: 1fr; }
@@ -55,6 +65,8 @@
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
   .app-product .founder-desk-records article { min-height: 0; }
   .app-product .founder-desk-guidance { align-items: flex-start; flex-direction: column; }
+  .app-product .activity-review-panel { grid-template-columns: 1fr; gap: 20px; }
+  .app-product .activity-review-panel aside { padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid #dfe3ea; }
 }
 
 @media (max-width: 620px) {
@@ -71,4 +83,5 @@
 .locale-ar .app-product .founder-desk-intro { text-align: end; }
 .locale-ar .app-product .founder-desk-priority__selector { border-inline-start: 0; border-inline-end: 1px solid rgba(7, 27, 61, 0.1); padding-inline-start: 0; padding-inline-end: 26px; }
 .locale-ar .app-product .founder-desk-priority__selector button { text-align: end; }
+.locale-ar .app-product .activity-review-panel aside { padding-inline-start: 0; padding-inline-end: 23px; border-inline-start: 0; border-inline-end: 1px solid #dfe3ea; }
 @media (max-width: 900px) { .locale-ar .app-product .founder-desk-priority__selector { border-inline-end: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); padding: 18px 0 0; } }

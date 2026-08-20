@@ -501,3 +501,11 @@
 - [x] Implement improved tool discovery, decision context, and desk handoff.
 - [x] Verify desktop, mobile, English, and Arabic RTL tool discovery states.
 - [x] Validate and save the connected tools enhancement checkpoint.
+
+## Founder Activity Review
+
+- [x] Inspect the current Activity workspace and workflow-record states.
+- [x] Define guided review, resume, and resolution actions for connected work.
+- [x] Implement the activity-review workspace enhancements.
+- [x] Verify desktop, mobile, English, and Arabic RTL activity-review states.
+- [x] Validate and save the activity-review enhancement checkpoint.
