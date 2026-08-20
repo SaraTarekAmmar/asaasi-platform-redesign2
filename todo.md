@@ -340,3 +340,9 @@
 - [x] Correct bilingual layout alignment and responsive directionality issues across representative route families.
 - [x] Verify English and Arabic routes at desktop, tablet, and mobile widths without changing the landing page.
 - [x] Document the audit and save the next visual-alignment checkpoint.
+
+## Code-Quality Audit
+
+- [x] Inspect non-landing application structure, validation output, routing, and duplication for concrete code-quality issues.
+- [x] Refactor the highest-impact maintainability or reliability concerns without modifying the landing page.
+- [x] Run type, build, and focused route validation; document the result and save a checkpoint.

@@ -78,7 +78,13 @@ export function ProductShell({ children, title, active }: { children: ReactNode;
   const { isAuthed } = useAuth();
   const [menu, setMenu] = useState(false);
   const [location, setLocation] = useLocation();
-  useEffect(() => { if (!isAuthed) { window.sessionStorage.setItem("asaasi-return-route", location); setLocation("/login"); } }, [isAuthed, location, setLocation]);
+  useEffect(() => {
+    const isAuthRoute = location === "/login" || location === "/signup" || location === "/forgot-password" || location === "/reset-password" || location === "/verify-email";
+    if (!isAuthed && !isAuthRoute) {
+      window.sessionStorage.setItem("asaasi-return-route", location);
+      setLocation("/login");
+    }
+  }, [isAuthed, location, setLocation]);
   useEffect(() => { if (title) document.title = `${title} · ASaaSI`; return () => { document.title = "ASaaSI · MENA SaaS Founder Community"; }; }, [title]);
   if (!isAuthed) return <div className="empty-state" style={{ margin: "80px auto", maxWidth: 420 }}><LockKeyhole size={20} /><h2>{t("Sign in required.", "تسجيل الدخول مطلوب.")}</h2><p>{t("Taking you to login...", "جار نقلك إلى تسجيل الدخول...")}</p></div>;
   return <div className="product-shell"><div className="product-mobile-menu"><button type="button" className="button button-ghost" aria-expanded={menu} aria-controls="workspace-sidebar" onClick={() => setMenu(!menu)}><Menu size={16} /> {menu ? t("Close workspace", "إغلاق مساحة العمل") : t("Open workspace", "فتح مساحة العمل")}</button></div><div className="product-shell-grid">{menu && <button type="button" className="product-sidebar-overlay" aria-label={t("Close workspace navigation", "إغلاق تنقل مساحة العمل")} onClick={() => setMenu(false)} />}<div id="workspace-sidebar" className={menu ? "workspace-sidebar-wrap open" : "workspace-sidebar-wrap"}><WorkspaceSidebar active={active} onClose={() => setMenu(false)} /></div><main id="main-content" data-workspace-route={active} className="product-main">{children}{active === "/dashboard" && <FounderBriefChecklist />}</main></div></div>;
