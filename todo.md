@@ -318,3 +318,10 @@
 - [x] Implement the highest-value strategy-aligned journey and content enhancements.
 - [x] Verify desktop, tablet, mobile, English, and Arabic RTL routes without modifying the landing page.
 - [x] Document the audit and save the next visual-alignment checkpoint.
+
+## Page-by-Page UX and Product-Design Audit
+
+- [x] Audit non-landing route families for hierarchy, findability, clarity, feedback, accessibility, recovery, responsive behavior, and founder value.
+- [x] Repair the highest-impact usability and interaction gaps while preserving the landing-derived visual system.
+- [x] Verify desktop, tablet, mobile, English, and Arabic RTL routes with usable keyboard and recovery paths.
+- [x] Document the UX fixes and save the next visual-alignment checkpoint.

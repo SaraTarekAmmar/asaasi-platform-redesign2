@@ -1,0 +1,11 @@
+/* Editorial operating system: usability audit refinements preserve quiet landing-derived controls while making keyboard focus, action targets, and RTL language explicit. */
+.app-product :is(button,a,input,select,textarea) { -webkit-tap-highlight-color: transparent; }
+.app-product :is(button,a,input,select,textarea):focus-visible { outline: 2px solid #caa515; outline-offset: 3px; }
+.app-product .button,.app-product .icon-button { min-height: 44px; }
+.app-product .product-main .notification-row { min-height: 72px; }
+.app-product .product-main .notification-row:hover { background: linear-gradient(90deg,rgba(202,165,21,.07),transparent 52%); }
+.locale-ar .app-product .learning-layout > div:first-child::after { right: 0; left: auto; content: "دليل ميداني / هذا الأسبوع"; font-family: "Cairo", "DM Sans", sans-serif; letter-spacing: 0; }
+.locale-ar .app-product .learn-hero-index b,.locale-ar .app-product .tools-hero-workbench b { border-radius: 0; border-width: 0 0 1px 1px; }
+.app-product .landing-page-intro__trace span i,
+.app-product .support-route-trace span i,
+.app-product .route-trace span i { border-radius: 0; border-width: 0 0 1px 1px; box-shadow: none; }
