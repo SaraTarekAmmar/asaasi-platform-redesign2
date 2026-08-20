@@ -13,8 +13,8 @@ export function Logo({ inverted = false, className = "" }: { inverted?: boolean;
   const src = inverted ? "/manus-storage/asaasi-logo-white_c6d1d735.svg" : "/manus-storage/asaasi-logo-navy_b67d2a37.svg";
   const classes = `brand ${className}`.trim();
   const image = <img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" />;
-  // Login and signup wrap Logo in a route link for their bespoke account layouts; avoid rendering a second anchor inside it.
-  if (location === "/login" || location === "/signup") return <span className={classes}>{image}</span>;
+  // Account and recovery flows wrap Logo in a route link for bespoke layouts; avoid rendering a second anchor inside it.
+  if (["/login", "/signup", "/forgot-password", "/reset-password", "/verify-email"].includes(location)) return <span className={classes}>{image}</span>;
   return <Link href="/" className={classes} aria-label="ASaaSI home">{image}</Link>;
 }
 
@@ -124,7 +124,7 @@ export function SiteHeader() {
     </div>;
     return <div key={menu.id} className={`nav-menu ${isOpen ? "is-open" : ""}`} onMouseEnter={() => { clearCloseTimer(); setOpenMenu(menu.id); }} onMouseLeave={scheduleMenuClose} onFocusCapture={() => { clearCloseTimer(); setOpenMenu(menu.id); }} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node)) scheduleMenuClose(); }}>
       <button type="button" className={`nav-menu-trigger ${active ? "is-active" : ""}`} aria-current={active ? "page" : undefined} aria-expanded={isOpen} aria-haspopup="true" aria-controls={`nav-menu-${menu.id}`} onClick={() => { clearCloseTimer(); toggleMenu(menu.id); }}>{label}<ChevronDown size={15} aria-hidden="true" /></button>
-      <div id={`nav-menu-${menu.id}`} className="nav-mega-menu" role="menu" aria-hidden={!isOpen} onMouseEnter={clearCloseTimer} onMouseLeave={scheduleMenuClose}>
+      <div id={`nav-menu-${menu.id}`} className="nav-mega-menu" role="menu" aria-hidden={!isOpen} inert={!isOpen} onMouseEnter={clearCloseTimer} onMouseLeave={scheduleMenuClose}>
         <div className="nav-mega-intro"><span className="mono">{t(menu.eyebrow, menu.eyebrowAr)}</span><p>{t(menu.description, menu.descriptionAr)}</p><Link href={menu.href} className="nav-mega-overview" role="menuitem" onClick={closeMenus}>{t("View all", "عرض الكل")} {label} <DirectionalArrow isRTL={isRTL} size={14} /></Link></div>
         <div className="nav-mega-groups">{menu.groups.map((group) => <div className="nav-mega-group" key={group.label}><span className="nav-mega-group-label">{t(group.label, group.labelAr)}</span>{group.items.map((item) => <Link key={item.href} href={item.href} role="menuitem" aria-current={isRouteActive(location, item.href) ? "page" : undefined} onClick={closeMenus}><span><strong>{t(item.label, item.labelAr)}</strong>{item.badge && <em>{t(item.badge, item.badgeAr ?? item.badge)}</em>}</span><small>{t(item.description, item.descriptionAr)}</small></Link>)}</div>)}</div>
         <Link href={menu.feature.href} className="nav-mega-feature" role="menuitem" onClick={closeMenus}><span className="mono">{t(menu.feature.label, menu.feature.labelAr)}</span><strong>{t(menu.feature.title, menu.feature.titleAr)}</strong><DirectionalChevron isRTL={isRTL} size={17} /></Link>
