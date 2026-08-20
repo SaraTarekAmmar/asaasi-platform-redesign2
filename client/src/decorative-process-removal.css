@@ -1,0 +1,66 @@
+/* Landing-system simplification: non-landing pages rely on clear headings, copy, and primary actions rather than decorative rules, process maps, or numbered context strips. */
+.app-product :is(
+  .landing-page-intro__trace,
+  .hero-aside-note,
+  .relationship-thread,
+  .directory-route-map,
+  .startup-proof-map,
+  .content-index-map,
+  .detail-route-map,
+  .webinar-detail-map,
+  .webinar-live-map,
+  .commercial-route-map,
+  .commercial-path,
+  .operating-model-route-map,
+  .workshop-route-map,
+  .about-manifesto-map,
+  .trust-route-rail,
+  .partner-register-map,
+  .perks-access-map,
+  .proof-strip,
+  .connect-landing-hero__object,
+  .connect-landing-hero__rail,
+  .connect-landing-principles
+) { display: none !important; }
+
+.app-product .landing-page-intro::after,
+.app-product .landing-page-intro__inner::after {
+  display: none !important;
+  content: none !important;
+}
+
+@media (max-width: 760px) {
+  .app-product :is(
+    .landing-page-intro--sponsors,
+    .landing-page-intro--applications,
+    .landing-page-intro--demo-day,
+    .landing-page-intro--workshops
+  ) .landing-page-intro__inner {
+    width: min(100% - 36px, 100%) !important;
+    margin-inline: auto !important;
+    padding-inline: 0 !important;
+  }
+
+  .app-product :is(
+    .landing-page-intro--sponsors,
+    .landing-page-intro--applications,
+    .landing-page-intro--demo-day,
+    .landing-page-intro--workshops
+  ) .landing-page-intro__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  .app-product :is(
+    .landing-page-intro--sponsors,
+    .landing-page-intro--applications,
+    .landing-page-intro--demo-day,
+    .landing-page-intro--workshops
+  ) .landing-page-intro__content h1 {
+    max-width: 100% !important;
+    font-size: clamp(2.5rem, 11.4vw, 3.25rem) !important;
+    line-height: 1.02 !important;
+    overflow-wrap: anywhere;
+  }
+}

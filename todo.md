@@ -374,3 +374,10 @@
 - [x] Audit selected shared and protected-workspace states across desktop, mobile, English, and Arabic contexts.
 - [x] Implement targeted landing-system interaction and interface improvements without changing the landing page.
 - [x] Validate the updated shared experience and save the next refinement checkpoint.
+
+## Decorative Rule and Step-Strip Removal
+
+- [x] Inventory non-landing rule callouts, numbered signal/context/move strips, and similar decorative process panels.
+- [x] Remove the decorative elements and preserve only essential content through simpler landing-consistent hierarchy.
+- [x] Verify public, workspace, mobile, English, and Arabic RTL examples without changing the landing page.
+- [x] Save the visual simplification checkpoint.

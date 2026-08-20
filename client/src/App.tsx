@@ -33,6 +33,7 @@ import "./anti-ai-motif-refinement.css";
 import "./target-route-refinement.css";
 import "./ux-audit-refinement.css";
 import "./bilingual-alignment-refinement.css";
+import "./decorative-process-removal.css";
 import { SiteShell } from "./components/site";
 
 function Router() {

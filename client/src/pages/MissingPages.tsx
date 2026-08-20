@@ -34,13 +34,12 @@ const requests = [
   { type: "Cofounder", title: "Technical cofounder for a workflow product", titleAr: "شريك مؤسس تقني لمنتج سير عمل", meta: "Founder · Cairo · new", metaAr: "مؤسس · القاهرة · جديد", action: "technical", lead: "I've validated the problem with fifteen operators and have a working no-code prototype. Looking for a technical cofounder who wants to own the real build, not a contractor for a one-off project.", leadAr: "تحققت من المشكلة مع خمسة عشر مشغلا ولدي نموذج أولي يعمل بلا برمجة. أبحث عن شريك مؤسس تقني يريد امتلاك البناء الفعلي، لا مقاولا لمشروع لمرة واحدة." },
 ];
 
-function RelationshipThread({ labels, ariaLabel }: { labels: [string, string, string]; ariaLabel: string }) {
-  const { formatNum } = useLocale();
-  return <ol className="relationship-thread" aria-label={ariaLabel}>{labels.map((label, index) => <li key={label} className={index === 1 ? "is-active" : ""}><span className="relationship-node">{formatNum(`0${index + 1}`)}</span><span>{label}</span>{index < labels.length - 1 && <i aria-hidden="true" />}</li>)}</ol>;
+function RelationshipThread({ labels: _labels, ariaLabel: _ariaLabel }: { labels: [string, string, string]; ariaLabel: string }) {
+  return null;
 }
 
-function PublicCollection({ label, title, copy, children, aside }: { label: string; title: ReactNode; copy: string; children: ReactNode; aside?: ReactNode }) {
-  return <><PageIntro label={label} title={title} copy={copy} note={aside} /><section className="missing-public" aria-label={label}><div className="container">{children}</div></section></>;
+function PublicCollection({ label, title, copy, children, aside: _aside }: { label: string; title: ReactNode; copy: string; children: ReactNode; aside?: ReactNode }) {
+  return <><PageIntro label={label} title={title} copy={copy} /><section className="missing-public" aria-label={label}><div className="container">{children}</div></section></>;
 }
 
 function ViewToggle({ view, onChange }: { view: "grid" | "list"; onChange: (view: "grid" | "list") => void }) {
