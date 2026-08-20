@@ -1,4 +1,5 @@
 /* Editorial Operating System, Events and Tools use a lead decision, contextual rail, and action list instead of equal-weight grids. */
+/* Editorial Operating System: pathway and community follow-through use soft rectangular work surfaces, fine rules, and restrained saffron signals. */
 .event-pathway-section,
 .tool-pathway-section { background: var(--paper); }
 .event-pathway-layout,
@@ -122,6 +123,22 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .post-detail-actionbar button { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: .45rem; padding: .55rem; border: 0; border-radius: var(--radius-chip); background: transparent; color: var(--muted); font: 600 .85rem "DM Sans", sans-serif; transition: background-color .15s ease, color .15s ease; }
 .post-detail-actionbar button:hover { background: rgba(6, 43, 85, .05); }
 .post-detail-actionbar button.is-active { color: var(--brand-blue); }
+.community-thread-access { padding: clamp(3.5rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4.5rem); background: var(--paper); border-bottom: 1px solid var(--line); }
+.community-thread-access__layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(260px, .7fr); gap: clamp(2rem, 6vw, 6rem); align-items: end; }
+.community-thread-access__copy { max-width: 44rem; }
+.community-thread-access__copy h1 { max-width: 10ch; margin: .65rem 0 1rem; color: var(--brand-blue); font: 500 clamp(3rem, 6.6vw, 6.2rem)/.92 "Manrope", sans-serif; letter-spacing: -.075em; }
+.community-thread-access__copy p { max-width: 33rem; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+.community-thread-access__copy .button { margin-top: 1.6rem; }
+.community-thread-access .community-hero-thread-stack { margin: 0; padding: 1.15rem 0 0 1.15rem; border-left: 2px solid var(--saffron); border-radius: 0; background: transparent; }
+.community-thread-access .community-hero-thread-stack > .mono { color: var(--muted); }
+.community-thread-access .community-hero-thread-stack ol { margin-top: .8rem; }
+.community-next-move { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.25rem; align-items: start; margin: 0 0 1.25rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: 0 10px 30px rgba(7, 27, 61, .05); }
+.community-next-move h2 { max-width: 18ch; margin: .45rem 0 .55rem; color: var(--brand-blue); font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.08; letter-spacing: -.035em; }
+.community-next-move p { max-width: 38rem; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.community-next-move label { display: grid; gap: .45rem; color: var(--brand-blue); font-size: .8rem; font-weight: 700; }
+.community-next-move textarea { min-height: 90px; width: 100%; resize: vertical; border: 1px solid var(--line); border-radius: 12px; padding: .75rem .85rem; background: var(--mist); color: var(--ink); font: 500 .88rem/1.5 "DM Sans", sans-serif; }
+.community-next-move textarea:focus { outline: 2px solid rgba(202, 165, 21, .45); outline-offset: 2px; }
+.community-next-move > div:last-child { display: flex; align-items: center; gap: .85rem; grid-column: 2; }
 .post-detail-comments { display: grid; gap: .85rem; margin-bottom: 1.2rem; }
 .comment-row { display: flex; align-items: flex-start; gap: .6rem; }
 .comment-bubble { flex: 1; min-width: 0; padding: .55rem .85rem; border-radius: 16px; background: var(--mist); }
@@ -129,10 +146,11 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .comment-bubble p { margin: .2rem 0 0; color: var(--ink); font-size: .88rem; line-height: 1.45; }
 .post-detail-composer { display: flex; align-items: center; gap: .6rem; }
 .post-detail-composer input { flex: 1; min-width: 0; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: .6rem 1rem; background: var(--mist); color: var(--ink); font-size: .85rem; }
-.post-detail-composer button { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 50%; background: transparent; color: var(--brand-blue); transition: background-color .15s ease; }
+.post-detail-composer button { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 9px; background: transparent; color: var(--brand-blue); transition: background-color .15s ease; }
 .post-detail-composer button:hover { background: rgba(11, 103, 178, .1); }
 .avatar-sm { width: 34px; height: 34px; font-size: 11px; }
-@media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } }
+@media (max-width: 760px) { .community-thread-access { padding: 3.4rem 0 2.7rem; } .community-thread-access__layout { grid-template-columns: 1fr; gap: 2rem; } .community-thread-access__copy h1 { max-width: 12ch; font-size: clamp(2.7rem, 12vw, 4.5rem); } .community-thread-access .community-hero-thread-stack { max-width: none; } }
+@media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } .post-detail-actionbar { flex-wrap: wrap; } .post-detail-actionbar button { min-width: calc(50% - .2rem); } .community-next-move { grid-template-columns: 1fr; padding: 1rem; } .community-next-move > div:last-child { grid-column: auto; flex-wrap: wrap; } }
 
 /* Community, "Ask a question" composer: attach-photo control and its preview,
    styled for the dark .coach-composer background it lives inside. */

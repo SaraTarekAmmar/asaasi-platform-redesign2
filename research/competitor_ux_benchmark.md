@@ -34,6 +34,14 @@ GrowthMentor centers the user experience on a concrete current blockage, then ma
 
 **ASaaSI implication:** ASaaSI should make the expected value of a recommended tool or introduction explicit before the click, and preserve the resulting evidence and next step in the linked decision record afterward. This validates the next improvement: short, priority-specific “why this tool now” language followed by a direct return to Decision Review.
 
+## Retained learning patterns
+
+Userpilot’s SaaS UX analysis argues for progressive disclosure and an early, goal-aligned win rather than front-loading feature setup. It frames contextual action around the user’s active objective, not a generic product checklist.[6]
+
+Microsoft’s decision-record guidance supports keeping decision context, rationale, trade-offs, confidence, status, and consequences together in a concise, durable record. It also recommends preserving superseded decisions instead of overwriting history.[7]
+
+**ASaaSI implication:** a founder tool should retain the smallest useful learning unit: the active decision, the rationale for using the tool, the next action, a review point, and the outcome. The next implementation should improve visibility of that retained learning in Activity and decision review, not add extra completion steps.
+
 ## Candidate research-backed improvements
 
 | Priority | Improvement | Evidence source | ASaaSI implementation direction |
@@ -45,6 +53,7 @@ GrowthMentor centers the user experience on a concrete current blockage, then ma
 | High | Pair every tool with an immediate next action | SaaStr AI’s concise tool promises and direct open actions | Surface priority-specific tool handoffs in the Founder Operating Desk and retain the resulting decision record. |
 | High | Keep first action singular and staged | Circle’s low-to-high-lift onboarding checklist | Keep the desk recommendation singular and avoid adding parallel setup work. |
 | High | Make the expected value and learning return explicit | GrowthMentor’s problem-to-session-to-takeaway loop | Show why a specific tool fits the active priority and return the result to a linked decision review. |
+| High | Preserve only the context that makes a later review meaningful | Userpilot and Microsoft ADR patterns | Keep tool rationale, output evidence, status, and review point linked to the decision record. |
 
 ## ASaaSI audit observations
 
@@ -58,6 +67,20 @@ The ASaaSI tools page now routes the primary recommendation directly into the se
 
 The second research-led pass added an explicit “why this tool now” rationale and a direct Decision Review return from the active-priority tool handoff. The improved tool bridge rendered correctly in authenticated English and Arabic RTL.
 
+The retained-learning pass adds a clear “From tools” metric beside saved, learned, and open-review decision counts in Activity. The metric rendered correctly in authenticated English and Arabic RTL and retains the existing decision-learning hierarchy.
+
+The shared pricing-tool workbench was walked through in Arabic RTL after the implementation. Its two contextual choices progress cleanly into the result state, where export is available and the retained-learning handoff sits with the result actions. Exported tools now persist the concise output, chosen context, chosen signal, and next move into the linked Activity decision record.
+
+For the adjacent community audit, UX Magazine’s community-design guidance identifies an activity feed as a strong entry point because it lets a member move from reading into sharing, following, and contributing.[8] ASaaSI should adapt the principle by making a founder’s contribution clearly actionable, not by copying a generic social feed.
+
+The highest-value community adaptation is now implemented: an authenticated founder can capture their own specific next move from a thread. The soft, RTL capture surface keeps the thread context and introduces a seven-day Decision Review return without manufacturing replies or social proof. The action bar and capture surface were verified in Arabic RTL.
+
+For the event audit, Guidebook’s attendee-experience analysis identifies post-event synthesis and specific one-to-one follow-up as the point where event value is most often lost. It recommends turning existing pre-event and event data into concise, actionable themes rather than treating the gathering as the endpoint.[9] ASaaSI should therefore keep the founder’s pre-event question attached to the saved event and make it legible in Activity.
+
+The event adaptation is now connected: saving a non-empty pre-event question preserves it on the existing event workflow record, and Activity exposes it as event preparation rather than a generic saved event. The record survives later save or registration actions, so preparation is not lost when the event state changes.
+
+The protected-return audit also exposed a presentation gap in unauthenticated route access. ASaaSI now renders a destination-specific editorial access rail for Activity, event, and pricing returns, including the exact work that will resume after identity confirmation. The community thread access view was restructured to put the topic, sign-in action, and Thread → Reply → Answer route in the first viewport. Desktop and 375px RTL checks were completed. Circle and ring recommendations were deliberately not applied because the product direction explicitly prohibits circular and AI-like decorative motifs; thin saffron rules and linear numerals retain the state signal instead.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -65,3 +88,7 @@ The second research-led pass added an explicit “why this tool now” rationale
 [3]: https://saastr.ai/tools "SaaStr AI Tools"
 [4]: https://circle.so/blog/community-onboarding "How to Build your Community Onboarding Experience"
 [5]: https://www.growthmentor.com/ "GrowthMentor"
+[6]: https://userpilot.com/blog/saas-ux-design/ "SaaS UX Design in 2026"
+[7]: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record "Maintain an architecture decision record"
+[8]: https://uxmag.com/articles/seven-ux-best-practices-of-community-design "Seven UX Best Practices of Community Design"
+[9]: https://www.guidebook.com/post/ai-event-attendee-experience-tools-tactics "AI for Event Attendee Experience: What's Actually Working"
