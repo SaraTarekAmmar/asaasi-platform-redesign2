@@ -28,6 +28,9 @@ export type WorkflowRecord = {
   outcomeCheckCompletedAt?: string;
   introductionOutcome?: "next-step" | "useful-learning" | "not-a-fit";
   introductionOutcomeNote?: string;
+  eventOutcome?: "decision-moved" | "useful-connection" | "useful-learning" | "no-useful-outcome";
+  eventOutcomeNote?: string;
+  eventOutcomeAt?: string;
   updatedAt: string;
 };
 

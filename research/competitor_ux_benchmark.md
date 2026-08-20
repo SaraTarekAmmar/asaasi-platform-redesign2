@@ -81,6 +81,24 @@ The event adaptation is now connected: saving a non-empty pre-event question pre
 
 The protected-return audit also exposed a presentation gap in unauthenticated route access. ASaaSI now renders a destination-specific editorial access rail for Activity, event, and pricing returns, including the exact work that will resume after identity confirmation. The community thread access view was restructured to put the topic, sign-in action, and Thread → Reply → Answer route in the first viewport. Desktop and 375px RTL checks were completed. Circle and ring recommendations were deliberately not applied because the product direction explicitly prohibits circular and AI-like decorative motifs; thin saffron rules and linear numerals retain the state signal instead.
 
+## Engagement continuity: current benchmark
+
+Qooper’s August 2026 mentoring guidance frames sustained participation as a complete chain: context-aware matching, prepared first sessions, agendas that produce a specific action, light nudges, and early warning signals for pairs that cool before the relationship goes dark.[10] Its strongest transferable principle for ASaaSI is not a generic reminder system. It is a **conversation readiness and continuity check** that makes the next meeting, action, or feedback prompt explicit when an introduction is still open.
+
+Blackthorn’s June 2026 attendee-experience guidance similarly treats an event as a full lifecycle. It recommends defining success before the event, making networking intentional during it, and collecting feedback and sending a useful recap promptly afterward.[11] ASaaSI already retains a pre-event question and a follow-up. The remaining gap is a lightweight, attendee-owned “did this room earn the time?” check that records whether the event moved a decision, introduced a useful person, or changed the next action.
+
+**Next candidate implementation:** add a compact outcome pulse to completed event workflow records. The pulse should ask one question, preserve a selected outcome and concise evidence, append the result to a linked decision when present, and surface unreviewed event outcomes in Activity. This adapts the full-loop principle while avoiding fabricated satisfaction metrics, broad surveys, or automation beyond the static project’s scope.
+
+## Cross-route audit, August 2026
+
+ASaaSI’s matching and introduction flow already covers contextual fit, a focused question, post-conversation reflection, a copy-ready follow-up, and a seven-day outcome check. The community route can now turn a useful thread into a timed next move. The event route retains a pre-event question and a follow-up preference, but it has no founder-owned moment to state whether the room earned the time or changed the work. The highest-value next improvement is therefore the event outcome pulse, not a new matching feature or a broader community feed.
+
+## Implementation verification, August 2026
+
+The event outcome pulse is now implemented. A registered founder can name whether an event moved a decision, introduced a useful person, produced useful learning, or did not change the next move. The selected result requires concise evidence, marks the event record complete, and can append the same learning to a selected decision record. Activity collects unreviewed event outcomes in a distinct return surface alongside the existing decision ledger.
+
+The authenticated Arabic event view verified that the new outcome prompt appears after registration with the existing preparation and follow-up surfaces intact. TypeScript and production builds pass. The protected event and Activity return states were also reviewed at 1280px and 375px RTL. Both now expose route-specific linear operating rails and a Context → Identity → Return desk around the form. The refinement deliberately retains thin rules and linear numerals instead of the review’s circular motif suggestion, consistent with the project’s explicit no-circle requirement.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -92,3 +110,5 @@ The protected-return audit also exposed a presentation gap in unauthenticated ro
 [7]: https://learn.microsoft.com/en-us/azure/well-architected/architect-role/architecture-decision-record "Maintain an architecture decision record"
 [8]: https://uxmag.com/articles/seven-ux-best-practices-of-community-design "Seven UX Best Practices of Community Design"
 [9]: https://www.guidebook.com/post/ai-event-attendee-experience-tools-tactics "AI for Event Attendee Experience: What's Actually Working"
+[10]: https://www.qooper.io/blog/mentoring-software-engagement-features "Mentoring Software Engagement Features That Keep Participants Active"
+[11]: https://blackthorn.io/content-hub/event-management-tip-attendee-experience/ "What is the attendee experience? (And how to improve it)"

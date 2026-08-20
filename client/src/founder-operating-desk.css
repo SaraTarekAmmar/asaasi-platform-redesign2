@@ -1,9 +1,33 @@
 /* Landing-derived founder desk: warm editorial paper, calm navy hierarchy, soft rectangular surfaces, and no decorative maps or circular motifs. */
+/* Editorial operating system: founder outcomes stay specific, reviewable, and connected through soft rectangular work surfaces. */
 .app-product .founder-operating-desk {
   max-width: 1180px;
   margin: 0 auto;
   padding: clamp(32px, 5vw, 70px) clamp(18px, 4vw, 48px) 76px;
 }
+
+.app-product .event-outcome-pulse { display: grid; grid-template-columns: minmax(0, .85fr) minmax(340px, 1.15fr); gap: clamp(24px, 5vw, 64px); align-items: start; margin-top: clamp(34px, 5vw, 68px); padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(7, 27, 61, .1); border-radius: 20px; background: rgba(255, 255, 255, .78); box-shadow: 0 16px 34px rgba(7, 27, 61, .05); }
+.app-product .event-outcome-pulse h2 { max-width: 14ch; margin: 9px 0 12px; color: #071b3d; font: 500 clamp(26px, 3.1vw, 42px)/1.03 "Manrope", sans-serif; letter-spacing: -.06em; }
+.app-product .event-outcome-pulse p { max-width: 36rem; margin: 0; color: #53627a; font-size: 14px; line-height: 1.6; }
+.app-product .event-outcome-pulse form { display: grid; gap: 14px; padding-inline-start: clamp(18px, 3vw, 34px); border-inline-start: 2px solid #caa515; }
+.app-product .event-outcome-pulse label { display: grid; gap: 7px; color: #071b3d; font: 700 11px "DM Sans", sans-serif; letter-spacing: .03em; }
+.app-product .event-outcome-pulse select,.app-product .event-outcome-pulse textarea { width: 100%; border: 1px solid #dfe3ea; border-radius: 12px; padding: 11px 12px; background: #fbfbf8; color: #071b3d; font: 500 13px/1.5 "DM Sans", sans-serif; }
+.app-product .event-outcome-pulse textarea { min-height: 96px; resize: vertical; }
+.app-product .event-outcome-pulse select:focus,.app-product .event-outcome-pulse textarea:focus { outline: 2px solid rgba(202, 165, 21, .32); outline-offset: 2px; }
+.app-product .event-outcome-pulse form > div,.app-product .event-outcome-pulse__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.app-product .event-outcome-pulse__actions { align-self: center; padding-inline-start: clamp(18px, 3vw, 34px); border-inline-start: 2px solid #caa515; }
+.app-product .event-outcome-pulse .inline-success { display: inline-flex; align-items: center; gap: 7px; color: #53627a; font-size: 12px; }
+.app-product .activity-event-outcomes { display: grid; grid-template-columns: minmax(220px, .75fr) minmax(0, 1.25fr); gap: clamp(22px, 5vw, 58px); align-items: start; margin: 28px 0; padding: 25px 0; border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
+.app-product .activity-event-outcomes h2 { max-width: 16ch; margin: 8px 0 10px; color: #071b3d; font: 500 clamp(24px, 2.8vw, 36px)/1.04 "Manrope", sans-serif; letter-spacing: -.055em; }
+.app-product .activity-event-outcomes > div > p { max-width: 29rem; margin: 0; color: #53627a; font-size: 13px; line-height: 1.55; }
+.app-product .activity-event-outcomes__records { display: grid; gap: 0; border-top: 1px solid #dfe3ea; }
+.app-product .activity-event-outcomes__records article { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; padding: 15px 0; border-bottom: 1px solid #dfe3ea; }
+.app-product .activity-event-outcomes__records .mono { grid-column: 1 / -1; color: #caa515; font-size: 9px; letter-spacing: .1em; }
+.app-product .activity-event-outcomes__records strong { color: #071b3d; font: 600 14px "DM Sans", sans-serif; }
+.app-product .activity-event-outcomes__records p { grid-column: 1 / -1; margin: 0; color: #53627a; font-size: 13px; line-height: 1.5; }
+.app-product .activity-event-outcomes__records article > div { display: flex; flex-wrap: wrap; gap: 14px; grid-column: 1 / -1; }
+@media (max-width: 760px) { .app-product .activity-event-outcomes { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .app-product .event-outcome-pulse { grid-template-columns: 1fr; padding: 22px 18px; } .app-product .event-outcome-pulse h2 { max-width: 16ch; } .app-product .event-outcome-pulse form,.app-product .event-outcome-pulse__actions { padding-inline-start: 16px; } }
 
 .app-product .founder-desk-intro {
   display: flex;

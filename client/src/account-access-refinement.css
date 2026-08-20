@@ -1,5 +1,5 @@
 /* Editorial operating system: auth panels carry named operating states; saffron remains a small state signal, never a decorative visual mass. */
-
+/* Editorial operating system: protected access states retain their exact operating context through linear evidence rails, never circular decoration. */
 .app-product .account-flow .account-visual::before,
 .app-product .account-flow .account-visual::after {
   background: transparent !important;
@@ -51,12 +51,42 @@
 .app-product .account-flow .account-return-object > .mono + ol li.is-active { border-top: 2px solid #f6c915; }
 
 .app-product .account-flow .account-route-rail { display: grid; }
+.app-product .account-flow .account-route-rail::before,
+.app-product .account-flow .account-route-rail::after { display: none !important; content: none !important; }
+.app-product .account-flow .account-route-rail { gap: 0; margin-top: 20px; padding: 0 0 0 14px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; border-left: 2px solid #caa515; }
+.app-product .account-flow .account-route-rail > div { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 10px; align-items: center; min-height: 37px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow .account-route-rail > div:last-child { border-bottom: 0; }
+.app-product .account-flow .account-route-rail .mono { margin: 0; color: #6a7688; font-size: 8px; letter-spacing: .1em; }
+.app-product .account-flow .account-route-rail strong { min-height: 0; color: #071b3d; font: 600 10px/1.25 "DM Sans", sans-serif; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol,
 .app-product .account-flow--health .account-return-object > .mono + ol,
 .app-product .account-flow--event .account-return-object > .mono + ol { grid-template-columns: 1fr; gap: .25rem; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li,
 .app-product .account-flow--health .account-return-object > .mono + ol li,
 .app-product .account-flow--event .account-return-object > .mono + ol li { grid-template-columns: 2rem minmax(0, 1fr); align-items: center; min-height: 30px; padding: .35rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223, 227, 234, .18); }
+.app-product .account-flow--event .account-visual h1 { max-width: 8.5ch; }
+.app-product .account-flow--event .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
+.app-product .account-flow--event .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--event .account-return-object > .mono + ol li { position: relative; min-height: 52px; grid-template-columns: 2rem minmax(0, 1fr); gap: 10px; }
+.app-product .account-flow--event .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251, 251, 248, .6); font: 500 9px/1.35 "DM Sans", sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(1)::after { content: "18 SEP / DUBAI + ONLINE"; }
+.app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(2)::after { content: "BRING THE ONE QUESTION"; }
+.app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(3)::after { content: "CARRY THE FIELD NOTE FORWARD"; }
+[dir="rtl"] .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(1)::after { content: "١٨ سبتمبر / دبي + عبر الإنترنت"; }
+[dir="rtl"] .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(2)::after { content: "أحضر السؤال الواحد"; }
+[dir="rtl"] .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(3)::after { content: "احمل الملاحظة الميدانية إلى الأمام"; }
+.app-product .account-flow--registrations .account-visual h1 { max-width: 9.5ch; }
+.app-product .account-flow--registrations .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
+.app-product .account-flow--registrations .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2rem minmax(0, 1fr); gap: 10px; min-height: 52px; padding: .45rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223, 227, 234, .18); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251, 251, 248, .6); font: 500 9px/1.35 "DM Sans", sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1)::after { content: "ROOMS, SAVED WORK, AND FOLLOW-THROUGH"; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2)::after { content: "CONFIRM THE FOUNDER RECORD"; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE WAITING MOVE"; }
+[dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1)::after { content: "الغرف والعمل المحفوظ والمتابعة"; }
+[dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2)::after { content: "أكد سجل المؤسس"; }
+[dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3)::after { content: "استأنف الخطوة المنتظرة"; }
 
 .app-product .account-flow .account-return-object li.is-active i {
   background: #f6c915;
