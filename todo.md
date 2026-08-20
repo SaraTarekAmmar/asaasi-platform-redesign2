@@ -573,3 +573,11 @@
 - [x] Implement weekly bet selection, desk visibility, and completion controls.
 - [x] Verify desktop, mobile, English, and Arabic RTL primary-bet states.
 - [x] Validate and save the weekly primary-bet enhancement checkpoint.
+
+## Friday Primary Bet Reflection
+
+- [x] Inspect weekly primary-bet state, decision review metadata, and Activity integration points.
+- [x] Define Friday reflection and decision-learning handoff behavior.
+- [x] Implement reflection capture, weekly comparison, and review handoff.
+- [x] Verify responsive and RTL style rules, then run TypeScript and production-build validation.
+- [x] Validate and save the Friday reflection enhancement checkpoint.

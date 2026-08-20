@@ -15,6 +15,8 @@ export type WorkflowRecord = {
   reviewDateAr?: string;
   reviewDue?: string;
   evidence?: string;
+  weeklyReflection?: string;
+  weeklyReflectionAt?: string;
   outcome?: "keep" | "change" | "stop";
   outcomeAt?: string;
   updatedAt: string;
