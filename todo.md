@@ -493,3 +493,11 @@
 - [x] Implement proactive desk guidance and connected actions.
 - [x] Verify desktop, mobile, English, and Arabic RTL guidance states.
 - [x] Validate and save the guided workspace enhancement checkpoint.
+
+## Connected Tool Discovery
+
+- [x] Inspect the current tools library, tool routes, and Founder Desk integration points.
+- [x] Define clearer decision-oriented discovery and tool-to-desk handoff behavior.
+- [x] Implement improved tool discovery, decision context, and desk handoff.
+- [x] Verify desktop, mobile, English, and Arabic RTL tool discovery states.
+- [x] Validate and save the connected tools enhancement checkpoint.
