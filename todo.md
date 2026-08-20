@@ -623,3 +623,12 @@
 - [x] Add matching-feedback guidance to the Founder Operating Desk.
 - [x] Verify authenticated desktop English and Arabic RTL states, responsive CSS, TypeScript, and production build.
 - [x] Validate and save the introduction and feedback guidance checkpoint.
+
+## Introduction Follow-Through and Context Refresh
+
+- [x] Inspect Activity record handling, introduction workflow data, and profile-context update points.
+- [x] Define introduction status transitions, linked decisions, and meaningful context-refresh behavior.
+- [x] Add Activity introduction statuses and decision-linked introduction briefs.
+- [x] Add a profile prompt that appears after saving a changed stage or market.
+- [x] Verify authenticated desktop English and Arabic RTL Activity states, responsive CSS, TypeScript, and production build.
+- [x] Validate and save the closed introduction-loop checkpoint.

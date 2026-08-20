@@ -6,7 +6,7 @@ export type WorkflowRecord = {
   title: string;
   titleAr: string;
   href: string;
-  status: "saved" | "submitted" | "registered";
+  status: "saved" | "submitted" | "registered" | "introduced" | "completed";
   owner?: string;
   ownerAr?: string;
   nextAction?: string;
@@ -19,6 +19,7 @@ export type WorkflowRecord = {
   weeklyReflectionAt?: string;
   outcome?: "keep" | "change" | "stop";
   outcomeAt?: string;
+  linkedDecisionId?: string;
   updatedAt: string;
 };
 

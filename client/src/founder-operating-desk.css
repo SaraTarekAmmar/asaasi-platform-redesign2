@@ -58,6 +58,8 @@
 .app-product .intro-request-draft { display: grid; gap: 14px; padding: 17px; border: 1px solid rgba(7,27,61,.12); border-radius: 14px; background: #fffdf5; }
 .app-product .intro-request-draft label { display: grid; gap: 8px; color: #071b3d; font: 600 12px/1.4 "DM Sans",sans-serif; }
 .app-product .intro-request-draft textarea { min-height: 118px; resize: vertical; border: 1px solid rgba(7,27,61,.18); border-radius: 10px; background: #fff; padding: 11px; color: #071b3d; font: 13px/1.55 "DM Sans",sans-serif; }
+.app-product .intro-request-draft__decision { display: grid; gap: 8px; color: #071b3d; font: 600 12px/1.4 "DM Sans",sans-serif; }
+.app-product .intro-request-draft__decision select { width: 100%; border: 1px solid rgba(7,27,61,.18); border-radius: 10px; background: #fff; padding: 10px; color: #071b3d; font: 12px "DM Sans",sans-serif; }
 .app-product .intro-request-draft p { margin: 0; font-size: 11px; line-height: 1.55; }
 .app-product .intro-request-draft > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .app-product .intro-request-draft .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
@@ -68,6 +70,13 @@
 .app-product .founder-desk-match-feedback h2 { max-width: 700px; margin: 7px 0 9px; color: #071b3d; font: 500 clamp(23px,2.6vw,34px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .founder-desk-match-feedback p { max-width: 720px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
 .app-product .founder-desk-match-feedback__count { display: inline-block; margin-top: 12px; color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .activity-introduction-summary { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 24px; margin: 18px 0; padding: clamp(22px,3vw,30px); border: 1px solid rgba(7,27,61,.11); border-radius: 20px; background: #fffdf5; }
+.app-product .activity-introduction-summary h2 { max-width: 710px; margin: 7px 0 9px; color: #071b3d; font: 500 clamp(23px,2.6vw,34px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .activity-introduction-summary p { max-width: 700px; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .founder-profile-refresh { display: grid; gap: 6px; margin-top: 16px; padding: 14px; border-inline-start: 2px solid #caa515; background: rgba(202,165,21,.06); }
+.app-product .founder-profile-refresh strong { color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
+.app-product .founder-profile-refresh p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
+.app-product .founder-profile-refresh .text-link { color: #071b3d; font-size: 11px; }
 .app-product .founder-desk-records { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
 .app-product .founder-desk-records article { display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; border: 1px solid rgba(7, 27, 61, 0.09); border-radius: 20px; background: rgba(255, 255, 255, 0.7); padding: 24px; box-shadow: 0 10px 28px rgba(7, 27, 61, 0.045); }
 .app-product .founder-desk-records .mono { color: #6d7889; font-size: 9px; letter-spacing: 0.12em; }
@@ -253,6 +262,7 @@
   .app-product .workspace-person-card__feedback { justify-content: flex-start; }
   .app-product .workspace-feedback-recovery { grid-template-columns: 1fr; }
   .app-product .founder-desk-match-feedback { grid-template-columns: 1fr; align-items: start; }
+  .app-product .activity-introduction-summary { grid-template-columns: 1fr; align-items: start; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
   .app-product .founder-desk-records { grid-template-columns: 1fr; }
