@@ -8,7 +8,8 @@ import Community, { CommunityPost } from "./pages/Community";
 import Events from "./pages/Events";
 import Learn from "./pages/Learn";
 import Tools from "./pages/Tools";
-import { ActivityWorkspace } from "./pages/ActivityWorkspace";
+import { AccountableActivityWorkspace } from "./pages/AccountableActivity";
+import { DecisionAccountabilityWorkspace } from "./pages/DecisionAccountability";
 import Pricing from "./pages/Pricing";
 import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
@@ -67,8 +68,9 @@ function Router() {
     <Route path="/dashboard/events/:slug" component={EventFlow} />
     <Route path="/dashboard/rooms" component={() => <WorkspaceEventsPage discovery />} />
     <Route path="/dashboard/events" component={() => <WorkspaceEventsPage />} />
-    <Route path="/dashboard/registrations" component={ActivityWorkspace} />
+    <Route path="/dashboard/registrations" component={AccountableActivityWorkspace} />
     <Route path="/dashboard/decision-review" component={DecisionReviewWorkspace} />
+    <Route path="/dashboard/decision-accountability" component={DecisionAccountabilityWorkspace} />
     <Route path="/dashboard/requests/:id" component={() => <RequestDetailPage workspace />} />
     <Route path="/dashboard/requests" component={WorkspaceRequestsPage} />
     <Route path="/dashboard/organizations" component={OrganizationHubPage} />

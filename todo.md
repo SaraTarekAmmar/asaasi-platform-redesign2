@@ -549,3 +549,11 @@
 - [x] Implement the Activity decision-learning summary.
 - [x] Verify desktop, mobile, English, and Arabic RTL Activity learning states.
 - [x] Validate and save the Activity learning-summary enhancement checkpoint.
+
+## Accountable Decision Reviews
+
+- [x] Inspect decision-review metadata and existing desk and Activity summary states.
+- [x] Define editable ownership, due dates, and overdue review interactions.
+- [x] Implement accountability fields and overdue workflow cues.
+- [x] Verify desktop, mobile, English, and Arabic RTL accountability states.
+- [x] Validate and save the accountable decision-review enhancement checkpoint.

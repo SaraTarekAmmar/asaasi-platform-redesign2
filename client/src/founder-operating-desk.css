@@ -62,6 +62,29 @@
 .app-product .decision-review-editor__actions .button-primary { background: #f6c915; color: #071b3d; }
 .app-product .decision-review-editor__actions .text-link { color: #fff; }
 .app-product .decision-review-editor .inline-success { margin-top: 18px; background: rgba(255,255,255,.11); color: #fff; }
+.app-product .accountability-layout { display: grid; grid-template-columns: 285px minmax(0, 1fr); gap: 18px; margin-top: 18px; }
+.app-product .accountability-layout > aside { display: grid; align-content: start; gap: 4px; padding: 20px; border: 1px solid rgba(7,27,61,.1); border-radius: 20px; background: rgba(255,255,255,.68); }
+.app-product .accountability-layout > aside > .mono { margin-bottom: 8px; color: #6d7889; font-size: 9px; }
+.app-product .accountability-layout > aside button { display: grid; grid-template-columns: 32px minmax(0,1fr); gap: 8px; width: 100%; padding: 14px 0; border: 0; border-top: 1px solid rgba(7,27,61,.1); background: transparent; color: #53627a; text-align: start; }
+.app-product .accountability-layout > aside button.is-active { color: #071b3d; }
+.app-product .accountability-layout > aside button > span { color: #caa515; font: 600 10px "DM Sans", sans-serif; letter-spacing: .05em; }
+.app-product .accountability-layout > aside button > span.is-overdue { color: #a84d45; }
+.app-product .accountability-layout > aside button strong, .app-product .accountability-layout > aside button small { display: block; }
+.app-product .accountability-layout > aside button strong { font: 600 13px/1.35 "DM Sans", sans-serif; }
+.app-product .accountability-layout > aside button small { margin-top: 4px; color: #6d7889; font-size: 11px; }
+.app-product .accountability-editor { padding: clamp(23px, 4vw, 38px); border-radius: 22px; background: rgba(255,255,255,.72); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
+.app-product .accountability-editor h2 { max-width: 690px; margin: 8px 0 10px; color: #071b3d; font: 500 clamp(28px, 3.6vw, 45px)/1.05 "Manrope", sans-serif; letter-spacing: -.06em; }
+.app-product .accountability-editor > p { max-width: 620px; margin: 0; color: #53627a; line-height: 1.6; }
+.app-product .accountability-fields { display: grid; grid-template-columns: 1fr 220px; gap: 15px; margin-top: 25px; }
+.app-product .accountability-fields label { display: grid; gap: 8px; color: #071b3d; font: 600 12px "DM Sans", sans-serif; }
+.app-product .accountability-fields input { width: 100%; box-sizing: border-box; border: 1px solid rgba(7,27,61,.16); border-radius: 10px; background: #fbfbf8; padding: 12px; color: #071b3d; font: 13px "DM Sans", sans-serif; outline: none; }
+.app-product .accountability-fields input:focus { border-color: #caa515; box-shadow: 0 0 0 3px rgba(202,165,21,.12); }
+.app-product .accountability-editor .inline-success { margin-top: 18px; }
+.app-product .decision-accountability-float { position: fixed; right: 24px; bottom: 24px; z-index: 60; display: flex; align-items: center; gap: 11px; max-width: min(370px, calc(100vw - 48px)); border: 1px solid rgba(202,165,21,.55); border-radius: 14px; background: #071b3d; box-shadow: 0 16px 38px rgba(7,27,61,.22); padding: 14px 16px; color: #fff; text-decoration: none; }
+.app-product .decision-accountability-float span { min-width: 0; flex: 1; }
+.app-product .decision-accountability-float strong, .app-product .decision-accountability-float small { display: block; }
+.app-product .decision-accountability-float strong { color: #f6c915; font: 600 12px "DM Sans", sans-serif; }
+.app-product .decision-accountability-float small { margin-top: 3px; color: rgba(255,255,255,.7); font: 11px/1.35 "DM Sans", sans-serif; }
 .app-product .activity-learning-summary { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, .7fr) auto; gap: 26px; align-items: end; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border-top: 3px solid #caa515; border-radius: 22px; background: #071b3d; color: #fff; }
 .app-product .activity-learning-summary .section-label { color: #f6c915; }
 .app-product .activity-learning-summary h2 { max-width: 550px; margin: 8px 0 9px; font: 500 clamp(28px, 3.6vw, 46px)/1.05 "Manrope", sans-serif; letter-spacing: -.06em; }
@@ -124,6 +147,7 @@
   .app-product .founder-desk-records article { min-height: 0; }
   .app-product .founder-desk-decision-detail { grid-template-columns: 1fr; gap: 20px; }
   .app-product .decision-review-layout { grid-template-columns: 1fr; }
+  .app-product .accountability-layout { grid-template-columns: 1fr; }
   .app-product .activity-learning-summary { grid-template-columns: 1fr; align-items: start; }
   .app-product .activity-learning-records { grid-template-columns: 1fr; }
   .app-product .activity-learning-records article, .app-product .activity-learning-records article:first-child { padding: 19px 0; border-inline-end: 0; border-bottom: 1px solid rgba(7,27,61,.1); }
@@ -143,6 +167,8 @@
   .app-product .founder-desk-decision-detail { border-radius: 17px; padding: 22px; }
   .app-product .founder-desk-decision-detail dl { grid-template-columns: 1fr; gap: 11px; }
   .app-product .decision-outcome-options { grid-template-columns: 1fr; }
+  .app-product .accountability-fields { grid-template-columns: 1fr; }
+  .app-product .decision-accountability-float { right: 16px; bottom: 16px; max-width: calc(100vw - 32px); }
   .app-product .activity-learning-summary__metrics { gap: 8px; }
   .app-product .activity-learning-ledger__heading { display: grid; align-items: start; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }
