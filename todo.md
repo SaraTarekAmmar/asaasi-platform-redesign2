@@ -689,3 +689,12 @@
 - [x] Preserve the current-month Founder Operating Desk outcome lens.
 - [x] Verify authenticated English and Arabic RTL draft states, TypeScript, and production build.
 - [x] Validate and save the brief-readiness enhancement checkpoint.
+
+## Research-Led Tools and Operating Desk Improvement
+
+- [x] Benchmark public matching, operating-system, and SaaS tool experiences from YC, Founders Network, and SaaStr AI.
+- [x] Document UX findings and ASaaSI-specific adaptation choices in the competitor benchmark.
+- [x] Audit the Founder Operating Desk and tools catalog against the research findings.
+- [x] Replace prominent placeholder tool actions with direct routes to the selected tool, Founder Operating Desk, and founder context.
+- [x] Verify authenticated English and Arabic RTL tools states, TypeScript, and production build.
+- [x] Validate and save the research-led UX enhancement checkpoint.

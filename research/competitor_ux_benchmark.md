@@ -1,0 +1,49 @@
+# Founder Platform UX Benchmark
+
+## Research scope
+
+This benchmark compares publicly accessible founder-matching and founder-operating-system experiences to identify patterns ASaaSI can adapt while retaining its own landing-derived editorial visual system. Sources were inspected directly on 20 August 2026.
+
+## Y Combinator Co-Founder Matching
+
+YC frames matching around three low-friction promises: suitability across founder stages, the option to join with or without an idea, and no forced commitment. Its public journey makes the core sequence explicit: create a profile, receive preference-based matches, invite a person to connect, and then schedule a conversation after acceptance. It also makes privacy and profile quality part of trust formation.[1]
+
+**ASaaSI implication:** preserve the existing visible match rationale, but make the progression from context to focused introduction to reflection legible as one connected loop. The strongest relevant addition is a compact match-intent strip that states what the next conversation should produce.
+
+## Founders Network and EOS framing
+
+Founders Network’s EOS guidance organizes founder work around vision, people, data, issues, process, and traction. The operating ideas most applicable to ASaaSI are a small set of owned priorities, regular review cadence, and a clear connection between observations and the next accountable action.[2]
+
+**ASaaSI implication:** Founder Operating Desk should keep its single-priority emphasis, but add a concise outcome-oriented monthly view and a direct return path from evidence to the next action. The platform should surface an operating rhythm rather than a volume of activity.
+
+## SaaStr AI tools
+
+SaaStr AI organizes a broad tool catalog into clear problem families, using short labels, a one-line promise, and a direct open action for every tool. It combines tools with adjacent resources such as workshops, an advisor, and directories, and closes the catalog with a specific “start here” choice rather than a generic browse action.[3]
+
+**ASaaSI implication:** tools should never be a disconnected catalog. Existing ASaaSI tool briefs should keep routing outcomes into the Founder Operating Desk and identify the next useful action, while the most relevant tool should be surfaced from the founder’s active priority. Categories should be succinct and purpose-based rather than feature-based.
+
+## Candidate research-backed improvements
+
+| Priority | Improvement | Evidence source | ASaaSI implementation direction |
+|---|---|---|---|
+| High | Clarify connection intent before outreach | YC’s preference-based matching and invite path | Add a simple intent label and expected outcome beside context-based matches. |
+| High | Reinforce commitment and accountability after a connection | EOS’s ownership and regular meeting cadence | Keep follow-up date, outcome type, and linked decision visible in Activity and Weekly Review. |
+| Medium | Make trust and readiness explicit | YC’s profile and privacy framing | Keep the brief readiness message and decision link near the send action. |
+| Medium | Make operating evidence usable over time | EOS’s data and traction model | Export a compact monthly record only when enough real connected records exist. |
+| High | Pair every tool with an immediate next action | SaaStr AI’s concise tool promises and direct open actions | Surface priority-specific tool handoffs in the Founder Operating Desk and retain the resulting decision record. |
+
+## ASaaSI audit observations
+
+The authenticated Founder Operating Desk already has a strong single-priority hierarchy, clear context recovery, saved-decision continuity, and direct paths to weekly review. The public tools catalog also already provides unusually strong tool metadata, including a decision frame, duration, privacy signal, and next-action language. The main opportunity is not additional catalog breadth; it is **faster routing from the active operating priority into the one tool that most directly reduces that uncertainty**.
+
+The research-led implementation priority is therefore a lightweight “best next tool” handoff inside the Founder Operating Desk, grounded in the existing Pricing, Customers, and Growth priorities. This builds on ASaaSI’s strengths while applying SaaStr’s immediate open-action principle and EOS’s focus-on-one-priority discipline.
+
+## Implementation verification
+
+The ASaaSI tools page now routes the primary recommendation directly into the selected tool, routes “View desk context” to the Founder Operating Desk, and routes the founder-brief CTA to profile context. The updated tools hierarchy rendered correctly in authenticated English and Arabic RTL without changing the landing page.
+
+## References
+
+[1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
+[2]: https://foundersnetwork.com/entrepreneurial-operating-system-for-startups/ "Entrepreneurial Operating System for Startups"
+[3]: https://saastr.ai/tools "SaaStr AI Tools"
