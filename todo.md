@@ -325,3 +325,10 @@
 - [x] Repair the highest-impact usability and interaction gaps while preserving the landing-derived visual system.
 - [x] Verify desktop, tablet, mobile, English, and Arabic RTL routes with usable keyboard and recovery paths.
 - [x] Document the UX fixes and save the next visual-alignment checkpoint.
+
+## Responsive Container and Margin Audit
+
+- [x] Audit large, desktop, tablet, and mobile container widths, centered layout margins, and section spacing.
+- [x] Refine non-landing wide-screen centering and responsive spacing without changing the landing page.
+- [x] Verify representative routes at wide, desktop, tablet, and mobile widths in English and Arabic RTL.
+- [x] Document the responsive refinements and save the next visual-alignment checkpoint.

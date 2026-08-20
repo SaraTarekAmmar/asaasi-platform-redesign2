@@ -9,3 +9,12 @@
 .app-product .landing-page-intro__trace span i,
 .app-product .support-route-trace span i,
 .app-product .route-trace span i { border-radius: 0; border-width: 0 0 1px 1px; box-shadow: none; }
+@media (min-width: 1440px) {
+  .app-product :is(.product-main,.page-hero,.roadmap-stage-route,.missing-page,.commercial-route,.information-route) .container { width: min(100% - 128px, 1280px); margin-inline: auto; }
+}
+@media (min-width: 1920px) {
+  .app-product :is(.product-main,.page-hero,.roadmap-stage-route,.missing-page,.commercial-route,.information-route) .container { width: min(100% - 176px, 1320px); }
+}
+@media (max-width: 760px) {
+  .app-product :is(.product-main,.page-hero,.roadmap-stage-route,.missing-page,.commercial-route,.information-route) .container { width: min(100% - 36px, 100%); margin-inline: auto; }
+}
