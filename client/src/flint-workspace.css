@@ -17,7 +17,7 @@
   --muted: #74766c;
   --line: #dfe3ea;
   --radius-chip: 999px;
-  --radius-control: 9px;
+  --radius-control: 8px;
   --radius-card: 14px;
   --radius-media: 16px;
 }
@@ -41,13 +41,21 @@
 }
 
 .app-product .icon-button {
-  border-radius: 999px;
+  border-radius: 8px;
+}
+
+.app-product .workspace-header .icon-button::after {
+  border-radius: 0;
+  width: 10px;
+  height: 2px;
+  background: var(--saffron);
+  box-shadow: none;
 }
 
 .app-product .avatar-button {
   background: var(--ink);
   color: var(--saffron);
-  border-radius: 999px;
+  border-radius: 8px;
 }
 
 .app-product .button {

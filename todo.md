@@ -309,3 +309,12 @@
 - [x] Fix discovered navigation, rendering, interaction, RTL, and responsive defects.
 - [x] Verify desktop, tablet, mobile, and Arabic RTL routes without modifying the landing page.
 - [x] Document the changes and save the bug-fix checkpoint.
+
+## Strategy-Alignment and Shared Component Audit
+
+- [x] Extract the supplied strategy, access, competition, financial, organization, and course materials into implementation requirements.
+- [x] Audit every non-landing journey for missing useful content, weak information architecture, and alignment gaps.
+- [x] Align non-landing notification controls, buttons, and related states with the fixed landing-page component system.
+- [x] Implement the highest-value strategy-aligned journey and content enhancements.
+- [x] Verify desktop, tablet, mobile, English, and Arabic RTL routes without modifying the landing page.
+- [x] Document the audit and save the next visual-alignment checkpoint.

@@ -115,6 +115,7 @@ function Router() {
     <Route path="/courses/roadmap-focus" component={() => <RoadmapCoursePage stageSlug="focus" />} />
     <Route path="/courses/roadmap-scale" component={() => <RoadmapCoursePage stageSlug="scale" />} />
     <Route path="/courses/roadmap-governance" component={() => <RoadmapCoursePage stageSlug="governance" />} />
+    <Route path="/courses" component={Learn} />
     <Route path="/courses/:slug" component={() => <PublicDetailPage type="course" />} />
     <Route path="/playbooks" component={() => <PublicDetailPage type="course" gated />} />
     <Route path="/videos" component={() => <PublicDetailPage type="article" />} />
