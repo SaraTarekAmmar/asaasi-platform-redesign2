@@ -16,6 +16,12 @@
 .app-product .signup-aside .signup-trail { display: none !important; }
 .app-product .signup-aside *::before,
 .app-product .signup-aside *::after { content: none !important; display: none !important; }
+.app-product .signup-aside::before,
+.app-product .signup-aside::after { content: none !important; display: none !important; }
 .app-product .signup-aside :is([class*="ring"],[class*="circle"],[class*="orbit"],[class*="orb"]),
 .app-product .signup-aside :is([class*="ring"],[class*="circle"],[class*="orbit"],[class*="orb"])::before,
 .app-product .signup-aside :is([class*="ring"],[class*="circle"],[class*="orbit"],[class*="orb"])::after { display: none !important; content: none !important; }
+.app-product :is([class*="ring"],[class*="circle"],[class*="orbit"],[class*="orb"]) { border-radius: 0 !important; box-shadow: none !important; }
+.app-product :is(.signal-dot,.header-signal-node,.system-state-node,.relationship-node,.public-perk-node,.complete-node) { display: none !important; }
+.app-product .notification-dot { width: 7px !important; height: 2px !important; min-width: 7px !important; min-height: 2px !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; background: #caa515 !important; }
+.app-product :is(.pricing-grid .plan::before,.partner-register-map li::before,.contact-hero-route li::before,.commercial-path--partner > ol > li > span) { display: none !important; content: none !important; }

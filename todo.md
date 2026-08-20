@@ -395,3 +395,10 @@
 - [x] Rebuild the next-event composition without decorative rule, process, or dark-panel treatments.
 - [x] Verify the updated Events composition at desktop and mobile sizes in English and Arabic RTL.
 - [x] Validate the focused redesign and save a checkpoint.
+
+## Remaining Circular and Ring Motif Removal
+
+- [x] Inventory all remaining non-functional circular, ring, node, and dot decorations across non-landing routes.
+- [x] Remove the decorative treatments while retaining functional controls and meaningful status information.
+- [x] Verify the simplified experience at desktop and mobile widths in English and Arabic RTL.
+- [x] Validate and save the motif-removal checkpoint.
