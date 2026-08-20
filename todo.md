@@ -517,3 +517,11 @@
 - [x] Implement connected public event handoff and follow-up improvements.
 - [x] Verify desktop, mobile, English, and Arabic RTL event handoff states.
 - [x] Validate and save the connected event-handoff enhancement checkpoint.
+
+## Event Participation Journey
+
+- [x] Inspect registered event state, Activity records, and existing event detail actions.
+- [x] Define the preparation, calendar, and reflection journey for registered events.
+- [x] Implement event preparation, calendar handoff, and reflection controls.
+- [x] Verify desktop, mobile, English, and Arabic RTL participation states.
+- [x] Validate and save the event-participation enhancement checkpoint.
