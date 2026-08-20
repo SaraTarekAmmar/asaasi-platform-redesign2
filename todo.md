@@ -381,3 +381,10 @@
 - [x] Remove the decorative elements and preserve only essential content through simpler landing-consistent hierarchy.
 - [x] Verify public, workspace, mobile, English, and Arabic RTL examples without changing the landing page.
 - [x] Save the visual simplification checkpoint.
+
+## Events Route Redesign
+
+- [x] Inspect the existing Events hierarchy, timeline, event selection, and interaction states for concrete redesign opportunities.
+- [x] Rebuild the Events timeline and event selection using the landing-derived system without rule cards or numbered process strips.
+- [x] Verify Events at desktop and mobile breakpoints in English and Arabic RTL.
+- [x] Validate the route and save the Events redesign checkpoint.
