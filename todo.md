@@ -680,3 +680,12 @@
 - [x] Preserve prior outcome learning in each accepted introduction brief.
 - [x] Verify TypeScript and production build.
 - [x] Validate and save the monthly learning and quality-check checkpoint.
+
+## Brief Readiness Guidance
+
+- [x] Inspect introduction draft controls and current-month outcome calculations.
+- [x] Define focused-question and linked-decision readiness requirements.
+- [x] Add native bilingual validation messages for short questions and unlinked decision briefs.
+- [x] Preserve the current-month Founder Operating Desk outcome lens.
+- [x] Verify authenticated English and Arabic RTL draft states, TypeScript, and production build.
+- [x] Validate and save the brief-readiness enhancement checkpoint.
