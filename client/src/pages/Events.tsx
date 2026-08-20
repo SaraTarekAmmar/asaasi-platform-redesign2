@@ -5,6 +5,7 @@ import { Link, useLocation } from "wouter";
 import { PageIntro, SectionLabel, SignalTag, Toast, useToast } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
+import { upsertWorkflowRecord } from "../lib/workflowRecords";
 
 export const monthAr: Record<string, string> = { SEP: "سبتمبر", OCT: "أكتوبر", NOV: "نوفمبر", DEC: "ديسمبر", JAN: "يناير", FEB: "فبراير", MAR: "مارس", APR: "أبريل", MAY: "مايو", JUN: "يونيو", JUL: "يوليو", AUG: "أغسطس" };
 const eventIntents = ["All events", "Pricing", "Hiring", "Expansion", "Peers"] as const;
@@ -35,7 +36,7 @@ export default function Events() {
     const meta = "arMeta" in event ? t(event.meta, event.arMeta as string) : timeAndZone ? `${formatNum(event.day)} ${month} · ${formatNum(timeAndZone[1])} ${timeAndZone[2]}` : event.meta;
     return { ...event, day: formatNum(event.day), month, meta, title: t(event.title, event.arTitle), copy: t(event.copy, event.arCopy), tag: t(event.tag, event.arTag), outcome: t(event.outcome, event.arOutcome), location: t(event.location, event.arLocation) };
   });
-  const saveEvent = () => { if (!isAuthed) { setLocation("/signup?intent=save-event"); return; } showToast(t("Founder Briefing saved to your shortlist.", "تم حفظ إحاطة المؤسس في قائمتك.")); };
+  const saveEvent = () => { if (!isAuthed) { setLocation("/signup?intent=save-event"); return; } upsertWorkflowRecord({ id: `event-${events[0].slug}`, kind: "event", title: events[0].title, titleAr: events[0].arTitle, href: events[0].href, status: "registered" }); showToast(t("Founder Briefing saved to your workspace activity.", "تم حفظ إحاطة المؤسس في نشاط مساحة عملك.")); };
   useEffect(() => { const id = window.location.hash.replace("#", ""); if (id) document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" }); }, []);
   return <>
     <PageIntro label={t("Meet / Events", "التقِ / فعاليات")} title={t("Events worth making time for.", "فعاليات تستحق أن تُخصَص لها وقتا.")} copy={t("The founders, mentors, and specialists in this ecosystem meet in person and online, all across MENA. Browse by goal, and know what you'll leave with before you register, free to attend, one quick signup to save your seat.", "المؤسسون والمرشدون والمتخصصون في هذه المنظومة يلتقون حضوريا وعبر الإنترنت، في أنحاء المنطقة. تصفح حسب الهدف، واعرف ما ستخرج به قبل التسجيل، الحضور مجاني، وتسجيل سريع واحد لحجز مقعدك.")} />

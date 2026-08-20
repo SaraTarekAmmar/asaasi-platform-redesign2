@@ -461,3 +461,11 @@
 - [x] Implement the first Founder Operating Desk within the landing-derived workspace system.
 - [x] Verify desktop, mobile, English, and Arabic RTL behavior.
 - [x] Validate and save the Founder Operating Desk checkpoint.
+
+## Connected Founder Workflow Records
+
+- [x] Inspect existing tool, event, application, and workspace local-state behavior for integration points.
+- [x] Define shared local workflow records for saved decisions, event registrations, and applications.
+- [x] Connect selected public actions and the Founder Operating Desk to the shared records.
+- [x] Verify workflow continuity across desktop, mobile, English, and Arabic RTL states.
+- [x] Validate and save the connected workflow checkpoint.

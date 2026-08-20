@@ -8,6 +8,7 @@ import { Logo, PageIntro, SignalTag, SectionLabel, Toast, useToast } from "../co
 import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from "../components/ui/drawer";
 import { LanguageToggle, useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
+import { getWorkflowRecords, removeWorkflowRecord, upsertWorkflowRecord } from "../lib/workflowRecords";
 
 type Tone = "yellow" | "mint" | "clay" | "dark";
 
@@ -128,16 +129,17 @@ function FounderCommandCenter() {
 function FounderOperatingDesk() {
   const { t, formatNum, isRTL } = useLocale();
   const [priority, setPriority] = useState(() => typeof window === "undefined" ? "pricing" : window.localStorage.getItem("asaasi-desk-priority") || "pricing");
-  const [savedPricing, setSavedPricing] = useState(() => typeof window !== "undefined" && window.localStorage.getItem("asaasi-desk-saved-pricing") === "true");
+  const [savedPricing, setSavedPricing] = useState(() => getWorkflowRecords().some((record) => record.id === "decision-pricing"));
   useEffect(() => { window.localStorage.setItem("asaasi-desk-priority", priority); }, [priority]);
-  useEffect(() => { window.localStorage.setItem("asaasi-desk-saved-pricing", String(savedPricing)); }, [savedPricing]);
+  useEffect(() => { if (savedPricing) upsertWorkflowRecord({ id: "decision-pricing", kind: "decision", title: "Pricing decision", titleAr: "قرار التسعير", href: "/tools/pricing", status: "saved" }); else removeWorkflowRecord("decision-pricing"); }, [savedPricing]);
   const priorities = [
     { id: "pricing", label: t("Pricing", "التسعير"), title: t("Give the next offer a clearer shape.", "امنح العرض التالي شكلا أوضح."), copy: t("Keep the buyer, value proof, and one price hypothesis in a single decision record.", "أبقِ المشتري ودليل القيمة وفرضية سعر واحدة في سجل قرار واحد."), href: "/tools/pricing", action: t("Open pricing decision", "افتح قرار التسعير") },
     { id: "customers", label: t("Customers", "العملاء"), title: t("Turn one customer signal into evidence.", "حوّل إشارة عميل واحدة إلى دليل."), copy: t("Capture the customer language that should change your next experiment.", "التقط لغة العميل التي ينبغي أن تغيّر تجربتك التالية."), href: "/tools/customer-evidence", action: t("Open customer evidence", "افتح دليل العميل") },
     { id: "growth", label: t("Growth", "النمو"), title: t("Choose one channel worth another week.", "اختر قناة تستحق أسبوعا آخر."), copy: t("Frame the audience, channel, and proof that earn the next test.", "صغ الجمهور والقناة والدليل الذي يستحق الاختبار التالي."), href: "/tools/gtm-map", action: t("Open channel map", "افتح خريطة القنوات") }
   ];
   const current = priorities.find((item) => item.id === priority) ?? priorities[0];
-  const upcoming = events[0];
+  const savedEvent = getWorkflowRecords().find((record) => record.kind === "event");
+  const upcoming = events.find((event) => event.href === savedEvent?.href) ?? events[0];
   return <ProductShell active="/dashboard"><div className="founder-operating-desk">
     <header className="founder-desk-intro"><div><SectionLabel>{t("Founder operating desk", "مكتب تشغيل المؤسس")}</SectionLabel><h1>{t("Make one useful move today.", "اتخذ خطوة مفيدة واحدة اليوم.")}</h1><p>{t("Your desk keeps the decision, work, and next conversation together so you can return without rebuilding the context.", "يجمع مكتبك القرار والعمل والمحادثة التالية حتى تعود دون إعادة بناء السياق.")}</p></div><Link href="/dashboard/profile" className="text-link">{t("Edit founder context", "عدل سياق المؤسس")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></header>
     <section className="founder-desk-priority" aria-labelledby="founder-desk-priority-title"><div className="founder-desk-priority__copy"><span className="mono">{t("CURRENT PRIORITY", "الأولوية الحالية")}</span><h2 id="founder-desk-priority-title">{current.title}</h2><p>{current.copy}</p><Link href={current.href} className="button button-primary">{current.action} {isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}</Link></div><div className="founder-desk-priority__selector" role="group" aria-label={t("Choose current priority", "اختر الأولوية الحالية")}><span className="mono">{t("Work on", "اعمل على")}</span>{priorities.map((item) => <button key={item.id} type="button" className={priority === item.id ? "is-active" : ""} aria-pressed={priority === item.id} onClick={() => setPriority(item.id)}>{item.label}</button>)}</div></section>
