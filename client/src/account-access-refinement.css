@@ -79,11 +79,20 @@
 .app-product .signup-aside .signup-trail span.done::before { background: #f6c915; }
 
 @media (max-width: 760px) {
+  .app-product .account-flow {
+    display: block;
+    width: 100%;
+    min-height: calc(100dvh - 66px);
+    overflow-x: clip;
+  }
+
   .app-product .account-flow .account-visual {
     display: none;
   }
 
   .app-product .account-flow .account-form-wrap {
+    width: 100%;
+    box-sizing: border-box;
     min-height: calc(100dvh - 66px);
     padding: 38px 24px 56px;
   }

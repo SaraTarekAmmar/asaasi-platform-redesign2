@@ -477,3 +477,11 @@
 - [x] Implement visible application activity, saved-event actions, and workflow-history improvements.
 - [x] Verify desktop, mobile, English, and Arabic RTL workflow clarity.
 - [x] Validate and save the enhanced connected-workspace checkpoint.
+
+## Actionable Workflow History
+
+- [x] Inspect existing workspace activity and registration routes for reusable workflow-history patterns.
+- [x] Define clear activity, follow-up, and event-handoff interactions.
+- [x] Implement an actionable workflow-history and event follow-up experience.
+- [x] Verify desktop, mobile, English, and Arabic RTL activity clarity.
+- [x] Validate and save the workflow-history enhancement checkpoint.

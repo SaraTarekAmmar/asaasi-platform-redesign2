@@ -37,6 +37,8 @@
 .app-product .founder-desk-next__actions { display: grid; justify-items: start; gap: 13px; flex: 0 0 auto; }
 .app-product .founder-desk-next .button-dark { background: #f6c915; color: #071b3d; }
 .app-product .founder-desk-next .text-link { color: #fff; }
+.app-product .activity-row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 10px; }
+.app-product .activity-row-actions .text-link { border: 0; background: transparent; color: #53627a; cursor: pointer; font: 600 13px "DM Sans", sans-serif; }
 
 @media (max-width: 900px) {
   .app-product .founder-desk-priority { grid-template-columns: 1fr; }
@@ -54,6 +56,7 @@
   .app-product .founder-desk-priority__selector { grid-template-columns: 1fr; }
   .app-product .founder-desk-records article { border-radius: 17px; padding: 21px; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }
+  .app-product .activity-row-actions { justify-content: start; }
 }
 
 .locale-ar .app-product .founder-desk-intro { text-align: end; }
