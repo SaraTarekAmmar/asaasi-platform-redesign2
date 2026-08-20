@@ -565,3 +565,11 @@
 - [x] Implement the weekly decision-review agenda and connected return actions.
 - [x] Verify desktop, mobile, English, and Arabic RTL weekly review states.
 - [x] Validate and save the weekly decision-review enhancement checkpoint.
+
+## Weekly Primary Bet
+
+- [x] Inspect the weekly review route, workspace records, and dashboard integration points.
+- [x] Define primary-bet selection and completion behavior for the weekly review.
+- [x] Implement weekly bet selection, desk visibility, and completion controls.
+- [x] Verify desktop, mobile, English, and Arabic RTL primary-bet states.
+- [x] Validate and save the weekly primary-bet enhancement checkpoint.

@@ -115,6 +115,14 @@
 .app-product .weekly-review-row__evidence { padding-inline-start: 14px; border-inline-start: 1px solid rgba(7,27,61,.1); }
 .app-product .weekly-review-row__evidence > span { display: block; margin-bottom: 5px; color: #788396; font: 600 9px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .app-product .weekly-review-row__actions { display: grid; justify-items: start; gap: 9px; }
+.app-product .weekly-review-row.is-primary { background: linear-gradient(90deg, rgba(202,165,21,.08), transparent 78%); }
+.app-product .weekly-review-row.is-primary .weekly-review-row__index { display: grid; place-items: center; color: #caa515; }
+.app-product .weekly-primary-bet, .app-product .founder-desk-weekly-bet { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 18px 0; padding: clamp(22px,3.6vw,32px); border: 1px solid rgba(202,165,21,.38); border-radius: 20px; background: #fffdf5; }
+.app-product .weekly-primary-bet .section-label, .app-product .founder-desk-weekly-bet .section-label { color: #8c7110; }
+.app-product .weekly-primary-bet h2, .app-product .founder-desk-weekly-bet h2 { max-width: 650px; margin: 8px 0; color: #071b3d; font: 500 clamp(25px,3vw,37px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
+.app-product .weekly-primary-bet p, .app-product .founder-desk-weekly-bet p { max-width: 720px; margin: 0; color: #53627a; line-height: 1.6; }
+.app-product .weekly-primary-bet__actions, .app-product .founder-desk-weekly-bet > div:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.app-product .weekly-primary-bet.is-complete, .app-product .founder-desk-weekly-bet.is-complete { border-color: rgba(7,27,61,.15); background: rgba(255,255,255,.66); }
 .app-product .activity-learning-summary { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(240px, .7fr) auto; gap: 26px; align-items: end; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border-top: 3px solid #caa515; border-radius: 22px; background: #071b3d; color: #fff; }
 .app-product .activity-learning-summary .section-label { color: #f6c915; }
 .app-product .activity-learning-summary h2 { max-width: 550px; margin: 8px 0 9px; font: 500 clamp(28px, 3.6vw, 46px)/1.05 "Manrope", sans-serif; letter-spacing: -.06em; }
@@ -204,6 +212,7 @@
   .app-product .weekly-review-brief { grid-template-columns: 1fr; align-items: start; }
   .app-product .weekly-review-row { grid-template-columns: 32px 1fr; gap: 12px; }
   .app-product .weekly-review-row__evidence, .app-product .weekly-review-row__actions { grid-column: 2; }
+  .app-product .weekly-primary-bet, .app-product .founder-desk-weekly-bet { align-items: flex-start; flex-direction: column; }
   .app-product .activity-learning-summary__metrics { gap: 8px; }
   .app-product .activity-learning-ledger__heading { display: grid; align-items: start; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }
