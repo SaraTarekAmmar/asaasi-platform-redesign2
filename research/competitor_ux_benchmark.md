@@ -217,6 +217,14 @@ The ASaaSI adaptation should be a short, founder-facing diagnostic, not a person
 
 The selected adaptation is now implemented. Founder Diagnostic now collects four founder-reported operating dimensions: product clarity, demand and pipeline, operating capacity, and cash and runway. It shows the simple baseline, selects the lowest-confidence bottleneck, preserves the founder’s live question and evidence, and uses declared perceived value and risk to classify the next move as test first, ship and measure, or deprioritize. The chosen experiment requires a method, an observable response, and a one-week review date; the resulting hypothesis and full evidence trail save into the connected workflow record. The protected return now restores an Operating signal → Live bottleneck → One-week test diagnostic stack in Arabic and English through linear saffron cues, with no circular motifs. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected states were verified. The landing page remains unchanged.
 
+## Unit economics and CAC payback: current benchmark, August 2026
+
+The most useful SaaS unit-economics tools show their inputs and formula before treating any number as a decision. The SaaS CFO defines CAC payback as the months required to recover customer-acquisition cost from gross-margin dollars, and specifically distinguishes cohort acquisition economics from blended account averages.[43] Maxio similarly separates the basic revenue payback from the gross-margin-adjusted version and cautions that payback must be considered alongside churn and cashflow, not as a standalone growth score.[44] Churnkey’s operating view links ARPA, gross margin, retention, CAC, and payback, then frames the question as which lever is weakest rather than whether a headline LTV:CAC ratio looks attractive.[45]
+
+The ASaaSI adaptation should ask for one explicit scenario, calculate monthly gross profit per account, CAC payback months, and a gross-margin-adjusted lifetime-value proxy only when the stated gross retention makes that assumption usable. It should name its limits, especially that it does not forecast demand, churn, or cash timing. The output should select one next action based on the weakest lever, preserve the scenario inputs, and schedule a seven-day evidence check rather than presenting an opaque finance score.
+
+The selected adaptation is now implemented. Unit Economics now records a named customer cohort or acquisition channel, currency, fully loaded CAC, monthly ARPA, gross margin, monthly gross retention, uncertainty context, an evidence move, and the observation that would change the founder’s decision. It calculates monthly gross profit per account and CAC payback directly, then calculates a gross-margin-adjusted LTV and LTV:CAC proxy only where the stated retention yields a usable churn assumption. The results explain each formula and explicitly exclude demand, churn, cash-timing, and valuation forecasts. Founders save a seven-day evidence decision to Activity. Protected access now restores a Revenue → Retention → Recovery ledger in Arabic and English with linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -261,3 +269,6 @@ The selected adaptation is now implemented. Founder Diagnostic now collects four
 [40]: https://re-ampd.com/post/the-founder-bottleneck-diagnostic "The Founder Bottleneck Diagnostic"
 [41]: https://jeffgothelf.com/blog/the-hypothesis-prioritization-canvas/ "The Hypothesis Prioritization Canvas"
 [42]: https://www.designabetterbusiness.tools/tools/experiment-canvas "Experiment Canvas"
+[43]: https://www.thesaascfo.com/cac-payback-period/ "How I Calculate the CAC Payback Period"
+[44]: https://www.maxio.com/saaspedia/cac-payback "Customer Acquisition Cost Payback"
+[45]: https://churnkey.co/blog/understanding-unit-economics-in-saas "Unit economics in SaaS: metrics, levers, and growth"

@@ -798,3 +798,10 @@
 - [x] Audit the existing ASaaSI founder diagnostic for weak signals, generic output, and disconnected next actions.
 - [x] Rebuild the founder diagnostic into a bilingual weighted bottleneck and one-week experiment workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Unit Economics Scenario and Payback Decision
+
+- [x] Benchmark current SaaS unit-economics calculators for transparent CAC, ARPA, margin, payback, and scenario-based decision support.
+- [x] Audit the existing ASaaSI unit-economics route for missing calculations, unbounded assumptions, and disconnected next actions.
+- [x] Rebuild unit economics into a bilingual CAC, ARPA, margin, and payback scenario workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
