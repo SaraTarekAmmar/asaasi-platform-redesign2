@@ -812,3 +812,10 @@
 - [x] Audit the existing ASaaSI retention-recovery route for weak cohort evidence, unclear intervention logic, and disconnected learning.
 - [x] Rebuild retention recovery into a bilingual cohort-risk and dated intervention-result workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Activation Evidence First-Value and Experiment Result
+
+- [x] Benchmark current activation and first-value workflows for visible friction, cohort evidence, and bounded intervention learning.
+- [x] Audit the existing ASaaSI activation-evidence route for weak first-value inputs, unclear friction analysis, and disconnected learning.
+- [x] Rebuild activation evidence into a bilingual first-value cohort and dated experiment-result workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
