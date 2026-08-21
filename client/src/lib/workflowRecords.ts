@@ -13,6 +13,20 @@ export type CustomerEvidence = {
   capturedAt: string;
 };
 
+export type MarketEvidence = {
+  segment: string;
+  situation: string;
+  workaround: string;
+  reach: string;
+  evidenceSource: string;
+  evidenceSourceAr: string;
+  evidenceCount: number;
+  researchMode: "discovery" | "test";
+  nextTest: string;
+  threshold: string;
+  capturedAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -45,6 +59,7 @@ export type WorkflowRecord = {
   eventOutcomeNote?: string;
   eventOutcomeAt?: string;
   customerEvidence?: CustomerEvidence;
+  marketEvidence?: MarketEvidence;
   updatedAt: string;
 };
 
@@ -66,6 +81,10 @@ export function getWorkflowRecords(): WorkflowRecord[] {
 
 export function getCustomerEvidenceRecords(records = getWorkflowRecords()): WorkflowRecord[] {
   return records.filter((record) => Boolean(record.customerEvidence));
+}
+
+export function getMarketEvidenceRecords(records = getWorkflowRecords()): WorkflowRecord[] {
+  return records.filter((record) => Boolean(record.marketEvidence));
 }
 
 export function upsertWorkflowRecord(record: Omit<WorkflowRecord, "updatedAt">) {

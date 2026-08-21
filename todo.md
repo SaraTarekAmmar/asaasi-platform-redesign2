@@ -849,3 +849,10 @@
 - [x] Build a conditional bilingual Interview Pattern Archive in Activity for recurring buyer language, workarounds, and meaningful commitments with source links and counter-signals.
 - [x] Add an editable Customer Evidence to Positioning Evidence handoff that carries the source context without fabricating a claim or threshold.
 - [x] Validate English and Arabic RTL behavior, type safety, build output, evidence persistence, archive grouping, and responsive flows before checkpointing.
+
+## Market Map Segment Evidence Workbench
+
+- [x] Benchmark founder market-discovery, customer-segmentation, validation-level, and experiment-selection workflows for evidence patterns worth adapting.
+- [x] Audit the existing Market Map route and workflow-record model for generic segmentation, weak evidence boundaries, and disconnected next tests.
+- [x] Rebuild Market Map into a bilingual segment-evidence workbench with one falsifiable next market test, without modifying the landing page.
+- [x] Connect saved segment evidence to Activity and validate English, Arabic RTL, type safety, production build, and responsive flows before checkpointing.

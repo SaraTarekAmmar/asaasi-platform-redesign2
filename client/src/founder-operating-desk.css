@@ -766,3 +766,33 @@
 .locale-ar .app-product .retention-test-evidence, .locale-ar .app-product .retention-test-rule { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
 .locale-ar .app-product .retention-test-rule { border-inline-end-color: #071b3d; }
 @media (max-width: 900px) { .locale-ar .app-product .founder-desk-priority__selector { border-inline-end: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); padding: 18px 0 0; } }
+
+/* Editorial operating system: Market Map makes one segment, its evidence boundary, and one reversible test legible without charts or decorative geometry. */
+.app-product .market-map-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid #dfe3ea; }
+.app-product .tool-room-hero h1 { display: block; color: #fbfbf8; opacity: 1; visibility: visible; }
+.app-product .market-map-form__context, .app-product .market-map-form__test { display: grid; align-content: start; gap: 15px; padding: 28px; }
+.app-product .market-map-form__context { border-inline-end: 1px solid #dfe3ea; }
+.app-product .market-map-form h2 { margin: -3px 0 4px; color: #071b3d; font: 500 24px/1.16 "Manrope", sans-serif; letter-spacing: -.05em; }
+.app-product .market-map-form label { display: grid; gap: 7px; color: #071b3d; font: 600 11px/1.35 "DM Sans", sans-serif; }
+.app-product .market-map-form input, .app-product .market-map-form select, .app-product .market-map-form textarea { width: 100%; min-width: 0; border: 1px solid #dfe3ea; border-radius: 10px; background: #fbfbf8; color: #071b3d; font: 13px/1.45 "DM Sans", sans-serif; }
+.app-product .market-map-form input, .app-product .market-map-form select { min-height: 42px; padding: 10px 12px; }
+.app-product .market-map-form textarea { min-height: 88px; padding: 10px 12px; resize: vertical; }
+.app-product .market-map-form input:focus, .app-product .market-map-form select:focus, .app-product .market-map-form textarea:focus { border-color: #caa515; outline: 2px solid rgba(202,165,21,.14); outline-offset: 1px; }
+.app-product .market-map-form__controls { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.app-product .market-map-form__test > .button { justify-self: start; margin-top: 2px; }
+.app-product .market-map-form__test > p { margin: -2px 0 0; color: #53627a; font: 11px/1.55 "DM Sans", sans-serif; }
+.app-product .market-map-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); margin-top: 22px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .market-map-summary article { display: grid; align-content: start; gap: 8px; min-height: 154px; padding: 18px; border-inline-end: 1px solid #dfe3ea; }
+.app-product .market-map-summary article:last-child { border-inline-end: 0; }
+.app-product .market-map-summary .mono { color: #8c7110; font-size: 9px; letter-spacing: .08em; }
+.app-product .market-map-summary strong { color: #071b3d; font: 500 17px/1.22 "Manrope", sans-serif; letter-spacing: -.035em; }
+.app-product .market-map-summary p { margin: 0; color: #53627a; font: 12px/1.52 "DM Sans", sans-serif; }
+.app-product .market-map-evidence-rule { display: grid; gap: 10px; margin-top: 21px; padding: 16px 0 16px 16px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; }
+.app-product .market-map-evidence-rule h3 { margin: 0; color: #071b3d; font: 500 19px/1.26 "Manrope", sans-serif; letter-spacing: -.035em; }
+.app-product .market-map-evidence-rule p { max-width: 780px; margin: 0; color: #53627a; font: 12px/1.58 "DM Sans", sans-serif; }
+.locale-ar .app-product .market-map-form__context { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .market-map-summary article { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .market-map-summary article:last-child { border-inline-start: 0; }
+.locale-ar .app-product .market-map-evidence-rule { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
+@media (max-width: 900px) { .app-product .market-map-form { grid-template-columns: 1fr; } .app-product .market-map-form__context { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .locale-ar .app-product .market-map-form__context { border-inline-start: 0; } .app-product .market-map-summary { grid-template-columns: 1fr; } .app-product .market-map-summary article { min-height: auto; border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .locale-ar .app-product .market-map-summary article { border-inline-start: 0; } .app-product .market-map-summary article:last-child { border-bottom: 0; } }
+@media (max-width: 620px) { .app-product .market-map-form__context, .app-product .market-map-form__test { padding: 22px 18px; } .app-product .market-map-form__controls { grid-template-columns: 1fr; } .app-product .market-map-evidence-rule { padding-inline-start: 13px; } .locale-ar .app-product .market-map-evidence-rule { padding-inline-start: 0; padding-inline-end: 13px; } }
