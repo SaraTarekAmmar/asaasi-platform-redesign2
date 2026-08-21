@@ -819,3 +819,10 @@
 - [x] Audit the existing ASaaSI activation-evidence route for weak first-value inputs, unclear friction analysis, and disconnected learning.
 - [x] Rebuild activation evidence into a bilingual first-value cohort and dated experiment-result workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## GTM Channel Evidence and Experiment Result
+
+- [x] Benchmark current go-to-market, channel validation, and evidence-threshold workflows for focused audience selection and bounded learning.
+- [x] Audit the existing ASaaSI GTM channel map for weak audience definition, generic channel selection, and disconnected evidence learning.
+- [x] Rebuild the GTM channel map into a bilingual audience, channel, evidence-threshold, and dated experiment workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

@@ -241,6 +241,14 @@ The ASaaSI adaptation should create one narrow first-value experiment, not an ab
 
 The selected adaptation is now implemented. Activation Evidence now records a named new-user cohort, the product promise, a specific first-value event, time window, starting and activated counts, observed friction, one reversible path change, and the exact cohort response that would change the next decision. It calculates the specified cohort’s activation rate and not-yet-activated count from these inputs, while explicitly stating that the result does not establish friction as cause or predict future retention. A dated seven-day experiment saves the event definition, window, friction observation, path change, threshold, and review path in Activity. Protected access now restores a First value → Friction → Cohort test loop in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
 
+## GTM channel validation and evidence thresholds: current benchmark, August 2026
+
+Amplitude frames SaaS GTM as a focused plan that connects a defined target audience, a value proposition, distribution choices, onboarding, and feedback loops to measurable outcomes. It warns that undefined audiences and overly complicated plans produce unfocused activity rather than a workable motion.[52] ARISE GTM emphasizes an evidence-backed audience, founder-led selling before premature scaling, channel choice based on the buyer’s actual research habits, and a repeated assess, research, strategise, execute loop where smaller signal-driven experiments sharpen the next cycle.[53] Ainna’s validation guidance distinguishes a measurable success criterion and specific hypothesis from vanity activity, and recommends starting with the cheapest experiment that tests the riskiest live assumption before escalating commitment.[54]
+
+The ASaaSI adaptation should create one bounded channel experiment, not a generic channel preference quiz. It should require a named audience, buyer situation, explicit value promise, one channel, a planned outreach or exposure set, an observable response threshold, and a qualitative signal. It should calculate only the planned evidence threshold, retain the current audience and buyer language, distinguish a response hypothesis from demand proof, and save the channel test, expected evidence, and dated review in the shared decision record.
+
+The selected adaptation is now implemented. GTM Channel Map now records a named audience, buyer situation, recognisable promise, one selected channel, planned focused exposures or conversations, a concrete buyer-response threshold, and a qualitative signal to retain. It deliberately treats the work as a channel evidence test rather than a demand or conversion forecast. The result makes the Audience, Channel, and Evidence objects visible together, then saves the hypothesis, target, and seven-day review to Activity. Protected access now restores an Audience → Channel → Evidence ledger in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -294,3 +302,6 @@ The selected adaptation is now implemented. Activation Evidence now records a na
 [49]: https://amplitude.com/explore/digital-analytics/what-is-activation-rate "What Is Activation Rate for SaaS Companies?"
 [50]: https://www.chameleon.io/blog/user-onboarding-metrics "User Onboarding Metrics, KPIs, and Benchmarks"
 [51]: https://productled.com/blog/user-activation-metrics "How to Select the Right User Activation Metrics to Meet Your Onboarding Goals"
+[52]: https://amplitude.com/explore/growth/ultimate-guide-go-to-market-strategy-saas "What is a Go-To-Market Strategy in SaaS"
+[53]: https://arisegtm.com/blog/go-to-market-strategy-for-startups "Go-To-Market Strategy for Startups: The ARISE Playbook"
+[54]: https://ainna.ai/resources/faq/startup-idea-validation-faq "How Do You Validate a Startup Idea Before Building?"

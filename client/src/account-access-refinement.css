@@ -244,6 +244,33 @@
 [dir="rtl"] .app-product .account-flow--activation .account-form::after { content: "دليل التفعيل / مكتب العودة"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--activation .oauth-row::before { content: "الهوية لاختبار القيمة الأولى المحفوظ"; letter-spacing: 0; }
 
+/* GTM makes identity subordinate to the saved audience, channel, and evidence hypothesis. */
+.app-product .account-flow--gtm .account-visual h1 { max-width: 9.2ch; font-size: clamp(2.75rem,4.65vw,5.1rem); }
+.app-product .account-flow--gtm .account-return-object { max-width: 43rem; min-height: 286px; margin-top: 1.55rem; padding: 1.45rem 1.5rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.25); border-inline-end: 1px solid rgba(223,227,234,.25); border-bottom: 1px solid rgba(223,227,234,.25); }
+.app-product .account-flow--gtm .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--gtm .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+.app-product .account-flow--gtm .account-return-object > .mono + ol li { position: relative; grid-template-columns: 3rem minmax(0,1fr); min-height: 67px; padding: .6rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
+.app-product .account-flow--gtm .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(1)::after { content: "NAME THE BUYER CONTEXT WORTH HEARING"; }
+.app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(2)::after { content: "RUN ONE CHANNEL HYPOTHESIS, NOT A MIX"; }
+.app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(3)::after { content: "KEEP THE RESPONSE THRESHOLD WITH THE SIGNAL"; }
+.app-product .account-flow--gtm .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--gtm .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
+.app-product .account-flow--gtm .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SAVED CHANNEL HYPOTHESIS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--gtm .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--gtm .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
+.app-product .account-flow--gtm .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
+.app-product .account-flow--gtm .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--gtm .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
+.app-product .account-flow--gtm .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--gtm .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--gtm .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED CHANNEL TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+[dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ سياق المشتري الذي يستحق الاستماع"; }
+[dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(2)::after { content: "شغّل فرضية قناة واحدة لا مزيجا"; }
+[dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(3)::after { content: "أبقِ عتبة الاستجابة بجانب الإشارة"; }
+[dir="rtl"] .app-product .account-flow--gtm .account-form::after { content: "فرضية قناة محفوظة / مكتب العودة"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--gtm .oauth-row::before { content: "الهوية لاختبار القناة المحفوظ"; letter-spacing: 0; }
+
 /* Dashboard, profile, and settings arrive through the expanded return object while preserving the composed account-panel grammar. */
 .app-product .account-flow--workspace .account-visual h1 { max-width: 9.5ch; }
 .app-product .account-flow--workspace .account-return-object { max-width: 42rem; margin-top: 1.9rem; padding: 1.15rem 0 0; border-top: 2px solid #f6c915; }
