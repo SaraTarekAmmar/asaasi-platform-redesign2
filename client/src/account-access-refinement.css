@@ -635,9 +635,10 @@
   .app-product .account-flow--registrations .account-return-object > .mono + ol { min-height: 244px; padding: 1rem 0 0 1.25rem; border-inline-start: 1px solid rgba(223,227,234,.42); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li { min-height: 60px; padding: .65rem 1rem .65rem 1.15rem; background: linear-gradient(90deg, rgba(251,251,248,.035), transparent 76%); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1) { width: 74%; margin-inline-start: 0; }
-  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { width: 84%; margin-inline-start: 8%; border-top: 2px solid #f6c915; background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
-  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3) { width: 92%; margin-inline-start: 16%; border-bottom: 2px solid rgba(202,165,21,.68); }
-  .app-product .account-flow--registrations .account-return-object > .mono + ol li::before { inset-inline-start: -1.25rem; top: 1.08rem; width: 5px; height: 16px; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { width: 84%; margin-inline-start: 8%; border-top: 2px solid #f6c915; background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3) { width: 92%; margin-inline-start: 16%; border-bottom: 2px solid rgba(202,165,21,.68); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(4) { width: 100%; margin-inline-start: 24%; border-top: 1px solid rgba(223,227,234,.42); border-bottom: 2px solid #f6c915; background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li::before { inset-inline-start: -1.25rem; top: 1.08rem; width: 5px; height: 16px; }
 
   .app-product .account-flow--customer .account-return-object { min-height: 356px; padding: 1.45rem 1.5rem 1.6rem; }
   .app-product .account-flow--customer .account-return-object > .mono + ol { grid-template-columns: .8fr 1.25fr .8fr; grid-template-rows: 82px 112px; column-gap: 14px; row-gap: 14px; min-height: 230px; padding-top: 1rem; }
@@ -647,4 +648,26 @@
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid #f6c915; border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { grid-column: 3; grid-row: 2; align-self: stretch; border-bottom: 2px solid rgba(202,165,21,.72); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li::before { top: .9rem; width: 4px; height: 21px; }
+
+  .app-product .account-flow--knowledge .account-return-object { max-width: 46rem; min-height: 356px; margin-top: 2.4rem; padding: 1.45rem 1.5rem 1.6rem; }
+  .app-product .account-flow--knowledge .account-return-object > .mono { display: block; padding-bottom: 10px; border-bottom: 1px solid rgba(223,227,234,.22); }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol { position: relative; display: grid; grid-template-columns: .82fr 1.18fr .82fr; grid-template-rows: 82px 112px; column-gap: 14px; row-gap: 14px; min-height: 230px; padding-top: 1rem; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol::after { position: absolute; inset-inline: 0; top: 57%; height: 1px; background: linear-gradient(90deg, rgba(223,227,234,.18), #f6c915 48%, rgba(223,227,234,.18)); content: ""; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li { z-index: 1; min-height: 0; margin: 0; padding: .78rem .8rem .78rem 1rem; border-inline-start: 3px solid rgba(223,227,234,.42); background: #0b2348; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li::before { display: none; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(1) { grid-column: 1; grid-row: 2; border-top: 2px solid rgba(223,227,234,.48); }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid #f6c915; border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(3) { grid-column: 3; grid-row: 1; border-top: 2px solid rgba(223,227,234,.48); }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(4) { grid-column: 3; grid-row: 2; border-bottom: 2px solid #f6c915; }
+  .app-product .account-flow--knowledge .account-visual > p { max-width: 38rem; }
 }
+
+/* Knowledge identity is visibly the restoration mechanism within Claim → Evidence → Test → Return, not a generic sign-in panel. */
+.app-product .account-flow--knowledge .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
+.app-product .account-flow--knowledge .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "FIELD GUIDE ACCESS / RESTORE CLAIM, EVIDENCE, AND NEXT TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--knowledge .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--knowledge .oauth-row button, .app-product .account-flow--knowledge .account-form input { border-radius: 7px; box-shadow: none; }
+.app-product .account-flow--knowledge .account-form input { background: #fbfbf8; }
+.locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid #caa515; background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
+[dir="rtl"] .app-product .account-flow--knowledge .account-form::after { content: "وصول الدليل الميداني / استعد الادعاء والدليل والاختبار التالي"; letter-spacing: 0; }
+@media (max-width: 640px) { .app-product .account-flow--knowledge .account-form { padding-inline-start: 13px; } .locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 13px; } }

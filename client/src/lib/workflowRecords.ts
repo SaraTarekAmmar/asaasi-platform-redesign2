@@ -44,6 +44,13 @@ export type ResearchCadencePlan = {
   createdAt: string;
 };
 
+export type KnowledgeGuidance = {
+  claim: string;
+  scope: string;
+  nextEvidenceMove: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -80,6 +87,7 @@ export type WorkflowRecord = {
   operatingPrinciple?: OperatingPrinciple;
   researchCadence?: ResearchCadencePlan;
   reusedFromDecisionId?: string;
+  knowledgeGuidance?: KnowledgeGuidance;
   updatedAt: string;
 };
 
