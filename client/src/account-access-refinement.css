@@ -271,6 +271,33 @@
 [dir="rtl"] .app-product .account-flow--gtm .account-form::after { content: "فرضية قناة محفوظة / مكتب العودة"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--gtm .oauth-row::before { content: "الهوية لاختبار القناة المحفوظ"; letter-spacing: 0; }
 
+/* Positioning Evidence links the saved buyer alternative, proof, and frame test across the access desk. */
+.app-product .account-flow--positioning .account-visual h1 { max-width: 9.7ch; font-size: clamp(2.7rem,4.55vw,5rem); }
+.app-product .account-flow--positioning .account-return-object { max-width: 42rem; min-height: 278px; margin-top: 1.5rem; padding: 1.4rem 1.45rem; border-top: 2px solid #f6c915; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--positioning .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--positioning .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+.app-product .account-flow--positioning .account-return-object > .mono + ol li { position: relative; grid-template-columns: 3rem minmax(0,1fr); min-height: 65px; padding: .58rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
+.app-product .account-flow--positioning .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE ALTERNATIVE THE BUYER ALREADY KNOWS"; }
+.app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(2)::after { content: "KEEP THE FACTUAL OUTCOME PROOF WITH THE CLAIM"; }
+.app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED BUYER-LANGUAGE FRAME TEST"; }
+.app-product .account-flow--positioning .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--positioning .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
+.app-product .account-flow--positioning .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SAVED POSITIONING TEST / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--positioning .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--positioning .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
+.app-product .account-flow--positioning .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
+.app-product .account-flow--positioning .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--positioning .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
+.app-product .account-flow--positioning .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--positioning .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--positioning .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED POSITIONING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+[dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد البديل الذي يعرفه المشتري بالفعل"; }
+[dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(2)::after { content: "أبقِ إثبات النتيجة الواقعي مع الادعاء"; }
+[dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(3)::after { content: "استأنف اختبار إطار لغة المشتري المؤرخ"; }
+[dir="rtl"] .app-product .account-flow--positioning .account-form::after { content: "اختبار تموضع محفوظ / مكتب العودة"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--positioning .oauth-row::before { content: "الهوية لاختبار التموضع المحفوظ"; letter-spacing: 0; }
+
 /* Dashboard, profile, and settings arrive through the expanded return object while preserving the composed account-panel grammar. */
 .app-product .account-flow--workspace .account-visual h1 { max-width: 9.5ch; }
 .app-product .account-flow--workspace .account-return-object { max-width: 42rem; margin-top: 1.9rem; padding: 1.15rem 0 0; border-top: 2px solid #f6c915; }

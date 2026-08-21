@@ -249,6 +249,14 @@ The ASaaSI adaptation should create one bounded channel experiment, not a generi
 
 The selected adaptation is now implemented. GTM Channel Map now records a named audience, buyer situation, recognisable promise, one selected channel, planned focused exposures or conversations, a concrete buyer-response threshold, and a qualitative signal to retain. It deliberately treats the work as a channel evidence test rather than a demand or conversion forecast. The result makes the Audience, Channel, and Evidence objects visible together, then saves the hypothesis, target, and seven-day review to Activity. Protected access now restores an Audience → Channel → Evidence ledger in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
 
+## Positioning evidence and buyer-language message tests: current benchmark, August 2026
+
+Strategyzer distinguishes verbal evidence from customer action, advising founders to ask for facts about past experience rather than opinions and to double-check pivotal claims through an action that requires real customer effort.[55] Open Strategy Partners separates an external, benefit-led value proposition from the wider positioning statement that provides category, audience, challenge, benefit, and differentiator context; it also advises grounding both in what the product actually does and testing them with buyers rather than relying on internal agreement.[56] GTM Playbook adds that strong B2B SaaS positioning chooses a precise target, maps real alternatives including non-consumption, proves every claimed difference, and treats positioning as a hypothesis before product-market fit rather than a fixed headline.[57]
+
+The ASaaSI adaptation should turn positioning into one narrow message experiment. It should require a named buyer, current alternative, live challenge, outcome claim, factual proof, the buyer’s own phrasing, one message variant, and an observable response threshold. It should distinguish a response from proof of broad demand, preserve what the buyer said alongside any action, and save a dated keep, refine, or stop review into the shared decision record.
+
+The selected adaptation is now implemented. Positioning Evidence now records a named buyer, current alternative, live challenge, outcome claim, factual proof, exact buyer phrasing, one message variant, and a response threshold. It keeps the buyer’s wording alongside the alternative and proof, treats the result as a narrow message test rather than evidence of broad demand, and saves the positioned frame with a seven-day review to Activity. Protected access now restores an Alternative → Value → Frame test ledger in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -305,3 +313,6 @@ The selected adaptation is now implemented. GTM Channel Map now records a named 
 [52]: https://amplitude.com/explore/growth/ultimate-guide-go-to-market-strategy-saas "What is a Go-To-Market Strategy in SaaS"
 [53]: https://arisegtm.com/blog/go-to-market-strategy-for-startups "Go-To-Market Strategy for Startups: The ARISE Playbook"
 [54]: https://ainna.ai/resources/faq/startup-idea-validation-faq "How Do You Validate a Startup Idea Before Building?"
+[55]: https://www.strategyzer.com/library/ways-to-test-your-value-proposition-and-business-model "Ways to Test Your Value Proposition and Business Model"
+[56]: https://openstrategypartners.com/blog/value-proposition-vs-positioning-statement/ "Value Prop. vs. Positioning Statement"
+[57]: https://discover.gtmplaybook.co/b2b-saas-positioning "B2B SaaS Positioning: A Practical Guide for Product Marketers"
