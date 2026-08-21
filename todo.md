@@ -879,3 +879,10 @@
 - [x] Audit the Events page, registration records, Activity, and linked decisions for weak timeline identity, undated outcomes, and disconnected next moves.
 - [x] Rebuild the Events first screen into a bilingual dated outcome timeline that connects room preparation, observation, and decision follow-through without modifying the landing page.
 - [x] Validate English and Arabic RTL behavior, record persistence, type safety, production build, representative interactive journeys, and responsive layouts before checkpointing.
+
+## Cross-Tool Decision Archive and Learning Retrieval
+
+- [x] Benchmark decision logs, product discovery repositories, and experiment archives for high-signal cross-tool search, filtering, and source traceability.
+- [x] Audit Activity, Founder Learning Archive, workflow records, and tool outcomes for duplicated archive surfaces and weak retrieval of prior evidence.
+- [x] Build a bilingual cross-tool decision archive with bounded search, outcome and source filters, direct route recovery, and evidence-preserving result rows.
+- [x] Validate English and Arabic RTL behavior, persistent record updates, type safety, production build, representative search journeys, and responsive layouts before checkpointing.

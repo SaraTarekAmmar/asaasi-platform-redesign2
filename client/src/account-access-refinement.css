@@ -559,3 +559,58 @@
 [dir="rtl"] .app-product .account-flow--workspace .oauth-row::before { content: "الهوية لاستئناف القرار"; letter-spacing: 0; }
 @media (max-width: 900px) { .app-product .account-flow--workspace .account-return-object > .mono + ol, .app-product .account-flow--customer .account-return-object > .mono + ol { grid-template-columns: 1fr; min-height: 0; } .app-product .account-flow--workspace .account-return-object > .mono + ol li, .app-product .account-flow--customer .account-return-object > .mono + ol li, .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(n) { width: 100%; min-height: 0; margin-inline-start: 0; } }
 @media (max-width: 640px) { .app-product .account-flow--workspace .account-form { padding-inline-start: 13px; } .app-product .account-flow--workspace .account-route-rail { margin-inline-start: -13px; padding-inline-start: 13px; } .app-product .account-flow--workspace .account-route-rail > div { grid-template-columns: 96px minmax(0,1fr); } }
+
+/* Editorial access desks: destination context is the primary object; identity is the precise mechanism to reopen it. Circular motifs remain deliberately excluded. */
+.app-product .account-flow--registrations .account-return-object,
+.app-product .account-flow--workspace .account-return-object,
+.app-product .account-flow--weekly-review .account-return-object,
+.app-product .account-flow--customer .account-return-object { position: relative; box-shadow: inset 2px 0 0 #f6c915, inset 0 -1px 0 rgba(223,227,234,.24); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol,
+.app-product .account-flow--workspace .account-return-object > .mono + ol,
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol,
+.app-product .account-flow--customer .account-return-object > .mono + ol { position: relative; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li,
+.app-product .account-flow--workspace .account-return-object > .mono + ol li,
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li,
+.app-product .account-flow--customer .account-return-object > .mono + ol li { position: relative; padding-inline-start: 13px; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li::before,
+.app-product .account-flow--workspace .account-return-object > .mono + ol li::before,
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li::before,
+.app-product .account-flow--customer .account-return-object > .mono + ol li::before { position: absolute; inset-inline-start: 0; top: .85rem; width: 3px; height: 18px; background: rgba(223,227,234,.52); content: ""; }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li.is-active::before,
+.app-product .account-flow--workspace .account-return-object > .mono + ol li.is-active::before,
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li.is-active::before,
+.app-product .account-flow--customer .account-return-object > .mono + ol li.is-active::before { background: #f6c915; }
+.app-product .account-flow--registrations .account-form,
+.app-product .account-flow--workspace .account-form,
+.app-product .account-flow--weekly-review .account-form,
+.app-product .account-flow--customer .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
+.app-product .account-flow--registrations .account-form::after,
+.app-product .account-flow--workspace .account-form::after,
+.app-product .account-flow--weekly-review .account-form::after,
+.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "ACCESS DESK / IDENTITY RESTORES THE SAVED ROUTE"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--registrations .account-form::after { content: "COMMITMENT ACCESS / RESTORE EVENT FOLLOW-THROUGH"; }
+.app-product .account-flow--workspace .account-form::after { content: "WORKSPACE ACCESS / RESTORE THE NEXT DECISION"; }
+.app-product .account-flow--weekly-review .account-form::after { content: "REVIEW ACCESS / RESTORE THE PRIMARY BET"; }
+.app-product .account-flow--customer .account-form::after { content: "EVIDENCE ACCESS / RESTORE CUSTOMER LANGUAGE"; }
+.app-product .account-flow--registrations .oauth-row,
+.app-product .account-flow--workspace .oauth-row,
+.app-product .account-flow--weekly-review .oauth-row,
+.app-product .account-flow--customer .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .oauth-row button,
+.app-product .account-flow--workspace .oauth-row button,
+.app-product .account-flow--weekly-review .oauth-row button,
+.app-product .account-flow--customer .oauth-row button { border-radius: 7px; box-shadow: none; }
+.app-product .account-flow--registrations .account-form input,
+.app-product .account-flow--workspace .account-form input,
+.app-product .account-flow--weekly-review .account-form input,
+.app-product .account-flow--customer .account-form input { border-radius: 7px; background: #fbfbf8; }
+.locale-ar .app-product .account-flow--registrations .account-form,
+.locale-ar .app-product .account-flow--workspace .account-form,
+.locale-ar .app-product .account-flow--weekly-review .account-form,
+.locale-ar .app-product .account-flow--customer .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid #caa515; background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
+[dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "وصول الالتزام / استعد متابعة الفعالية"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--workspace .account-form::after { content: "وصول مساحة العمل / استعد القرار التالي"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "وصول المراجعة / استعد الرهان الأساسي"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--customer .account-form::after { content: "وصول الدليل / استعد لغة العميل"; letter-spacing: 0; }
+@media (max-width: 640px) { .app-product .account-flow--registrations .account-form, .app-product .account-flow--workspace .account-form, .app-product .account-flow--weekly-review .account-form, .app-product .account-flow--customer .account-form { padding-inline-start: 13px; } .locale-ar .app-product .account-flow--registrations .account-form, .locale-ar .app-product .account-flow--workspace .account-form, .locale-ar .app-product .account-flow--weekly-review .account-form, .locale-ar .app-product .account-flow--customer .account-form { padding-inline-start: 0; padding-inline-end: 13px; } }

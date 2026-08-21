@@ -1,7 +1,7 @@
 /* Editorial operating system: Activity preserves the decision, conversation, and outcome as one calm return path. */
 /* Editorial operating system: Activity turns specific founder learning into a bounded next commitment, using existing records rather than duplicate task state. */
-import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, CalendarPlus, Check, MessageSquare } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ArrowLeft, ArrowRight, CalendarPlus, Check, MessageSquare, Search } from "lucide-react";
 import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
@@ -39,6 +39,54 @@ function normalizedEvidence(value: string) {
 }
 
 type LearningFilter = "all" | "keep" | "change" | "stop";
+
+type ArchiveOutcomeFilter = "all" | "open" | "keep" | "change" | "stop";
+type ArchiveSourceFilter = "all" | "tool" | "workspace";
+
+function decisionSource(record: WorkflowRecord, t: (en: string, ar: string) => string) {
+  if (!record.href.startsWith("/tools/")) return t("Workspace decision", "قرار مساحة العمل");
+  const slug = record.href.split("/").filter(Boolean).at(-1) ?? "";
+  const labels: Record<string, [string, string]> = {
+    pricing: ["Pricing decision", "قرار التسعير"],
+    "saas-health": ["SaaS health", "صحة SaaS"],
+    "founder-diagnostic": ["Founder diagnostic", "تشخيص المؤسس"],
+    "unit-economics": ["Unit economics", "اقتصاديات الوحدة"],
+    "retention-recovery": ["Retention recovery", "استعادة الاحتفاظ"],
+    "activation-evidence": ["Activation evidence", "دليل التفعيل"],
+    "gtm-map": ["GTM channel map", "خريطة قناة GTM"],
+    "positioning-evidence": ["Positioning evidence", "دليل التموضع"],
+    "customer-evidence": ["Customer evidence", "دليل العميل"],
+    "market-map": ["Market map", "خريطة السوق"],
+    "survival-calculator": ["Runway", "المدرج النقدي"],
+  };
+  const label = labels[slug] ?? ["Founder tool", "أداة المؤسس"];
+  return t(label[0], label[1]);
+}
+
+function archiveExcerpt(record: WorkflowRecord, t: (en: string, ar: string) => string) {
+  const value = record.evidence || record.weeklyReflection || record.nextAction || record.operatingPrinciple?.rule || "";
+  if (!value) return t("No separate evidence note was retained. Reopen the source before reusing this decision.", "لم تُحتفظ بملاحظة دليل منفصلة. أعد فتح المصدر قبل إعادة استخدام هذا القرار.");
+  return value.length > 238 ? `${value.slice(0, 235).trim()}…` : value;
+}
+
+function CrossToolDecisionArchive({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL, formatNum } = useLocale();
+  const [query, setQuery] = useState("");
+  const [outcome, setOutcome] = useState<ArchiveOutcomeFilter>("all");
+  const [source, setSource] = useState<ArchiveSourceFilter>("all");
+  const normalisedQuery = query.trim().toLocaleLowerCase();
+  const matches = useMemo(() => records.filter((record) => {
+    const sourceType: ArchiveSourceFilter = record.href.startsWith("/tools/") ? "tool" : "workspace";
+    const haystack = [record.title, record.titleAr, record.evidence, record.weeklyReflection, record.nextAction, record.nextActionAr, record.operatingPrinciple?.rule, record.operatingPrinciple?.scope, record.operatingPrinciple?.applyNext].filter(Boolean).join(" ").toLocaleLowerCase();
+    const matchesSearch = !normalisedQuery || haystack.includes(normalisedQuery);
+    const matchesOutcome = outcome === "all" || outcome === "open" ? (outcome === "open" ? !record.outcome : true) : record.outcome === outcome;
+    const matchesSource = source === "all" || sourceType === source;
+    return matchesSearch && matchesOutcome && matchesSource;
+  }).sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt)), [records, normalisedQuery, outcome, source]);
+  const outcomeLabel = (record: WorkflowRecord) => !record.outcome ? t("Open review", "مراجعة مفتوحة") : record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+  const dateLabel = (record: WorkflowRecord) => new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric", year: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt));
+  return <section className="cross-tool-decision-archive" aria-labelledby="cross-tool-decision-archive-title"><header className="cross-tool-decision-archive__heading"><div><SectionLabel>{t("Cross-tool decision archive", "أرشيف القرارات عبر الأدوات")}</SectionLabel><h2 id="cross-tool-decision-archive-title">{t("Find the work you already tested before you start again.", "اعثر على العمل الذي اختبرته قبل أن تبدأ من جديد.")}</h2><p>{t("Search retained decision context across founder tools and workspace work. Each result keeps its source, original evidence, review timing, and direct return path.", "ابحث في سياق القرار المحتفظ به عبر أدوات المؤسس ومساحة العمل. تحتفظ كل نتيجة بمصدرها ودليلها الأصلي وتوقيت مراجعتها ومسار العودة المباشر.")}</p></div><div className="cross-tool-decision-archive__metric"><strong>{formatNum(records.length)}</strong><span>{t("saved decisions", "قرارات محفوظة")}</span></div></header><div className="cross-tool-decision-archive__rule"><span className="mono">{t("RETRIEVAL RULE", "قاعدة الاسترجاع")}</span><p>{t("Search surfaces the original record. It does not combine matches into a conclusion, score evidence, or create a new decision.", "يعرض البحث السجل الأصلي. لا يجمع المطابقات في استنتاج، ولا يسجل الدليل، ولا ينشئ قرارا جديدا.")}</p></div><div className="cross-tool-decision-archive__controls"><label><span>{t("Search retained context", "ابحث في السياق المحتفظ به")}</span><div><Search size={15} aria-hidden="true" /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("Title, evidence, reflection, or next action", "العنوان أو الدليل أو الانعكاس أو الخطوة التالية")} /></div></label><div className="cross-tool-decision-archive__filter-group"><span>{t("Outcome", "النتيجة")}</span><div role="toolbar" aria-label={t("Filter archive by outcome", "تصفية الأرشيف حسب النتيجة")}>{(["all", "open", "keep", "change", "stop"] as ArchiveOutcomeFilter[]).map((option) => <button type="button" key={option} className={outcome === option ? "active" : ""} aria-pressed={outcome === option} onClick={() => setOutcome(option)}>{option === "all" ? t("All", "الكل") : option === "open" ? t("Open", "مفتوح") : option === "keep" ? t("Keep", "استمر") : option === "change" ? t("Change", "غيّر") : t("Stop", "أوقف")}</button>)}</div></div><div className="cross-tool-decision-archive__filter-group"><span>{t("Source", "المصدر")}</span><div role="toolbar" aria-label={t("Filter archive by source", "تصفية الأرشيف حسب المصدر")}>{(["all", "tool", "workspace"] as ArchiveSourceFilter[]).map((option) => <button type="button" key={option} className={source === option ? "active" : ""} aria-pressed={source === option} onClick={() => setSource(option)}>{option === "all" ? t("All sources", "كل المصادر") : option === "tool" ? t("Founder tools", "أدوات المؤسس") : t("Workspace", "مساحة العمل")}</button>)}</div></div></div><div className="cross-tool-decision-archive__results" aria-live="polite"><div className="cross-tool-decision-archive__results-label"><span>{normalisedQuery ? t(`Matches for “${query.trim()}”`, `مطابقات لـ «${query.trim()}»`) : t("Latest retained decisions", "أحدث القرارات المحتفظ بها")}</span><strong>{formatNum(matches.length)} {t(matches.length === 1 ? "record" : "records", matches.length === 1 ? "سجل" : "سجلات")}</strong></div>{matches.slice(0, 8).map((record) => <article key={record.id} className={record.outcome ? `is-${record.outcome}` : "is-open"}><div className="cross-tool-decision-archive__status"><span>{outcomeLabel(record)}</span><small>{dateLabel(record)}</small></div><div className="cross-tool-decision-archive__copy"><span className="mono">{decisionSource(record, t)}</span><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p></div><dl><div><dt>{t("Original test", "الاختبار الأصلي")}</dt><dd>{record.nextAction ? t(record.nextAction, record.nextActionAr ?? record.nextAction) : t("Open source record", "افتح سجل المصدر")}</dd></div><div><dt>{t("Review", "المراجعة")}</dt><dd>{t(record.reviewDate ?? record.reviewDue ?? "No dated review", record.reviewDateAr ?? record.reviewDue ?? "لا مراجعة مؤرخة")}</dd></div></dl><div className="cross-tool-decision-archive__actions"><Link href="/dashboard/decision-review" className="text-link">{t("Open decision", "افتح القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{record.href.startsWith("/tools/") && <Link href={record.href} className="button button-light">{t("Reopen source", "أعد فتح المصدر")}</Link>}</div></article>)}{matches.length === 0 && <div className="cross-tool-decision-archive__empty"><strong>{t("No retained decision matches these filters.", "لا يطابق أي قرار محتفظ به هذه الفلاتر.")}</strong><p>{t("Try a title, an exact evidence phrase, or clear one filter. The archive only searches saved decision records.", "جرّب عنوانا أو عبارة دليل دقيقة أو أزل فلترًا واحدا. يبحث الأرشيف فقط في سجلات القرار المحفوظة.")}</p><button type="button" className="text-link" onClick={() => { setQuery(""); setOutcome("all"); setSource("all"); }}>{t("Clear archive filters", "امسح فلاتر الأرشيف")}</button></div>}</div></section>;
+}
 
 function FounderLearningArchive({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
   const { t, isRTL, formatNum } = useLocale();
@@ -214,6 +262,8 @@ export function ActivityWorkspace() {
     <div className="product-page-heading compact"><div><SectionLabel>{t("Workspace / Activity", "مساحة العمل / النشاط")}</SectionLabel><h1>{t("See what the work taught you.", "شاهد ما الذي علّمك إياه العمل.")}</h1><p>{t("Decisions, introductions, event commitments, and applications stay connected so the useful context is never rebuilt from scratch.", "تبقى القرارات والمقدمات والتزامات الفعاليات والطلبات متصلة حتى لا يعاد بناء السياق المفيد من الصفر.")}</p></div><SignalTag tone="soft">{t(`${formatNum(records.length)} records`, `${formatNum(records.length)} سجلات`)}</SignalTag></div>
 
     <section className="activity-learning-summary" aria-labelledby="activity-learning-title"><div className="activity-learning-summary__intro"><SectionLabel>{t("Decision learning", "تعلم القرار")}</SectionLabel><h2 id="activity-learning-title">{t("Keep the signal, not just the file.", "احتفظ بالإشارة لا بالملف فقط.")}</h2><p>{t("Review outcomes stay beside the evidence, owner, and next action that gave each decision its shape.", "تبقى نتائج المراجعة بجانب الدليل والمالك والخطوة التالية التي أعطت كل قرار شكله.")}</p></div><div className="activity-learning-summary__metrics"><div><span>{t("Saved", "محفوظة")}</span><strong>{formatNum(decisions.length)}</strong></div><div><span>{t("From tools", "من الأدوات")}</span><strong>{formatNum(toolDecisions.length)}</strong></div><div><span>{t("Learned", "تم التعلم")}</span><strong>{formatNum(learnedDecisions.length)}</strong></div><div><span>{t("Open review", "مراجعة مفتوحة")}</span><strong>{formatNum(openDecisions.length)}</strong></div></div><Link href="/dashboard/decision-review" className="button button-dark">{t("Review decisions", "راجع القرارات")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></section>
+
+    {decisions.length > 0 && <CrossToolDecisionArchive records={decisions} />}
 
     {monthlyLearnedDecisions.length > 0 && <section className="activity-monthly-learning" aria-label={t("This month’s decision learning", "تعلم قرارات هذا الشهر")}><div className="activity-monthly-learning__intro"><SectionLabel>{t("This month’s decision learning", "تعلم قرارات هذا الشهر")}</SectionLabel><h2>{t("Use what changed before you ask for another conversation.", "استخدم ما تغيّر قبل أن تطلب محادثة أخرى.")}</h2><p>{t("This is a short retained-learning view, not a scorecard. Each outcome keeps its original evidence and can become context for the next relevant introduction.", "هذه رؤية قصيرة للتعلم المحتفظ به، وليست بطاقة نتائج. تحتفظ كل نتيجة بدليلها الأصلي ويمكن أن تصبح سياقا للمقدمة المناسبة التالية.")}</p><dl><div><dt>{t("Keep", "استمر")}</dt><dd>{formatNum(monthlyOutcomeCounts.keep)}</dd></div><div><dt>{t("Change", "غيّر")}</dt><dd>{formatNum(monthlyOutcomeCounts.change)}</dd></div><div><dt>{t("Stop", "أوقف")}</dt><dd>{formatNum(monthlyOutcomeCounts.stop)}</dd></div></dl></div><div className="activity-monthly-learning__records">{monthlyLearnedDecisions.slice(0, 3).map((record) => <article key={record.id} className={`is-${record.outcome}`}><span>{outcomeLabel(record)}</span><h3>{t(record.title, record.titleAr)}</h3><p>{record.evidence || record.weeklyReflection || t("The outcome is saved, ready to reopen when the next question needs context.", "النتيجة محفوظة وجاهزة لإعادة الفتح عندما يحتاج السؤال التالي إلى سياق.")}</p><div><Link href="/dashboard/decision-review" className="text-link">{t("Review learning", "راجع التعلم")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><Link href={`/dashboard/network?decision=${encodeURIComponent(record.id)}&intent=outcome-learning`} className="button button-light">{t("Find a relevant conversation", "ابحث عن محادثة مناسبة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>}
 
