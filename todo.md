@@ -886,3 +886,10 @@
 - [x] Audit Activity, Founder Learning Archive, workflow records, and tool outcomes for duplicated archive surfaces and weak retrieval of prior evidence.
 - [x] Build a bilingual cross-tool decision archive with bounded search, outcome and source filters, direct route recovery, and evidence-preserving result rows.
 - [x] Validate English and Arabic RTL behavior, persistent record updates, type safety, production build, representative search journeys, and responsive layouts before checkpointing.
+
+## Decision Comparison and Evidence Review
+
+- [x] Benchmark decision comparison, experiment retrospectives, and evidence-review systems for side-by-side context without misleading aggregation.
+- [x] Audit the cross-tool archive, Activity, and Decision Review for weak comparison of related prior tests and missing reusable review cues.
+- [x] Build a bilingual decision comparison surface that lets founders place two saved decisions side by side with original evidence, outcome, review timing, and source recovery.
+- [x] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative comparison journeys, and responsive layouts before checkpointing.
