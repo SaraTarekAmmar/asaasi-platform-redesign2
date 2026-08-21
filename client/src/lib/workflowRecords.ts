@@ -79,6 +79,7 @@ export type WorkflowRecord = {
   marketEvidence?: MarketEvidence;
   operatingPrinciple?: OperatingPrinciple;
   researchCadence?: ResearchCadencePlan;
+  reusedFromDecisionId?: string;
   updatedAt: string;
 };
 

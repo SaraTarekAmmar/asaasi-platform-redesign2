@@ -893,3 +893,10 @@
 - [x] Audit the cross-tool archive, Activity, and Decision Review for weak comparison of related prior tests and missing reusable review cues.
 - [x] Build a bilingual decision comparison surface that lets founders place two saved decisions side by side with original evidence, outcome, review timing, and source recovery.
 - [x] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative comparison journeys, and responsive layouts before checkpointing.
+
+## Experiment Reuse and Monthly Evidence Review
+
+- [x] Benchmark experiment reuse, retrospective summaries, and founder evidence-review workflows for preserving prior context without cloning stale assumptions.
+- [x] Audit decision comparison, Activity, and tool routes for missing handoffs that turn retained learning into a fresh bounded test.
+- [x] Build a bilingual reusable-experiment handoff that carries selected prior context into a founder-owned new test without copying outcome claims or thresholds.
+- [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
