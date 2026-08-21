@@ -263,7 +263,25 @@
 .app-product .weekly-primary-bet p, .app-product .founder-desk-weekly-bet p { max-width: 720px; margin: 0; color: #53627a; line-height: 1.6; }
 .app-product .founder-desk-weekly-bet__reminder { margin-top: 10px !important; color: #8c7110 !important; font: 600 10px "DM Sans",sans-serif; letter-spacing: .04em; }
 .app-product .weekly-primary-bet__carry-note { margin-top: 10px !important; color: #8c7110 !important; font: 600 11px/1.55 "DM Sans",sans-serif; }
+.app-product .founder-desk-weekly-bet__intention { margin-top: 13px !important; padding-top: 12px; border-top: 1px solid rgba(7,27,61,.11); color: #53627a !important; font-size: 12px !important; }
+.app-product .founder-desk-weekly-bet__intention strong { display: inline-block; margin-inline-end: 7px; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .app-product .weekly-primary-bet__actions, .app-product .founder-desk-weekly-bet > div:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.app-product .weekly-primary-intention { display: grid; gap: 9px; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(7,27,61,.12); }
+.app-product .weekly-primary-intention label { display: grid; gap: 8px; color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
+.app-product .weekly-primary-intention textarea { min-height: 76px; width: 100%; box-sizing: border-box; resize: vertical; border: 1px solid rgba(7,27,61,.16); border-radius: 12px; background: #fbfbf8; padding: 11px 12px; color: #071b3d; font: 13px/1.55 "DM Sans",sans-serif; outline: none; }
+.app-product .weekly-primary-intention textarea:focus { border-color: #caa515; box-shadow: 0 0 0 3px rgba(202,165,21,.12); }
+.app-product .weekly-primary-intention > div { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.app-product .weekly-preweek-commitment { display: grid; grid-template-columns: minmax(210px,.62fr) minmax(0,1.38fr); gap: clamp(22px,4vw,44px); margin: 18px 0; padding: clamp(23px,3.6vw,33px); border: 1px solid rgba(202,165,21,.34); border-radius: 20px; background: #fffdf5; }
+.app-product .weekly-preweek-commitment__intro h2 { max-width: 14ch; margin: 8px 0 11px; color: #071b3d; font: 500 clamp(24px,3vw,37px)/1.08 "Manrope",sans-serif; letter-spacing: -.055em; }
+.app-product .weekly-preweek-commitment__intro p { max-width: 32rem; margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .weekly-preweek-commitment__items { display: grid; border-top: 1px solid rgba(7,27,61,.12); }
+.app-product .weekly-preweek-commitment__items article { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 7px 16px; padding: 16px 0; border-bottom: 1px solid rgba(7,27,61,.12); }
+.app-product .weekly-preweek-commitment__items article > span { grid-column: 1 / -1; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .weekly-preweek-commitment__items h3 { margin: 0; color: #071b3d; font: 600 15px/1.3 "DM Sans",sans-serif; }
+.app-product .weekly-preweek-commitment__items p { grid-column: 1 / -1; margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .weekly-preweek-commitment__items article > div { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.app-product .weekly-preweek-commitment__items .text-link, .app-product .weekly-preweek-commitment__review { border: 0; background: transparent; color: #071b3d; font: 600 11px "DM Sans",sans-serif; }
+.app-product .weekly-preweek-commitment__review { grid-column: 1 / -1; display: inline-flex; align-items: center; gap: 6px; justify-self: start; }
 .app-product .weekly-primary-reminder { display: flex; align-items: center; gap: 10px; width: 100%; padding-top: 12px; border-top: 1px solid rgba(7,27,61,.12); color: #6d7889; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
 .app-product .weekly-primary-reminder > div { display: flex; flex-wrap: wrap; gap: 7px; }
 .app-product .weekly-primary-reminder button { border: 1px solid rgba(7,27,61,.14); border-radius: 8px; background: transparent; padding: 6px 8px; color: #53627a; cursor: pointer; font: 600 10px "DM Sans",sans-serif; letter-spacing: 0; text-transform: none; }
@@ -414,6 +432,7 @@
   .app-product .founder-context-status__metric { padding: 14px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7,27,61,.13); }
   .app-product .founder-context-status > .button { grid-column: auto; }
   .app-product .weekly-primary-bet, .app-product .founder-desk-weekly-bet { align-items: flex-start; flex-direction: column; }
+  .app-product .weekly-preweek-commitment { grid-template-columns: 1fr; }
   .app-product .weekly-friday-reflection { grid-template-columns: 1fr; }
   .app-product .weekly-friday-reflection__actions { grid-column: 1; }
   .app-product .weekly-carry-forward { grid-template-columns: 1fr; align-items: start; }

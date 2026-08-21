@@ -3,6 +3,7 @@ export type WeeklyPrimaryBet = {
   recordId: string;
   weekStart: string;
   selectedAt: string;
+  weekIntent?: string;
   completedAt?: string;
   reminderDay?: "tuesday" | "thursday";
   carryForward?: boolean;
@@ -52,6 +53,14 @@ function persist(value: WeeklyPrimaryBet | null) {
 
 export function setWeeklyPrimaryBet(recordId: string) {
   const value: WeeklyPrimaryBet = { recordId, weekStart: getWeekStart(), selectedAt: new Date().toISOString() };
+  persist(value);
+  return value;
+}
+
+export function setWeeklyPrimaryBetIntent(weekIntent?: string) {
+  const current = getWeeklyPrimaryBet();
+  if (!current) return null;
+  const value = { ...current, weekIntent: weekIntent?.trim() || undefined };
   persist(value);
   return value;
 }

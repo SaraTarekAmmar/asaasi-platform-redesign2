@@ -165,6 +165,16 @@ The ASaaSI adaptation should keep the founder’s active bet singular and detect
 
 The completed implementation increments a carry count only when the founder deliberately stages the same primary bet into a new week. On the second repeated carry, Weekly Review makes the recovery decision explicit: reframe the evidence in Decision Review, close the same decision with learning, or release the active primary-bet slot while preserving the underlying decision record for later review. The count is included in the downloaded week-in-review summary. The recovery surface remains conditional, so ordinary English and Arabic RTL review states do not gain unnecessary alerts. TypeScript and production builds passed; desktop and 375px Arabic RTL protected-return views were reviewed and the visual review recommended shipping.
 
+## Pre-week commitment selection and outcome visibility: current benchmark, August 2026
+
+Sunsama separates weekly objectives from the individual daily tasks that support them. Its weekly planning starts by showing the previous objectives, lets a person deliberately continue selected objectives or add new ones, and then asks for a short expectation-setting reflection.[26] Its broader guided ritual pairs a retrospective on where time was spent and what was accomplished with an explicit carry-forward decision and next-week objectives.[27]
+
+Todoist frames a weekly review as a short recurring ritual that first clears loose ends, then makes current commitments visible, and then makes space for new ideas. It recommends top priorities rather than detailed advance scheduling, which preserves strategic intent while avoiding false precision.[28] Productboard adds a useful founder-relevant signal: its review asks what was accomplished versus planned, what was postponed, and which earlier decision might have changed the week, followed by a concise relationship scan and retained learning.[16]
+
+The ASaaSI opportunity is a calm, optional pre-week prompt that appears only when the founder has one or more eligible open decisions and no current primary bet. It should reveal only the shortest relevant set: the prior primary bet if it was intentionally released, one decision with a near review date, and one decision with recent retained learning. The founder chooses one existing decision or goes to Decision Review to prepare a better one. A small expectation note can be saved with the primary bet, making the following Friday reflection more concrete without creating a separate planning system or broad analytics dashboard.
+
+The selected adaptation is now implemented in Weekly Review. When no current primary bet exists, the workspace surfaces up to three relevant open decisions and asks the founder to choose one existing decision rather than create another task. Selecting a candidate opens one compact prompt: what should be known, decided, or changed by Friday. That intention persists on the shared primary-bet record, appears in the weekly export and calendar reminder, and returns on the Founder Operating Desk beside the same commitment. Authenticated English selection, persistence, and Arabic RTL rendering were verified. The interface preserves the existing soft editorial surfaces, narrow saffron provenance cues, and explicit no-circle direction.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -192,3 +202,6 @@ The completed implementation increments a carry count only when the founder deli
 [23]: https://help.hypertask.ai/help/bulk-actions-archive-and-defer-multiple-tasks-at-once-in-hypertask "Bulk Actions: Archive and Defer Multiple Tasks at Once in Hypertask"
 [24]: https://lunatask.app/docs/features/tasks/workflows "Workflows"
 [25]: https://help.sunsama.com/docs/getting-started/basics/task-rollover-and-recurring-tasks-the-basics/ "Task rollover: the basics"
+[26]: https://help.sunsama.com/docs/usage-guides/weekly-objectives/weekly-planning/ "Weekly Planning — Sunsama User Manual"
+[27]: https://www.sunsama.com/features/guided-planning-and-reviews "Sunsama Weekly Planning and Reviews"
+[28]: https://www.todoist.com/productivity-methods/weekly-review "The Weekly Review: A Productivity Ritual to Get More Done"

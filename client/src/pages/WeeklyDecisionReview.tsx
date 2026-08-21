@@ -12,6 +12,7 @@ import {
   getWeekStart,
   getWeeklyPrimaryBet,
   setWeeklyPrimaryBet,
+  setWeeklyPrimaryBetIntent,
   setWeeklyPrimaryBetReminder,
   stageWeeklyPrimaryBetCarryForward,
 } from "../lib/weeklyPrimaryBet";
@@ -30,8 +31,10 @@ export function WeeklyDecisionReviewWorkspace() {
   const { t, formatNum, isRTL } = useLocale();
   const [records, setRecords] = useState(() => getWorkflowRecords());
   const [primaryBet, setPrimaryBet] = useState(() => getWeeklyPrimaryBet());
+  const [weekIntent, setWeekIntent] = useState(() => primaryBet?.weekIntent ?? "");
   const [reflection, setReflection] = useState("");
   const [reflectionSaved, setReflectionSaved] = useState(false);
+  const [weekIntentSaved, setWeekIntentSaved] = useState(false);
   const [closedPrimaryOutcome, setClosedPrimaryOutcome] = useState<PrimaryOutcome | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const decisions = records.filter((record) => record.kind === "decision");
@@ -44,12 +47,20 @@ export function WeeklyDecisionReviewWorkspace() {
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
   const canClosePrimary = Boolean(reflection.trim() || primaryRecord?.weeklyReflection || primaryRecord?.evidence);
   const repeatedDeferral = (primaryBet?.carryCount ?? 0) >= 2;
+  const commitmentCandidates = [...agenda]
+    .sort((a, b) => {
+      const score = (record: WorkflowRecord) => Number(record.reviewDue === today) * 4 + Number(Boolean(record.reviewDue && record.reviewDue < today)) * 3 + Number(Boolean(record.evidence || record.weeklyReflection));
+      return score(b) - score(a) || (a.reviewDue ?? "9999-12-31").localeCompare(b.reviewDue ?? "9999-12-31");
+    })
+    .slice(0, 3);
 
   useEffect(() => {
     setReflection(primaryRecord?.weeklyReflection ?? "");
+    setWeekIntent(primaryBet?.weekIntent ?? "");
     setReflectionSaved(false);
+    setWeekIntentSaved(false);
     setClosedPrimaryOutcome(null);
-  }, [primaryRecord?.id]);
+  }, [primaryRecord?.id, primaryBet?.weekStart]);
 
   const choosePrimary = (recordId: string) => setPrimaryBet(setWeeklyPrimaryBet(recordId));
   const completePrimary = () => setPrimaryBet(completeWeeklyPrimaryBet());
@@ -58,19 +69,26 @@ export function WeeklyDecisionReviewWorkspace() {
     setPrimaryBet(null);
   };
   const setReminder = (reminderDay?: "tuesday" | "thursday") => setPrimaryBet(setWeeklyPrimaryBetReminder(reminderDay));
+  const saveWeekIntent = () => {
+    const saved = setWeeklyPrimaryBetIntent(weekIntent);
+    if (!saved) return;
+    setPrimaryBet(saved);
+    setWeekIntentSaved(true);
+  };
   const stageCarryForward = () => setPrimaryBet(stageWeeklyPrimaryBetCarryForward());
   const cancelCarryForward = () => setPrimaryBet(cancelWeeklyPrimaryBetCarryForward());
 
   const downloadWeeklyReview = () => {
     const labels = isRTL
       ? { title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", carry: "حالة الترحيل", carryCount: "مرات الترحيل", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد" }
-      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", plan: "Plan status", carry: "Carry-forward status", carryCount: "Carry-forward count", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet" };
+      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", intention: "Friday intention", plan: "Plan status", carry: "Carry-forward status", carryCount: "Carry-forward count", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet", noIntention: "No Friday intention recorded yet" };
     const decisionLines = agenda.map((record) => `- ${t(record.title, record.titleAr)} | ${t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")} | ${t(record.nextAction ?? "No next action", record.nextActionAr ?? "لا توجد خطوة تالية")}`).join("\n");
     const summary = [
       `# ${labels.title}`,
       "",
       `${labels.week}: ${primaryBet?.weekStart ?? getWeekStart()}`,
       `${labels.primary}: ${primaryRecord ? t(primaryRecord.title, primaryRecord.titleAr) : labels.none}`,
+      `${labels.intention}: ${primaryBet?.weekIntent ?? labels.noIntention}`,
       `${labels.plan}: ${labels.status}`,
       `${labels.carry}: ${labels.carried}`,
       `${labels.carryCount}: ${primaryBet?.carryCount ?? 0}`,
@@ -99,7 +117,7 @@ export function WeeklyDecisionReviewWorkspace() {
     const stamp = (value: Date) => value.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const escapeIcs = (value: string) => value.replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;").replace(/\n/g, "\\n");
     const title = isRTL ? `مراجعة الرهان الرئيسي: ${primaryRecord.titleAr}` : `Primary bet check-in: ${primaryRecord.title}`;
-    const description = isRTL ? `الخطوة التالية: ${primaryRecord.nextActionAr ?? "راجع الرهان الرئيسي"}` : `Next action: ${primaryRecord.nextAction ?? "Review the primary bet"}`;
+    const description = isRTL ? `الخطوة التالية: ${primaryRecord.nextActionAr ?? "راجع الرهان الرئيسي"}${primaryBet?.weekIntent ? `\\nما ينبغي أن يتغير بحلول الجمعة: ${primaryBet.weekIntent}` : ""}` : `Next action: ${primaryRecord.nextAction ?? "Review the primary bet"}${primaryBet?.weekIntent ? `\\nBy Friday: ${primaryBet.weekIntent}` : ""}`;
     const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ASaaSI//Primary Bet//EN", "BEGIN:VEVENT", `UID:primary-bet-${primaryRecord.id}-${primaryBet?.weekStart ?? getWeekStart()}@asaasi`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(weekStart)}`, `DTEND:${stamp(end)}`, `SUMMARY:${escapeIcs(title)}`, `DESCRIPTION:${escapeIcs(description)}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
     const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
     const link = document.createElement("a");
@@ -180,6 +198,12 @@ export function WeeklyDecisionReviewWorkspace() {
         <Link href="/dashboard/registrations" className="text-link">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
       </section>}
 
+      {!primaryRecord && commitmentCandidates.length > 0 && <section className="weekly-preweek-commitment" aria-label={t("Pre-week commitment", "التزام ما قبل الأسبوع")}>
+        <div className="weekly-preweek-commitment__intro"><SectionLabel>{t("Pre-week commitment", "التزام ما قبل الأسبوع")}</SectionLabel><h2>{t("Name one decision you want to return to on Friday.", "سمِ قرارا واحدا تريد العودة إليه يوم الجمعة.")}</h2><p>{t("Choose an existing decision, not another task. The short intention you add next will give Friday’s reflection something specific to test.", "اختر قرارا قائما، لا مهمة أخرى. ستمنح النية القصيرة التي تضيفها لاحقا لتأمل الجمعة شيئا محددا لاختباره.")}</p></div>
+        <div className="weekly-preweek-commitment__items">{commitmentCandidates.map((record) => { const status = reviewStatus(record, today, t); return <article key={record.id}><span>{status.label}</span><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p><div><button type="button" className="button button-light" onClick={() => choosePrimary(record.id)}>{t("Choose for this week", "اختره لهذا الأسبوع")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button><Link href="/dashboard/decision-review" className="text-link">{t("Review first", "راجع أولا")}</Link></div></article>; })}</div>
+        <Link href="/dashboard/decision-review" className="text-link weekly-preweek-commitment__review">{t("Prepare a different decision in Decision Review", "جهز قرارا مختلفا في مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
+      </section>}
+
       {primaryRecord && <>
         <section className={`weekly-primary-bet ${primaryBet?.completedAt ? "is-complete" : ""}`}>
           <div>
@@ -188,6 +212,7 @@ export function WeeklyDecisionReviewWorkspace() {
             <p>{t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p>
             {primaryBet?.carriedFromWeekStart && <p className="weekly-primary-bet__carry-note">{repeatedDeferral ? t(`This is the same primary bet carried ${formatNum(primaryBet.carryCount ?? 0)} times. Do not let it roll forward without deciding whether the underlying approach still fits.`, `هذا هو الرهان الرئيسي نفسه المُرحّل ${formatNum(primaryBet.carryCount ?? 0)} مرات. لا تدعه يُرحّل دون تحديد ما إذا كان النهج الأساسي ما زال مناسبا.`) : t(`Carried from the week of ${primaryBet.carriedFromWeekStart}. Keep the evidence, but choose its next move deliberately.`, `مُرحّل من أسبوع ${primaryBet.carriedFromWeekStart}. احتفظ بالدليل، لكن اختر خطوته التالية عن قصد.`)}</p>}
           </div>
+          <div className="weekly-primary-intention"><label>{t("By Friday, what do you want to know, decide, or change?", "بحلول الجمعة، ماذا تريد أن تعرف أو تقرر أو تغيّر؟")}<textarea value={weekIntent} onChange={(event) => { setWeekIntent(event.target.value); setWeekIntentSaved(false); }} placeholder={t("For example: know whether three buyer conversations support the new offer framing.", "مثلا: معرفة ما إذا كانت ثلاث محادثات مع مشترين تدعم صياغة العرض الجديدة.")} /></label><div><button type="button" className="button button-light" onClick={saveWeekIntent} disabled={!weekIntent.trim()}>{t("Save Friday intention", "احفظ نية الجمعة")}</button>{weekIntentSaved && <span className="inline-success"><Check size={14} /> {t("Intention saved with this week’s bet", "حُفظت النية مع رهان هذا الأسبوع")}</span>}</div></div>
           <div className="weekly-primary-bet__actions">
             {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
             <div className="weekly-primary-reminder"><span>{t("Desk reminder", "تذكير المكتب")}</span><div><button type="button" className={primaryBet?.reminderDay === "tuesday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "tuesday" ? undefined : "tuesday")}>{t("Tuesday check-in", "مراجعة الثلاثاء")}</button><button type="button" className={primaryBet?.reminderDay === "thursday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "thursday" ? undefined : "thursday")}>{t("Thursday check-in", "مراجعة الخميس")}</button></div><button type="button" className="text-link" onClick={downloadPrimaryBetCalendar}><CalendarPlus size={13} /> {t("Download calendar reminder", "نزّل تذكير التقويم")}</button></div>

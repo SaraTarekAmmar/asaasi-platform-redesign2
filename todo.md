@@ -756,3 +756,10 @@
 - [x] Audit ASaaSI carried primary bets, decision outcomes, Founder Operating Desk, Activity, and Weekly Review for the highest-value deferred-work recovery gap.
 - [x] Implement the selected bilingual archive or deliberate reprioritization improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Pre-Week Commitment Selection and Outcome Visibility
+
+- [x] Benchmark current founder and productivity workflows for choosing a pre-week commitment and viewing connected outcome trends.
+- [x] Audit ASaaSI primary-bet selection, weekly review, Founder Operating Desk outcome timeline, and Activity for the highest-value remaining gap.
+- [x] Implement the selected bilingual commitment-selection or outcome-visibility improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
