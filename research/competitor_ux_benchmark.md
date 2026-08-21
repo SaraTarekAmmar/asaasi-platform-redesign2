@@ -147,6 +147,16 @@ The selected implementation keeps the carry-forward decision conditional on an e
 
 The completed carry-forward action now gives founders a clear week-close choice inside Friday reflection: preserve the decision as next week’s primary bet or keep it in the current review. The original record, next action, owner, evidence, reminder, and saved reflection remain intact. The associated protected Weekly Review return was refined into a linear route-state desk with a stronger form-side cadence ledger. Desktop and 375px Arabic RTL views were verified after the refinement. Suggestions to add rings were not adopted because they conflict with ASaaSI’s explicit no-circle requirement.
 
+## Primary-bet completion and repeated deferral: current benchmark, August 2026
+
+authority.md’s founder weekly-review tool emphasizes continuity across weeks, particularly the ability to distinguish work that shipped, slipped once, or has been untouched repeatedly, because the repeat pattern can reveal a different underlying founder decision.[22] Hypertask distinguishes two explicit actions for active work: defer it with a reminder or archive it when it is complete or no longer relevant.[23]
+
+The ASaaSI adaptation should keep a single founder-owned primary bet focused while letting the founder finish the week deliberately. A close-with-learning action can mark the primary decision as finished and carry a concise outcome into the record. Repeated carry-forward should remain visible as a recovery signal, prompting the founder to either reframe the decision, select a new bet, or archive the stale commitment rather than silently accumulating rollover.
+
+The selected close-with-learning controls appear only when a primary bet is active and a reflection or existing evidence is available, avoiding an action that could close a decision without a retained learning signal. Authenticated English and Arabic RTL Weekly Review states without a primary bet were checked and retain their existing agenda hierarchy without completion controls.
+
+The completed primary-bet closeout uses the existing decision outcome model rather than adding a parallel checklist. After a founder records learning, they can close the same decision as keep, change, or stop; the decision becomes completed, its evidence and Friday reflection are retained, and the primary-bet slot is cleared for a new focused commitment. The post-close surface returns the founder to Activity to revisit the record. The final protected return pass increased the visual authority of the Signal → Primary bet → Friday learning object and labeled the form-side continuation as a Weekly Review return desk. TypeScript and production builds passed, and desktop plus 375px Arabic RTL protected access states were verified. Circular or ring motifs remain excluded by product direction.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -170,3 +180,5 @@ The completed carry-forward action now gives founders a clear week-close choice 
 [19]: https://www.togetherplatform.com/blog/examples-of-mentoring-program-goals "15 Mentoring Program Goals & Examples for 2026"
 [20]: https://help.sunsama.com/docs/getting-started/basics/task-rollover-and-recurring-tasks-the-basics/ "Task rollover: the basics"
 [21]: https://fellow.ai/ "Fellow AI Meeting Assistant"
+[22]: https://authority.md/tools/founder-weekly-review "Founder Weekly Review"
+[23]: https://help.hypertask.ai/help/bulk-actions-archive-and-defer-multiple-tasks-at-once-in-hypertask "Bulk Actions: Archive and Defer Multiple Tasks at Once in Hypertask"

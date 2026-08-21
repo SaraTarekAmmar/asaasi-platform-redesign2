@@ -281,6 +281,16 @@
 .app-product .weekly-carry-forward span { display: block; margin-bottom: 4px; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .app-product .weekly-carry-forward p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
 .app-product .weekly-carry-forward .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; white-space: nowrap; }
+.app-product .weekly-close-learning { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; align-items: center; width: 100%; margin-top: 4px; padding-top: 14px; border-top: 1px solid rgba(7,27,61,.12); }
+.app-product .weekly-close-learning span { display: block; margin-bottom: 4px; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .weekly-close-learning p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
+.app-product .weekly-close-learning > div:last-child { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; }
+.app-product .weekly-close-learning .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; white-space: nowrap; }
+.app-product .weekly-close-learning button:disabled { cursor: not-allowed; opacity: .42; }
+.app-product .weekly-primary-close-success { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 14px; align-items: start; margin: 18px 0; padding: 20px 24px; border: 1px solid rgba(7,27,61,.11); border-inline-start: 3px solid #caa515; border-radius: 18px; background: rgba(255,253,245,.72); }
+.app-product .weekly-primary-close-success > svg { margin-top: 3px; color: #8c7110; }
+.app-product .weekly-primary-close-success h2 { margin: 4px 0 7px; color: #071b3d; font: 500 clamp(20px,2.1vw,29px)/1.12 "Manrope",sans-serif; letter-spacing: -.04em; }
+.app-product .weekly-primary-close-success p { max-width: 580px; margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; }
 .app-product .founder-desk-reflection { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(7,27,61,.1); }
 .app-product .founder-desk-reflection .mono { color: #8c7110; font-size: 9px; }
 .app-product .founder-desk-reflection p { margin: 6px 0 0; color: #53627a; font-size: 13px; line-height: 1.6; }
@@ -402,6 +412,10 @@
   .app-product .weekly-friday-reflection { grid-template-columns: 1fr; }
   .app-product .weekly-friday-reflection__actions { grid-column: 1; }
   .app-product .weekly-carry-forward { grid-template-columns: 1fr; align-items: start; }
+  .app-product .weekly-close-learning { grid-template-columns: 1fr; align-items: start; }
+  .app-product .weekly-close-learning > div:last-child { justify-content: flex-start; }
+  .app-product .weekly-primary-close-success { grid-template-columns: auto minmax(0,1fr); }
+  .app-product .weekly-primary-close-success > .button { grid-column: 1 / -1; justify-self: start; }
   .app-product .activity-learning-summary__metrics { gap: 8px; }
   .app-product .activity-learning-ledger__heading { display: grid; align-items: start; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }

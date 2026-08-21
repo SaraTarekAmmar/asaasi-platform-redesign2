@@ -742,3 +742,10 @@
 - [x] Audit ASaaSI primary-bet, decision review, community, introduction, event, and Activity routes for the highest-value recovery gap.
 - [x] Implement the selected bilingual commitment-recovery improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Primary-Bet Completion and Deferred-Work Review
+
+- [x] Benchmark current founder and productivity products for completing commitments, retaining outcome context, and handling repeated deferral.
+- [x] Audit ASaaSI primary-bet completion, carry-forward, decision learning, and Activity return paths for the highest-value remaining gap.
+- [x] Implement the selected bilingual completion or deferred-work improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

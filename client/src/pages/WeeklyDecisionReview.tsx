@@ -1,12 +1,23 @@
-/* Editorial operating system: a weekly review is a compact operating agenda, not a dashboard of decorative metrics. */
+// Editorial Operating System: Weekly Review uses a cadence-led decision workspace with linear saffron state cues and no circular decoration.
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, CalendarDays, CalendarPlus, Check, Download, Target } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarPlus, Check, Download, Target } from "lucide-react";
 import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 import { getWorkflowRecords, upsertWorkflowRecord, type WorkflowRecord } from "../lib/workflowRecords";
-import { cancelWeeklyPrimaryBetCarryForward, clearWeeklyPrimaryBet, completeWeeklyPrimaryBet, getWeekStart, getWeeklyPrimaryBet, setWeeklyPrimaryBet, setWeeklyPrimaryBetReminder, stageWeeklyPrimaryBetCarryForward } from "../lib/weeklyPrimaryBet";
+import {
+  cancelWeeklyPrimaryBetCarryForward,
+  clearWeeklyPrimaryBet,
+  completeWeeklyPrimaryBet,
+  getWeekStart,
+  getWeeklyPrimaryBet,
+  setWeeklyPrimaryBet,
+  setWeeklyPrimaryBetReminder,
+  stageWeeklyPrimaryBetCarryForward,
+} from "../lib/weeklyPrimaryBet";
 import { ProductShell } from "./ProductFlows";
+
+type PrimaryOutcome = "keep" | "change" | "stop";
 
 function reviewStatus(record: WorkflowRecord, today: string, t: (en: string, ar: string) => string) {
   if (record.outcome) return { label: t("Learning recorded", "تم تسجيل التعلم"), tone: "complete" };
@@ -21,38 +32,62 @@ export function WeeklyDecisionReviewWorkspace() {
   const [primaryBet, setPrimaryBet] = useState(() => getWeeklyPrimaryBet());
   const [reflection, setReflection] = useState("");
   const [reflectionSaved, setReflectionSaved] = useState(false);
+  const [closedPrimaryOutcome, setClosedPrimaryOutcome] = useState<PrimaryOutcome | null>(null);
   const today = new Date().toISOString().slice(0, 10);
   const decisions = records.filter((record) => record.kind === "decision");
-  const agenda = decisions.filter((record) => !record.outcome).sort((a, b) => {
-    const aDue = a.reviewDue ?? "9999-12-31";
-    const bDue = b.reviewDue ?? "9999-12-31";
-    return aDue.localeCompare(bDue);
-  });
+  const agenda = decisions
+    .filter((record) => !record.outcome)
+    .sort((a, b) => (a.reviewDue ?? "9999-12-31").localeCompare(b.reviewDue ?? "9999-12-31"));
   const overdue = agenda.filter((record) => record.reviewDue && record.reviewDue < today);
   const dueThisWeek = agenda.filter((record) => record.reviewDue && record.reviewDue >= today && record.reviewDue <= new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10));
   const primaryRecord = decisions.find((record) => record.id === primaryBet?.recordId);
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
+  const canClosePrimary = Boolean(reflection.trim() || primaryRecord?.weeklyReflection || primaryRecord?.evidence);
+
   useEffect(() => {
     setReflection(primaryRecord?.weeklyReflection ?? "");
     setReflectionSaved(false);
+    setClosedPrimaryOutcome(null);
   }, [primaryRecord?.id]);
+
   const choosePrimary = (recordId: string) => setPrimaryBet(setWeeklyPrimaryBet(recordId));
   const completePrimary = () => setPrimaryBet(completeWeeklyPrimaryBet());
-  const clearPrimary = () => { clearWeeklyPrimaryBet(); setPrimaryBet(null); };
+  const clearPrimary = () => {
+    clearWeeklyPrimaryBet();
+    setPrimaryBet(null);
+  };
   const setReminder = (reminderDay?: "tuesday" | "thursday") => setPrimaryBet(setWeeklyPrimaryBetReminder(reminderDay));
   const stageCarryForward = () => setPrimaryBet(stageWeeklyPrimaryBetCarryForward());
   const cancelCarryForward = () => setPrimaryBet(cancelWeeklyPrimaryBetCarryForward());
+
   const downloadWeeklyReview = () => {
-    const labels = isRTL ? {
-      title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد",
-    } : {
-      title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", plan: "Plan status", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", none: "No primary bet selected yet", noReflection: "No reflection recorded yet",
-    };
+    const labels = isRTL
+      ? { title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", carry: "حالة الترحيل", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد" }
+      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", plan: "Plan status", carry: "Carry-forward status", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet" };
     const decisionLines = agenda.map((record) => `- ${t(record.title, record.titleAr)} | ${t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")} | ${t(record.nextAction ?? "No next action", record.nextActionAr ?? "لا توجد خطوة تالية")}`).join("\n");
-    const summary = [`# ${labels.title}`, "", `${labels.week}: ${primaryBet?.weekStart ?? getWeekStart()}`, `${labels.primary}: ${primaryRecord ? t(primaryRecord.title, primaryRecord.titleAr) : labels.none}`, `${labels.plan}: ${labels.status}`, `${labels.reflection}: ${primaryRecord?.weeklyReflection ?? labels.noReflection}`, "", `## ${labels.open}`, decisionLines || `- ${labels.none}`, ""].join("\n");
+    const summary = [
+      `# ${labels.title}`,
+      "",
+      `${labels.week}: ${primaryBet?.weekStart ?? getWeekStart()}`,
+      `${labels.primary}: ${primaryRecord ? t(primaryRecord.title, primaryRecord.titleAr) : labels.none}`,
+      `${labels.plan}: ${labels.status}`,
+      `${labels.carry}: ${labels.carried}`,
+      `${labels.reflection}: ${primaryRecord?.weeklyReflection ?? labels.noReflection}`,
+      "",
+      `## ${labels.open}`,
+      decisionLines || `- ${labels.none}`,
+      "",
+    ].join("\n");
     const url = URL.createObjectURL(new Blob([summary], { type: "text/markdown;charset=utf-8" }));
-    const link = document.createElement("a"); link.href = url; link.download = `asaasi-weekly-review-${primaryBet?.weekStart ?? getWeekStart()}.md`; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `asaasi-weekly-review-${primaryBet?.weekStart ?? getWeekStart()}.md`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
   };
+
   const downloadPrimaryBetCalendar = () => {
     if (!primaryRecord) return;
     const weekStart = new Date(`${primaryBet?.weekStart ?? getWeekStart()}T09:00:00`);
@@ -65,14 +100,133 @@ export function WeeklyDecisionReviewWorkspace() {
     const description = isRTL ? `الخطوة التالية: ${primaryRecord.nextActionAr ?? "راجع الرهان الرئيسي"}` : `Next action: ${primaryRecord.nextAction ?? "Review the primary bet"}`;
     const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//ASaaSI//Primary Bet//EN", "BEGIN:VEVENT", `UID:primary-bet-${primaryRecord.id}-${primaryBet?.weekStart ?? getWeekStart()}@asaasi`, `DTSTAMP:${stamp(new Date())}`, `DTSTART:${stamp(weekStart)}`, `DTEND:${stamp(end)}`, `SUMMARY:${escapeIcs(title)}`, `DESCRIPTION:${escapeIcs(description)}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
     const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
-    const link = document.createElement("a"); link.href = url; link.download = `asaasi-primary-bet-${primaryBet?.weekStart ?? getWeekStart()}.ics`; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `asaasi-primary-bet-${primaryRecord.id}-${primaryBet?.weekStart ?? getWeekStart()}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
   };
+
   const saveReflection = () => {
     if (!primaryRecord || !reflection.trim()) return;
-    upsertWorkflowRecord({ ...primaryRecord, weeklyReflection: reflection.trim(), weeklyReflectionAt: new Date().toISOString(), evidence: primaryRecord.evidence || reflection.trim() });
+    upsertWorkflowRecord({
+      ...primaryRecord,
+      weeklyReflection: reflection.trim(),
+      weeklyReflectionAt: new Date().toISOString(),
+      evidence: primaryRecord.evidence || reflection.trim(),
+    });
     setRecords(getWorkflowRecords());
     setReflectionSaved(true);
   };
-  if (!decisions.length) return <ProductShell title={t("Weekly review", "المراجعة الأسبوعية")} active="/dashboard/registrations"><div className="workspace-route-page"><div className="empty-state"><h2>{t("A weekly review starts with one saved decision.", "تبدأ المراجعة الأسبوعية بقرار محفوظ واحد.")}</h2><p>{t("Export a tool brief, then return here to decide which bet needs attention before the week fills up.", "صدّر موجز أداة، ثم عد هنا لتقرر أي رهان يحتاج الانتباه قبل أن يمتلئ الأسبوع.")}</p><Link href="/tools" className="button button-dark">{t("Open founder tools", "افتح أدوات المؤسس")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></div></div></ProductShell>;
-  return <ProductShell title={t("Weekly review", "المراجعة الأسبوعية")} active="/dashboard/registrations"><div className="workspace-route-page weekly-decision-review"><div className="product-page-heading compact"><div><SectionLabel>{t("Workspace / Weekly review", "مساحة العمل / المراجعة الأسبوعية")}</SectionLabel><h1>{t("Choose the few bets worth your week.", "اختر الرهانات القليلة التي تستحق أسبوعك.")}</h1><p>{t("This agenda brings together open decision reviews in due-date order. Start with the evidence most likely to change the next move.", "يجمع هذا الجدول مراجعات القرارات المفتوحة حسب تاريخ الاستحقاق. ابدأ بالدليل الأرجح لتغيير الخطوة التالية.")}</p></div><SignalTag tone={overdue.length ? "clay" : "soft"}>{overdue.length ? t(`${formatNum(overdue.length)} overdue`, `${formatNum(overdue.length)} متأخر`) : t("Review ready", "جاهز للمراجعة")}</SignalTag></div><section className="weekly-review-brief"><div><SectionLabel>{t("This week", "هذا الأسبوع")}</SectionLabel><h2>{overdue.length ? t("Clear the overdue evidence before adding another bet.", "أغلق الأدلة المتأخرة قبل إضافة رهان آخر.") : dueThisWeek.length ? t("These are the decisions that can move this week.", "هذه هي القرارات التي يمكن أن تتحرك هذا الأسبوع.") : t("Set the next review point before the week disappears.", "حدد نقطة المراجعة التالية قبل أن يختفي الأسبوع.")}</h2><p>{t("One decision does not need more activity. It needs a named owner, a review date, and the evidence that changes the approach.", "لا يحتاج قرار واحد إلى نشاط أكثر. يحتاج إلى مالك مسمى وتاريخ مراجعة ودليل يغيّر النهج.")}</p></div><dl><div><dt>{t("Open", "مفتوحة")}</dt><dd>{formatNum(agenda.length)}</dd></div><div><dt>{t("This week", "هذا الأسبوع")}</dt><dd>{formatNum(dueThisWeek.length)}</dd></div><div><dt>{t("Overdue", "متأخرة")}</dt><dd>{formatNum(overdue.length)}</dd></div></dl><div className="weekly-review-brief__actions"><Link href="/dashboard/decision-accountability" className="button button-light">{t("Assign accountability", "عيّن المساءلة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="text-link" onClick={downloadWeeklyReview}><Download size={14} /> {t("Download week in review", "نزّل مراجعة الأسبوع")}</button></div></section>{introductionLearnings.length > 0 && <section className="weekly-introduction-learning"><div><SectionLabel>{t("Conversation learning", "تعلم المحادثة")}</SectionLabel><h2>{t("New conversation evidence is ready for the next decision.", "دليل محادثة جديد جاهز للقرار التالي.")}</h2></div><div>{introductionLearnings.map((record) => <article key={record.id}><strong>{t(record.title, record.titleAr)}</strong><p>{record.introductionReflection}</p></article>)}</div><Link href="/dashboard/registrations" className="text-link">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></section>}{primaryRecord && <><section className={`weekly-primary-bet ${primaryBet?.completedAt ? "is-complete" : ""}`}><div><SectionLabel>{primaryBet?.carriedFromWeekStart ? t("Carried primary bet", "رهان رئيسي مرحّل") : primaryBet?.completedAt ? t("Weekly review closed", "أُغلقت المراجعة الأسبوعية") : t("This week's primary bet", "الرهان الرئيسي لهذا الأسبوع")}</SectionLabel><h2>{t(primaryRecord.title, primaryRecord.titleAr)}</h2><p>{t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p>{primaryBet?.carriedFromWeekStart && <p className="weekly-primary-bet__carry-note">{t(`Carried from the week of ${primaryBet.carriedFromWeekStart}. Keep the evidence, but choose its next move deliberately.`, `مُرحّل من أسبوع ${primaryBet.carriedFromWeekStart}. احتفظ بالدليل، لكن اختر خطوته التالية عن قصد.`)}</p>}</div><div className="weekly-primary-bet__actions">{primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}<div className="weekly-primary-reminder"><span>{t("Desk reminder", "تذكير المكتب")}</span><div><button type="button" className={primaryBet?.reminderDay === "tuesday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "tuesday" ? undefined : "tuesday")}>{t("Tuesday check-in", "مراجعة الثلاثاء")}</button><button type="button" className={primaryBet?.reminderDay === "thursday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "thursday" ? undefined : "thursday")}>{t("Thursday check-in", "مراجعة الخميس")}</button></div><button type="button" className="text-link" onClick={downloadPrimaryBetCalendar}><CalendarPlus size={13} /> {t("Download calendar reminder", "نزّل تذكير التقويم")}</button></div></div></section><section className="weekly-friday-reflection"><div><SectionLabel>{t("Friday reflection", "تأمل الجمعة")}</SectionLabel><h2>{t("Compare the intended move with what actually changed.", "قارن الخطوة المقصودة بما تغيّر فعليا.")}</h2><p><strong>{t("This week you intended:", "هذا الأسبوع كنت تنوي:")}</strong> {t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p></div><label>{t("What did you learn from the work?", "ماذا تعلمت من العمل؟")}<textarea value={reflection} onChange={(event) => { setReflection(event.target.value); setReflectionSaved(false); }} placeholder={t("Record the customer language, result, or constraint that should change the next decision.", "سجل لغة العميل أو النتيجة أو القيد الذي ينبغي أن يغيّر القرار التالي.")} /></label><div className="weekly-friday-reflection__actions"><button type="button" className="button button-dark" onClick={saveReflection} disabled={!reflection.trim()}><Check size={14} /> {t("Save Friday reflection", "احفظ تأمل الجمعة")}</button><Link href="/dashboard/decision-review" className="text-link">{t("Open decision review", "افتح مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{reflectionSaved && <span className="inline-success"><Check size={14} /> {t("Learning carried into the decision record", "نُقل التعلم إلى سجل القرار")}</span>}<div className="weekly-carry-forward"><div><span>{t("Week close", "إغلاق الأسبوع")}</span><p>{primaryBet?.carryForward ? t("This decision will reopen as the next week’s primary bet with its current evidence and reminder.", "سيُعاد فتح هذا القرار كرهان رئيسي للأسبوع التالي مع دليله وتذكيره الحاليين.") : t("Do not silently roll unfinished work forward. Keep it in review, close it with learning, or deliberately carry the same decision into next week.", "لا ترحّل العمل غير المكتمل بصمت. أبقه في المراجعة أو أغلقه بتعلم أو رحّل القرار نفسه إلى الأسبوع التالي عن قصد.")}</p></div>{primaryBet?.carryForward ? <button type="button" className="text-link" onClick={cancelCarryForward}>{t("Keep in this week", "أبقِه في هذا الأسبوع")}</button> : <button type="button" className="button button-light" onClick={stageCarryForward}>{t("Carry into next week", "رحّله إلى الأسبوع التالي")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button>}</div></div></section></>}<section className="weekly-review-agenda" aria-label={t("Weekly decision agenda", "جدول القرارات الأسبوعي")}><div className="weekly-review-agenda__heading"><div><SectionLabel>{t("Review agenda", "جدول المراجعة")}</SectionLabel><h2>{t("Start with the next decision that could change.", "ابدأ بالقرار التالي الذي يمكن أن يتغير.")}</h2></div><Link href="/dashboard/registrations" className="text-link">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div><div>{agenda.map((record, index) => { const status = reviewStatus(record, today, t); const isPrimary = primaryBet?.recordId === record.id; const owner = record.owner === "Founder" ? t("Founder", "المؤسس") : record.owner ?? t("Founder", "المؤسس"); return <article key={record.id} className={`weekly-review-row is-${status.tone} ${isPrimary ? "is-primary" : ""}`}><span className="weekly-review-row__index">{isPrimary ? <Target size={15} /> : formatNum(index + 1).padStart(2, "0")}</span><div className="weekly-review-row__main"><header><span>{isPrimary ? t("Primary bet", "الرهان الرئيسي") : status.label}</span><small>{owner}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p></div><div className="weekly-review-row__evidence"><span>{t("Evidence", "الدليل")}</span><p>{record.evidence || t("No evidence recorded. Return to capture the result while it is specific.", "لم يُسجل دليل. عد لالتقاط النتيجة بينما تظل محددة.")}</p></div><div className="weekly-review-row__actions"><Link href="/dashboard/decision-review" className="button button-ghost">{t("Review", "مراجعة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{isPrimary ? <button type="button" className="text-link" onClick={clearPrimary}>{t("Clear primary", "أزل الرهان الرئيسي")}</button> : <button type="button" className="text-link" onClick={() => choosePrimary(record.id)}>{t("Make primary", "اجعله رئيسيا")}</button>}<Link href="/dashboard/decision-accountability" className="text-link">{t("Owner & date", "المالك والتاريخ")}</Link></div></article>; })}</div></section></div></ProductShell>;
+
+  const closePrimaryWithLearning = (outcome: PrimaryOutcome) => {
+    if (!primaryRecord) return;
+    const learning = reflection.trim() || primaryRecord.weeklyReflection || primaryRecord.evidence;
+    if (!learning) return;
+    const now = new Date().toISOString();
+    upsertWorkflowRecord({
+      ...primaryRecord,
+      status: "completed",
+      outcome,
+      outcomeAt: now,
+      weeklyReflection: learning,
+      weeklyReflectionAt: primaryRecord.weeklyReflectionAt ?? now,
+      evidence: primaryRecord.evidence || learning,
+    });
+    setRecords(getWorkflowRecords());
+    clearWeeklyPrimaryBet();
+    setPrimaryBet(null);
+    setClosedPrimaryOutcome(outcome);
+  };
+
+  if (!decisions.length) {
+    return <ProductShell title={t("Weekly review", "المراجعة الأسبوعية")} active="/dashboard/registrations"><div className="workspace-route-page"><div className="empty-state"><h2>{t("A weekly review starts with one saved decision.", "تبدأ المراجعة الأسبوعية بقرار محفوظ واحد.")}</h2><p>{t("Export a tool brief, then return here to decide which bet needs attention before the week fills up.", "صدّر موجز أداة، ثم عد هنا لتقرر أي رهان يحتاج الانتباه قبل أن يمتلئ الأسبوع.")}</p><Link href="/tools" className="button button-dark">{t("Open founder tools", "افتح أدوات المؤسس")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></div></div></ProductShell>;
+  }
+
+  const outcomeOptions: { id: PrimaryOutcome; label: string; labelAr: string }[] = [
+    { id: "keep", label: "Keep approach", labelAr: "استمر بالنهج" },
+    { id: "change", label: "Change approach", labelAr: "غيّر النهج" },
+    { id: "stop", label: "Stop this approach", labelAr: "أوقف هذا النهج" },
+  ];
+
+  return <ProductShell title={t("Weekly review", "المراجعة الأسبوعية")} active="/dashboard/registrations">
+    <div className="workspace-route-page weekly-decision-review">
+      <div className="product-page-heading compact">
+        <div>
+          <SectionLabel>{t("Workspace / Weekly review", "مساحة العمل / المراجعة الأسبوعية")}</SectionLabel>
+          <h1>{t("Choose the few bets worth your week.", "اختر الرهانات القليلة التي تستحق أسبوعك.")}</h1>
+          <p>{t("This agenda brings together open decision reviews in due-date order. Start with the evidence most likely to change the next move.", "يجمع هذا الجدول مراجعات القرارات المفتوحة حسب تاريخ الاستحقاق. ابدأ بالدليل الأرجح لتغيير الخطوة التالية.")}</p>
+        </div>
+        <SignalTag tone={overdue.length ? "clay" : "soft"}>{overdue.length ? t(`${formatNum(overdue.length)} overdue`, `${formatNum(overdue.length)} متأخر`) : t("Review ready", "جاهز للمراجعة")}</SignalTag>
+      </div>
+
+      <section className="weekly-review-brief">
+        <div>
+          <SectionLabel>{t("This week", "هذا الأسبوع")}</SectionLabel>
+          <h2>{overdue.length ? t("Clear the overdue evidence before adding another bet.", "أغلق الأدلة المتأخرة قبل إضافة رهان آخر.") : dueThisWeek.length ? t("These are the decisions that can move this week.", "هذه هي القرارات التي يمكن أن تتحرك هذا الأسبوع.") : t("Set the next review point before the week disappears.", "حدد نقطة المراجعة التالية قبل أن يختفي الأسبوع.")}</h2>
+          <p>{t("One decision does not need more activity. It needs a named owner, a review date, and the evidence that changes the approach.", "لا يحتاج قرار واحد إلى نشاط أكثر. يحتاج إلى مالك مسمى وتاريخ مراجعة ودليل يغيّر النهج.")}</p>
+        </div>
+        <dl><div><dt>{t("Open", "مفتوحة")}</dt><dd>{formatNum(agenda.length)}</dd></div><div><dt>{t("This week", "هذا الأسبوع")}</dt><dd>{formatNum(dueThisWeek.length)}</dd></div><div><dt>{t("Overdue", "متأخرة")}</dt><dd>{formatNum(overdue.length)}</dd></div></dl>
+        <div className="weekly-review-brief__actions"><Link href="/dashboard/decision-accountability" className="button button-light">{t("Assign accountability", "عيّن المساءلة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="text-link" onClick={downloadWeeklyReview}><Download size={14} /> {t("Download week in review", "نزّل مراجعة الأسبوع")}</button></div>
+      </section>
+
+      {introductionLearnings.length > 0 && <section className="weekly-introduction-learning">
+        <div><SectionLabel>{t("Conversation learning", "تعلم المحادثة")}</SectionLabel><h2>{t("New conversation evidence is ready for the next decision.", "دليل محادثة جديد جاهز للقرار التالي.")}</h2></div>
+        <div>{introductionLearnings.map((record) => <article key={record.id}><strong>{t(record.title, record.titleAr)}</strong><p>{record.introductionReflection}</p></article>)}</div>
+        <Link href="/dashboard/registrations" className="text-link">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
+      </section>}
+
+      {primaryRecord && <>
+        <section className={`weekly-primary-bet ${primaryBet?.completedAt ? "is-complete" : ""}`}>
+          <div>
+            <SectionLabel>{primaryBet?.carriedFromWeekStart ? t("Carried primary bet", "رهان رئيسي مرحّل") : primaryBet?.completedAt ? t("Weekly review closed", "أُغلقت المراجعة الأسبوعية") : t("This week's primary bet", "الرهان الرئيسي لهذا الأسبوع")}</SectionLabel>
+            <h2>{t(primaryRecord.title, primaryRecord.titleAr)}</h2>
+            <p>{t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p>
+            {primaryBet?.carriedFromWeekStart && <p className="weekly-primary-bet__carry-note">{t(`Carried from the week of ${primaryBet.carriedFromWeekStart}. Keep the evidence, but choose its next move deliberately.`, `مُرحّل من أسبوع ${primaryBet.carriedFromWeekStart}. احتفظ بالدليل، لكن اختر خطوته التالية عن قصد.`)}</p>}
+          </div>
+          <div className="weekly-primary-bet__actions">
+            {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
+            <div className="weekly-primary-reminder"><span>{t("Desk reminder", "تذكير المكتب")}</span><div><button type="button" className={primaryBet?.reminderDay === "tuesday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "tuesday" ? undefined : "tuesday")}>{t("Tuesday check-in", "مراجعة الثلاثاء")}</button><button type="button" className={primaryBet?.reminderDay === "thursday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "thursday" ? undefined : "thursday")}>{t("Thursday check-in", "مراجعة الخميس")}</button></div><button type="button" className="text-link" onClick={downloadPrimaryBetCalendar}><CalendarPlus size={13} /> {t("Download calendar reminder", "نزّل تذكير التقويم")}</button></div>
+          </div>
+        </section>
+
+        <section className="weekly-friday-reflection">
+          <div><SectionLabel>{t("Friday reflection", "تأمل الجمعة")}</SectionLabel><h2>{t("Compare the intended move with what actually changed.", "قارن الخطوة المقصودة بما تغيّر فعليا.")}</h2><p><strong>{t("This week you intended:", "هذا الأسبوع كنت تنوي:")}</strong> {t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p></div>
+          <label>{t("What did you learn from the work?", "ماذا تعلمت من العمل؟")}<textarea value={reflection} onChange={(event) => { setReflection(event.target.value); setReflectionSaved(false); }} placeholder={t("Record the customer language, result, or constraint that should change the next decision.", "سجل لغة العميل أو النتيجة أو القيد الذي ينبغي أن يغيّر القرار التالي.")} /></label>
+          <div className="weekly-friday-reflection__actions">
+            <button type="button" className="button button-dark" onClick={saveReflection} disabled={!reflection.trim()}><Check size={14} /> {t("Save Friday reflection", "احفظ تأمل الجمعة")}</button>
+            <Link href="/dashboard/decision-review" className="text-link">{t("Open decision review", "افتح مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
+            {reflectionSaved && <span className="inline-success"><Check size={14} /> {t("Learning carried into the decision record", "نُقل التعلم إلى سجل القرار")}</span>}
+
+            <div className="weekly-carry-forward">
+              <div><span>{t("Week close", "إغلاق الأسبوع")}</span><p>{primaryBet?.carryForward ? t("This decision will reopen as the next week’s primary bet with its current evidence and reminder.", "سيُعاد فتح هذا القرار كرهان رئيسي للأسبوع التالي مع دليله وتذكيره الحاليين.") : t("Do not silently roll unfinished work forward. Keep it in review, close it with learning, or deliberately carry the same decision into next week.", "لا ترحّل العمل غير المكتمل بصمت. أبقه في المراجعة أو أغلقه بتعلم أو رحّل القرار نفسه إلى الأسبوع التالي عن قصد.")}</p></div>{primaryBet?.carryForward ? <button type="button" className="text-link" onClick={cancelCarryForward}>{t("Keep in this week", "أبقِه في هذا الأسبوع")}</button> : <button type="button" className="button button-light" onClick={stageCarryForward}>{t("Carry into next week", "رحّله إلى الأسبوع التالي")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button>}</div>
+
+            <div className="weekly-close-learning">
+              <div><span>{t("Decision close", "إغلاق القرار")}</span><p>{t("When the week produced enough learning, close the same decision with the outcome that should govern the next move.", "عندما ينتج الأسبوع تعلما كافيا، أغلق القرار نفسه بالنتيجة التي ينبغي أن تحكم الخطوة التالية.")}</p></div>
+              <div>{outcomeOptions.map((option) => <button key={option.id} type="button" className={option.id === "keep" ? "button button-light" : "text-link"} disabled={!canClosePrimary} onClick={() => closePrimaryWithLearning(option.id)}>{t(option.label, option.labelAr)}</button>)}</div>
+            </div>
+          </div>
+        </section>
+      </>}
+
+      {closedPrimaryOutcome && <section className="weekly-primary-close-success" role="status"><Check size={16} /><div><SectionLabel>{t("Decision closed", "تم إغلاق القرار")}</SectionLabel><h2>{closedPrimaryOutcome === "keep" ? t("The approach has a clear reason to continue.", "للنهج سبب واضح للاستمرار.") : closedPrimaryOutcome === "change" ? t("The learning is now ready to change the approach.", "أصبح التعلم جاهزا لتغيير النهج.") : t("The decision is closed with its learning intact.", "أُغلق القرار مع بقاء تعلمه محفوظا.")}</h2><p>{t("The completed outcome is retained in the decision record and can be revisited from Activity or the Founder Operating Desk.", "تُحفظ النتيجة المكتملة في سجل القرار ويمكن إعادة زيارتها من النشاط أو مكتب تشغيل المؤسس.")}</p></div><Link href="/dashboard/registrations" className="button button-light">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></section>}
+
+      <section className="weekly-review-agenda" aria-label={t("Weekly decision agenda", "جدول القرارات الأسبوعي")}>
+        <div className="weekly-review-agenda__heading"><div><SectionLabel>{t("Review agenda", "جدول المراجعة")}</SectionLabel><h2>{t("Start with the next decision that could change.", "ابدأ بالقرار التالي الذي يمكن أن يتغير.")}</h2></div><Link href="/dashboard/registrations" className="text-link">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div>
+        <div>{agenda.map((record, index) => {
+          const status = reviewStatus(record, today, t);
+          const isPrimary = primaryBet?.recordId === record.id;
+          const owner = record.owner === "Founder" ? t("Founder", "المؤسس") : record.owner ?? t("Founder", "المؤسس");
+          return <article key={record.id} className={`weekly-review-row is-${status.tone} ${isPrimary ? "is-primary" : ""}`}>
+            <span className="weekly-review-row__index">{isPrimary ? <Target size={15} /> : formatNum(index + 1).padStart(2, "0")}</span>
+            <div className="weekly-review-row__main"><header><span>{isPrimary ? t("Primary bet", "الرهان الرئيسي") : status.label}</span><small>{owner}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p></div>
+            <div className="weekly-review-row__evidence"><span>{t("Evidence", "الدليل")}</span><p>{record.evidence || t("No evidence recorded. Return to capture the result while it is specific.", "لم يُسجل دليل. عد لالتقاط النتيجة بينما تظل محددة.")}</p></div>
+            <div className="weekly-review-row__actions"><Link href="/dashboard/decision-review" className="button button-ghost">{t("Review", "مراجعة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{isPrimary ? <button type="button" className="text-link" onClick={clearPrimary}>{t("Clear primary", "أزل الرهان الرئيسي")}</button> : <button type="button" className="text-link" onClick={() => choosePrimary(record.id)}>{t("Make primary", "اجعله رئيسيا")}</button>}<Link href="/dashboard/decision-accountability" className="text-link">{t("Owner & date", "المالك والتاريخ")}</Link></div>
+          </article>;
+        })}</div>
+      </section>
+    </div>
+  </ProductShell>;
 }
