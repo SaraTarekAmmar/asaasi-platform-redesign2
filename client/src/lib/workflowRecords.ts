@@ -35,6 +35,15 @@ export type OperatingPrinciple = {
   createdAt: string;
 };
 
+export type ResearchCadencePlan = {
+  primaryBetWeek: string;
+  question: string;
+  buyer: string;
+  dueDate: string;
+  responseRule: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -69,6 +78,7 @@ export type WorkflowRecord = {
   customerEvidence?: CustomerEvidence;
   marketEvidence?: MarketEvidence;
   operatingPrinciple?: OperatingPrinciple;
+  researchCadence?: ResearchCadencePlan;
   updatedAt: string;
 };
 

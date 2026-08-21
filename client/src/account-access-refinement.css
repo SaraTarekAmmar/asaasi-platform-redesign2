@@ -515,3 +515,47 @@
 [dir="rtl"] .app-product .account-flow--market .oauth-row::before { content: "الهوية لإعادة فتح خريطة الشريحة"; letter-spacing: 0; }
 @media (max-width: 900px) { .app-product .account-flow--market .account-return-object > .mono + ol { min-height: 0; } .app-product .account-flow--market .account-return-object > .mono + ol::before { display: none; } .app-product .account-flow--market .account-return-object > .mono + ol li, .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(n) { width: 100%; margin-inline-start: 0; } }
 @media (max-width: 640px) { .app-product .account-flow--market .account-form { padding-inline-start: 13px; } .app-product .account-flow--market .account-route-rail { margin-inline-start: -13px; padding-inline-start: 13px; } .app-product .account-flow--market .account-route-rail > div { grid-template-columns: 96px minmax(0,1fr); } }
+
+/* Protected-return composition refinement: each destination restores its own work before identity, using linear evidence geometry only. */
+.app-product .account-flow--workspace .account-visual h1,
+.app-product .account-flow--weekly-review .account-visual h1,
+.app-product .account-flow--customer .account-visual h1 { text-wrap: balance; line-height: 1.02; }
+.app-product .account-flow--workspace .account-return-object { max-width: 43rem; min-height: 294px; padding: 1.4rem 1.5rem 1.2rem; border-top: 2px solid #f6c915; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--workspace .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol { grid-template-columns: 1.1fr .78fr 1.05fr; min-height: 176px; padding-top: 1rem; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li { position: relative; min-height: 142px; padding: .65rem .75rem; border-inline-end: 1px solid rgba(223,227,234,.18); background: linear-gradient(180deg, rgba(251,251,248,.035), transparent 58%); }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1) { border-top: 2px solid #f6c915; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(2) { align-self: end; min-height: 110px; background: rgba(202,165,21,.045); }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(3) { border-bottom: 2px solid rgba(202,165,21,.68); }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li::after { display: block; margin-top: 7px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; content: ""; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1)::after { content: "OPEN REQUESTS + WORKING EVIDENCE"; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(2)::after { content: "CONFIRM THE FOUNDER RECORD"; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DECISION ALREADY IN MOTION"; }
+.app-product .account-flow--weekly-review .account-return-object { max-width: 43rem; min-height: 326px; padding: 1.45rem 1.5rem; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 64%); }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol { min-height: 224px; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(1) { width: 72%; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { width: 86%; margin-inline-start: 7%; border-top: 2px solid #f6c915; background: rgba(251,251,248,.035); }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3) { width: 100%; margin-inline-start: 0; background: linear-gradient(90deg, rgba(202,165,21,.07), transparent 72%); }
+.app-product .account-flow--customer .account-return-object { max-width: 43rem; min-height: 316px; padding: 1.45rem 1.5rem; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(180deg, rgba(7,27,61,.02), transparent); }
+.app-product .account-flow--customer .account-return-object > .mono + ol { display: grid; grid-template-columns: .78fr 1.3fr .92fr; min-height: 202px; padding-top: 1rem; }
+.app-product .account-flow--customer .account-return-object > .mono + ol li { min-height: 154px; padding: .7rem .75rem; border-inline-end: 1px solid rgba(223,227,234,.18); }
+.app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1) { align-self: end; min-height: 108px; border-top: 2px solid rgba(223,227,234,.48); }
+.app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top: 2px solid #f6c915; background: rgba(202,165,21,.05); }
+.app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { align-self: start; min-height: 124px; border-bottom: 2px solid rgba(202,165,21,.72); }
+.app-product .account-flow--workspace .account-form,
+.app-product .account-flow--weekly-review .account-form,
+.app-product .account-flow--customer .account-form { background: linear-gradient(90deg, rgba(7,27,61,.024), transparent 74%); }
+.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "WORKSPACE IDENTITY / RETURN LEDGER"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--workspace .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 58%); }
+.app-product .account-flow--workspace .account-route-rail > div { min-height: 46px; grid-template-columns: 112px minmax(0,1fr); }
+.app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--workspace .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.035); }
+.app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--workspace .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY TO RESUME THE DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+[dir="rtl"] .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1)::after { content: "طلبات مفتوحة ودليل عمل"; }
+[dir="rtl"] .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(2)::after { content: "أكد سجل المؤسس"; }
+[dir="rtl"] .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(3)::after { content: "استأنف القرار الجاري بالفعل"; }
+[dir="rtl"] .app-product .account-flow--workspace .account-form::after { content: "هوية مساحة العمل / سجل العودة"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--workspace .oauth-row::before { content: "الهوية لاستئناف القرار"; letter-spacing: 0; }
+@media (max-width: 900px) { .app-product .account-flow--workspace .account-return-object > .mono + ol, .app-product .account-flow--customer .account-return-object > .mono + ol { grid-template-columns: 1fr; min-height: 0; } .app-product .account-flow--workspace .account-return-object > .mono + ol li, .app-product .account-flow--customer .account-return-object > .mono + ol li, .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(n) { width: 100%; min-height: 0; margin-inline-start: 0; } }
+@media (max-width: 640px) { .app-product .account-flow--workspace .account-form { padding-inline-start: 13px; } .app-product .account-flow--workspace .account-route-rail { margin-inline-start: -13px; padding-inline-start: 13px; } .app-product .account-flow--workspace .account-route-rail > div { grid-template-columns: 96px minmax(0,1fr); } }

@@ -859,9 +859,16 @@
 
 ## Founder Learning Archive and Operating-Principle Reflection
 
-- [ ] Benchmark experiment-learning archives, decision-review systems, and founder reflection workflows for reusable keep, change, and stop learning.
 - [x] Benchmark experiment-learning archives, decision-review systems, and founder reflection workflows for reusable keep, change, and stop learning.
 - [x] Audit workflow records, Activity, Decision Review, and Weekly Review for disconnected cross-tool learning and weak principle reuse.
 - [x] Build a bilingual founder learning archive that compares completed evidence decisions by outcome and retains their original test context.
 - [x] Add a bounded monthly operating-principle reflection that turns one completed outcome into a reusable founder rule without claiming certainty.
 - [x] Validate English and Arabic RTL flows, type safety, production build, persistent records, responsive states, and checkpoint the enhancement.
+
+## Research Cadence and Event Follow-Through
+
+- [x] Benchmark founder research-cadence, event follow-through, and decision-linked conversation workflows for practical recurrence patterns.
+- [x] Audit Weekly Review, Customer Evidence, Event preparation, and Activity for missing prompts that turn a primary bet into the next research conversation.
+- [x] Build a bilingual, bounded research-cadence prompt linked to the active primary bet and save the founder’s chosen conversation plan as a dated workflow decision.
+- [x] Strengthen the Events outcome path where it improves the selected research-cadence loop, without modifying the landing page.
+- [x] Validate English and Arabic RTL, persistence, type safety, production build, representative user journeys, and responsive states before checkpointing.

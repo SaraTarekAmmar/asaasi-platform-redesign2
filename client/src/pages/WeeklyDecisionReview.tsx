@@ -27,6 +27,12 @@ function reviewStatus(record: WorkflowRecord, today: string, t: (en: string, ar:
   return { label: record.reviewDue ? t(`Due ${record.reviewDue}`, `مستحق ${record.reviewDue}`) : t("Set a review date", "حدد تاريخ المراجعة"), tone: "open" };
 }
 
+function researchCadenceDueDate(weekStart?: string) {
+  const date = new Date(`${weekStart ?? getWeekStart()}T12:00:00`);
+  date.setDate(date.getDate() + 4);
+  return date.toISOString().slice(0, 10);
+}
+
 export function WeeklyDecisionReviewWorkspace() {
   const { t, formatNum, isRTL } = useLocale();
   const [records, setRecords] = useState(() => getWorkflowRecords());
@@ -36,6 +42,11 @@ export function WeeklyDecisionReviewWorkspace() {
   const [reflectionSaved, setReflectionSaved] = useState(false);
   const [weekIntentSaved, setWeekIntentSaved] = useState(false);
   const [closedPrimaryOutcome, setClosedPrimaryOutcome] = useState<PrimaryOutcome | null>(null);
+  const [researchQuestion, setResearchQuestion] = useState("");
+  const [researchBuyer, setResearchBuyer] = useState("");
+  const [researchDueDate, setResearchDueDate] = useState("");
+  const [researchResponseRule, setResearchResponseRule] = useState("");
+  const [researchSaved, setResearchSaved] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
   const decisions = records.filter((record) => record.kind === "decision");
   const agenda = decisions
@@ -44,6 +55,8 @@ export function WeeklyDecisionReviewWorkspace() {
   const overdue = agenda.filter((record) => record.reviewDue && record.reviewDue < today);
   const dueThisWeek = agenda.filter((record) => record.reviewDue && record.reviewDue >= today && record.reviewDue <= new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10));
   const primaryRecord = decisions.find((record) => record.id === primaryBet?.recordId);
+  const candidateResearchCadence = primaryRecord?.researchCadence;
+  const activeResearchCadence = candidateResearchCadence?.primaryBetWeek === primaryBet?.weekStart ? candidateResearchCadence : undefined;
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
   const canClosePrimary = Boolean(reflection.trim() || primaryRecord?.weeklyReflection || primaryRecord?.evidence);
   const repeatedDeferral = (primaryBet?.carryCount ?? 0) >= 2;
@@ -57,8 +70,15 @@ export function WeeklyDecisionReviewWorkspace() {
   useEffect(() => {
     setReflection(primaryRecord?.weeklyReflection ?? "");
     setWeekIntent(primaryBet?.weekIntent ?? "");
+    const cadence = primaryRecord?.researchCadence;
+    const currentCadence = cadence?.primaryBetWeek === primaryBet?.weekStart ? cadence : undefined;
+    setResearchQuestion(currentCadence?.question ?? "");
+    setResearchBuyer(currentCadence?.buyer ?? "");
+    setResearchDueDate(currentCadence?.dueDate ?? researchCadenceDueDate(primaryBet?.weekStart));
+    setResearchResponseRule(currentCadence?.responseRule ?? "");
     setReflectionSaved(false);
     setWeekIntentSaved(false);
+    setResearchSaved(false);
     setClosedPrimaryOutcome(null);
   }, [primaryRecord?.id, primaryBet?.weekStart]);
 
@@ -141,6 +161,23 @@ export function WeeklyDecisionReviewWorkspace() {
     setReflectionSaved(true);
   };
 
+  const saveResearchCadence = () => {
+    if (!primaryRecord || !primaryBet || !researchQuestion.trim() || !researchBuyer.trim() || !researchDueDate || !researchResponseRule.trim()) return;
+    upsertWorkflowRecord({
+      ...primaryRecord,
+      researchCadence: {
+        primaryBetWeek: primaryBet.weekStart,
+        question: researchQuestion.trim(),
+        buyer: researchBuyer.trim(),
+        dueDate: researchDueDate,
+        responseRule: researchResponseRule.trim(),
+        createdAt: primaryRecord.researchCadence?.primaryBetWeek === primaryBet.weekStart ? primaryRecord.researchCadence.createdAt : new Date().toISOString(),
+      },
+    });
+    setRecords(getWorkflowRecords());
+    setResearchSaved(true);
+  };
+
   const closePrimaryWithLearning = (outcome: PrimaryOutcome) => {
     if (!primaryRecord) return;
     const learning = reflection.trim() || primaryRecord.weeklyReflection || primaryRecord.evidence;
@@ -217,6 +254,12 @@ export function WeeklyDecisionReviewWorkspace() {
             {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
             <div className="weekly-primary-reminder"><span>{t("Desk reminder", "تذكير المكتب")}</span><div><button type="button" className={primaryBet?.reminderDay === "tuesday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "tuesday" ? undefined : "tuesday")}>{t("Tuesday check-in", "مراجعة الثلاثاء")}</button><button type="button" className={primaryBet?.reminderDay === "thursday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "thursday" ? undefined : "thursday")}>{t("Thursday check-in", "مراجعة الخميس")}</button></div><button type="button" className="text-link" onClick={downloadPrimaryBetCalendar}><CalendarPlus size={13} /> {t("Download calendar reminder", "نزّل تذكير التقويم")}</button></div>
           </div>
+        </section>
+
+        <section className="weekly-research-cadence" aria-labelledby="weekly-research-cadence-title">
+          <div className="weekly-research-cadence__intro"><SectionLabel>{t("Research cadence", "إيقاع البحث")}</SectionLabel><h2 id="weekly-research-cadence-title">{t("Let one customer conversation reduce this bet’s uncertainty.", "دع محادثة عميل واحدة تقلل عدم يقين هذا الرهان.")}</h2><p>{t("Plan one short conversation or evidence move tied to the primary bet. This is a dated learning move, not a promise that the buyer will respond.", "خطط لمحادثة قصيرة واحدة أو خطوة دليل مرتبطة بالرهان الرئيسي. هذه خطوة تعلم مؤرخة، وليست وعدا بأن المشتري سيرد.")}</p></div>
+          <form onSubmit={(event) => { event.preventDefault(); saveResearchCadence(); }} className="weekly-research-cadence__form"><label>{t("Focused question", "السؤال المركّز")}<textarea value={researchQuestion} onChange={(event) => { setResearchQuestion(event.target.value); setResearchSaved(false); }} placeholder={t("What customer fact could change this week’s approach?", "ما حقيقة العميل التي يمكن أن تغيّر نهج هذا الأسبوع؟")} required /></label><label>{t("Buyer context", "سياق المشتري")}<input value={researchBuyer} onChange={(event) => { setResearchBuyer(event.target.value); setResearchSaved(false); }} placeholder={t("Who has the relevant recent experience?", "من لديه الخبرة الحديثة ذات الصلة؟")} required /></label><label>{t("By when", "بحلول متى")}<input type="date" min={today} value={researchDueDate} onChange={(event) => { setResearchDueDate(event.target.value); setResearchSaved(false); }} required /></label><label>{t("Response that changes the bet", "الاستجابة التي تغيّر الرهان")}<textarea value={researchResponseRule} onChange={(event) => { setResearchResponseRule(event.target.value); setResearchSaved(false); }} placeholder={t("Name the observable reply or behavior that would keep, change, or stop the approach.", "سمِ الرد أو السلوك الملحوظ الذي سيبقي النهج أو يغيره أو يوقفه.")} required /></label><div className="weekly-research-cadence__actions"><button type="submit" className="button button-dark"><Check size={14} /> {t("Save research move", "احفظ خطوة البحث")}</button>{researchSaved && <span className="inline-success"><Check size={14} /> {t("Research plan saved with this primary bet", "حُفظت خطة البحث مع هذا الرهان الرئيسي")}</span>}{activeResearchCadence && <Link href={`/tools/customer-evidence?primaryBet=${encodeURIComponent(primaryRecord.id)}`} className="button button-light">{t("Capture customer evidence", "التقط دليل العميل")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link>}</div></form>
+          {activeResearchCadence && <aside className="weekly-research-cadence__saved"><span className="mono">{t("SAVED RESEARCH MOVE", "خطوة البحث المحفوظة")}</span><strong>{activeResearchCadence.question}</strong><p>{t("Buyer: ", "المشتري: ")}{activeResearchCadence.buyer} · {t("Due: ", "الموعد: ")}{activeResearchCadence.dueDate}</p><p>{t("Decision rule: ", "قاعدة القرار: ")}{activeResearchCadence.responseRule}</p></aside>}
         </section>
 
         <section className="weekly-friday-reflection">
