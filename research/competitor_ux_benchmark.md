@@ -257,6 +257,14 @@ The ASaaSI adaptation should turn positioning into one narrow message experiment
 
 The selected adaptation is now implemented. Positioning Evidence now records a named buyer, current alternative, live challenge, outcome claim, factual proof, exact buyer phrasing, one message variant, and a response threshold. It keeps the buyer’s wording alongside the alternative and proof, treats the result as a narrow message test rather than evidence of broad demand, and saves the positioned frame with a seven-day review to Activity. Protected access now restores an Alternative → Value → Frame test ledger in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
 
+## Customer interview facts and action validation: current benchmark, August 2026
+
+Strategyzer warns that interviews fail when founders substitute opinions for facts and recommends asking for the last concrete instance, measurable success or failure criteria, and deeper evidence rather than future preference.[58] Dave Bailey similarly recommends studying past behavior through a walk-through of the last time an activity happened, including trigger, context, actions, alternatives, and what occurred afterward, rather than using generic or hypothetical questions.[59] Kromatic recommends turning interviews into action by tagging recurring themes across notes, retaining the decision-maker’s direct context, and moving from recurring evidence into a lean experiment rather than letting raw notes become an unacted-on archive.[60]
+
+The ASaaSI adaptation should make each customer conversation a single factual evidence record. It should require the named buyer context, last concrete instance, trigger, current workaround, direct quote, measurable success criterion, one action that asks for meaningful commitment, and a dated response rule. It should preserve qualitative detail and distinguish stated interest from the action observed, then save an explicit keep, refine, or stop decision into the shared workflow record.
+
+The selected adaptation is now implemented. Customer Evidence now records a named buyer context, past concrete instance, trigger, current workaround, direct quote, buyer-defined success criterion, one meaningful action, and an observable response rule. It makes the past behavior and exact buyer language visible together, distinguishes stated interest from an observed commitment, and saves the validation action with a seven-day review to Activity. Protected access now restores an Assumption → Customer language → Commitment ledger in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -316,3 +324,6 @@ The selected adaptation is now implemented. Positioning Evidence now records a n
 [55]: https://www.strategyzer.com/library/ways-to-test-your-value-proposition-and-business-model "Ways to Test Your Value Proposition and Business Model"
 [56]: https://openstrategypartners.com/blog/value-proposition-vs-positioning-statement/ "Value Prop. vs. Positioning Statement"
 [57]: https://discover.gtmplaybook.co/b2b-saas-positioning "B2B SaaS Positioning: A Practical Guide for Product Marketers"
+[58]: https://www.strategyzer.com/library/the-one-biggest-error-in-customer-interviews-mistaking-opinions-for-facts "The One Biggest Error in Customer Interviews: Mistaking Opinions for Facts"
+[59]: https://www.dave-bailey.com/blog/customer-interviews "What You Should Never Ask Your Customers"
+[60]: https://kromatic.com/blog/actioning-customer-discovery-interviews/ "How to Turn Customer Discovery Interviews Into Action"
