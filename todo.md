@@ -899,4 +899,5 @@
 - [x] Benchmark experiment reuse, retrospective summaries, and founder evidence-review workflows for preserving prior context without cloning stale assumptions.
 - [x] Audit decision comparison, Activity, and tool routes for missing handoffs that turn retained learning into a fresh bounded test.
 - [x] Build a bilingual reusable-experiment handoff that carries selected prior context into a founder-owned new test without copying outcome claims or thresholds.
+- [x] Build a bilingual monthly evidence-review digest that surfaces overdue, upcoming, and undated open decisions with their retained source context and direct recovery paths.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.

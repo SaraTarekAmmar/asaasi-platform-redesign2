@@ -971,6 +971,48 @@
 .app-product .decision-comparison-desk__grid dd { margin: 0; color: #53627a; font: 12px/1.5 "DM Sans",sans-serif; white-space: pre-wrap; }
 .app-product .decision-comparison-desk__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; padding-top: 2px; }
 .app-product .decision-comparison-desk__actions .button { font-size: 10px; }
+
+/* Monthly Evidence Review Digest: source-led review lanes retain due date, provenance, and recovery without scoring or decorative shapes. */
+.app-product .monthly-evidence-digest { margin: 34px 0; padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(7,27,61,.12); border-radius: 22px; background: rgba(255,255,255,.72); box-shadow: 0 12px 32px rgba(7,27,61,.045); }
+.app-product .monthly-evidence-digest__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 28px; align-items: end; }
+.app-product .monthly-evidence-digest__heading > div { max-width: 700px; }
+.app-product .monthly-evidence-digest h2 { max-width: 18ch; margin: 8px 0 10px; color: #071b3d; font: 500 clamp(25px,3.15vw,40px)/1.05 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .monthly-evidence-digest h3 { margin: 8px 0; color: #071b3d; font: 500 clamp(19px,2.15vw,28px)/1.12 "Manrope",sans-serif; letter-spacing: -.048em; }
+.app-product .monthly-evidence-digest p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; }
+.app-product .monthly-evidence-digest__heading > dl { display: grid; grid-template-columns: repeat(3,minmax(74px,1fr)); gap: 0; margin: 0; border-inline-start: 1px solid rgba(7,27,61,.12); }
+.app-product .monthly-evidence-digest__heading > dl > div { min-width: 80px; padding-inline-start: 16px; border-inline-end: 1px solid rgba(7,27,61,.12); }
+.app-product .monthly-evidence-digest__heading dt { color: #6a7688; font: 600 8px/1.3 "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .monthly-evidence-digest__heading dd { margin: 7px 0 0; color: #071b3d; font: 500 28px/1 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .monthly-evidence-digest__boundary { display: grid; grid-template-columns: 130px minmax(0,1fr); gap: 14px; margin-top: 24px; padding: 12px 0 12px 14px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; }
+.app-product .monthly-evidence-digest__boundary .mono, .app-product .monthly-evidence-digest__lane-intro .mono { color: #8c7110; font-size: 9px; letter-spacing: .1em; }
+.app-product .monthly-evidence-digest__lanes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin-top: 24px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .monthly-evidence-digest__lane { min-width: 0; padding: 20px; border-inline-end: 1px solid #dfe3ea; }
+.app-product .monthly-evidence-digest__lane:last-child { border-inline-end: 0; }
+.app-product .monthly-evidence-digest__lane.is-overdue { border-top: 3px solid #9b3a30; }
+.app-product .monthly-evidence-digest__lane.is-upcoming { border-top: 3px solid #caa515; }
+.app-product .monthly-evidence-digest__lane.is-undated { border-top: 3px solid #53627a; }
+.app-product .monthly-evidence-digest__lane-intro { min-height: 148px; padding-bottom: 16px; border-bottom: 1px solid #dfe3ea; }
+.app-product .monthly-evidence-digest__records { display: grid; gap: 0; }
+.app-product .monthly-evidence-digest__records > article { display: grid; gap: 9px; padding: 16px 0; border-bottom: 1px solid #dfe3ea; }
+.app-product .monthly-evidence-digest__records > article:last-child { border-bottom: 0; }
+.app-product .monthly-evidence-digest__records header { display: flex; justify-content: space-between; gap: 10px; align-items: start; }
+.app-product .monthly-evidence-digest__records header span { color: #8c7110; font: 600 8px/1.3 "DM Sans",sans-serif; letter-spacing: .075em; text-transform: uppercase; }
+.app-product .monthly-evidence-digest__records header strong { max-width: 12ch; color: #53627a; font: 600 9px/1.4 "DM Sans",sans-serif; text-align: end; }
+.app-product .monthly-evidence-digest__records h4 { margin: 0; color: #071b3d; font: 600 14px/1.3 "DM Sans",sans-serif; }
+.app-product .monthly-evidence-digest__records > article > p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.app-product .monthly-evidence-digest__records dl { display: grid; gap: 8px; margin: 0; padding: 10px 0; border-top: 1px solid rgba(7,27,61,.09); border-bottom: 1px solid rgba(7,27,61,.09); }
+.app-product .monthly-evidence-digest__records dl > div { display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 9px; }
+.app-product .monthly-evidence-digest__records dt { color: #788396; font: 600 8px/1.35 "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .monthly-evidence-digest__records dd { margin: 0; color: #53627a; font: 500 10px/1.45 "DM Sans",sans-serif; }
+.app-product .monthly-evidence-digest__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
+.app-product .monthly-evidence-digest__actions .button { border-radius: 8px; padding: 8px 10px; font-size: 10px; }
+.app-product .monthly-evidence-digest__actions .text-link { font-size: 10px; }
+.app-product .monthly-evidence-digest__empty { display: grid; align-content: center; gap: 7px; min-height: 168px; }
+.app-product .monthly-evidence-digest__empty strong { color: #071b3d; font: 600 12px/1.4 "DM Sans",sans-serif; }
+.app-product .monthly-evidence-digest > footer { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-top: 24px; padding-top: 17px; border-top: 1px solid #dfe3ea; }
+.app-product .monthly-evidence-digest > footer p { max-width: 720px; }
+@media (max-width: 900px) { .app-product .monthly-evidence-digest__heading { grid-template-columns: 1fr; } .app-product .monthly-evidence-digest__heading > dl { width: 100%; max-width: 360px; } .app-product .monthly-evidence-digest__lanes { grid-template-columns: 1fr; } .app-product .monthly-evidence-digest__lane { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .app-product .monthly-evidence-digest__lane:last-child { border-bottom: 0; } .app-product .monthly-evidence-digest__lane-intro { min-height: 0; } .app-product .monthly-evidence-digest__empty { min-height: 86px; } }
+@media (max-width: 640px) { .app-product .monthly-evidence-digest { margin: 24px 0; padding: 20px 16px; border-radius: 18px; } .app-product .monthly-evidence-digest__heading > dl > div { min-width: 0; padding-inline-start: 11px; } .app-product .monthly-evidence-digest__boundary { grid-template-columns: 1fr; } .app-product .monthly-evidence-digest__records header { display: grid; } .app-product .monthly-evidence-digest__records header strong { max-width: none; text-align: start; } .app-product .monthly-evidence-digest > footer { display: grid; align-items: start; } }
 .locale-ar .app-product .cross-tool-decision-archive__comparison-prompt strong { padding-inline-start: 0; padding-inline-end: 14px; border-inline-start: 0; border-inline-end: 1px solid #dfe3ea; }
 .locale-ar .app-product .decision-comparison-desk__rule { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
 .locale-ar .app-product .decision-comparison-desk__grid article { padding-inline-start: 20px; padding-inline-end: 18px; border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; border-inline-end: 2px solid transparent; }
