@@ -784,3 +784,10 @@
 - [x] Audit the existing ASaaSI tests and tools for weak inputs, generic outputs, missing calculations, and disconnected next actions.
 - [x] Rebuild the highest-impact assessment or workbench into a bilingual evidence-to-next-action flow without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## SaaS Health Cohort Signal and Intervention
+
+- [x] Benchmark current SaaS health, retention, and cohort tools for concrete diagnostics and prioritised intervention selection.
+- [x] Audit the existing ASaaSI SaaS health and retention routes for weak inputs, unclear diagnosis, and missing intervention follow-through.
+- [x] Rebuild the SaaS health route into a bilingual cohort-signal and intervention decision workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

@@ -201,6 +201,14 @@ The ASaaSI gap is not more generic quizzes. Its existing tests and tools need to
 
 The selected adaptation is now implemented in the pricing workbench. The former two-choice, generic brief has been replaced with a real buyer, alternative, observable promise, currency, monthly-price, qualified-conversation, and expected-close-rate input set. It calculates an explicit offer scenario, including expected customers and projected MRR, but clearly labels the result as a working scenario rather than a demand or revenue guarantee. It then establishes a seven-day decision rule based on explicit price responses, saves the buyer, evidence, scenario, next action, and review date as a shared decision record, and offers an export or a direct route to a pricing operator. The authenticated English Arabic RTL workbench opened cleanly; TypeScript and production builds passed. The landing page remains unchanged.
 
+## SaaS health cohort signals and intervention selection: current benchmark, August 2026
+
+ChurnZero frames a health score as a combination of quantitative behavior and qualitative context, then uses it to segment accounts, prioritize renewals, trigger proactive engagement, and identify expansion opportunities.[37] It recommends five to seven weighted inputs and emphasizes that lifecycle phase changes which signals are relevant. Vitally argues for an even more explainable starting model: product setup, meaningful product usage, sentiment, and a human success pulse, with trends and segment-specific thresholds rather than a static or over-engineered score.[38] Its documentation makes the mechanics transparent: conditions yield 0, 5, or 10 points, category weights add to 100%, unknown fields are handled visibly, and a weighted score maps to poor, concerning, or healthy states.[39]
+
+The ASaaSI health tool should adapt the transparency, not impersonate a customer-success platform. It should ask for one lifecycle cohort, a small four-signal data set, and an observed direction of change. It should calculate an explainable 0–10 cohort signal from only the values supplied, identify the weakest named component, and connect that weakness to one selectable, cohort-sized intervention plus a seven-day review rule. It must preserve both the measurements and the founder’s qualitative note in a shared decision record so the founder can learn whether the intervention moved a customer-relevant behavior.
+
+The selected adaptation is now implemented. The SaaS Health route now asks for one named lifecycle cohort, setup completion, meaningful weekly usage, customer sentiment, founder operating pulse, direction of change, a qualitative account note, one reversible intervention, and the exact cohort behavior expected to change. Its clear model weights setup at 20%, meaningful usage at 40%, sentiment at 20%, and founder pulse at 20%; percentage inputs resolve against visible 50% and 80% thresholds, while the two 0–10 inputs are used directly. The result identifies the health state and weakest component, states the calculation, creates a seven-day keep/refine/stop decision rule, and saves the full context in Activity. The protected return was refined into a dedicated Cohort signal → Weakest component → Seven-day test ledger, using linear saffron rules and numerals rather than circles or rings. TypeScript and production builds passed; authenticated Arabic RTL, desktop, and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -239,3 +247,6 @@ The selected adaptation is now implemented in the pricing workbench. The former 
 [34]: https://tools.saasclub.io/ "SaaS Club Tools"
 [35]: https://www.saaspricelab.com/saas-health-check "SaaSPriceLab Health Check"
 [36]: https://saaspricelab.com/ "SaaSPriceLab Founder Decision Platform"
+[37]: https://churnzero.com/churnopedia/health-score/ "ChurnZero Customer Health Score"
+[38]: https://www.vitally.io/post/how-to-create-a-customer-health-score-with-four-metrics "Vitally Four Key Health Metrics"
+[39]: https://docs.vitally.io/en/articles/9901284-health-scores "Vitally Health Scores Documentation"
