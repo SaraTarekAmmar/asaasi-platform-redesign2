@@ -5,6 +5,8 @@ export type WeeklyPrimaryBet = {
   selectedAt: string;
   completedAt?: string;
   reminderDay?: "tuesday" | "thursday";
+  carryForward?: boolean;
+  carriedFromWeekStart?: string;
 };
 
 const STORAGE_KEY = "asaasi-weekly-primary-bet";
@@ -21,7 +23,14 @@ export function getWeeklyPrimaryBet(): WeeklyPrimaryBet | null {
   if (typeof window === "undefined") return null;
   try {
     const saved = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "null") as WeeklyPrimaryBet | null;
-    return saved?.weekStart === getWeekStart() ? saved : null;
+    const currentWeek = getWeekStart();
+    if (saved?.weekStart === currentWeek) return saved;
+    if (saved?.carryForward) {
+      const carried: WeeklyPrimaryBet = { recordId: saved.recordId, weekStart: currentWeek, selectedAt: new Date().toISOString(), reminderDay: saved.reminderDay, carriedFromWeekStart: saved.weekStart };
+      persist(carried);
+      return carried;
+    }
+    return null;
   } catch {
     return null;
   }
@@ -51,6 +60,22 @@ export function setWeeklyPrimaryBetReminder(reminderDay?: WeeklyPrimaryBet["remi
   const current = getWeeklyPrimaryBet();
   if (!current) return null;
   const value = { ...current, reminderDay };
+  persist(value);
+  return value;
+}
+
+export function stageWeeklyPrimaryBetCarryForward() {
+  const current = getWeeklyPrimaryBet();
+  if (!current) return null;
+  const value = { ...current, carryForward: true };
+  persist(value);
+  return value;
+}
+
+export function cancelWeeklyPrimaryBetCarryForward() {
+  const current = getWeeklyPrimaryBet();
+  if (!current) return null;
+  const value = { ...current, carryForward: undefined };
   persist(value);
   return value;
 }

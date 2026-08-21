@@ -137,6 +137,16 @@ The selected Founder Operating Desk timeline reads only existing records that al
 
 The final implementation presents up to four of the most recent retained outcomes, labeling each as decision learning, community learning, connection outcome, or event outcome and routing directly to the existing source record. The protected dashboard’s desktop and 375px Arabic RTL states were reviewed after the change and retained the established return-desk hierarchy. The independent visual review found the landing-derived editorial system consistent and recommended shipping without further composition changes.
 
+## Primary-bet recovery and carry-forward: current benchmark, August 2026
+
+Sunsama’s current rollover guidance preserves incomplete work automatically but pulls repeatedly deferred items into a visible archive until a person deliberately moves, completes, or removes them.[20] Fellow’s current workflow centers the opposite half of the problem: it keeps meeting insights, decisions, and action items connected so a follow-up is a continuation of the original context rather than a static recap.[21]
+
+For ASaaSI, the useful adaptation is a founder-controlled week-close decision for an unfinished primary bet. Rather than silently rolling the bet forward or clearing it as failed, the founder should choose to carry its existing decision record into the next week, return it to ordinary review, or close it with learning. The action must retain the existing decision evidence, owner, reminder, and Friday reflection instead of creating a clone.
+
+The selected implementation keeps the carry-forward decision conditional on an existing primary bet. Authenticated English and Arabic RTL Weekly Review states with no active bet were checked and retain their compact agenda hierarchy without an irrelevant recovery control. The carry-forward path preserves the same record identifier and reminder configuration, while a next-week read creates a new weekly selection that explicitly names the prior week of origin.
+
+The completed carry-forward action now gives founders a clear week-close choice inside Friday reflection: preserve the decision as next week’s primary bet or keep it in the current review. The original record, next action, owner, evidence, reminder, and saved reflection remain intact. The associated protected Weekly Review return was refined into a linear route-state desk with a stronger form-side cadence ledger. Desktop and 375px Arabic RTL views were verified after the refinement. Suggestions to add rings were not adopted because they conflict with ASaaSI’s explicit no-circle requirement.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -158,3 +168,5 @@ The final implementation presents up to four of the most recent retained outcome
 [17]: https://mentorloop.com/blog/improve-mentoring-program/ "How to Improve a Mentoring Program"
 [18]: https://www.todoist.com/productivity-methods/weekly-review "The Weekly Review: A Productivity Ritual to Get More Done"
 [19]: https://www.togetherplatform.com/blog/examples-of-mentoring-program-goals "15 Mentoring Program Goals & Examples for 2026"
+[20]: https://help.sunsama.com/docs/getting-started/basics/task-rollover-and-recurring-tasks-the-basics/ "Task rollover: the basics"
+[21]: https://fellow.ai/ "Fellow AI Meeting Assistant"

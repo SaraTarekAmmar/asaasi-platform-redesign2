@@ -262,6 +262,7 @@
 .app-product .weekly-primary-bet h2, .app-product .founder-desk-weekly-bet h2 { max-width: 650px; margin: 8px 0; color: #071b3d; font: 500 clamp(25px,3vw,37px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
 .app-product .weekly-primary-bet p, .app-product .founder-desk-weekly-bet p { max-width: 720px; margin: 0; color: #53627a; line-height: 1.6; }
 .app-product .founder-desk-weekly-bet__reminder { margin-top: 10px !important; color: #8c7110 !important; font: 600 10px "DM Sans",sans-serif; letter-spacing: .04em; }
+.app-product .weekly-primary-bet__carry-note { margin-top: 10px !important; color: #8c7110 !important; font: 600 11px/1.55 "DM Sans",sans-serif; }
 .app-product .weekly-primary-bet__actions, .app-product .founder-desk-weekly-bet > div:last-child { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; }
 .app-product .weekly-primary-reminder { display: flex; align-items: center; gap: 10px; width: 100%; padding-top: 12px; border-top: 1px solid rgba(7,27,61,.12); color: #6d7889; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
 .app-product .weekly-primary-reminder > div { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -276,6 +277,10 @@
 .app-product .weekly-friday-reflection textarea { min-height: 112px; box-sizing: border-box; width: 100%; resize: vertical; border: 1px solid rgba(7,27,61,.16); border-radius: 12px; background: #fbfbf8; padding: 12px; color: #071b3d; font: 13px/1.55 "DM Sans", sans-serif; outline: none; }
 .app-product .weekly-friday-reflection textarea:focus { border-color: #caa515; box-shadow: 0 0 0 3px rgba(202,165,21,.12); }
 .app-product .weekly-friday-reflection__actions { grid-column: 2; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.app-product .weekly-carry-forward { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; align-items: center; width: 100%; margin-top: 4px; padding-top: 14px; border-top: 1px solid rgba(7,27,61,.12); }
+.app-product .weekly-carry-forward span { display: block; margin-bottom: 4px; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .weekly-carry-forward p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
+.app-product .weekly-carry-forward .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; white-space: nowrap; }
 .app-product .founder-desk-reflection { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(7,27,61,.1); }
 .app-product .founder-desk-reflection .mono { color: #8c7110; font-size: 9px; }
 .app-product .founder-desk-reflection p { margin: 6px 0 0; color: #53627a; font-size: 13px; line-height: 1.6; }
@@ -396,6 +401,7 @@
   .app-product .weekly-primary-bet, .app-product .founder-desk-weekly-bet { align-items: flex-start; flex-direction: column; }
   .app-product .weekly-friday-reflection { grid-template-columns: 1fr; }
   .app-product .weekly-friday-reflection__actions { grid-column: 1; }
+  .app-product .weekly-carry-forward { grid-template-columns: 1fr; align-items: start; }
   .app-product .activity-learning-summary__metrics { gap: 8px; }
   .app-product .activity-learning-ledger__heading { display: grid; align-items: start; }
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }

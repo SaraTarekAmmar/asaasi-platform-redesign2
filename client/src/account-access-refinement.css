@@ -117,6 +117,18 @@
 [dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3)::after { content: "انقل تعلم الجمعة إلى الخطوة التالية"; }
 .app-product .account-flow--weekly-review .account-route-rail { margin-top: 24px; border-inline-start-width: 2px; }
 .app-product .account-flow--weekly-review .account-route-rail > div:first-child strong, .app-product .account-flow--weekly-review .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--weekly-review .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
+.app-product .account-flow--weekly-review .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .account-route-rail { position: relative; margin-inline-start: -18px; padding-inline-start: 18px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
+.app-product .account-flow--weekly-review .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
+.app-product .account-flow--weekly-review .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--weekly-review .account-route-rail > div:last-child { background: rgba(7,27,61,.028); }
+.app-product .account-flow--weekly-review .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .account-form > label { display: grid; gap: 7px; padding-block: 9px; border-bottom: 1px solid rgba(223,227,234,.78); }
+.app-product .account-flow--weekly-review .account-form > label input { border-radius: 10px; box-shadow: none; }
+.app-product .account-flow--weekly-review .form-inline { padding-top: 10px; }
+.app-product .account-flow--weekly-review .button.full { margin-top: 14px; }
 
 /* Signup records the four founder signals that change the workspace; the active signal carries a narrow saffron state rather than a broad fill. */
 .app-product .signup-aside .signup-trail {
@@ -207,6 +219,9 @@
   .app-product .account-flow--network .account-return-object > .mono + ol { grid-template-columns: 1fr; }
   .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 52px; padding: .65rem 0; border-inline-end: 0; border-top: 1px solid rgba(223, 227, 234, 0.2); }
   .app-product .account-flow--network .account-return-object > .mono + ol li strong { display: inline-block; margin: 0 0 0 .6rem; }
+  .app-product .account-flow--weekly-review .account-form { padding-inline-start: 13px; }
+  .app-product .account-flow--weekly-review .account-route-rail { margin-inline-start: -13px; padding-inline-start: 13px; }
+  .app-product .account-flow--weekly-review .account-route-rail > div { grid-template-columns: 90px minmax(0,1fr); }
   .app-product .signup-aside .signup-trail { grid-template-columns: 1fr; }
   .app-product .signup-aside .signup-trail span { min-height: 50px; padding-top: .75rem; padding-bottom: .75rem; }
 }

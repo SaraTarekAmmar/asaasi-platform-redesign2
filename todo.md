@@ -735,3 +735,10 @@
 - [x] Audit ASaaSI decisions, introductions, events, community learning, Activity, and Weekly Review for the highest-value remaining outcome visibility gap.
 - [x] Implement the selected bilingual founder outcome and follow-through improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Primary-Bet Recovery and Carry-Forward
+
+- [x] Benchmark current founder and productivity products for resuming unfinished weekly commitments while retaining decision context.
+- [x] Audit ASaaSI primary-bet, decision review, community, introduction, event, and Activity routes for the highest-value recovery gap.
+- [x] Implement the selected bilingual commitment-recovery improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
