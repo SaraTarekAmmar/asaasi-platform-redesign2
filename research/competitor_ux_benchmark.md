@@ -225,6 +225,14 @@ The ASaaSI adaptation should ask for one explicit scenario, calculate monthly gr
 
 The selected adaptation is now implemented. Unit Economics now records a named customer cohort or acquisition channel, currency, fully loaded CAC, monthly ARPA, gross margin, monthly gross retention, uncertainty context, an evidence move, and the observation that would change the founder’s decision. It calculates monthly gross profit per account and CAC payback directly, then calculates a gross-margin-adjusted LTV and LTV:CAC proxy only where the stated retention yields a usable churn assumption. The results explain each formula and explicitly exclude demand, churn, cash-timing, and valuation forecasts. Founders save a seven-day evidence decision to Activity. Protected access now restores a Revenue → Retention → Recovery ledger in Arabic and English with linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
 
+## Retention recovery and cohort intervention: current benchmark, August 2026
+
+Chargebee distinguishes acquisition cohorts, which show when customers leave, from behavioral cohorts, which help a team examine why they leave. Its recommended loop moves from a precise retention question to a cohort, a qualitative or behavioural reason, a tested remediation, and another cohort review.[46] Churnkey emphasizes reading retention cohorts by temporal pattern and outlier event, then segmenting by meaningful traits such as plan, customer size, acquisition method, or profile rather than treating all churn as one problem.[47] Amplitude extends the pattern into an operating loop of exploring cohort data, forming a hypothesis, collecting the relevant cohort signal, interpreting results, and iterating the product; it differentiates acquisition, behavioral, and predictive cohorts by the question each can answer.[48]
+
+The ASaaSI adaptation should create one founder-sized retention recovery loop, not an analytics dashboard. It should require a named at-risk cohort, a visible early and current retention measure, an observed trigger or reason, and one explicit intervention. It should calculate the cohort’s retention change, distinguish observation from causation, state a dated response threshold, and retain the before-and-after evidence with the same shared decision record. This makes the next test legible without pretending one manual cohort input predicts churn.
+
+The selected adaptation is now implemented. Retention Recovery now records an acquisition or behavioural at-risk cohort, risk moment, start and current account counts, a qualitative observation, a deliberately provisional reason hypothesis, one reversible intervention, and the exact cohort response that would change the next decision. It calculates current cohort retention and lost accounts from the inputs, then explicitly states that the result does not establish a churn cause or forecast a save rate. A dated seven-day decision saves the before-count, active count, reason hypothesis, intervention, response threshold, and review path in Activity. Protected access now restores a Drop-off signal → Recovery hypothesis → Next cohort test loop in Arabic and English using linear saffron cues only. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected views were checked. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -272,3 +280,6 @@ The selected adaptation is now implemented. Unit Economics now records a named c
 [43]: https://www.thesaascfo.com/cac-payback-period/ "How I Calculate the CAC Payback Period"
 [44]: https://www.maxio.com/saaspedia/cac-payback "Customer Acquisition Cost Payback"
 [45]: https://churnkey.co/blog/understanding-unit-economics-in-saas "Unit economics in SaaS: metrics, levers, and growth"
+[46]: https://www.chargebee.com/blog/chargebee-churn-rate-cohort-analysis-retention-strategies/ "How to Conduct Churn Rate Cohort Analysis to Improve Retention"
+[47]: https://churnkey.co/blog/cohort-retention-analysis "Retention cohort analysis: four simple ways"
+[48]: https://amplitude.com/blog/cohorts-to-improve-your-retention "Cohort Retention Analysis: Reduce Churn Using Customer Data"

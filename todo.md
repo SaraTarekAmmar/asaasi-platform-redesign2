@@ -805,3 +805,10 @@
 - [x] Audit the existing ASaaSI unit-economics route for missing calculations, unbounded assumptions, and disconnected next actions.
 - [x] Rebuild unit economics into a bilingual CAC, ARPA, margin, and payback scenario workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Retention Recovery Cohort and Intervention Result
+
+- [x] Benchmark current retention-recovery, churn-reason, and customer-intervention workflows for cohort-level evidence and usable follow-through.
+- [x] Audit the existing ASaaSI retention-recovery route for weak cohort evidence, unclear intervention logic, and disconnected learning.
+- [x] Rebuild retention recovery into a bilingual cohort-risk and dated intervention-result workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
