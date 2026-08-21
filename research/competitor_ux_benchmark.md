@@ -117,6 +117,16 @@ The ASaaSI adaptation should therefore preserve a founder’s stated community-d
 
 The authenticated English community-thread walkthrough confirmed that ASaaSI’s existing capture surface asks for a specific move, saves the original thread context, and establishes a seven-day review. The new bridge adds an explicit, founder-controlled choice after capture: promote that saved decision to the current week’s primary bet or review it first. No community reply, reaction, or third-party approval is fabricated or used as a performance metric.
 
+## Weekly prioritization and recovery: current benchmark, August 2026
+
+Productboard’s current weekly-review ritual sequences plan-versus-actual work, postponed commitments, a relationship scan, durable learning capture, and a short summary rather than treating weekly review as a generic task list.[16] Mentorloop’s current program guidance similarly prioritizes clear participant-owned goals and tasks, periodic check-ins, early recovery from declining engagement, and expectation changes as work evolves.[17]
+
+For ASaaSI, the transferable pattern is not a new social dashboard or score. It is a compact weekly follow-through scan that keeps the founder’s pending conversations, outcomes, and unresolved learning visible beside the primary bet, with a direct return to the existing Activity surfaces. This would provide recovery context without duplicating records or creating public accountability theater.
+
+The selected implementation mounts this scan only in the authenticated Weekly Review route and reads existing introduction and event workflow records. It stays absent when there is nothing to recover, so the primary-bet hierarchy remains uncluttered. Authenticated English and Arabic RTL Weekly Review states were checked with the existing decision agenda; the new route-level scan does not disturb the current review flow when no pending conversation or event signal exists.
+
+The final protected-return pass expanded Weekly Review’s Signal → Primary bet → Friday learning object into a destination-specific evidence rail and aligned the Context → Identity → Return desk with the same cadence vocabulary. Desktop and 375px Arabic RTL access states were verified after the refinement. The visual reviewer’s request for rings was not adopted because it conflicts with the product’s explicit no-circle requirement; linear saffron rules, numerals, and soft rectangular surfaces remain the functional state language.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -134,3 +144,5 @@ The authenticated English community-thread walkthrough confirmed that ASaaSI’s
 [13]: https://chronus.com/blog/mentoring-tracking "Creating a Mentoring Tracking System to Measure Success"
 [14]: https://swisspreneur.org/blog/founder-communities "Founder Communities: Building Your Startup Network in 2026"
 [15]: https://thebootstrappedfounder.com/accountability-systems-for-founders/ "Accountability Systems for Founders"
+[16]: https://www.productboard.com/product-management-prompts-library/weekly-review-and-planning-ritual/ "Weekly Review and Planning Ritual"
+[17]: https://mentorloop.com/blog/improve-mentoring-program/ "How to Improve a Mentoring Program"

@@ -721,3 +721,10 @@
 - [x] Audit ASaaSI community learning, introduction outcomes, and weekly review for the most valuable remaining continuity handoff.
 - [x] Implement the selected bilingual follow-through improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Founder Workflow Prioritization and Visibility
+
+- [x] Benchmark current founder-workflow products for priority selection, outcome visibility, and recovery from stalled commitments.
+- [x] Audit ASaaSI decisions, events, community learning, introductions, and matching for the highest-value remaining workflow visibility gap.
+- [x] Implement the selected bilingual founder-workflow improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

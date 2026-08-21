@@ -102,6 +102,22 @@
 .app-product .account-flow--network .account-return-object > .mono + ol li:last-child { border-inline-end: 0; }
 .app-product .account-flow--network .account-return-object > .mono + ol li strong { display: block; margin-top: .55rem; color: #fbfbf8; font: 500 .7rem/1.25 "DM Sans", sans-serif; }
 
+/* Weekly Review uses an explicit cadence object, distinct from the general network return, and carries the same route vocabulary into the identity desk. */
+.app-product .account-flow--weekly-review .account-visual h1 { max-width: 10ch; }
+.app-product .account-flow--weekly-review .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--weekly-review .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2rem minmax(0,1fr); gap: 10px; min-height: 52px; padding: .45rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(1)::after { content: "CHOOSE THE SIGNAL THAT CHANGES THE WEEK"; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::after { content: "NAME THE ONE BET WORTH YOUR FOCUS"; }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3)::after { content: "CARRY FRIDAY LEARNING INTO THE NEXT MOVE"; }
+[dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(1)::after { content: "اختر الإشارة التي تغيّر الأسبوع"; }
+[dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::after { content: "سمِ الرهان الواحد الذي يستحق تركيزك"; }
+[dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3)::after { content: "انقل تعلم الجمعة إلى الخطوة التالية"; }
+.app-product .account-flow--weekly-review .account-route-rail { margin-top: 24px; border-inline-start-width: 2px; }
+.app-product .account-flow--weekly-review .account-route-rail > div:first-child strong, .app-product .account-flow--weekly-review .account-route-rail > div:last-child strong { color: #8c7110; }
+
 /* Signup records the four founder signals that change the workspace; the active signal carries a narrow saffron state rather than a broad fill. */
 .app-product .signup-aside .signup-trail {
   display: grid;
