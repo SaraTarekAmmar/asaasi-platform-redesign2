@@ -109,6 +109,14 @@ The audit selected the smallest high-value adaptation: an unreviewed event outco
 
 The protected-return visual review also identified that Activity and Weekly Review needed a stronger distinction before identity confirmation. The Activity return now names the event commitments, preparation, outcome signals, and next move that will resume, while Weekly Review names Signal → Primary bet → Friday learning. These were checked at desktop and narrow Arabic RTL sizes. The review’s circular-status suggestion was not adopted because ASaaSI’s explicit visual direction excludes circular, ring, and AI-like decorative motifs; linear saffron rules and numerals continue to carry functional state.
 
+## Community accountability: current benchmark, August 2026
+
+Swisspreneur’s current founder-community guidance argues for specific, context-rich questions, small accountability groups, deeper one-to-one relationships, and a private log of implemented learning so patterns can inform later decisions.[14] The Bootstrapped Founder similarly frames accountability as a founder-serving expectation system: a recurring commitment should create enough external or personal structure to resume meaningful work, without turning it into punitive busyness.[15]
+
+The ASaaSI adaptation should therefore preserve a founder’s stated community-derived next move, offer a bounded weekly-review handoff when that move has a linked decision, and avoid public performance metrics, follower expectations, or invented peer approval. The next audit will determine whether the current community capture and Weekly Review already offer a direct, context-preserving path or need a small bridge.
+
+The authenticated English community-thread walkthrough confirmed that ASaaSI’s existing capture surface asks for a specific move, saves the original thread context, and establishes a seven-day review. The new bridge adds an explicit, founder-controlled choice after capture: promote that saved decision to the current week’s primary bet or review it first. No community reply, reaction, or third-party approval is fabricated or used as a performance metric.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -124,3 +132,5 @@ The protected-return visual review also identified that Activity and Weekly Revi
 [11]: https://blackthorn.io/content-hub/event-management-tip-attendee-experience/ "What is the attendee experience? (And how to improve it)"
 [12]: https://www.mentorcliq.com/blog/mentoring-action-plan "How to Write a Mentoring Action Plan"
 [13]: https://chronus.com/blog/mentoring-tracking "Creating a Mentoring Tracking System to Measure Success"
+[14]: https://swisspreneur.org/blog/founder-communities "Founder Communities: Building Your Startup Network in 2026"
+[15]: https://thebootstrappedfounder.com/accountability-systems-for-founders/ "Accountability Systems for Founders"

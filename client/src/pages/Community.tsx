@@ -8,6 +8,7 @@ import { PageIntro, SectionLabel, SignalTag, Toast, useToast } from "../componen
 import { useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
 import { upsertWorkflowRecord } from "../lib/workflowRecords";
+import { setWeeklyPrimaryBet } from "../lib/weeklyPrimaryBet";
 
 const postTopics = ["All posts", "Pricing", "Growth", "Hiring", "Cofounder", "Enterprise"] as const;
 const topicArabic: Record<(typeof postTopics)[number], string> = { "All posts": "كل المنشورات", Pricing: "التسعير", Growth: "النمو", Hiring: "التوظيف", Cofounder: "شريك مؤسس", Enterprise: "المؤسسات" };
@@ -31,7 +32,7 @@ function useNewPosts() { return useSyncExternalStore(subscribeNewPosts, () => ne
 
 function ThreadRouteState({ title, copy, unavailable = false }: { title: string; copy: string; unavailable?: boolean }) {
   const { t, formatNum, isRTL } = useLocale();
-  const note = <div className="community-hero-thread-stack thread-route-state__map"><span className="mono">{t("THREAD / ROUTE / ANSWER", "الموضوع / المسار / الإجابة")}</span><ol><li className="is-active"><i>{formatNum("01")}</i><div><strong>{unavailable ? t("Route", "المسار") : t("Thread", "الموضوع")}</strong><small>{unavailable ? t("find an active question", "اعثر على سؤال نشط") : t("read the context first", "اقرأ السياق أولا")}</small></div></li><li><i>{formatNum("02")}</i><div><strong>{t("Reply", "رد")}</strong><small>{t("add useful context", "أضف سياقا مفيدا")}</small></div></li><li><i>{formatNum("03")}</i><div><strong>{t("Answer", "إجابة")}</strong><small>{t("carry one next move", "احمل خطوة تالية واحدة")}</small></div></li></ol></div>;
+  const note = <div className="community-hero-thread-stack thread-route-state__map"><span className="mono">{t("THREAD / ROUTE / ANSWER", "الموضوع / المسار / الإجابة")}</span><ol><li className="is-active"><i>{formatNum("01")}</i><div><strong>{unavailable ? t("Route", "المسار") : t("Thread", "الموضوع")}</strong><small>{unavailable ? t("find an active question", "اعثر على سؤال نشط") : t("read the context first", "اقرأ السياق أولا")}</small></div></li><li><i>{formatNum("02")}</i><div><strong>{t("Reply", "رد")}</strong><small>{t("add useful context", "أضف سياقا مفيدا")}</small></div></li><li><i>{formatNum("03")}</i><div><strong>{t("Answer", "إجابة")}</strong><small>{t("carry one next move", "احمل خطوة تالية واحدة")}</small></div></li></ol><dl className="thread-route-state__evidence"><div><dt>{t("Thread context", "سياق الموضوع")}</dt><dd>{title}</dd></div><div><dt>{t("Return", "العودة")}</dt><dd>{t("Sign in to keep the useful answer beside the next move it should shape.", "سجل الدخول لإبقاء الإجابة المفيدة بجانب الخطوة التالية التي ينبغي أن تشكلها.")}</dd></div></dl></div>;
   return <><section className="community-thread-access"><div className="container"><div className="community-thread-access__layout"><div className="community-thread-access__copy"><SectionLabel>{t("Community / Thread access", "المجتمع / وصول الموضوع")}</SectionLabel><h1>{title}</h1><p>{copy}</p><Link href={unavailable ? "/community#ask" : "/login?continue=/dashboard/discussions"} className="button button-dark">{unavailable ? t("Write a focused question", "اكتب سؤالا مركزا") : t("Sign in to open the thread", "سجل الدخول لفتح الموضوع")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></div>{note}</div></div></section><section className="section"><div className="container"><div className="thread-route-state"><div><SectionLabel>{unavailable ? t("Thread routing desk", "مكتب توجيه المواضيع") : t("Member thread access", "وصول عضو للموضوع")}</SectionLabel><h2>{unavailable ? t("The useful question is still in the room.", "السؤال المفيد ما زال في الغرفة.") : t("Keep the context connected to the reply.", "أبقِ السياق متصلا بالرد.")}</h2><p>{unavailable ? t("Choose a live founder question, then add the experience that moves it forward.", "اختر سؤالا حيا لمؤسس، ثم أضف الخبرة التي تدفعه للأمام.") : t("Your member profile keeps the people, replies, and decisions around this conversation in one place.", "يحفظ ملف عضويتك الأشخاص والردود والقرارات حول هذه المحادثة في مكان واحد.")}</p></div><ol><li><span>{formatNum("01")}</span><Link href="/community">{t("Browse active questions", "تصفح الأسئلة النشطة")} <ArrowRight size={14} /></Link></li><li><span>{formatNum("02")}</span><Link href={unavailable ? "/community#ask" : "/login?continue=/dashboard/discussions"}>{unavailable ? t("Write a focused question", "اكتب سؤالا مركزا") : t("Sign in to open the thread", "سجل الدخول لفتح الموضوع")} <ArrowRight size={14} /></Link></li></ol></div></div></section></>;
 }
 
@@ -112,7 +113,7 @@ export default function Community() {
 }
 
 export function CommunityPost() {
-  const { t, formatNum } = useLocale();
+  const { t, formatNum, isRTL } = useLocale();
   const { isAuthed } = useAuth();
   const { message, showToast, clearToast } = useToast();
   const params = useParams<{ id: string }>();
@@ -124,6 +125,7 @@ export function CommunityPost() {
   const [nextMove, setNextMove] = useState("");
   const [captureOpen, setCaptureOpen] = useState(false);
   const [captured, setCaptured] = useState(false);
+  const [weeklyCommitment, setWeeklyCommitment] = useState(false);
 
   if (!post) return <ThreadRouteState unavailable title={t("This thread is no longer active.", "هذا الموضوع لم يعد نشطا.")} copy={t("The network can still route you to a live founder question with room for a useful answer.", "لا تزال الشبكة قادرة على توجيهك إلى سؤال حي لمؤسس يتسع لإجابة مفيدة.")} />;
 
@@ -146,8 +148,14 @@ export function CommunityPost() {
     const evidence = t(`Community thread: ${title}. My next move: ${action}`, `موضوع المجتمع: ${title}. خطوتي التالية: ${action}`);
     upsertWorkflowRecord({ id: `community-learning-${post.id}`, kind: "decision", title: `Community learning: ${post.title}`, titleAr: `تعلم من المجتمع: ${post.arTitle}`, href: `/community/${post.id}`, status: "saved", owner: "Founder", ownerAr: "المؤسس", nextAction: action, nextActionAr: action, reviewDate: t(`Review the thread learning by ${reviewDue}`, `راجع تعلم الموضوع بحلول ${reviewDue}`), reviewDateAr: `راجع تعلم الموضوع بحلول ${reviewDue}`, reviewDue, evidence });
     setCaptured(true);
+    setWeeklyCommitment(false);
     setCaptureOpen(false);
     showToast(t("Your next move is now waiting in Decision Review.", "خطوتك التالية تنتظرك الآن في مراجعة القرار."));
+  };
+  const makeWeeklyCommitment = () => {
+    setWeeklyPrimaryBet(`community-learning-${post.id}`);
+    setWeeklyCommitment(true);
+    showToast(t("Your community next move is now this week's primary bet.", "أصبحت خطوتك من المجتمع رهان هذا الأسبوع الرئيسي."));
   };
 
   const reactionCount = post.reactions + (reacted ? 1 : 0);
@@ -169,6 +177,7 @@ export function CommunityPost() {
           <button type="button" className={captured ? "is-active" : ""} onClick={() => setCaptureOpen((current) => !current)}><Check size={16} /> {captured ? t("Next move captured", "تم حفظ الخطوة التالية") : t("Capture next move", "احفظ الخطوة التالية")}</button>
         </div>
         {captureOpen && <form className="community-next-move" onSubmit={saveNextMove}><div><SectionLabel>{t("Thread learning", "تعلم من الموضوع")}</SectionLabel><h2>{t("What will you test or change because of this thread?", "ماذا ستختبر أو تغيّر بسبب هذا الموضوع؟")}</h2><p>{t("Keep the move specific. ASaaSI will save it beside the thread context and bring it back for review in seven days.", "أبقِ الخطوة محددة. سيحفظها أساسي بجانب سياق الموضوع ويعيدها للمراجعة بعد سبعة أيام.")}</p></div><label>{t("Your next move", "خطوتك التالية")}<textarea value={nextMove} onChange={(event) => setNextMove(event.target.value)} placeholder={t("For example: test the simple offer with three existing buyers.", "مثلا: اختبر العرض البسيط مع ثلاثة مشترين حاليين.")} required /></label><div><button className="button button-dark" type="submit"><Check size={14} /> {t("Save to Decision Review", "احفظ في مراجعة القرار")}</button><button className="text-link" type="button" onClick={() => setCaptureOpen(false)}>{t("Cancel", "إلغاء")}</button></div></form>}
+        {captured && <section className="community-next-move-return" aria-live="polite"><div><SectionLabel>{t("Founder commitment", "التزام المؤسس")}</SectionLabel><h2>{t("Keep this thread close to the week.", "أبقِ هذا الموضوع قريبا من الأسبوع.")}</h2><p>{t("Your next move now carries the thread context and a seven-day review. Make it the primary bet only if it deserves the week’s focus.", "تحمل خطوتك الآن سياق الموضوع ومراجعة بعد سبعة أيام. اجعلها الرهان الرئيسي فقط إذا كانت تستحق تركيز الأسبوع.")}</p></div><div>{weeklyCommitment ? <><span className="inline-success"><Check size={14} /> {t("This is this week's primary bet", "هذا هو رهان هذا الأسبوع الرئيسي")}</span><Link href="/dashboard/weekly-review" className="button button-light">{t("Open weekly review", "افتح المراجعة الأسبوعية")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></> : <><button type="button" className="button button-dark" onClick={makeWeeklyCommitment}><Check size={14} /> {t("Make this week's primary bet", "اجعله رهان هذا الأسبوع الرئيسي")}</button><Link href="/dashboard/decision-review" className="text-link">{t("Review first", "راجع أولا")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></>}</div></section>}
         <div className="post-detail-comments">{comments.map((item, index) => <div className="comment-row" key={index}><div className="avatar avatar-clay avatar-sm" aria-hidden="true">{item.author.split(" ").map((part) => part[0]).join("").slice(0, 2)}</div><div className="comment-bubble"><strong>{item.author}</strong><p>{t(item.text, item.arText)}</p></div></div>)}{!comments.length && <p style={{ color: "var(--muted)", fontSize: ".85rem" }}>{t("No comments yet, be the first to reply.", "لا توجد تعليقات بعد، كن أول من يرد.")}</p>}</div>
         <form className="post-detail-composer" onSubmit={submitComment}><div className="avatar avatar-yellow avatar-sm" aria-hidden="true">SA</div><input id="comment-input" value={comment} onChange={(event) => setComment(event.target.value)} placeholder={t("Write a comment...", "اكتب تعليقا...")} aria-label={t("Add a comment", "أضف تعليقا")} /><button type="submit" aria-label={t("Post comment", "انشر التعليق")}><Send size={15} /></button></form>
       </article>

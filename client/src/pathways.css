@@ -129,9 +129,16 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .community-thread-access__copy h1 { max-width: 10ch; margin: .65rem 0 1rem; color: var(--brand-blue); font: 500 clamp(3rem, 6.6vw, 6.2rem)/.92 "Manrope", sans-serif; letter-spacing: -.075em; }
 .community-thread-access__copy p { max-width: 33rem; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
 .community-thread-access__copy .button { margin-top: 1.6rem; }
-.community-thread-access .community-hero-thread-stack { margin: 0; padding: 1.15rem 0 0 1.15rem; border-left: 2px solid var(--saffron); border-radius: 0; background: transparent; }
+.community-thread-access .community-hero-thread-stack { min-height: 21rem; margin: 0; padding: 1.15rem 0 0 1.15rem; border-left: 2px solid var(--saffron); border-radius: 0; background: transparent; }
 .community-thread-access .community-hero-thread-stack > .mono { color: var(--muted); }
 .community-thread-access .community-hero-thread-stack ol { margin-top: .8rem; }
+.thread-route-state__map { display: flex; flex-direction: column; justify-content: space-between; }
+.thread-route-state__evidence { display: grid; gap: .65rem; margin: 1.35rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); }
+.thread-route-state__evidence div { display: grid; grid-template-columns: 5.8rem minmax(0, 1fr); gap: .65rem; align-items: baseline; padding-bottom: .6rem; border-bottom: 1px solid var(--line); }
+.thread-route-state__evidence dt { color: var(--muted); font: 600 .64rem/1.2 "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.thread-route-state__evidence dd { margin: 0; color: var(--brand-blue); font: 600 .79rem/1.4 "DM Sans", sans-serif; }
+[dir="rtl"] .community-thread-access .community-hero-thread-stack { padding: 1.15rem 1.15rem 0 0; border-left: 0; border-right: 2px solid var(--saffron); }
+[dir="rtl"] .thread-route-state__evidence div { grid-template-columns: minmax(0, 1fr) 5.8rem; }
 .community-next-move { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 1.25rem; align-items: start; margin: 0 0 1.25rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); box-shadow: 0 10px 30px rgba(7, 27, 61, .05); }
 .community-next-move h2 { max-width: 18ch; margin: .45rem 0 .55rem; color: var(--brand-blue); font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.08; letter-spacing: -.035em; }
 .community-next-move p { max-width: 38rem; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
@@ -139,6 +146,11 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .community-next-move textarea { min-height: 90px; width: 100%; resize: vertical; border: 1px solid var(--line); border-radius: 12px; padding: .75rem .85rem; background: var(--mist); color: var(--ink); font: 500 .88rem/1.5 "DM Sans", sans-serif; }
 .community-next-move textarea:focus { outline: 2px solid rgba(202, 165, 21, .45); outline-offset: 2px; }
 .community-next-move > div:last-child { display: flex; align-items: center; gap: .85rem; grid-column: 2; }
+.community-next-move-return { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.25rem; align-items: center; margin: 0 0 1.25rem; padding: 1.1rem 0 1.1rem 1rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-left: 2px solid var(--saffron); }
+.community-next-move-return h2 { max-width: 22ch; margin: .35rem 0 .45rem; color: var(--brand-blue); font: 500 clamp(1.12rem, 2vw, 1.45rem)/1.1 "Manrope", sans-serif; letter-spacing: -.035em; }
+.community-next-move-return p { max-width: 40rem; margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.community-next-move-return > div:last-child { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .8rem; }
+[dir="rtl"] .community-next-move-return { padding: 1.1rem 1rem 1.1rem 0; border-left: 0; border-right: 2px solid var(--saffron); }
 .post-detail-comments { display: grid; gap: .85rem; margin-bottom: 1.2rem; }
 .comment-row { display: flex; align-items: flex-start; gap: .6rem; }
 .comment-bubble { flex: 1; min-width: 0; padding: .55rem .85rem; border-radius: 16px; background: var(--mist); }
@@ -149,8 +161,8 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .post-detail-composer button { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border: 0; border-radius: 9px; background: transparent; color: var(--brand-blue); transition: background-color .15s ease; }
 .post-detail-composer button:hover { background: rgba(11, 103, 178, .1); }
 .avatar-sm { width: 34px; height: 34px; font-size: 11px; }
-@media (max-width: 760px) { .community-thread-access { padding: 3.4rem 0 2.7rem; } .community-thread-access__layout { grid-template-columns: 1fr; gap: 2rem; } .community-thread-access__copy h1 { max-width: 12ch; font-size: clamp(2.7rem, 12vw, 4.5rem); } .community-thread-access .community-hero-thread-stack { max-width: none; } }
-@media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } .post-detail-actionbar { flex-wrap: wrap; } .post-detail-actionbar button { min-width: calc(50% - .2rem); } .community-next-move { grid-template-columns: 1fr; padding: 1rem; } .community-next-move > div:last-child { grid-column: auto; flex-wrap: wrap; } }
+@media (max-width: 760px) { .community-thread-access { padding: 3.4rem 0 2.7rem; } .community-thread-access__layout { grid-template-columns: 1fr; gap: 2rem; } .community-thread-access__copy h1 { max-width: 12ch; font-size: clamp(2.7rem, 12vw, 4.5rem); } .community-thread-access .community-hero-thread-stack { min-height: auto; max-width: none; } }
+@media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } .post-detail-actionbar { flex-wrap: wrap; } .post-detail-actionbar button { min-width: calc(50% - .2rem); } .community-next-move { grid-template-columns: 1fr; padding: 1rem; } .community-next-move > div:last-child { grid-column: auto; flex-wrap: wrap; } .community-next-move-return { grid-template-columns: 1fr; padding: 1rem 0 1rem .85rem; } .community-next-move-return > div:last-child { justify-content: flex-start; } [dir="rtl"] .community-next-move-return { padding: 1rem .85rem 1rem 0; } }
 
 /* Community, "Ask a question" composer: attach-photo control and its preview,
    styled for the dark .coach-composer background it lives inside. */
