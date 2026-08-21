@@ -763,3 +763,10 @@
 - [x] Audit ASaaSI primary-bet selection, weekly review, Founder Operating Desk outcome timeline, and Activity for the highest-value remaining gap.
 - [x] Implement the selected bilingual commitment-selection or outcome-visibility improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Monthly Decision Learning and Evidence-Led Matching
+
+- [x] Benchmark current founder and productivity workflows for reviewing decision outcomes and using retained evidence to select the next relevant connection.
+- [x] Audit ASaaSI decision outcomes, Founder Operating Desk, Activity, and matching handoffs for the highest-value remaining learning gap.
+- [x] Implement the selected bilingual decision-learning or evidence-led matching improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

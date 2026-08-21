@@ -87,6 +87,19 @@
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1)::after { content: "الغرف والعمل المحفوظ والمتابعة"; }
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2)::after { content: "أكد سجل المؤسس"; }
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3)::after { content: "استأنف الخطوة المنتظرة"; }
+.app-product .account-flow--registrations .account-form, .app-product .account-flow--network .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .account-form::before, .app-product .account-flow--network .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
+.app-product .account-flow--registrations .account-form > p, .app-product .account-flow--network .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .account-route-rail, .app-product .account-flow--network .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; }
+.app-product .account-flow--registrations .account-route-rail { background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
+.app-product .account-flow--network .account-route-rail { background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
+.app-product .account-flow--registrations .account-route-rail > div, .app-product .account-flow--network .account-route-rail > div { min-height: 43px; grid-template-columns: 108px minmax(0,1fr); }
+.app-product .account-flow--registrations .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--network .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--registrations .account-route-rail > div:last-child strong, .app-product .account-flow--network .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--registrations .oauth-row, .app-product .account-flow--network .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .oauth-row::before, .app-product .account-flow--network .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY OPTIONS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+[dir="rtl"] .app-product .account-flow--registrations .oauth-row::before, [dir="rtl"] .app-product .account-flow--network .oauth-row::before { content: "خيارات الهوية"; letter-spacing: 0; }
 
 .app-product .account-flow .account-return-object li.is-active i {
   background: #f6c915;
@@ -238,6 +251,9 @@
   .app-product .account-flow--network .account-return-object > .mono + ol { grid-template-columns: 1fr; }
   .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 52px; padding: .65rem 0; border-inline-end: 0; border-top: 1px solid rgba(223, 227, 234, 0.2); }
   .app-product .account-flow--network .account-return-object > .mono + ol li strong { display: inline-block; margin: 0 0 0 .6rem; }
+  .app-product .account-flow--registrations .account-form, .app-product .account-flow--network .account-form { padding-inline-start: 13px; }
+  .app-product .account-flow--registrations .account-route-rail, .app-product .account-flow--network .account-route-rail { margin-inline-start: -13px; padding-inline-start: 13px; }
+  .app-product .account-flow--registrations .account-route-rail > div, .app-product .account-flow--network .account-route-rail > div { grid-template-columns: 92px minmax(0,1fr); }
   .app-product .account-flow--weekly-review .account-form { padding-inline-start: 13px; }
   .app-product .account-flow--workspace .account-return-object > .mono + ol { grid-template-columns: 1fr; }
   .app-product .account-flow--workspace .account-return-object > .mono + ol li { min-height: 52px; padding: .65rem 0; border-inline-end: 0; border-top: 1px solid rgba(223,227,234,.2); }

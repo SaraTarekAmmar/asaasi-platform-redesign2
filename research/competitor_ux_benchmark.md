@@ -175,6 +175,16 @@ The ASaaSI opportunity is a calm, optional pre-week prompt that appears only whe
 
 The selected adaptation is now implemented in Weekly Review. When no current primary bet exists, the workspace surfaces up to three relevant open decisions and asks the founder to choose one existing decision rather than create another task. Selecting a candidate opens one compact prompt: what should be known, decided, or changed by Friday. That intention persists on the shared primary-bet record, appears in the weekly export and calendar reminder, and returns on the Founder Operating Desk beside the same commitment. Authenticated English selection, persistence, and Arabic RTL rendering were verified. The interface preserves the existing soft editorial surfaces, narrow saffron provenance cues, and explicit no-circle direction.
 
+## Monthly decision learning and evidence-led matching: current benchmark, August 2026
+
+Productboard describes a continuous discovery rhythm that starts with broad outcomes, identifies opportunities through ongoing customer evidence, and tests a selected solution. Its experience centralizes the insight and preserves a route from a product idea back to the original customer feedback, so a later decision can be interrogated in the customer’s own words.[29] The transferable ASaaSI principle is a concise retained-learning view, not a reporting dashboard: group actual decision outcomes by the chosen outcome, preserve the evidence text, and expose the next action that the learning now warrants.
+
+YC’s matching journey keeps the path direct: establish profile context, view preference-based fits, invite a relevant person, then start the conversation after acceptance. It explicitly supports founders who are exploring as well as founders who are ready to move, which keeps a visible match from implying a forced commitment.[30] ASaaSI should adapt this by grounding its next connection in one outcome-backed question. The interface should name the decision evidence behind the suggested introduction and let the founder reopen the original decision before requesting the conversation.
+
+The highest-value next adaptation is a conditional monthly decision-learning ledger in Activity. It should appear only when the current month has real completed decision outcomes, show the keep, change, and stop distribution as narrow counts rather than a performance score, and list up to three actual retained-learning records with the evidence and direct return path. When a completed outcome has a next action, its record should route into matching with the decision as context, so matching begins from a named learning rather than a generic browse state.
+
+The selected adaptation is now implemented. Activity conditionally exposes the monthly learning ledger only when real decision outcomes were completed in the current month. It shows keep, change, and stop as concise counts and lists up to three actual decisions with retained evidence, a Decision Review return, and an explicit route into matching. That matching route carries the completed decision identifier, presents the outcome and evidence before the directory, and identifies fit reasons that relate directly to the retained learning. The normal directory remains unchanged when no decision context is present. TypeScript and production builds passed; desktop and 375px Arabic RTL protected-return views were verified. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -205,3 +215,5 @@ The selected adaptation is now implemented in Weekly Review. When no current pri
 [26]: https://help.sunsama.com/docs/usage-guides/weekly-objectives/weekly-planning/ "Weekly Planning — Sunsama User Manual"
 [27]: https://www.sunsama.com/features/guided-planning-and-reviews "Sunsama Weekly Planning and Reviews"
 [28]: https://www.todoist.com/productivity-methods/weekly-review "The Weekly Review: A Productivity Ritual to Get More Done"
+[29]: https://www.productboard.com/blog/unlocking-sustained-success-through-continuous-product-discovery/ "Continuous Product Discovery"
+[30]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
