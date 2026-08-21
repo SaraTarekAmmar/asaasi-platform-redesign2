@@ -157,6 +157,14 @@ The selected close-with-learning controls appear only when a primary bet is acti
 
 The completed primary-bet closeout uses the existing decision outcome model rather than adding a parallel checklist. After a founder records learning, they can close the same decision as keep, change, or stop; the decision becomes completed, its evidence and Friday reflection are retained, and the primary-bet slot is cleared for a new focused commitment. The post-close surface returns the founder to Activity to revisit the record. The final protected return pass increased the visual authority of the Signal → Primary bet → Friday learning object and labeled the form-side continuation as a Weekly Review return desk. TypeScript and production builds passed, and desktop plus 375px Arabic RTL protected access states were verified. Circular or ring motifs remain excluded by product direction.
 
+## Repeated-deferral archive and reprioritization: current benchmark, August 2026
+
+Lunatask distinguishes current work from later candidates and supports a work-in-progress limit, so attention is directed toward finishing existing commitments before adding new ones.[24] Sunsama keeps rollover friction low but automatically moves repeatedly unfinished work into an archive where it remains until the person deliberately moves, completes, or removes it.[25]
+
+The ASaaSI adaptation should keep the founder’s active bet singular and detectable over time. A carry-forward count can turn repeated rollover into an explicit recovery moment, stating how many weeks the same decision has been retained and offering a choice to reframe it through Decision Review, close it with learning, or release the primary-bet slot. It should not silently archive the underlying decision because founder decisions often need to remain reviewable as context.
+
+The completed implementation increments a carry count only when the founder deliberately stages the same primary bet into a new week. On the second repeated carry, Weekly Review makes the recovery decision explicit: reframe the evidence in Decision Review, close the same decision with learning, or release the active primary-bet slot while preserving the underlying decision record for later review. The count is included in the downloaded week-in-review summary. The recovery surface remains conditional, so ordinary English and Arabic RTL review states do not gain unnecessary alerts. TypeScript and production builds passed; desktop and 375px Arabic RTL protected-return views were reviewed and the visual review recommended shipping.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -182,3 +190,5 @@ The completed primary-bet closeout uses the existing decision outcome model rath
 [21]: https://fellow.ai/ "Fellow AI Meeting Assistant"
 [22]: https://authority.md/tools/founder-weekly-review "Founder Weekly Review"
 [23]: https://help.hypertask.ai/help/bulk-actions-archive-and-defer-multiple-tasks-at-once-in-hypertask "Bulk Actions: Archive and Defer Multiple Tasks at Once in Hypertask"
+[24]: https://lunatask.app/docs/features/tasks/workflows "Workflows"
+[25]: https://help.sunsama.com/docs/getting-started/basics/task-rollover-and-recurring-tasks-the-basics/ "Task rollover: the basics"

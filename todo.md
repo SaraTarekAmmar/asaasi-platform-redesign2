@@ -749,3 +749,10 @@
 - [x] Audit ASaaSI primary-bet completion, carry-forward, decision learning, and Activity return paths for the highest-value remaining gap.
 - [x] Implement the selected bilingual completion or deferred-work improvement without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Repeated-Deferral Archive and Reprioritization
+
+- [x] Benchmark current productivity and founder workflows for surfacing repeatedly deferred commitments and making archive or reprioritize decisions explicit.
+- [x] Audit ASaaSI carried primary bets, decision outcomes, Founder Operating Desk, Activity, and Weekly Review for the highest-value deferred-work recovery gap.
+- [x] Implement the selected bilingual archive or deliberate reprioritization improvement without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.

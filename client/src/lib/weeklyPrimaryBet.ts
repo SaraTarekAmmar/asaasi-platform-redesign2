@@ -7,6 +7,7 @@ export type WeeklyPrimaryBet = {
   reminderDay?: "tuesday" | "thursday";
   carryForward?: boolean;
   carriedFromWeekStart?: string;
+  carryCount?: number;
 };
 
 const STORAGE_KEY = "asaasi-weekly-primary-bet";
@@ -26,7 +27,14 @@ export function getWeeklyPrimaryBet(): WeeklyPrimaryBet | null {
     const currentWeek = getWeekStart();
     if (saved?.weekStart === currentWeek) return saved;
     if (saved?.carryForward) {
-      const carried: WeeklyPrimaryBet = { recordId: saved.recordId, weekStart: currentWeek, selectedAt: new Date().toISOString(), reminderDay: saved.reminderDay, carriedFromWeekStart: saved.weekStart };
+      const carried: WeeklyPrimaryBet = {
+        recordId: saved.recordId,
+        weekStart: currentWeek,
+        selectedAt: new Date().toISOString(),
+        reminderDay: saved.reminderDay,
+        carriedFromWeekStart: saved.weekStart,
+        carryCount: (saved.carryCount ?? 0) + 1,
+      };
       persist(carried);
       return carried;
     }

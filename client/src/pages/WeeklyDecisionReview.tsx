@@ -43,6 +43,7 @@ export function WeeklyDecisionReviewWorkspace() {
   const primaryRecord = decisions.find((record) => record.id === primaryBet?.recordId);
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
   const canClosePrimary = Boolean(reflection.trim() || primaryRecord?.weeklyReflection || primaryRecord?.evidence);
+  const repeatedDeferral = (primaryBet?.carryCount ?? 0) >= 2;
 
   useEffect(() => {
     setReflection(primaryRecord?.weeklyReflection ?? "");
@@ -62,8 +63,8 @@ export function WeeklyDecisionReviewWorkspace() {
 
   const downloadWeeklyReview = () => {
     const labels = isRTL
-      ? { title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", carry: "حالة الترحيل", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد" }
-      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", plan: "Plan status", carry: "Carry-forward status", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet" };
+      ? { title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", carry: "حالة الترحيل", carryCount: "مرات الترحيل", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد" }
+      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", plan: "Plan status", carry: "Carry-forward status", carryCount: "Carry-forward count", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet" };
     const decisionLines = agenda.map((record) => `- ${t(record.title, record.titleAr)} | ${t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")} | ${t(record.nextAction ?? "No next action", record.nextActionAr ?? "لا توجد خطوة تالية")}`).join("\n");
     const summary = [
       `# ${labels.title}`,
@@ -72,6 +73,7 @@ export function WeeklyDecisionReviewWorkspace() {
       `${labels.primary}: ${primaryRecord ? t(primaryRecord.title, primaryRecord.titleAr) : labels.none}`,
       `${labels.plan}: ${labels.status}`,
       `${labels.carry}: ${labels.carried}`,
+      `${labels.carryCount}: ${primaryBet?.carryCount ?? 0}`,
       `${labels.reflection}: ${primaryRecord?.weeklyReflection ?? labels.noReflection}`,
       "",
       `## ${labels.open}`,
@@ -184,7 +186,7 @@ export function WeeklyDecisionReviewWorkspace() {
             <SectionLabel>{primaryBet?.carriedFromWeekStart ? t("Carried primary bet", "رهان رئيسي مرحّل") : primaryBet?.completedAt ? t("Weekly review closed", "أُغلقت المراجعة الأسبوعية") : t("This week's primary bet", "الرهان الرئيسي لهذا الأسبوع")}</SectionLabel>
             <h2>{t(primaryRecord.title, primaryRecord.titleAr)}</h2>
             <p>{t(primaryRecord.nextAction ?? "Choose the next action", primaryRecord.nextActionAr ?? "اختر الخطوة التالية")}</p>
-            {primaryBet?.carriedFromWeekStart && <p className="weekly-primary-bet__carry-note">{t(`Carried from the week of ${primaryBet.carriedFromWeekStart}. Keep the evidence, but choose its next move deliberately.`, `مُرحّل من أسبوع ${primaryBet.carriedFromWeekStart}. احتفظ بالدليل، لكن اختر خطوته التالية عن قصد.`)}</p>}
+            {primaryBet?.carriedFromWeekStart && <p className="weekly-primary-bet__carry-note">{repeatedDeferral ? t(`This is the same primary bet carried ${formatNum(primaryBet.carryCount ?? 0)} times. Do not let it roll forward without deciding whether the underlying approach still fits.`, `هذا هو الرهان الرئيسي نفسه المُرحّل ${formatNum(primaryBet.carryCount ?? 0)} مرات. لا تدعه يُرحّل دون تحديد ما إذا كان النهج الأساسي ما زال مناسبا.`) : t(`Carried from the week of ${primaryBet.carriedFromWeekStart}. Keep the evidence, but choose its next move deliberately.`, `مُرحّل من أسبوع ${primaryBet.carriedFromWeekStart}. احتفظ بالدليل، لكن اختر خطوته التالية عن قصد.`)}</p>}
           </div>
           <div className="weekly-primary-bet__actions">
             {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
@@ -202,6 +204,11 @@ export function WeeklyDecisionReviewWorkspace() {
 
             <div className="weekly-carry-forward">
               <div><span>{t("Week close", "إغلاق الأسبوع")}</span><p>{primaryBet?.carryForward ? t("This decision will reopen as the next week’s primary bet with its current evidence and reminder.", "سيُعاد فتح هذا القرار كرهان رئيسي للأسبوع التالي مع دليله وتذكيره الحاليين.") : t("Do not silently roll unfinished work forward. Keep it in review, close it with learning, or deliberately carry the same decision into next week.", "لا ترحّل العمل غير المكتمل بصمت. أبقه في المراجعة أو أغلقه بتعلم أو رحّل القرار نفسه إلى الأسبوع التالي عن قصد.")}</p></div>{primaryBet?.carryForward ? <button type="button" className="text-link" onClick={cancelCarryForward}>{t("Keep in this week", "أبقِه في هذا الأسبوع")}</button> : <button type="button" className="button button-light" onClick={stageCarryForward}>{t("Carry into next week", "رحّله إلى الأسبوع التالي")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button>}</div>
+
+            {repeatedDeferral && <div className="weekly-repeated-deferral">
+              <div><span>{t("Repeated deferral", "ترحيل متكرر")}</span><p>{t("This bet has remained in focus across more than one rollover. Reframe the decision with its evidence, close the approach with learning, or release the primary-bet slot for a new commitment.", "بقي هذا الرهان في التركيز عبر أكثر من ترحيل واحد. أعد صياغة القرار مع دليله أو أغلق النهج بتعلم أو حرر خانة الرهان الرئيسي لالتزام جديد.")}</p></div>
+              <div><Link href="/dashboard/decision-review" className="button button-light">{t("Reframe in Decision Review", "أعد الصياغة في مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><button type="button" className="text-link" onClick={clearPrimary}>{t("Release primary bet", "حرر الرهان الرئيسي")}</button></div>
+            </div>}
 
             <div className="weekly-close-learning">
               <div><span>{t("Decision close", "إغلاق القرار")}</span><p>{t("When the week produced enough learning, close the same decision with the outcome that should govern the next move.", "عندما ينتج الأسبوع تعلما كافيا، أغلق القرار نفسه بالنتيجة التي ينبغي أن تحكم الخطوة التالية.")}</p></div>
