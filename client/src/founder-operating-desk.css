@@ -90,6 +90,29 @@
 .app-product .intro-request-evidence p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; white-space: pre-line; }
 .app-product .intro-request-evidence small { color: #6d7889; font: 600 10px/1.45 "DM Sans",sans-serif; }
 .app-product .intro-request-draft p { margin: 0; font-size: 11px; line-height: 1.55; }
+.app-product .tool-workbench { border-radius: 18px; }
+.app-product .pricing-test-workbench { overflow: hidden; border: 1px solid #dfe3ea; background: #fff; }
+.app-product .pricing-test-form { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(300px,.95fr); }
+.app-product .pricing-test-form > div { display: grid; align-content: start; gap: 14px; padding: clamp(20px,3vw,34px); }
+.app-product .pricing-test-form__context { border-inline-end: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .pricing-test-form h2 { max-width: 25ch; margin: 0 0 5px; color: #071b3d; font: 500 clamp(21px,2.4vw,31px)/1.1 "Manrope",sans-serif; letter-spacing: -.055em; }
+.app-product .pricing-test-form label { display: grid; gap: 7px; color: #071b3d; font: 600 11px/1.4 "DM Sans",sans-serif; }
+.app-product .pricing-test-form input, .app-product .pricing-test-form textarea, .app-product .pricing-test-form select { width: 100%; border: 1px solid rgba(7,27,61,.16); border-radius: 10px; background: #fff; padding: 10px 11px; color: #071b3d; font: 13px/1.5 "DM Sans",sans-serif; }
+.app-product .pricing-test-form textarea { min-height: 82px; resize: vertical; }
+.app-product .pricing-test-form__numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.app-product .pricing-test-form__percent { display: grid; grid-template-columns: minmax(0,1fr) 35px; align-items: stretch; }
+.app-product .pricing-test-form__percent input { border-radius: 10px 0 0 10px; }
+.app-product .pricing-test-form__percent span { display: grid; place-items: center; border: 1px solid rgba(7,27,61,.16); border-inline-start: 0; border-radius: 0 10px 10px 0; color: #53627a; font: 600 12px "DM Sans",sans-serif; }
+.app-product .pricing-test-form__scenario > p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
+.app-product .pricing-test-results { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .pricing-test-results article { display: grid; align-content: start; gap: 8px; min-height: 164px; padding: 18px; border-inline-end: 1px solid #dfe3ea; }
+.app-product .pricing-test-results article:last-child { border-inline-end: 0; }
+.app-product .pricing-test-results .mono { color: #8c7110; font-size: 9px; letter-spacing: .08em; }
+.app-product .pricing-test-results strong { color: #071b3d; font: 600 18px/1.18 "Manrope",sans-serif; letter-spacing: -.035em; }
+.app-product .pricing-test-results p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .pricing-test-decision-rule { margin-top: 18px; padding: 16px 0 16px 16px; border-inline-start: 2px solid #caa515; }
+.app-product .pricing-test-decision-rule h3 { max-width: 650px; margin: 7px 0; color: #071b3d; font: 500 20px/1.22 "Manrope",sans-serif; letter-spacing: -.04em; }
+.app-product .pricing-test-decision-rule p { max-width: 650px; margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; }
 .app-product .intro-request-draft > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .app-product .intro-request-draft .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
 .app-product .intro-request-success { display: grid; gap: 8px; border-inline-start: 2px solid #caa515; padding-inline-start: 13px; color: #071b3d; }
@@ -502,4 +525,10 @@
 .locale-ar .app-product .founder-desk-decision-detail dl > div { padding-inline-start: 0; padding-inline-end: 14px; border-inline-start: 0; border-inline-end: 1px solid rgba(7, 27, 61, 0.13); }
 .locale-ar .app-product .activity-review-panel aside { padding-inline-start: 0; padding-inline-end: 23px; border-inline-start: 0; border-inline-end: 1px solid #dfe3ea; }
 .locale-ar .app-product .intro-request-evidence { padding-inline-start: 0; padding-inline-end: 13px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
+.locale-ar .app-product .pricing-test-form__context { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .pricing-test-form__percent input { border-radius: 0 10px 10px 0; }
+.locale-ar .app-product .pricing-test-form__percent span { border-inline-start: 1px solid rgba(7,27,61,.16); border-inline-end: 0; border-radius: 10px 0 0 10px; }
+.locale-ar .app-product .pricing-test-results article { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .pricing-test-results article:last-child { border-inline-start: 0; }
+.locale-ar .app-product .pricing-test-decision-rule { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
 @media (max-width: 900px) { .locale-ar .app-product .founder-desk-priority__selector { border-inline-end: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); padding: 18px 0 0; } }

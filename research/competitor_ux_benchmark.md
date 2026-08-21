@@ -193,6 +193,14 @@ The ASaaSI adaptation should preserve one completed decision as the evidence sou
 
 The selected adaptation is now implemented. Opening a matching profile from a decision-learning result retains the completed decision in the matching journey. The member introduction form preselects that saved decision and proposes an editable question that names the retained evidence and the member’s relevant expertise. Founders remain able to rewrite the question or select another decision before sending the brief. The public member profile was also refocused around a Role → Stage → Introduction evidence rail, so the matching object appears before the profile detail rather than a name-only hero. TypeScript and production builds passed; desktop and 375px Arabic RTL member-profile states were verified. The landing page remains unchanged.
 
+## Practical founder tests and workbenches: current benchmark, August 2026
+
+SaaS Club’s diagnostics lead with a named blind spot, keep the interaction deliberately short, and focus the output on the bottleneck most likely to be expensive if ignored. Its examples include a revenue-ceiling calculator for churn, a founder-archetype self-assessment, and a PMF scorecard, each framed as a specific question rather than a generic test.[34] SaaSPriceLab uses a complementary operational pattern: a health check asks for three real numbers, immediately situates the inputs against a benchmark, identifies the highest-impact leak, and routes the founder to the next relevant calculator or action plan.[35] It also groups tools by founder stage, so a founder does not have to browse a large library without context.[36]
+
+The ASaaSI gap is not more generic quizzes. Its existing tests and tools need to follow a single useful contract: ask for a bounded set of concrete inputs, calculate or classify only what those inputs justify, explain the most consequential signal, name one falsifiable next action, and persist the result into the founder’s shared decision record. The first rebuild should target the pricing workbench because it already sits at the intersection of an explicit founder decision, a measurable offer hypothesis, and a test that can produce evidence within seven days.
+
+The selected adaptation is now implemented in the pricing workbench. The former two-choice, generic brief has been replaced with a real buyer, alternative, observable promise, currency, monthly-price, qualified-conversation, and expected-close-rate input set. It calculates an explicit offer scenario, including expected customers and projected MRR, but clearly labels the result as a working scenario rather than a demand or revenue guarantee. It then establishes a seven-day decision rule based on explicit price responses, saves the buyer, evidence, scenario, next action, and review date as a shared decision record, and offers an export or a direct route to a pricing operator. The authenticated English Arabic RTL workbench opened cleanly; TypeScript and production builds passed. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -228,3 +236,6 @@ The selected adaptation is now implemented. Opening a matching profile from a de
 [31]: https://helphub.mentorloop.com/hc/en-us/articles/6995001059215-How-to-use-Recommended-Matches "How to use Recommended Matches"
 [32]: https://www.togetherplatform.com/pairing-algorithm "Together matching algorithm"
 [33]: https://www.growthmentor.com/faq "GrowthMentor Help Center"
+[34]: https://tools.saasclub.io/ "SaaS Club Tools"
+[35]: https://www.saaspricelab.com/saas-health-check "SaaSPriceLab Health Check"
+[36]: https://saaspricelab.com/ "SaaSPriceLab Founder Decision Platform"
