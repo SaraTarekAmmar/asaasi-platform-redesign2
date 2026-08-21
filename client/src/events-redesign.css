@@ -1,5 +1,6 @@
 /* Landing-system Events redesign: a calm editorial date rail, direct selection cues, and no decorative rule cards or numbered process strips. */
-.app-product .event-next-section { padding-top: 42px; }
+/* Editorial operating system: Events uses dated outcome records, narrow saffron provenance, soft rectangular preparation controls, and RTL-safe linear paths without circles or rings. */
+ .app-product .event-next-section { padding-top: 42px; }
 .app-product .event-next-heading { display: grid; grid-template-columns: minmax(0, .9fr) minmax(260px, .46fr); gap: 60px; align-items: end; margin-bottom: 30px; }
 .app-product .event-next-heading h2 { max-width: 650px; margin: 10px 0 0; color: #071b3d; font: 500 clamp(36px, 4.2vw, 62px)/.96 "Manrope", sans-serif; letter-spacing: -.07em; }
 .app-product .event-next-heading > p { max-width: 390px; margin: 0 0 5px; color: #53627a; font: 15px/1.6 "DM Sans", sans-serif; }
@@ -112,3 +113,65 @@
   .app-product .event-landing-feature__meta { display: grid; gap: 5px; margin-top: 8px; font-size: 8px; }
   .app-product .event-landing-feature__actions { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; min-width: 0; }
 }
+
+/* Dated event outcome timeline: Date → Room → Question → Follow-through remains the first useful object. */
+.app-product .events-outcome-hero { padding: 78px 0 84px; background: #fbfbf8; border-top: 1px solid #dfe3ea; }
+.app-product .events-outcome-hero__heading { display: grid; grid-template-columns: minmax(0,1fr) 154px; gap: 42px; align-items: end; padding-bottom: 28px; border-bottom: 2px solid #071b3d; }
+.app-product .events-outcome-hero__heading h1 { max-width: 760px; margin: 10px 0 0; color: #071b3d; font: 500 clamp(44px,5.6vw,82px)/.94 "Manrope",sans-serif; letter-spacing: -.08em; text-wrap: balance; }
+.app-product .events-outcome-hero__heading p { max-width: 660px; margin: 16px 0 0; color: #53627a; font: 15px/1.58 "DM Sans",sans-serif; }
+.app-product .events-outcome-hero__date { display: grid; justify-items: end; gap: 3px; padding: 4px 0 0 22px; border-inline-start: 2px solid #caa515; color: #071b3d; }
+.app-product .events-outcome-hero__date .mono { color: #8c7110; font-size: 8px; letter-spacing: .12em; }
+.app-product .events-outcome-hero__date strong { font: 500 68px/.76 "Manrope",sans-serif; letter-spacing: -.1em; }
+.app-product .events-outcome-hero__date > span:last-child { color: #657287; font: 700 10px "DM Sans",sans-serif; letter-spacing: .13em; }
+.app-product .events-outcome-path { display: grid; grid-template-columns: minmax(280px,.95fr) minmax(0,1.35fr); gap: 38px; padding: 31px 0; border-bottom: 1px solid #dfe3ea; }
+.app-product .events-outcome-path__event { padding-inline-start: 24px; border-inline-start: 2px solid #caa515; }
+.app-product .events-outcome-path__event .mono { color: #8c7110; font-size: 9px; letter-spacing: .12em; }
+.app-product .events-outcome-path__event h2 { max-width: 460px; margin: 12px 0 9px; color: #071b3d; font: 500 clamp(27px,3vw,42px)/1 "Manrope",sans-serif; letter-spacing: -.065em; }
+.app-product .events-outcome-path__event > p { max-width: 480px; margin: 0; color: #53627a; font: 13px/1.52 "DM Sans",sans-serif; }
+.app-product .events-outcome-path__event > div { display: grid; gap: 7px; margin-top: 20px; color: #657287; font: 600 10px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
+.app-product .events-outcome-path__event > div span { display: flex; align-items: center; gap: 7px; }
+.app-product .events-outcome-path__event svg { color: #caa515; }
+.app-product .events-outcome-path ol { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 0; margin: 0; padding: 0; list-style: none; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .events-outcome-path ol li { position: relative; display: grid; align-content: start; gap: 12px; min-height: 172px; padding: 17px 14px; border-inline-end: 1px solid #dfe3ea; }
+.app-product .events-outcome-path ol li:last-child { border-inline-end: 0; }
+.app-product .events-outcome-path ol li:nth-child(2) { background: rgba(202,165,21,.055); border-top: 2px solid #caa515; }
+.app-product .events-outcome-path ol li span { color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .events-outcome-path ol li strong { display: block; color: #071b3d; font: 600 14px/1.18 "Manrope",sans-serif; letter-spacing: -.03em; }
+.app-product .events-outcome-path ol li p { margin: 7px 0 0; color: #657287; font: 11px/1.42 "DM Sans",sans-serif; }
+.app-product .events-preparation-desk { display: grid; grid-template-columns: minmax(0,.8fr) minmax(210px,.68fr) minmax(190px,.54fr) auto; gap: 20px; align-items: end; margin-top: 30px; padding: 22px 24px; border: 1px solid #dfe3ea; border-radius: 18px; background: #fff; box-shadow: 0 10px 28px rgba(7,27,61,.045); }
+.app-product .events-preparation-desk h2 { max-width: 340px; margin: 9px 0 7px; color: #071b3d; font: 500 24px/1.05 "Manrope",sans-serif; letter-spacing: -.055em; }
+.app-product .events-preparation-desk p { max-width: 390px; margin: 0; color: #53627a; font: 11px/1.48 "DM Sans",sans-serif; }
+.app-product .events-preparation-desk label { display: grid; gap: 7px; color: #53627a; font: 600 9px "DM Sans",sans-serif; letter-spacing: .06em; }
+.app-product .events-preparation-desk textarea,.app-product .events-preparation-desk select { box-sizing: border-box; width: 100%; min-height: 84px; border: 1px solid #dfe3ea; border-radius: 10px; background: #fbfbf8; padding: 10px 11px; color: #071b3d; font: 12px/1.45 "DM Sans",sans-serif; outline: none; resize: vertical; }
+.app-product .events-preparation-desk select { min-height: 42px; padding: 0 10px; resize: none; }
+.app-product .events-preparation-desk textarea:focus,.app-product .events-preparation-desk select:focus { border-color: #caa515; box-shadow: 0 0 0 3px rgba(202,165,21,.1); }
+.app-product .events-preparation-desk__actions { display: grid; gap: 8px; min-width: 146px; }
+.app-product .events-preparation-desk__actions .button { justify-content: center; }
+.app-product .events-preparation-desk__actions .text-link { justify-self: start; color: #53627a; font-size: 10px; }
+[dir="rtl"] .app-product .events-outcome-hero__date { justify-items: start; padding: 4px 22px 0 0; }
+@media (max-width: 980px) { .app-product .events-outcome-hero__heading { grid-template-columns: minmax(0,1fr) 120px; gap: 25px; }.app-product .events-outcome-path { grid-template-columns: 1fr; gap: 25px; }.app-product .events-preparation-desk { grid-template-columns: 1fr 1fr; }.app-product .events-preparation-desk > div:first-child { grid-column: 1 / -1; }.app-product .events-preparation-desk__actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; }.app-product .events-preparation-desk__actions .text-link { width: 100%; } }
+@media (max-width: 620px) { .app-product .events-outcome-hero { padding: 46px 0 54px; }.app-product .events-outcome-hero__heading { grid-template-columns: 1fr 78px; gap: 14px; padding-bottom: 20px; }.app-product .events-outcome-hero__heading h1 { font-size: clamp(40px,12.5vw,58px); line-height: .98; }.app-product .events-outcome-hero__heading p { margin-top: 12px; font-size: 12px; }.app-product .events-outcome-hero__date { padding-inline-start: 12px; }.app-product .events-outcome-hero__date strong { font-size: 48px; }.app-product .events-outcome-hero__date .mono { font-size: 7px; }.app-product .events-outcome-path { padding: 22px 0; }.app-product .events-outcome-path__event { padding-inline-start: 16px; }.app-product .events-outcome-path__event h2 { font-size: 28px; }.app-product .events-outcome-path__event > p { font-size: 12px; }.app-product .events-outcome-path ol { grid-template-columns: 1fr 1fr; }.app-product .events-outcome-path ol li { min-height: 116px; padding: 13px 11px; }.app-product .events-outcome-path ol li:nth-child(2) { border-inline-end: 0; }.app-product .events-outcome-path ol li:nth-child(3) { border-top: 1px solid #dfe3ea; }.app-product .events-outcome-path ol li:nth-child(4) { border-top: 1px solid #dfe3ea; border-inline-end: 0; }.app-product .events-outcome-path ol li p { font-size: 10px; }.app-product .events-preparation-desk { grid-template-columns: 1fr; gap: 15px; margin-top: 22px; padding: 18px; border-radius: 14px; }.app-product .events-preparation-desk > div:first-child,.app-product .events-preparation-desk__actions { grid-column: 1; }.app-product .events-preparation-desk h2 { font-size: 22px; }.app-product .events-preparation-desk textarea { min-height: 76px; }.app-product .events-preparation-desk__actions { display: grid; }.app-product .events-preparation-desk__actions .text-link { width: auto; } }
+
+/* Events ledger refinement: section rhythm, date provenance, and status remain linear and evidence-led. */
+.app-product .events-outcome-path ol li:nth-child(2) { background: transparent; }
+.app-product .event-directory-section { position: relative; padding-top: 66px; border-top: 1px solid #dfe3ea; }
+.app-product .event-directory-section::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 46px; height: 2px; background: #caa515; content: ""; }
+.app-product .event-results-summary { padding: 12px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .event-timeline { margin-top: 0; border-top: 0; }
+.app-product .event-timeline-row { min-height: 142px; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.app-product .event-timeline-row:hover { padding-inline: 11px; background: transparent !important; border-inline-start: 2px solid #caa515; }
+.app-product .event-timeline-row.is-next { padding-inline-start: 17px; background: transparent !important; }
+.app-product .event-timeline-main .signal-tag { border-radius: 7px; background: transparent; }
+.app-product .event-timeline-date { position: relative; }
+.app-product .event-timeline-date::before { position: absolute; inset-inline-start: 0; top: 10px; width: 2px; height: 28px; background: transparent; content: ""; }
+.app-product .event-timeline-row.is-next .event-timeline-date::before,.app-product .event-timeline-row:hover .event-timeline-date::before { background: #caa515; }
+.app-product .event-timeline-meta { padding-inline-start: 15px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .section-clay#past { position: relative; border-top: 1px solid #dfe3ea; background: #fbfbf8; }
+.app-product .section-clay#past::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 34px; height: 2px; background: #071b3d; content: ""; }
+.app-product .past-events-list { border-top: 2px solid #071b3d; background: transparent; }
+.app-product .past-event-row { position: relative; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.app-product .past-event-row::before { position: absolute; inset-inline-start: 0; top: 50%; width: 2px; height: 24px; transform: translateY(-50%); background: #caa515; content: ""; }
+.app-product .past-event-row .signal-tag { margin-inline-start: 12px; border-radius: 7px; background: transparent; }
+.app-product .events-preparation-desk { border-radius: 14px; box-shadow: none; }
+.app-product .events-preparation-desk__actions .button-dark { border-inline-start: 2px solid #caa515; }
+@media (max-width: 620px) { .app-product .event-directory-section { padding-top: 48px; }.app-product .event-timeline-row { min-height: auto; }.app-product .event-timeline-meta { padding-inline-start: 0; border-inline-start: 0; }.app-product .event-timeline-date::before { top: 7px; }.app-product .past-event-row::before { inset-inline-start: 0; }.app-product .event-directory-section::before,.app-product .section-clay#past::before { inset-inline-start: 18px; } }

@@ -872,3 +872,10 @@
 - [x] Build a bilingual, bounded research-cadence prompt linked to the active primary bet and save the founder’s chosen conversation plan as a dated workflow decision.
 - [x] Strengthen the Events outcome path where it improves the selected research-cadence loop, without modifying the landing page.
 - [x] Validate English and Arabic RTL, persistence, type safety, production build, representative user journeys, and responsive states before checkpointing.
+
+## Events Outcome Timeline and Decision Follow-Through
+
+- [x] Benchmark event preparation, post-event follow-through, and outcome-capture workflows for founder communities and professional networks.
+- [x] Audit the Events page, registration records, Activity, and linked decisions for weak timeline identity, undated outcomes, and disconnected next moves.
+- [x] Rebuild the Events first screen into a bilingual dated outcome timeline that connects room preparation, observation, and decision follow-through without modifying the landing page.
+- [x] Validate English and Arabic RTL behavior, record persistence, type safety, production build, representative interactive journeys, and responsive layouts before checkpointing.
