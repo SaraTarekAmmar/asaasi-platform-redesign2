@@ -127,6 +127,16 @@ The selected implementation mounts this scan only in the authenticated Weekly Re
 
 The final protected-return pass expanded Weekly Review’s Signal → Primary bet → Friday learning object into a destination-specific evidence rail and aligned the Context → Identity → Return desk with the same cadence vocabulary. Desktop and 375px Arabic RTL access states were verified after the refinement. The visual reviewer’s request for rings was not adopted because it conflicts with the product’s explicit no-circle requirement; linear saffron rules, numerals, and soft rectangular surfaces remain the functional state language.
 
+## Founder outcome timeline and recovery: current benchmark, August 2026
+
+Todoist’s current weekly-review guidance distinguishes completed work, upcoming commitments, outstanding “waiting for” items, and next-week objectives so a review does not become an undifferentiated list.[18] Together’s 2026 mentoring guidance emphasizes participant-owned goals that are specific, meaningful, measurable where useful, and time-bound, combined with regular check-ins to adjust the plan before the relationship ends.[19]
+
+The ASaaSI adaptation should remain founder-owned rather than program-admin analytics: a compact outcome timeline can show the most recent decision, event, introduction, and community signals in chronological order, alongside their current follow-through state. It should clarify whether a record is still waiting, learned from, or ready to inform the next action, while linking to the existing primary-bet and Activity surfaces instead of cloning their data.
+
+The selected Founder Operating Desk timeline reads only existing records that already contain an outcome, reflection, or captured event signal. It is intentionally conditional, so authenticated Arabic RTL and English desks with no recorded outcome continue to present the original priority, context, records, and next-action hierarchy without an empty analytical panel.
+
+The final implementation presents up to four of the most recent retained outcomes, labeling each as decision learning, community learning, connection outcome, or event outcome and routing directly to the existing source record. The protected dashboard’s desktop and 375px Arabic RTL states were reviewed after the change and retained the established return-desk hierarchy. The independent visual review found the landing-derived editorial system consistent and recommended shipping without further composition changes.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -146,3 +156,5 @@ The final protected-return pass expanded Weekly Review’s Signal → Primary be
 [15]: https://thebootstrappedfounder.com/accountability-systems-for-founders/ "Accountability Systems for Founders"
 [16]: https://www.productboard.com/product-management-prompts-library/weekly-review-and-planning-ritual/ "Weekly Review and Planning Ritual"
 [17]: https://mentorloop.com/blog/improve-mentoring-program/ "How to Improve a Mentoring Program"
+[18]: https://www.todoist.com/productivity-methods/weekly-review "The Weekly Review: A Productivity Ritual to Get More Done"
+[19]: https://www.togetherplatform.com/blog/examples-of-mentoring-program-goals "15 Mentoring Program Goals & Examples for 2026"

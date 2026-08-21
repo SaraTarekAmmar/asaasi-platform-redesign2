@@ -143,6 +143,16 @@
 .app-product .founder-desk-outcome-trend dl div { padding-inline-start: 11px; border-inline-start: 2px solid #caa515; }
 .app-product .founder-desk-outcome-trend dt { color: #53627a; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
 .app-product .founder-desk-outcome-trend dd { margin: 4px 0 0; color: #071b3d; font: 500 24px/1 "Manrope",sans-serif; }
+.app-product .founder-desk-outcome-timeline { display: grid; grid-template-columns: minmax(0,.85fr) minmax(290px,1.15fr) auto; gap: 24px; align-items: start; margin: 18px 0; padding: 24px 28px; border: 1px solid rgba(7,27,61,.11); border-radius: 20px; background: rgba(255,255,255,.72); }
+.app-product .founder-desk-outcome-timeline h2 { max-width: 480px; margin: 7px 0 9px; color: #071b3d; font: 500 clamp(22px,2.5vw,33px)/1.08 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .founder-desk-outcome-timeline > div:first-child > p { max-width: 470px; margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; }
+.app-product .founder-desk-outcome-timeline__items { display: grid; gap: 0; border-top: 1px solid rgba(7,27,61,.1); }
+.app-product .founder-desk-outcome-timeline__items article { display: grid; grid-template-columns: 112px minmax(0,1fr) auto; gap: 10px 14px; align-items: start; padding: 12px 0; border-bottom: 1px solid rgba(7,27,61,.1); }
+.app-product .founder-desk-outcome-timeline__items article > span { color: #8c7110; font: 600 9px/1.4 "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .founder-desk-outcome-timeline__items strong { color: #071b3d; font: 600 12px/1.4 "DM Sans",sans-serif; }
+.app-product .founder-desk-outcome-timeline__items p { grid-column: 2 / 4; margin: -5px 0 0; color: #53627a; font-size: 11px; line-height: 1.5; }
+.app-product .founder-desk-outcome-timeline__items .text-link { color: #071b3d; font: 600 10px "DM Sans",sans-serif; white-space: nowrap; }
+.app-product .founder-desk-outcome-timeline > .button { align-self: center; white-space: nowrap; }
 .app-product .decision-review-introduction-prompt { display: grid; gap: 7px; margin: 15px 0; padding: 13px 14px; border-inline-start: 2px solid #caa515; background: #fffdf5; }
 .app-product .decision-review-introduction-prompt > span { color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; }
 .app-product .decision-review-introduction-prompt p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
@@ -341,6 +351,10 @@
   .app-product .weekly-follow-through-scan { grid-template-columns: 1fr; }
   .app-product .founder-desk-introduction-outcome { grid-template-columns: 1fr; align-items: start; }
   .app-product .founder-desk-outcome-trend { grid-template-columns: 1fr; align-items: start; }
+  .app-product .founder-desk-outcome-timeline { grid-template-columns: 1fr; align-items: start; }
+  .app-product .founder-desk-outcome-timeline__items article { grid-template-columns: 1fr auto; }
+  .app-product .founder-desk-outcome-timeline__items article > span, .app-product .founder-desk-outcome-timeline__items p { grid-column: 1 / -1; }
+  .app-product .founder-desk-outcome-timeline__items p { margin-top: -4px; }
   .app-product .activity-outcome-check { grid-template-columns: 1fr; padding: 21px; }
   .app-product .founder-desk-priority__selector { grid-template-columns: repeat(3, 1fr); align-items: stretch; padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); }
   .app-product .founder-desk-priority__selector > span { grid-column: 1 / -1; }
