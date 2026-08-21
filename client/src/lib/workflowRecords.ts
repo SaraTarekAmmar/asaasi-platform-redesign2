@@ -1,5 +1,18 @@
 export type WorkflowRecordKind = "decision" | "event" | "application" | "introduction";
 
+export type CustomerEvidence = {
+  buyer: string;
+  lastEvent: string;
+  trigger: string;
+  workaround: string;
+  quote: string;
+  success: string;
+  action: string;
+  actionAr: string;
+  threshold: string;
+  capturedAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -31,6 +44,7 @@ export type WorkflowRecord = {
   eventOutcome?: "decision-moved" | "useful-connection" | "useful-learning" | "no-useful-outcome";
   eventOutcomeNote?: string;
   eventOutcomeAt?: string;
+  customerEvidence?: CustomerEvidence;
   updatedAt: string;
 };
 
@@ -48,6 +62,10 @@ export function getWorkflowRecords(): WorkflowRecord[] {
   } catch {
     return [];
   }
+}
+
+export function getCustomerEvidenceRecords(records = getWorkflowRecords()): WorkflowRecord[] {
+  return records.filter((record) => Boolean(record.customerEvidence));
 }
 
 export function upsertWorkflowRecord(record: Omit<WorkflowRecord, "updatedAt">) {

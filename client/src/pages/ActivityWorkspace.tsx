@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, CalendarPlus, Check, MessageSquare } from "lucid
 import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
-import { getWorkflowRecords, removeWorkflowRecord, upsertWorkflowRecord, type WorkflowRecord } from "../lib/workflowRecords";
+import { getCustomerEvidenceRecords, getWorkflowRecords, removeWorkflowRecord, upsertWorkflowRecord, type WorkflowRecord } from "../lib/workflowRecords";
 import { setWeeklyPrimaryBet } from "../lib/weeklyPrimaryBet";
 import { ProductShell } from "./ProductFlows";
 
@@ -22,6 +22,42 @@ function introductionStatusLabel(record: WorkflowRecord, t: (en: string, ar: str
   if (record.status === "introduced") return t("Connected", "تم الربط");
   if (record.status === "completed") return t("Conversation reflected", "تم توثيق المحادثة");
   return t("Brief in review", "الموجز قيد المراجعة");
+}
+
+type EvidenceLane = "quote" | "workaround" | "commitment";
+
+function evidenceValue(record: WorkflowRecord, lane: EvidenceLane) {
+  const evidence = record.customerEvidence;
+  if (!evidence) return "";
+  if (lane === "quote") return evidence.quote;
+  if (lane === "workaround") return evidence.workaround;
+  return evidence.action;
+}
+
+function normalizedEvidence(value: string) {
+  return value.trim().toLocaleLowerCase().replace(/[“”"'،,.!?؛:]/g, "").replace(/\s+/g, " ");
+}
+
+function InterviewPatternArchive({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL, formatNum } = useLocale();
+  const lanes: Array<{ key: EvidenceLane; label: string; labelAr: string; title: string; titleAr: string; copy: string; copyAr: string }> = [
+    { key: "quote", label: "BUYER LANGUAGE", labelAr: "لغة المشتري", title: "Exact phrases worth carrying forward.", titleAr: "عبارات دقيقة تستحق أن تنتقل معك.", copy: "Verbatim language stays beside its source. It becomes a repeat only when another retained interview supports the same phrase.", copyAr: "تبقى اللغة الحرفية بجانب مصدرها. لا تصبح تكرارا إلا عندما تدعم مقابلة محفوظة أخرى العبارة نفسها." },
+    { key: "workaround", label: "CURRENT WORKAROUNDS", labelAr: "الحلول الالتفافية الحالية", title: "What buyers do before they change anything.", titleAr: "ما يفعله المشترون قبل أن يغيروا أي شيء.", copy: "A workaround is evidence of the current job context, not automatic proof of a market-wide problem.", copyAr: "الحل الالتفافي دليل على سياق العمل الحالي، وليس إثباتا تلقائيا لمشكلة على مستوى السوق." },
+    { key: "commitment", label: "MEANINGFUL COMMITMENTS", labelAr: "الالتزامات ذات المعنى", title: "Actions that make the next learning harder than an opinion.", titleAr: "أفعال تجعل التعلم التالي أصعب من مجرد رأي.", copy: "These are the next actions requested in the interview. Check the source and response rule before treating one as evidence.", copyAr: "هذه هي الأفعال التالية المطلوبة في المقابلة. افحص المصدر وقاعدة الاستجابة قبل اعتبار أي منها دليلا." },
+  ];
+  const sourceDate = (record: WorkflowRecord) => record.customerEvidence?.capturedAt ?? record.updatedAt;
+  const formatDate = (value: string) => new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(value));
+  const groupLane = (lane: EvidenceLane) => {
+    const grouped = new Map<string, WorkflowRecord[]>();
+    records.forEach((record) => {
+      const value = evidenceValue(record, lane);
+      const key = normalizedEvidence(value);
+      if (!key) return;
+      grouped.set(key, [...(grouped.get(key) ?? []), record]);
+    });
+    return Array.from(grouped.values()).map((sources) => ({ sources: sources.sort((a, b) => sourceDate(b).localeCompare(sourceDate(a))), value: evidenceValue(sources[0], lane) })).sort((a, b) => b.sources.length - a.sources.length || sourceDate(b.sources[0]).localeCompare(sourceDate(a.sources[0])));
+  };
+  return <section id="interview-patterns" className="interview-pattern-archive" aria-labelledby="interview-patterns-title"><header className="interview-pattern-archive__heading"><div><SectionLabel>{t("Interview pattern archive", "أرشيف أنماط المقابلات")}</SectionLabel><h2 id="interview-patterns-title">{t("Keep the customer evidence that can change the next decision in view.", "أبقِ دليل العميل الذي يمكن أن يغير القرار التالي في نطاق الرؤية.")}</h2><p>{t("This archive groups only the phrases, workarounds, and requested commitments you saved. It does not generate themes or call one conversation a pattern.", "يجمع هذا الأرشيف فقط العبارات والحلول الالتفافية والالتزامات المطلوبة التي حفظتها. لا يولد موضوعات ولا يسمي محادثة واحدة نمطا.")}</p></div><div className="interview-pattern-archive__metric"><strong>{formatNum(records.length)}</strong><span>{t("saved interviews", "مقابلات محفوظة")}</span></div></header><div className="interview-pattern-archive__rule"><span className="mono">{t("EVIDENCE RULE", "قاعدة الدليل")}</span><p>{t("A pattern needs two retained sources. Single-source evidence remains visible as a lead to test, not a conclusion to scale.", "يحتاج النمط إلى مصدرين محفوظين. يظل الدليل ذو المصدر الواحد ظاهرا كإشارة للاختبار، لا كاستنتاج للتوسع.")}</p></div><div className="interview-pattern-archive__lanes">{lanes.map((lane) => { const groups = groupLane(lane.key); const recurring = groups.filter((group) => group.sources.length >= 2).slice(0, 2); const early = groups.filter((group) => group.sources.length === 1).slice(0, recurring.length ? 1 : 2); const shown = [...recurring, ...early]; return <article key={lane.key} className="interview-pattern-lane"><div className="interview-pattern-lane__intro"><span className="mono">{t(lane.label, lane.labelAr)}</span><h3>{t(lane.title, lane.titleAr)}</h3><p>{t(lane.copy, lane.copyAr)}</p></div><div className="interview-pattern-lane__groups">{shown.map((group) => { const lead = group.sources[0]; const isRecurring = group.sources.length >= 2; return <div key={`${lane.key}-${lead.id}`} className={isRecurring ? "interview-pattern-group is-recurring" : "interview-pattern-group"}><div className="interview-pattern-group__status"><span>{isRecurring ? t("Recurring evidence", "دليل متكرر") : t("Needs another source", "يحتاج مصدرا آخر")}</span><strong>{formatNum(group.sources.length)} {t(group.sources.length === 1 ? "source" : "sources", group.sources.length === 1 ? "مصدر" : "مصادر")}</strong></div><blockquote>{lane.key === "quote" ? `“${group.value}”` : group.value}</blockquote><p>{t(`Latest source: ${formatDate(sourceDate(lead))}.`, `أحدث مصدر: ${formatDate(sourceDate(lead))}.`)}</p><div className="interview-pattern-group__actions"><Link href={lead.href} className="text-link">{t("Open source", "افتح المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{lane.key === "quote" && <Link href={`/tools/positioning-evidence?customerEvidence=${encodeURIComponent(lead.id)}`} className="button button-light">{t("Use in message test", "استخدمه في اختبار رسالة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>}</div></div>; })}{shown.length === 0 && <div className="interview-pattern-lane__empty"><strong>{t("No saved evidence in this lane yet.", "لا يوجد دليل محفوظ في هذا المسار بعد.")}</strong><Link href="/tools/customer-evidence" className="text-link">{t("Capture a customer fact", "التقط حقيقة عميل")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div>}</div></article>; })}</div><footer className="interview-pattern-archive__footer"><p>{t("Counter-signals are intentionally not suppressed. A single source stays visible with its date and source link until another conversation supports or changes it.", "لا تُخفى الإشارات المضادة عمدا. يظل المصدر الواحد ظاهرا بتاريخه ورابط مصدره إلى أن تدعمه محادثة أخرى أو تغيره.")}</p><Link href="/tools/customer-evidence" className="button button-dark">{t("Capture next customer fact", "التقط حقيقة العميل التالية")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></footer></section>;
 }
 
 export function ActivityWorkspace() {
@@ -48,6 +84,7 @@ export function ActivityWorkspace() {
 
   const decisions = records.filter((record) => record.kind === "decision");
   const toolDecisions = decisions.filter((record) => record.href?.startsWith("/tools/"));
+  const customerEvidenceRecords = getCustomerEvidenceRecords(records);
   const introductions = records.filter((record) => record.kind === "introduction");
   const learnedDecisions = decisions.filter((record) => Boolean(record.outcome));
   const openDecisions = decisions.filter((record) => !record.outcome);
@@ -141,6 +178,8 @@ export function ActivityWorkspace() {
     <section className="activity-learning-summary" aria-labelledby="activity-learning-title"><div className="activity-learning-summary__intro"><SectionLabel>{t("Decision learning", "تعلم القرار")}</SectionLabel><h2 id="activity-learning-title">{t("Keep the signal, not just the file.", "احتفظ بالإشارة لا بالملف فقط.")}</h2><p>{t("Review outcomes stay beside the evidence, owner, and next action that gave each decision its shape.", "تبقى نتائج المراجعة بجانب الدليل والمالك والخطوة التالية التي أعطت كل قرار شكله.")}</p></div><div className="activity-learning-summary__metrics"><div><span>{t("Saved", "محفوظة")}</span><strong>{formatNum(decisions.length)}</strong></div><div><span>{t("From tools", "من الأدوات")}</span><strong>{formatNum(toolDecisions.length)}</strong></div><div><span>{t("Learned", "تم التعلم")}</span><strong>{formatNum(learnedDecisions.length)}</strong></div><div><span>{t("Open review", "مراجعة مفتوحة")}</span><strong>{formatNum(openDecisions.length)}</strong></div></div><Link href="/dashboard/decision-review" className="button button-dark">{t("Review decisions", "راجع القرارات")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></section>
 
     {monthlyLearnedDecisions.length > 0 && <section className="activity-monthly-learning" aria-label={t("This month’s decision learning", "تعلم قرارات هذا الشهر")}><div className="activity-monthly-learning__intro"><SectionLabel>{t("This month’s decision learning", "تعلم قرارات هذا الشهر")}</SectionLabel><h2>{t("Use what changed before you ask for another conversation.", "استخدم ما تغيّر قبل أن تطلب محادثة أخرى.")}</h2><p>{t("This is a short retained-learning view, not a scorecard. Each outcome keeps its original evidence and can become context for the next relevant introduction.", "هذه رؤية قصيرة للتعلم المحتفظ به، وليست بطاقة نتائج. تحتفظ كل نتيجة بدليلها الأصلي ويمكن أن تصبح سياقا للمقدمة المناسبة التالية.")}</p><dl><div><dt>{t("Keep", "استمر")}</dt><dd>{formatNum(monthlyOutcomeCounts.keep)}</dd></div><div><dt>{t("Change", "غيّر")}</dt><dd>{formatNum(monthlyOutcomeCounts.change)}</dd></div><div><dt>{t("Stop", "أوقف")}</dt><dd>{formatNum(monthlyOutcomeCounts.stop)}</dd></div></dl></div><div className="activity-monthly-learning__records">{monthlyLearnedDecisions.slice(0, 3).map((record) => <article key={record.id} className={`is-${record.outcome}`}><span>{outcomeLabel(record)}</span><h3>{t(record.title, record.titleAr)}</h3><p>{record.evidence || record.weeklyReflection || t("The outcome is saved, ready to reopen when the next question needs context.", "النتيجة محفوظة وجاهزة لإعادة الفتح عندما يحتاج السؤال التالي إلى سياق.")}</p><div><Link href="/dashboard/decision-review" className="text-link">{t("Review learning", "راجع التعلم")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><Link href={`/dashboard/network?decision=${encodeURIComponent(record.id)}&intent=outcome-learning`} className="button button-light">{t("Find a relevant conversation", "ابحث عن محادثة مناسبة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>}
+
+    {customerEvidenceRecords.length > 0 && <InterviewPatternArchive records={customerEvidenceRecords} />}
 
     {introductions.length > 0 && <section className="activity-introduction-summary"><div><SectionLabel>{t("Introduction follow-through", "متابعة المقدمة")}</SectionLabel><h2>{t("Keep the first conversation attached to the decision it can change.", "أبقِ المحادثة الأولى مرتبطة بالقرار الذي يمكن أن تغيّره.")}</h2><p>{t(`${formatNum(introductions.filter((record) => record.status === "submitted").length)} brief${introductions.filter((record) => record.status === "submitted").length === 1 ? "" : "s"} awaiting a connection and ${formatNum(introductions.filter((record) => record.status === "introduced").length)} active conversation${introductions.filter((record) => record.status === "introduced").length === 1 ? "" : "s"}.`, `${formatNum(introductions.filter((record) => record.status === "submitted").length)} موجز${introductions.filter((record) => record.status === "submitted").length === 1 ? "" : "ات"} بانتظار الربط و${formatNum(introductions.filter((record) => record.status === "introduced").length)} محادثة نشطة.`)}</p></div><Link href="#activity-introductions" className="button button-light"><MessageSquare size={14} /> {t("Review introductions", "راجع المقدمات")}</Link></section>}
 

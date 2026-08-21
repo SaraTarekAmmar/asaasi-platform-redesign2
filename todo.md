@@ -840,3 +840,12 @@
 - [x] Audit the existing ASaaSI customer-evidence route for weak fact capture, buyer-action validation, and disconnected learning.
 - [x] Rebuild customer evidence into a bilingual interview-fact, buyer-action, and dated validation workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Interview Pattern Archive and Evidence-to-Positioning Handoff
+
+- [x] Benchmark research repositories and synthesis workflows for traceable cross-study codes, recurring patterns, counter-signals, and action ownership.
+- [x] Audit the Customer Evidence, Activity, workflow-record, and Positioning Evidence handoffs for overwritten customer records and disconnected buyer-language learning.
+- [x] Persist each Customer Evidence run as a structured, traceable record rather than overwriting prior evidence.
+- [x] Build a conditional bilingual Interview Pattern Archive in Activity for recurring buyer language, workarounds, and meaningful commitments with source links and counter-signals.
+- [x] Add an editable Customer Evidence to Positioning Evidence handoff that carries the source context without fabricating a claim or threshold.
+- [x] Validate English and Arabic RTL behavior, type safety, build output, evidence persistence, archive grouping, and responsive flows before checkpointing.
