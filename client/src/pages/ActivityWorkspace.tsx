@@ -1,10 +1,12 @@
 /* Editorial operating system: Activity preserves the decision, conversation, and outcome as one calm return path. */
+/* Editorial operating system: Activity turns specific founder learning into a bounded next commitment, using existing records rather than duplicate task state. */
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, CalendarPlus, Check, MessageSquare } from "lucide-react";
 import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 import { getWorkflowRecords, removeWorkflowRecord, upsertWorkflowRecord, type WorkflowRecord } from "../lib/workflowRecords";
+import { setWeeklyPrimaryBet } from "../lib/weeklyPrimaryBet";
 import { ProductShell } from "./ProductFlows";
 
 type ActivityFilter = "all" | "decision" | "event" | "application" | "introduction";
@@ -40,6 +42,7 @@ export function ActivityWorkspace() {
   const [outcomeTargetId, setOutcomeTargetId] = useState<string | null>(null);
   const [introductionOutcome, setIntroductionOutcome] = useState<"next-step" | "useful-learning" | "not-a-fit">("next-step");
   const [outcomeCheckNote, setOutcomeCheckNote] = useState("");
+  const [promotedEventId, setPromotedEventId] = useState<string | null>(null);
   useEffect(() => { window.localStorage.setItem("asaasi-event-follow-ups", JSON.stringify(followUps)); }, [followUps]);
   useEffect(() => { window.localStorage.setItem("asaasi-workflow-reviewed", JSON.stringify(reviewed)); }, [reviewed]);
 
@@ -64,6 +67,13 @@ export function ActivityWorkspace() {
   };
   const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep direction", "أبقِ الاتجاه") : record.outcome === "change" ? t("Change approach", "غيّر النهج") : record.outcome === "stop" ? t("Stop bet", "أوقف الرهان") : t("Awaiting review", "بانتظار المراجعة");
   const eventOutcomeLabel = (record: WorkflowRecord) => record.eventOutcome === "decision-moved" ? t("Decision moved", "تغير القرار") : record.eventOutcome === "useful-connection" ? t("Useful connection", "اتصال مفيد") : record.eventOutcome === "useful-learning" ? t("Useful learning", "تعلم مفيد") : t("No change to the next move", "لا تغيير في الخطوة التالية");
+  const makeEventDecisionPrimary = (record: WorkflowRecord) => {
+    const linkedDecision = decisions.find((decision) => decision.id === record.linkedDecisionId && !decision.outcome);
+    if (!linkedDecision) return;
+    setWeeklyPrimaryBet(linkedDecision.id);
+    setPromotedEventId(record.id);
+    setReviewed((current) => ({ ...current, [record.id]: true }));
+  };
   const introductionCopy = (record: WorkflowRecord) => {
     const linkedDecision = decisions.find((decision) => decision.id === record.linkedDecisionId);
     const linkCopy = linkedDecision ? t(`Linked to ${linkedDecision.title}.`, `مرتبط بـ ${linkedDecision.titleAr}.`) : "";
@@ -123,7 +133,7 @@ export function ActivityWorkspace() {
 
     {introductions.length > 0 && <section className="activity-introduction-summary"><div><SectionLabel>{t("Introduction follow-through", "متابعة المقدمة")}</SectionLabel><h2>{t("Keep the first conversation attached to the decision it can change.", "أبقِ المحادثة الأولى مرتبطة بالقرار الذي يمكن أن تغيّره.")}</h2><p>{t(`${formatNum(introductions.filter((record) => record.status === "submitted").length)} brief${introductions.filter((record) => record.status === "submitted").length === 1 ? "" : "s"} awaiting a connection and ${formatNum(introductions.filter((record) => record.status === "introduced").length)} active conversation${introductions.filter((record) => record.status === "introduced").length === 1 ? "" : "s"}.`, `${formatNum(introductions.filter((record) => record.status === "submitted").length)} موجز${introductions.filter((record) => record.status === "submitted").length === 1 ? "" : "ات"} بانتظار الربط و${formatNum(introductions.filter((record) => record.status === "introduced").length)} محادثة نشطة.`)}</p></div><Link href="#activity-introductions" className="button button-light"><MessageSquare size={14} /> {t("Review introductions", "راجع المقدمات")}</Link></section>}
 
-    {unreviewedEventOutcomes.length > 0 && <section className="activity-event-outcomes"><div><SectionLabel>{t("Event outcome", "نتيجة الفعالية")}</SectionLabel><h2>{t("Bring the room back into the work.", "أعد الغرفة إلى العمل.")}</h2><p>{t("These event signals are waiting to shape the next decision or follow-up.", "إشارات الفعاليات هذه تنتظر لتشكيل القرار أو المتابعة التالية.")}</p></div><div className="activity-event-outcomes__records">{unreviewedEventOutcomes.slice(0, 2).map((record) => <article key={record.id}><span className="mono">{eventOutcomeLabel(record)}</span><strong>{t(record.title, record.titleAr)}</strong><p>{record.eventOutcomeNote}</p><div><Link href={record.href} className="text-link">{t("Revisit event", "عد إلى الفعالية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><button type="button" className="text-link" onClick={() => setReviewed((current) => ({ ...current, [record.id]: true }))}>{t("Mark reviewed", "علِّم كمراجَع")}</button></div></article>)}</div></section>}
+    {unreviewedEventOutcomes.length > 0 && <section className="activity-event-outcomes"><div><SectionLabel>{t("Event outcome", "نتيجة الفعالية")}</SectionLabel><h2>{t("Bring the room back into the work.", "أعد الغرفة إلى العمل.")}</h2><p>{t("These event signals are waiting to shape the next decision or follow-up.", "إشارات الفعاليات هذه تنتظر لتشكيل القرار أو المتابعة التالية.")}</p></div><div className="activity-event-outcomes__records">{unreviewedEventOutcomes.slice(0, 2).map((record) => { const linkedDecision = decisions.find((decision) => decision.id === record.linkedDecisionId && !decision.outcome); return <article key={record.id}><span className="mono">{eventOutcomeLabel(record)}</span><strong>{t(record.title, record.titleAr)}</strong><p>{record.eventOutcomeNote}</p><div><Link href={record.href} className="text-link">{t("Revisit event", "عد إلى الفعالية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{linkedDecision && (promotedEventId === record.id ? <><span className="inline-success"><Check size={13} /> {t("Linked decision is this week's bet", "القرار المرتبط هو رهان هذا الأسبوع")}</span><Link href="/dashboard/weekly-review" className="text-link">{t("Open weekly review", "افتح المراجعة الأسبوعية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></> : <button type="button" className="text-link" onClick={() => makeEventDecisionPrimary(record)}>{t("Make linked decision this week's bet", "اجعل القرار المرتبط رهان هذا الأسبوع")}</button>)}<button type="button" className="text-link" onClick={() => setReviewed((current) => ({ ...current, [record.id]: true }))}>{t("Mark reviewed", "علِّم كمراجَع")}</button></div></article>; })}</div></section>}
 
     {decisions.length > 0 && <section className="activity-learning-ledger" aria-label={t("Decision learning ledger", "سجل تعلم القرار")}><div className="activity-learning-ledger__heading"><div><SectionLabel>{t("Learning ledger", "سجل التعلم")}</SectionLabel><h2>{t("The latest useful evidence.", "أحدث الأدلة المفيدة.")}</h2></div><Link href="/dashboard/decision-review" className="text-link">{t("Open full review", "افتح المراجعة الكاملة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div><div className="activity-learning-records">{decisions.slice(0, 3).map((record) => <article key={record.id}><header><span className={record.outcome ? "is-complete" : ""}>{record.outcome ? <Check size={13} /> : t("OPEN", "مفتوح")}</span><strong>{outcomeLabel(record)}</strong></header><h3>{t(record.title, record.titleAr)}</h3><p className="activity-learning-records__evidence">{record.evidence || t("No evidence recorded yet. Return while the customer language or result is still specific.", "لم يُسجل دليل بعد. عد بينما تظل لغة العميل أو النتيجة محددة.")}</p><dl><div><dt>{t("Owner", "المالك")}</dt><dd>{t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")}</dd></div><div><dt>{t("Next action", "الخطوة التالية")}</dt><dd>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</dd></div><div><dt>{t("Review", "المراجعة")}</dt><dd>{t(record.reviewDate ?? "Review after 7 days", record.reviewDateAr ?? "راجع بعد ٧ أيام")}</dd></div></dl><Link href="/dashboard/decision-review" className="text-link">{record.outcome ? t("Review learning", "راجع التعلم") : t("Record learning", "سجل التعلم")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></article>)}</div></section>}
 
