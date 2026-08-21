@@ -185,6 +185,14 @@ The highest-value next adaptation is a conditional monthly decision-learning led
 
 The selected adaptation is now implemented. Activity conditionally exposes the monthly learning ledger only when real decision outcomes were completed in the current month. It shows keep, change, and stop as concise counts and lists up to three actual decisions with retained evidence, a Decision Review return, and an explicit route into matching. That matching route carries the completed decision identifier, presents the outcome and evidence before the directory, and identifies fit reasons that relate directly to the retained learning. The normal directory remains unchanged when no decision context is present. TypeScript and production builds passed; desktop and 375px Arabic RTL protected-return views were verified. The landing page remains unchanged.
 
+## Outcome-informed introductions and event continuity: current benchmark, August 2026
+
+Mentorloop limits its Recommended Matches surface to five suggestions and bases them on the compatibility of the participant’s mentoring goals and expertise.[31] Together distinguishes profile context, skills and goals, and the specific experience a person hopes to gain and contribute; it also supports participant-led choice from a shortlist rather than hiding all judgment in an automated match.[32] GrowthMentor’s current help structure separates the session request objective, pre-session preparation, session status, notes, recordings, and takeaways, treating continuity as part of the conversation rather than a separate afterthought.[33]
+
+The ASaaSI adaptation should preserve one completed decision as the evidence source all the way into a member profile. When a founder enters matching from the monthly learning ledger, opening a member should retain that decision identifier, preselect it in the introduction brief, and show a compact evidence handoff. The handoff should name the conclusion, the specific retained evidence, the member’s relevant expertise, and the one focused question still needed. The founder must remain able to edit the question and switch the decision, so evidence guides an introduction without falsely automating its purpose.
+
+The selected adaptation is now implemented. Opening a matching profile from a decision-learning result retains the completed decision in the matching journey. The member introduction form preselects that saved decision and proposes an editable question that names the retained evidence and the member’s relevant expertise. Founders remain able to rewrite the question or select another decision before sending the brief. The public member profile was also refocused around a Role → Stage → Introduction evidence rail, so the matching object appears before the profile detail rather than a name-only hero. TypeScript and production builds passed; desktop and 375px Arabic RTL member-profile states were verified. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -217,3 +225,6 @@ The selected adaptation is now implemented. Activity conditionally exposes the m
 [28]: https://www.todoist.com/productivity-methods/weekly-review "The Weekly Review: A Productivity Ritual to Get More Done"
 [29]: https://www.productboard.com/blog/unlocking-sustained-success-through-continuous-product-discovery/ "Continuous Product Discovery"
 [30]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
+[31]: https://helphub.mentorloop.com/hc/en-us/articles/6995001059215-How-to-use-Recommended-Matches "How to use Recommended Matches"
+[32]: https://www.togetherplatform.com/pairing-algorithm "Together matching algorithm"
+[33]: https://www.growthmentor.com/faq "GrowthMentor Help Center"
