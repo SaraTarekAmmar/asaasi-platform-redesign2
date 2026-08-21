@@ -209,6 +209,14 @@ The ASaaSI health tool should adapt the transparency, not impersonate a customer
 
 The selected adaptation is now implemented. The SaaS Health route now asks for one named lifecycle cohort, setup completion, meaningful weekly usage, customer sentiment, founder operating pulse, direction of change, a qualitative account note, one reversible intervention, and the exact cohort behavior expected to change. Its clear model weights setup at 20%, meaningful usage at 40%, sentiment at 20%, and founder pulse at 20%; percentage inputs resolve against visible 50% and 80% thresholds, while the two 0–10 inputs are used directly. The result identifies the health state and weakest component, states the calculation, creates a seven-day keep/refine/stop decision rule, and saves the full context in Activity. The protected return was refined into a dedicated Cohort signal → Weakest component → Seven-day test ledger, using linear saffron rules and numerals rather than circles or rings. TypeScript and production builds passed; authenticated Arabic RTL, desktop, and 375px protected views were checked. The landing page remains unchanged.
 
+## Founder bottleneck diagnostics and experiment design: current benchmark, August 2026
+
+The current founder-bottleneck diagnostic category is useful when it names the operational dependency that limits progress and routes the founder to a specific intervention, rather than treating a score as an endpoint.[40] Gothelf’s hypothesis-prioritization canvas provides the decision logic ASaaSI needs after that diagnosis: rate the perceived value and risk of a hypothesis, then choose whether to test, ship and measure, deprioritize, or discard it.[41] The Experiment Canvas adds the practical execution contract: name the riskiest assumption, write a falsifiable outcome before the test, specify the measurable metric and timeframe, then draw a conclusion and select a next step.[42]
+
+The ASaaSI adaptation should be a short, founder-facing diagnostic, not a personality quiz. It should score four operating dimensions from visible founder inputs, choose only the lowest-confidence bottleneck, ask for the live evidence behind it, then create a one-week experiment record containing a falsifiable hypothesis, an expected observable response, and a keep/change/stop review rule. The tool should explain why that bottleneck won instead of hiding its recommendation behind a generic score.
+
+The selected adaptation is now implemented. Founder Diagnostic now collects four founder-reported operating dimensions: product clarity, demand and pipeline, operating capacity, and cash and runway. It shows the simple baseline, selects the lowest-confidence bottleneck, preserves the founder’s live question and evidence, and uses declared perceived value and risk to classify the next move as test first, ship and measure, or deprioritize. The chosen experiment requires a method, an observable response, and a one-week review date; the resulting hypothesis and full evidence trail save into the connected workflow record. The protected return now restores an Operating signal → Live bottleneck → One-week test diagnostic stack in Arabic and English through linear saffron cues, with no circular motifs. TypeScript and production builds passed; authenticated Arabic RTL and 375px protected states were verified. The landing page remains unchanged.
+
 ## References
 
 [1]: https://www.ycombinator.com/cofounder-matching "Y Combinator Co-Founder Matching"
@@ -250,3 +258,6 @@ The selected adaptation is now implemented. The SaaS Health route now asks for o
 [37]: https://churnzero.com/churnopedia/health-score/ "ChurnZero Customer Health Score"
 [38]: https://www.vitally.io/post/how-to-create-a-customer-health-score-with-four-metrics "Vitally Four Key Health Metrics"
 [39]: https://docs.vitally.io/en/articles/9901284-health-scores "Vitally Health Scores Documentation"
+[40]: https://re-ampd.com/post/the-founder-bottleneck-diagnostic "The Founder Bottleneck Diagnostic"
+[41]: https://jeffgothelf.com/blog/the-hypothesis-prioritization-canvas/ "The Hypothesis Prioritization Canvas"
+[42]: https://www.designabetterbusiness.tools/tools/experiment-canvas "Experiment Canvas"

@@ -151,6 +151,43 @@
 .app-product .health-test-decision-rule { margin-top: 18px; padding: 16px 0 16px 16px; border-inline-start: 2px solid #071b3d; }
 .app-product .health-test-decision-rule h3 { max-width: 650px; margin: 7px 0; color: #071b3d; font: 500 20px/1.22 "Manrope",sans-serif; letter-spacing: -.04em; }
 .app-product .health-test-decision-rule p { max-width: 650px; margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; }
+.app-product .diagnostic-test-workbench { overflow: hidden; border: 1px solid #dfe3ea; background: #fff; }
+.app-product .diagnostic-test-form { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.app-product .diagnostic-test-form > div { display: grid; align-content: start; gap: 14px; padding: clamp(20px,3vw,34px); }
+.app-product .diagnostic-test-form__context { border-inline-end: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .diagnostic-test-form h2 { max-width: 28ch; margin: 0 0 5px; color: #071b3d; font: 500 clamp(21px,2.4vw,31px)/1.1 "Manrope",sans-serif; letter-spacing: -.055em; }
+.app-product .diagnostic-test-form > div > p { margin: 0; color: #53627a; font-size: 11px; line-height: 1.55; }
+.app-product .diagnostic-test-form label { display: grid; gap: 7px; color: #071b3d; font: 600 11px/1.4 "DM Sans",sans-serif; }
+.app-product .diagnostic-test-form input, .app-product .diagnostic-test-form textarea, .app-product .diagnostic-test-form select { width: 100%; border: 1px solid rgba(7,27,61,.16); border-radius: 10px; background: #fff; padding: 10px 11px; color: #071b3d; font: 13px/1.5 "DM Sans",sans-serif; }
+.app-product .diagnostic-test-form textarea { min-height: 78px; resize: vertical; }
+.app-product .diagnostic-test-form__numbers, .app-product .diagnostic-test-form__priority { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.app-product .diagnostic-test-form__out-of-ten, .app-product .diagnostic-test-form__out-of-five { display: grid; grid-template-columns: minmax(0,1fr) 42px; align-items: stretch; }
+.app-product .diagnostic-test-form__out-of-ten input, .app-product .diagnostic-test-form__out-of-five input { border-radius: 10px 0 0 10px; }
+.app-product .diagnostic-test-form__out-of-ten span, .app-product .diagnostic-test-form__out-of-five span { display: grid; place-items: center; border: 1px solid rgba(7,27,61,.16); border-inline-start: 0; border-radius: 0 10px 10px 0; color: #53627a; font: 600 11px "DM Sans",sans-serif; }
+.app-product .diagnostic-test-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .diagnostic-test-summary article { display: grid; align-content: start; gap: 8px; min-height: 164px; padding: 18px; border-inline-end: 1px solid #dfe3ea; }
+.app-product .diagnostic-test-summary article:last-child { border-inline-end: 0; }
+.app-product .diagnostic-test-summary .mono { color: #8c7110; font-size: 9px; letter-spacing: .08em; }
+.app-product .diagnostic-test-summary strong { color: #071b3d; font: 600 18px/1.18 "Manrope",sans-serif; letter-spacing: -.035em; }
+.app-product .diagnostic-test-summary article:first-child strong { font-size: 42px; letter-spacing: -.07em; }
+.app-product .diagnostic-test-summary strong small { color: #53627a; font: 500 14px "DM Sans",sans-serif; letter-spacing: 0; }
+.app-product .diagnostic-test-summary p { margin: 0; color: #53627a; font-size: 12px; line-height: 1.55; }
+.app-product .diagnostic-test-summary article.is-test { border-top: 3px solid #caa515; }
+.app-product .diagnostic-test-summary article.is-ship { border-top: 3px solid #176b4b; }
+.app-product .diagnostic-test-summary article.is-deprioritize { border-top: 3px solid #6d7889; }
+.app-product .diagnostic-test-breakdown { display: grid; grid-template-columns: minmax(0,.8fr) minmax(300px,1.2fr); gap: 24px; align-items: start; margin-top: 18px; padding: 16px 0 16px 16px; border-inline-start: 2px solid #caa515; }
+.app-product .diagnostic-test-breakdown h3, .app-product .diagnostic-test-hypothesis h3 { max-width: 480px; margin: 7px 0; color: #071b3d; font: 500 20px/1.22 "Manrope",sans-serif; letter-spacing: -.04em; }
+.app-product .diagnostic-test-breakdown p, .app-product .diagnostic-test-hypothesis p { max-width: 620px; margin: 0; color: #53627a; font-size: 12px; line-height: 1.6; white-space: pre-line; }
+.app-product .diagnostic-test-breakdown dl { display: grid; gap: 10px; margin: 0; }
+.app-product .diagnostic-test-breakdown dl > div { display: grid; grid-template-columns: minmax(115px,.7fr) minmax(150px,1.3fr); gap: 12px; align-items: center; }
+.app-product .diagnostic-test-breakdown dt { color: #071b3d; font: 600 11px/1.35 "DM Sans",sans-serif; }
+.app-product .diagnostic-test-breakdown dd { display: grid; grid-template-columns: minmax(0,1fr) 32px; gap: 9px; align-items: center; margin: 0; }
+.app-product .diagnostic-test-breakdown dd::before { content: ""; grid-column: 1; grid-row: 1; height: 5px; background: #e9ebef; }
+.app-product .diagnostic-test-breakdown dd i { grid-column: 1; grid-row: 1; display: block; height: 5px; max-width: 100%; background: #071b3d; }
+.app-product .diagnostic-test-breakdown dd strong { grid-column: 2; color: #071b3d; font: 600 11px "DM Sans",sans-serif; }
+.app-product .diagnostic-test-hypothesis { margin-top: 18px; padding: 16px 0 16px 16px; border-inline-start: 2px solid #071b3d; }
+.app-product .diagnostic-test-hypothesis > div { display: flex; flex-wrap: wrap; gap: 15px; margin: 12px 0; color: #53627a; font: 600 11px "DM Sans",sans-serif; }
+.app-product .diagnostic-test-hypothesis > div strong { color: #071b3d; }
 .app-product .intro-request-draft > div { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .app-product .intro-request-draft .text-link { border: 0; background: transparent; color: #071b3d; cursor: pointer; font: 600 11px "DM Sans",sans-serif; }
 .app-product .intro-request-success { display: grid; gap: 8px; border-inline-start: 2px solid #caa515; padding-inline-start: 13px; color: #071b3d; }
@@ -518,11 +555,17 @@
   .app-product .activity-review-panel { grid-template-columns: 1fr; gap: 20px; }
   .app-product .activity-review-panel aside { padding: 18px 0 0; border-inline-start: 0; border-top: 1px solid #dfe3ea; }
   .app-product .pricing-test-form, .app-product .health-test-form { grid-template-columns: 1fr; }
+  .app-product .diagnostic-test-form { grid-template-columns: 1fr; }
   .app-product .pricing-test-form__context, .app-product .health-test-form__context { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }
+  .app-product .diagnostic-test-form__context { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }
   .app-product .pricing-test-results, .app-product .health-test-summary { grid-template-columns: 1fr; }
+  .app-product .diagnostic-test-summary { grid-template-columns: 1fr; }
   .app-product .pricing-test-results article, .app-product .health-test-summary article { min-height: auto; border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }
+  .app-product .diagnostic-test-summary article { min-height: auto; border-inline-end: 0; border-bottom: 1px solid #dfe3ea; }
   .app-product .pricing-test-results article:last-child, .app-product .health-test-summary article:last-child { border-bottom: 0; }
+  .app-product .diagnostic-test-summary article:last-child { border-bottom: 0; }
   .app-product .health-test-breakdown { grid-template-columns: 1fr; }
+  .app-product .diagnostic-test-breakdown { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 620px) {
@@ -562,8 +605,11 @@
   .app-product .founder-desk-next { align-items: flex-start; flex-direction: column; border-radius: 18px; padding: 25px 22px; }
   .app-product .activity-row-actions { justify-content: start; }
   .app-product .pricing-test-form__numbers, .app-product .health-test-form__numbers { grid-template-columns: 1fr; }
+  .app-product .diagnostic-test-form__numbers, .app-product .diagnostic-test-form__priority { grid-template-columns: 1fr; }
   .app-product .health-test-breakdown { padding-inline-start: 13px; }
+  .app-product .diagnostic-test-breakdown, .app-product .diagnostic-test-hypothesis { padding-inline-start: 13px; }
   .app-product .health-test-breakdown dl > div { grid-template-columns: 1fr; gap: 5px; }
+  .app-product .diagnostic-test-breakdown dl > div { grid-template-columns: 1fr; gap: 5px; }
 }
 
 .locale-ar .app-product .founder-desk-intro { text-align: end; }
@@ -585,4 +631,11 @@
 .locale-ar .app-product .health-test-summary article:last-child { border-inline-start: 0; }
 .locale-ar .app-product .health-test-breakdown, .locale-ar .app-product .health-test-decision-rule { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
 .locale-ar .app-product .health-test-decision-rule { border-inline-end-color: #071b3d; }
+.locale-ar .app-product .diagnostic-test-form__context { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .diagnostic-test-form__out-of-ten input, .locale-ar .app-product .diagnostic-test-form__out-of-five input { border-radius: 0 10px 10px 0; }
+.locale-ar .app-product .diagnostic-test-form__out-of-ten span, .locale-ar .app-product .diagnostic-test-form__out-of-five span { border-inline-start: 1px solid rgba(7,27,61,.16); border-inline-end: 0; border-radius: 10px 0 0 10px; }
+.locale-ar .app-product .diagnostic-test-summary article { border-inline-end: 0; border-inline-start: 1px solid #dfe3ea; }
+.locale-ar .app-product .diagnostic-test-summary article:last-child { border-inline-start: 0; }
+.locale-ar .app-product .diagnostic-test-breakdown, .locale-ar .app-product .diagnostic-test-hypothesis { padding-inline-start: 0; padding-inline-end: 16px; border-inline-start: 0; border-inline-end: 2px solid #caa515; }
+.locale-ar .app-product .diagnostic-test-hypothesis { border-inline-end-color: #071b3d; }
 @media (max-width: 900px) { .locale-ar .app-product .founder-desk-priority__selector { border-inline-end: 0; border-top: 1px solid rgba(7, 27, 61, 0.1); padding: 18px 0 0; } }

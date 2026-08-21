@@ -791,3 +791,10 @@
 - [x] Audit the existing ASaaSI SaaS health and retention routes for weak inputs, unclear diagnosis, and missing intervention follow-through.
 - [x] Rebuild the SaaS health route into a bilingual cohort-signal and intervention decision workbench without modifying the landing page.
 - [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
+
+## Founder Bottleneck Diagnostic and Experiment Design
+
+- [x] Benchmark current founder diagnostics and experiment-design workflows for explainable scoring, decision focus, and bounded follow-through.
+- [x] Audit the existing ASaaSI founder diagnostic for weak signals, generic output, and disconnected next actions.
+- [x] Rebuild the founder diagnostic into a bilingual weighted bottleneck and one-week experiment workbench without modifying the landing page.
+- [x] Validate responsive behavior, type safety, production build, and representative interactive journeys, then save the next checkpoint.
