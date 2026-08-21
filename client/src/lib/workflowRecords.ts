@@ -27,6 +27,14 @@ export type MarketEvidence = {
   capturedAt: string;
 };
 
+export type OperatingPrinciple = {
+  month: string;
+  rule: string;
+  scope: string;
+  applyNext: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -60,6 +68,7 @@ export type WorkflowRecord = {
   eventOutcomeAt?: string;
   customerEvidence?: CustomerEvidence;
   marketEvidence?: MarketEvidence;
+  operatingPrinciple?: OperatingPrinciple;
   updatedAt: string;
 };
 

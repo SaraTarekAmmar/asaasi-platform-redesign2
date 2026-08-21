@@ -856,3 +856,12 @@
 - [x] Audit the existing Market Map route and workflow-record model for generic segmentation, weak evidence boundaries, and disconnected next tests.
 - [x] Rebuild Market Map into a bilingual segment-evidence workbench with one falsifiable next market test, without modifying the landing page.
 - [x] Connect saved segment evidence to Activity and validate English, Arabic RTL, type safety, production build, and responsive flows before checkpointing.
+
+## Founder Learning Archive and Operating-Principle Reflection
+
+- [ ] Benchmark experiment-learning archives, decision-review systems, and founder reflection workflows for reusable keep, change, and stop learning.
+- [x] Benchmark experiment-learning archives, decision-review systems, and founder reflection workflows for reusable keep, change, and stop learning.
+- [x] Audit workflow records, Activity, Decision Review, and Weekly Review for disconnected cross-tool learning and weak principle reuse.
+- [x] Build a bilingual founder learning archive that compares completed evidence decisions by outcome and retains their original test context.
+- [x] Add a bounded monthly operating-principle reflection that turns one completed outcome into a reusable founder rule without claiming certainty.
+- [x] Validate English and Arabic RTL flows, type safety, production build, persistent records, responsive states, and checkpoint the enhancement.
