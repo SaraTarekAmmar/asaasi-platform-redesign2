@@ -1148,3 +1148,7 @@
 - [x] Persist each review note as a separate source-linked note record and expose it in an Activity archive beside the original customer fact.
 - [x] Keep the note bounded: no verified finding, merged evidence, source mutation, score, pattern, confidence, validation, causality, answer, decision update, outcome, priority, recommendation, task, reminder, meeting, follow-up, or test creation.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## GitHub Synchronization
+
+- [x] Verify the selected repository remote, commit the complete current ASaaSI project state, and push all tracked work to GitHub.
