@@ -1085,3 +1085,12 @@
 - [x] Build a bilingual founder-controlled side-by-side desk for one factual event observation and one retained decision source with direct recovery routes.
 - [x] Keep the desk bounded: no source score or weighting, count, causal inference, confirmation or contradiction claim, conclusion, record change, task, reminder, follow-up, or customer-test creation.
 - [x] Validate type safety, production build, bilingual component copy, source boundaries, responsive layout rules, and no em dashes before checkpointing.
+
+## Founder Evidence Reading
+
+- [x] Research source-grounded synthesis and research-library practices for keeping founder interpretation distinct from raw evidence.
+- [x] Audit the Event and Decision Evidence Desk, workflow-record model, Activity recovery paths, and existing reflection patterns for the correct separate-note implementation.
+- [x] Build a bilingual founder-authored reading workspace that links one factual event and one decision source while requiring an interpretation and a next open question.
+- [x] Persist readings as separate source-linked note records without altering original evidence, owners, dates, outcomes, event context, or follow-up records.
+- [x] Keep the reading bounded: no automated content, score, verification, pattern claim, conclusion, task, reminder, registration, decision, outcome, follow-up, or customer-test creation.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

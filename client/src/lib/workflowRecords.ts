@@ -1,4 +1,4 @@
-export type WorkflowRecordKind = "decision" | "event" | "application" | "introduction";
+export type WorkflowRecordKind = "decision" | "event" | "application" | "introduction" | "note";
 
 export type CustomerEvidence = {
   buyer: string;
@@ -72,6 +72,14 @@ export type EventPreparationChecklist = {
   updatedAt: string;
 };
 
+export type FounderEvidenceReading = {
+  eventSourceId: string;
+  decisionSourceId: string;
+  interpretation: string;
+  nextQuestion: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -112,6 +120,7 @@ export type WorkflowRecord = {
   knowledgeGuidance?: KnowledgeGuidance;
   eventFollowUp?: EventFollowUpDraft;
   eventPreparation?: EventPreparationChecklist;
+  founderEvidenceReading?: FounderEvidenceReading;
   updatedAt: string;
 };
 
