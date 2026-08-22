@@ -949,4 +949,6 @@
 - [x] Benchmark outcome-to-tool recovery patterns that use a completed decision as reference context for a fresh bounded test without copying conclusions.
 - [x] Audit completed learning archives, Founder Operating Desk, and founder tools for the most valuable source-linked recovery destination beyond Customer Evidence.
 - [x] Build a bilingual completed-outcome-to-tool handoff that preserves provenance while requiring a founder-authored new test, threshold, and review point.
-- [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
+- [x] Add SaaS Health outcome recovery with a source-only reference ledger, fresh cohort inputs, and traceable record linkage.
+- [x] Ensure fresh source-linked Pricing and Health tests receive unique record identifiers and cannot overwrite a retained completed source.
+- [x] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
