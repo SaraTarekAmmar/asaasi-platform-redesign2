@@ -1,7 +1,7 @@
 /* Editorial operating system: Activity preserves the decision, conversation, and outcome as one calm return path. */
 /* Editorial operating system: Activity turns specific founder learning into a bounded next commitment, using existing records rather than duplicate task state. */
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, CalendarPlus, Check, MessageSquare, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarPlus, Check, Download, MessageSquare, Search } from "lucide-react";
 import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
@@ -319,6 +319,78 @@ function MarketMapOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] }
   return <section className="market-outcome-recovery-rail" aria-labelledby="market-outcome-recovery-title"><header><div><SectionLabel>{t("Market outcome recovery", "استرجاع نتيجة السوق")}</SectionLabel><h2 id="market-outcome-recovery-title">{t("Return to the finished market test before you make the next market assumption.", "عد إلى اختبار السوق المكتمل قبل وضع افتراض السوق التالي.")}</h2><p>{t("Each source keeps the original segment, market evidence, test, and dated outcome visible. A fresh assumption still needs a current segment and observable response.", "يبقي كل مصدر الشريحة ودليل السوق والاختبار والنتيجة المؤرخة الأصلية ظاهرة. لا يزال الافتراض الجديد يحتاج إلى شريحة حالية واستجابة قابلة للملاحظة.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="market-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/market-map?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh assumption test", "افتح اختبار افتراض جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
 }
 
+function MonthlyDecisionReviewExport({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL, formatNum } = useLocale();
+  const completed = records.filter((record) => record.kind === "decision" && Boolean(record.outcome)).sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt));
+  const currentMonth = new Date().toISOString().slice(0, 7);
+  const availableMonths = Array.from(new Set([...completed.map((record) => (record.outcomeAt ?? record.updatedAt).slice(0, 7)), currentMonth])).sort().reverse();
+  const [month, setMonth] = useState(() => availableMonths[0] ?? currentMonth);
+  const selected = completed.filter((record) => (record.outcomeAt ?? record.updatedAt).slice(0, 7) === month);
+  const outcomeLabel = (outcome: WorkflowRecord["outcome"], locale: "en" | "ar") => outcome === "keep" ? locale === "en" ? "Keep" : "استمر" : outcome === "change" ? locale === "en" ? "Change" : "غيّر" : locale === "en" ? "Stop" : "أوقف";
+  const formatMonth = (value: string, locale: string) => new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }).format(new Date(`${value}-01T00:00:00`));
+  const formatDate = (value: string, locale: string) => new Intl.DateTimeFormat(locale, { month: "short", day: "numeric", year: "numeric" }).format(new Date(value));
+  const outcomeCounts = { keep: selected.filter((record) => record.outcome === "keep").length, change: selected.filter((record) => record.outcome === "change").length, stop: selected.filter((record) => record.outcome === "stop").length };
+  const downloadReview = () => {
+    const lines = [
+      "# ASaaSI Monthly Decision Review / مراجعة القرار الشهرية",
+      "",
+      `**Month / الشهر:** ${formatMonth(month, "en-GB")} / ${formatMonth(month, "ar-EG")}`,
+      `**Prepared / تم الإعداد:** ${formatDate(new Date().toISOString(), "en-GB")} / ${formatDate(new Date().toISOString(), "ar-EG")}`,
+      "",
+      "## Review boundary / حد المراجعة",
+      "This export compiles only retained completed decision records for the month selected by the founder. It preserves source context for review and does not score evidence, rank decisions, infer progress or causality, choose priorities, assign work, create tasks, set dates, or send reminders.",
+      "يجمع هذا التصدير فقط سجلات القرار المكتملة المحتفظ بها للشهر الذي يختاره المؤسس. يحافظ على سياق المصدر للمراجعة ولا يسجل الدليل أو يرتب القرارات أو يستنتج تقدما أو سببية أو يختار أولويات أو يعين عملا أو ينشئ مهاما أو يحدد تواريخ أو يرسل تذكيرات.",
+      "",
+      "## Retained outcomes / النتائج المحتفظ بها",
+    ];
+    if (!selected.length) {
+      lines.push("No completed Keep, Change, or Stop outcome was retained for this month.", "لم تُحتفظ بنتيجة مكتملة من استمر أو غيّر أو أوقف لهذا الشهر.");
+    } else {
+      selected.forEach((record, index) => {
+        const sourceEn = decisionSource(record, (en) => en);
+        const sourceAr = decisionSource(record, (_en, ar) => ar);
+        const completedAt = record.outcomeAt ?? record.updatedAt;
+        const evidence = record.evidence || record.weeklyReflection || "No separate evidence note retained.";
+        const originalTest = record.nextAction || "Open the source record.";
+        const ownerEn = record.owner || "Not retained";
+        const ownerAr = record.ownerAr || "غير محتفظ به";
+        const reviewEn = record.reviewDate || record.reviewDue || "No dated review retained";
+        const reviewAr = record.reviewDateAr || record.reviewDue || "لا توجد مراجعة مؤرخة محتفظ بها";
+        const accountabilityRoute = `/dashboard/decision-accountability?decision=${encodeURIComponent(record.id)}`;
+        lines.push(
+          "",
+          `### ${String(index + 1).padStart(2, "0")}. ${record.title} / ${record.titleAr}`,
+          `- **Outcome / النتيجة:** ${outcomeLabel(record.outcome, "en")} / ${outcomeLabel(record.outcome, "ar")}`,
+          `- **Recorded / تاريخ التسجيل:** ${formatDate(completedAt, "en-GB")} / ${formatDate(completedAt, "ar-EG")}`,
+          `- **Source / المصدر:** ${sourceEn} / ${sourceAr}`,
+          `- **Owner / المالك:** ${ownerEn} / ${ownerAr}`,
+          `- **Review point / نقطة المراجعة:** ${reviewEn} / ${reviewAr}`,
+          `- **Retained evidence / الدليل المحتفظ به:** ${evidence}`,
+          `- **Original test / الاختبار الأصلي:** ${originalTest}`,
+          `- **Source route / مسار المصدر:** [Open source / افتح المصدر](${record.href})`,
+          `- **Accountability route / مسار المساءلة:** [Open decision-specific accountability / افتح المساءلة الخاصة بالقرار](${accountabilityRoute})`,
+        );
+        if (record.operatingPrinciple) lines.push(`- **Working principle / مبدأ العمل:** ${record.operatingPrinciple.rule}`);
+      });
+    }
+    const missing = selected.flatMap((record) => [!record.owner?.trim() ? `${record.title}: owner / المالك` : "", !(record.reviewDate || record.reviewDue) ? `${record.title}: review point / نقطة المراجعة` : "", !(record.evidence || record.weeklyReflection) ? `${record.title}: separate evidence note / ملاحظة دليل منفصلة` : "", !record.nextAction ? `${record.title}: original test / الاختبار الأصلي` : ""]).filter(Boolean);
+    lines.push("", "## Fields not retained / الحقول غير المحتفظ بها");
+    if (missing.length) missing.forEach((field) => lines.push(`- ${field}`));
+    else lines.push("No selected record is missing the checked fields. This does not indicate evidence quality or decision quality.", "لا يفقد أي سجل مختار الحقول المفحوصة. لا يشير ذلك إلى جودة الدليل أو جودة القرار.");
+    lines.push("", "## Return paths / مسارات العودة", "Use the source route to reopen the original workbench and the accountability route to review the retained owner or review point. The source records remain unchanged by this export.", "استخدم مسار المصدر لإعادة فتح طاولة العمل الأصلية ومسار المساءلة لمراجعة المالك المحتفظ به أو نقطة المراجعة. تبقى سجلات المصدر دون تغيير بهذا التصدير.");
+    const blob = new Blob([lines.join("\n")], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `asaasi-monthly-decision-review-${month}.md`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  };
+  return <section className="monthly-decision-review-export" aria-labelledby="monthly-decision-review-export-title"><header className="monthly-decision-review-export__heading"><div><SectionLabel>{t("Monthly decision review", "مراجعة القرار الشهرية")}</SectionLabel><h2 id="monthly-decision-review-export-title">{t("Prepare the retained learning before you decide what a month meant.", "حضّر التعلم المحتفظ به قبل أن تقرر ما الذي يعنيه الشهر.")}</h2><p>{t("Choose the month yourself, then download its completed decisions with the original evidence, test, owner, review point, and source paths intact.", "اختر الشهر بنفسك، ثم نزّل قراراته المكتملة مع الدليل والاختبار والمالك ونقطة المراجعة ومسارات المصدر كما هي.")}</p></div><div className="monthly-decision-review-export__metric"><strong>{formatNum(selected.length)}</strong><span>{t("retained outcomes", "نتائج محتفظ بها")}</span></div></header><div className="monthly-decision-review-export__boundary"><span className="mono">{t("PREPARATION, NOT A VERDICT", "تحضير، لا حكم")}</span><p>{t("The export is a founder-controlled review artifact. It does not choose a priority, calculate a score, turn missing fields into failure, or create follow-up work.", "التصدير أداة مراجعة يتحكم بها المؤسس. لا يختار أولوية أو يحسب درجة أو يحول الحقول المفقودة إلى فشل أو ينشئ عملا للمتابعة.")}</p></div><div className="monthly-decision-review-export__controls"><label><span>{t("Review month", "شهر المراجعة")}</span><select value={month} onChange={(event) => setMonth(event.target.value)}>{availableMonths.map((option) => <option value={option} key={option}>{formatMonth(option, isRTL ? "ar-EG" : "en-GB")}</option>)}</select></label><button type="button" className="button button-dark" onClick={downloadReview}><Download size={14} /> {t("Download monthly review", "نزّل المراجعة الشهرية")}</button></div><div className="monthly-decision-review-export__summary"><article><span>{t("Keep", "استمر")}</span><strong>{formatNum(outcomeCounts.keep)}</strong></article><article><span>{t("Change", "غيّر")}</span><strong>{formatNum(outcomeCounts.change)}</strong></article><article><span>{t("Stop", "أوقف")}</span><strong>{formatNum(outcomeCounts.stop)}</strong></article></div>{selected.length ? <div className="monthly-decision-review-export__records">{selected.slice(0, 3).map((record, index) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{isRTL ? `٠${index + 1}` : String(index + 1).padStart(2, "0")}</span><strong>{outcomeLabel(record.outcome, isRTL ? "ar" : "en")}</strong></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><dl><div><dt>{t("Original test", "الاختبار الأصلي")}</dt><dd>{t(record.nextAction ?? "Open the source record", record.nextActionAr ?? "افتح سجل المصدر")}</dd></div><div><dt>{t("Review point", "نقطة المراجعة")}</dt><dd>{t(record.reviewDate ?? record.reviewDue ?? "No dated review", record.reviewDateAr ?? record.reviewDue ?? "لا توجد مراجعة مؤرخة")}</dd></div></dl><div><Link href={record.href} className="text-link">{t("Open source", "افتح المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><Link href={`/dashboard/decision-accountability?decision=${encodeURIComponent(record.id)}`} className="button button-light">{t("Review ownership", "راجع الملكية")}</Link></div></article>)}</div> : <div className="monthly-decision-review-export__empty"><strong>{t("No completed outcome is retained for this month.", "لا توجد نتيجة مكتملة محتفظ بها لهذا الشهر.")}</strong><p>{t("The download will state the absence plainly and leave your source records unchanged.", "سيذكر التنزيل الغياب بوضوح ويترك سجلات المصدر دون تغيير.")}</p></div>}<footer><p>{t("Only the first three records are previewed here. The downloaded review includes every retained completed decision for the selected month and its direct return paths.", "تُعاين هنا السجلات الثلاثة الأولى فقط. تتضمن المراجعة المنزلة كل قرار مكتمل محتفظ به للشهر المختار ومسارات عودته المباشرة.")}</p><Link href="/dashboard/decision-review" className="button button-light">{t("Open decision review", "افتح مراجعة القرار")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></footer></section>;
+}
+
 function FounderLearningArchive({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
   const { t, isRTL, formatNum } = useLocale();
   const [filter, setFilter] = useState<LearningFilter>("all");
@@ -500,6 +572,8 @@ export function ActivityWorkspace() {
     {decisions.length > 0 && <CrossToolDecisionArchive records={decisions} />}
 
     {monthlyLearnedDecisions.length > 0 && <section className="activity-monthly-learning" aria-label={t("This month’s decision learning", "تعلم قرارات هذا الشهر")}><div className="activity-monthly-learning__intro"><SectionLabel>{t("This month’s decision learning", "تعلم قرارات هذا الشهر")}</SectionLabel><h2>{t("Use what changed before you ask for another conversation.", "استخدم ما تغيّر قبل أن تطلب محادثة أخرى.")}</h2><p>{t("This is a short retained-learning view, not a scorecard. Each outcome keeps its original evidence and can become context for the next relevant introduction.", "هذه رؤية قصيرة للتعلم المحتفظ به، وليست بطاقة نتائج. تحتفظ كل نتيجة بدليلها الأصلي ويمكن أن تصبح سياقا للمقدمة المناسبة التالية.")}</p><dl><div><dt>{t("Keep", "استمر")}</dt><dd>{formatNum(monthlyOutcomeCounts.keep)}</dd></div><div><dt>{t("Change", "غيّر")}</dt><dd>{formatNum(monthlyOutcomeCounts.change)}</dd></div><div><dt>{t("Stop", "أوقف")}</dt><dd>{formatNum(monthlyOutcomeCounts.stop)}</dd></div></dl></div><div className="activity-monthly-learning__records">{monthlyLearnedDecisions.slice(0, 3).map((record) => <article key={record.id} className={`is-${record.outcome}`}><span>{outcomeLabel(record)}</span><h3>{t(record.title, record.titleAr)}</h3><p>{record.evidence || record.weeklyReflection || t("The outcome is saved, ready to reopen when the next question needs context.", "النتيجة محفوظة وجاهزة لإعادة الفتح عندما يحتاج السؤال التالي إلى سياق.")}</p><div><Link href="/dashboard/decision-review" className="text-link">{t("Review learning", "راجع التعلم")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><Link href={`/dashboard/network?decision=${encodeURIComponent(record.id)}&intent=outcome-learning`} className="button button-light">{t("Find a relevant conversation", "ابحث عن محادثة مناسبة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>}
+
+    {decisions.length > 0 && <MonthlyDecisionReviewExport records={records} />}
 
     {learnedDecisions.length > 0 && <FounderLearningArchive records={records} onRecordsChanged={() => setRecords(getWorkflowRecords())} />}
 

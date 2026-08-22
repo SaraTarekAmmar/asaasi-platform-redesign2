@@ -1037,3 +1037,11 @@
 - [x] Audit open decision owner fields, review dates, Activity, and accountability recovery routes for the most useful bounded field-alignment view.
 - [x] Build a bilingual Owner → Review date → Source ledger that distinguishes all retained owner and review-date combinations without creating urgency scores.
 - [x] Validate English and Arabic RTL protected Activity and accountability states, type safety, production build, and responsive layouts before checkpointing.
+
+## Monthly Decision Review Export
+
+- [x] Research source-linked evidence and decision-preparation patterns across product-discovery and research-repository tools.
+- [x] Audit the Founder Learning Archive and Activity recovery paths for the most useful founder-controlled monthly review export.
+- [x] Build a bilingual Markdown export for founder-selected monthly Keep, Change, and Stop outcomes with original evidence, tests, owner, review point, and direct source paths.
+- [x] Keep the export bounded as a preparation artifact with no scoring, priority selection, causal inference, task creation, field mutation, or reminders.
+- [x] Validate English and Arabic RTL authenticated Activity views, empty-month handling, type safety, production build, source checks, and responsive layout rules before checkpointing.
