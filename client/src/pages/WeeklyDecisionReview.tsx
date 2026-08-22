@@ -80,6 +80,36 @@ function FounderReadingPreRead({ records }: { records: WorkflowRecord[] }) {
   return <section className="weekly-founder-reading-preread" aria-labelledby="weekly-founder-reading-preread-title"><header><div><SectionLabel>{t("Founder reading pre-read", "مادة قراءة المؤسس المسبقة")}</SectionLabel><h2 id="weekly-founder-reading-preread-title">{t("Read one unresolved source pair before you set the week’s decision agenda.", "اقرأ زوج مصدر مفتوحا واحدا قبل تحديد جدول قرارات الأسبوع.")}</h2><p>{t("This is a founder-authored interpretation carried from Activity. It is not a verified pattern, primary bet, decision outcome, or instruction for the week.", "هذا تفسير كتبه المؤسس محمول من النشاط. ليس نمطا موثقا أو رهانا رئيسيا أو نتيجة قرار أو تعليمة للأسبوع.")}</p></div><span className="mono">{t("PRE-READ", "مادة مسبقة")}</span></header><div className="weekly-founder-reading-preread__body"><article><span className="mono">{t("AUTHOR READING", "قراءة المؤسس")}</span><strong>{reading.founderEvidenceReading.interpretation}</strong><p>{t("Question kept open: ", "السؤال الذي يبقى مفتوحا: ")}{reading.founderEvidenceReading.nextQuestion}</p></article><aside><span className="mono">{t("SOURCE PAIR", "زوج المصدر")}</span><dl><div><dt>{t("Event", "الفعالية")}</dt><dd>{t(event?.title ?? "Event source no longer available", event?.titleAr ?? "مصدر الفعالية لم يعد متاحا")}</dd></div><div><dt>{t("Decision", "القرار")}</dt><dd>{t(decision?.title ?? "Decision source no longer available", decision?.titleAr ?? "مصدر القرار لم يعد متاحا")}</dd></div></dl><div>{event && <Link href={event.href} className="text-link">{t("Open event", "افتح الفعالية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>}{decision && <><Link href={decision.href} className="text-link">{t("Open decision", "افتح القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><Link href={`/dashboard/decision-accountability?decision=${encodeURIComponent(decision.id)}`} className="text-link">{t("Open accountability", "افتح المساءلة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></>}</div></aside></div><footer><Link href="/dashboard/registrations#founder-evidence-reading-notes" className="button button-light">{t("Open founder reading", "افتح قراءة المؤسس")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><p>{t("Use the source routes if you need more context. Weekly Review does not change this reading or turn it into a decision by showing it here.", "استخدم مسارات المصدر إذا احتجت إلى سياق أكبر. لا تغير المراجعة الأسبوعية هذه القراءة ولا تحولها إلى قرار بمجرد عرضها هنا.")}</p></footer></section>;
 }
 
+function FounderReadingRevisitAcknowledgement({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
+  const { t, isRTL } = useLocale();
+  const agendaItem = records.filter((record) => record.kind === "note" && Boolean(record.founderReadingReviewAgenda)).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0];
+  const reading = records.find((record) => record.id === agendaItem?.founderReadingReviewAgenda?.founderReadingId && Boolean(record.founderEvidenceReading));
+  const revisit = records.filter((record) => record.kind === "note" && record.founderReadingRevisit?.reviewAgendaId === agendaItem?.id).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))[0];
+  const [remainingUncertainty, setRemainingUncertainty] = useState("");
+  const [saved, setSaved] = useState(false);
+  if (!agendaItem || !reading?.founderEvidenceReading) return null;
+  const saveRevisit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!remainingUncertainty.trim()) return;
+    const revisitedAt = new Date().toISOString();
+    upsertWorkflowRecord({
+      id: `founder-reading-revisit-${Date.now()}`,
+      kind: "note",
+      title: `Open question revisited: ${reading.title}`,
+      titleAr: `سؤال مفتوح تمت مراجعته: ${reading.titleAr}`,
+      href: "/dashboard/weekly-review",
+      status: "saved",
+      nextAction: remainingUncertainty.trim(),
+      nextActionAr: remainingUncertainty.trim(),
+      founderReadingRevisit: { founderReadingId: reading.id, reviewAgendaId: agendaItem.id, remainingUncertainty: remainingUncertainty.trim(), revisitedAt },
+    });
+    setRemainingUncertainty("");
+    setSaved(true);
+    onRecordsChanged();
+  };
+  return <section className="weekly-founder-reading-revisit" aria-labelledby="weekly-founder-reading-revisit-title"><header><div><SectionLabel>{t("Open question revisit", "مراجعة السؤال المفتوح")}</SectionLabel><h2 id="weekly-founder-reading-revisit-title">{t("Record that you returned to the question, without claiming the question is settled.", "سجل أنك عدت إلى السؤال، من دون الادعاء بأن السؤال قد حُسم.")}</h2><p>{t("The acknowledgement keeps the founder reading open. Name what remains uncertain after this review rather than forcing a result or a next task.", "يبقي الإقرار قراءة المؤسس مفتوحة. سمِ ما يبقى غير مؤكد بعد هذه المراجعة بدلا من فرض نتيجة أو مهمة تالية.")}</p></div><span className="mono">{t("HUMAN REVISIT", "مراجعة بشرية")}</span></header><div className="weekly-founder-reading-revisit__context"><div><span className="mono">{t("QUESTION CARRIED", "السؤال المحمول")}</span><strong>{reading.founderEvidenceReading.nextQuestion}</strong></div><div><span className="mono">{t("REVIEW BOUNDARY", "حد المراجعة")}</span><p>{t("This does not update the reading, sources, decision, primary bet, owner, date, outcome, or follow-up. It does not create a priority, recommendation, task, or reminder.", "لا يحدث هذا القراءة أو المصادر أو القرار أو الرهان الرئيسي أو المالك أو التاريخ أو النتيجة أو المتابعة. ولا ينشئ أولوية أو توصية أو مهمة أو تذكيرا.")}</p></div></div>{revisit ? <div className="weekly-founder-reading-revisit__saved"><span className="mono">{t("MOST RECENT REVISIT", "أحدث مراجعة")}</span><strong>{t("Revisited on ", "تمت المراجعة في ")}{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric", year: "numeric" }).format(new Date(revisit.founderReadingRevisit?.revisitedAt ?? revisit.updatedAt))}</strong><p>{revisit.founderReadingRevisit?.remainingUncertainty}</p><Link href="/dashboard/registrations#founder-evidence-reading-notes" className="text-link">{t("Reopen founder reading", "أعد فتح قراءة المؤسس")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div> : <form className="weekly-founder-reading-revisit__form" onSubmit={saveRevisit}><label>{t("What remains uncertain after revisiting this question?", "ما الذي يبقى غير مؤكد بعد مراجعة هذا السؤال؟")}<textarea value={remainingUncertainty} onChange={(event) => { setRemainingUncertainty(event.target.value); setSaved(false); }} required placeholder={t("Keep the uncertainty specific. Do not force a conclusion that the source pair cannot support.", "أبقِ عدم اليقين محددا. لا تفرض استنتاجا لا يمكن لزوج المصدر دعمه.")} /></label><div><button type="submit" className="button button-dark"><Check size={14} /> {t("Acknowledge revisit", "أقرّ بالمراجعة")}</button>{saved && <span className="inline-success"><Check size={14} /> {t("Open question revisit saved separately", "حُفظت مراجعة السؤال المفتوح بشكل منفصل")}</span>}</div></form>}<footer><p>{t("A revisit is not evidence of resolution. Reopen the source pair before you decide whether more context is needed.", "المراجعة ليست دليلا على الحسم. أعد فتح زوج المصدر قبل أن تقرر ما إذا كان هناك حاجة إلى سياق إضافي.")}</p><Link href="/dashboard/registrations" className="button button-light">{t("Open Activity", "افتح النشاط")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></footer></section>;
+}
+
 export function WeeklyDecisionReviewWorkspace() {
   const { t, formatNum, isRTL } = useLocale();
   const [records, setRecords] = useState(() => getWorkflowRecords());
@@ -303,6 +333,7 @@ export function WeeklyDecisionReviewWorkspace() {
       <WeeklyLearningDigest records={records} />
 
       <FounderReadingPreRead records={records} />
+      <FounderReadingRevisitAcknowledgement records={records} onRecordsChanged={() => setRecords(getWorkflowRecords())} />
 
       {introductionLearnings.length > 0 && <section className="weekly-introduction-learning">
         <div><SectionLabel>{t("Conversation learning", "تعلم المحادثة")}</SectionLabel><h2>{t("New conversation evidence is ready for the next decision.", "دليل محادثة جديد جاهز للقرار التالي.")}</h2></div>

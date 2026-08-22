@@ -1103,3 +1103,12 @@
 - [x] Add a Weekly Review pre-read with retained author wording, open question, event route, decision route, and decision-specific accountability route.
 - [x] Keep the handoff bounded: no ranking, meeting scheduling, owner assignment, task, reminder, decision selection, primary-bet choice, outcome, recommendation, or conclusion.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Founder Reading Open Question Revisit
+
+- [x] Research decision-log and after-action-review practices for documenting a revisit without equating reconsideration with resolution.
+- [x] Audit Founder Reading Pre-read, Weekly Review persistence, source routes, and the decision-learning loop for the correct separate acknowledgement boundary.
+- [x] Build a bilingual founder-authored acknowledgement that records remaining uncertainty after revisiting a carried founder reading.
+- [x] Persist each acknowledgement as a separate note with the founder-reading ID, review-agenda ID, remaining uncertainty, and timestamp.
+- [x] Keep the acknowledgement bounded: no resolution claim, record mutation, primary-bet selection, outcome, priority, recommendation, task, reminder, meeting, new test, or conclusion.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

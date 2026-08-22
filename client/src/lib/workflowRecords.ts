@@ -85,6 +85,13 @@ export type FounderReadingReviewAgenda = {
   createdAt: string;
 };
 
+export type FounderReadingRevisit = {
+  founderReadingId: string;
+  reviewAgendaId: string;
+  remainingUncertainty: string;
+  revisitedAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -127,6 +134,7 @@ export type WorkflowRecord = {
   eventPreparation?: EventPreparationChecklist;
   founderEvidenceReading?: FounderEvidenceReading;
   founderReadingReviewAgenda?: FounderReadingReviewAgenda;
+  founderReadingRevisit?: FounderReadingRevisit;
   updatedAt: string;
 };
 
