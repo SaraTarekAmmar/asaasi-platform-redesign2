@@ -987,3 +987,10 @@
 - [x] Audit Founder Diagnostic, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-bottleneck-outcome-to-fresh-diagnostic workflow that retains prior context while requiring current founder-authored evidence and experiment inputs.
 - [x] Validate English and Arabic RTL protected Founder Diagnostic states, type safety, production build, and source-record integrity before checkpointing.
+
+## Positioning Outcome Recovery
+
+- [x] Benchmark message-testing and customer-language practices for open-ended response, source evidence, buyer context, and disciplined message iteration.
+- [x] Audit Positioning Evidence, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-positioning-outcome-to-fresh-message-test workflow that retains source language while requiring current founder-authored claim and response inputs.
+- [x] Validate English and Arabic RTL protected Positioning Evidence states, type safety, production build, and source-record integrity before checkpointing.
