@@ -763,3 +763,24 @@
 .app-product .account-flow--weekly-review > .account-form-wrap,.app-product .account-flow--registrations > .account-form-wrap { background: linear-gradient(180deg,rgba(251,251,248,.95),#fbfbf8 72%); }
 [dir="rtl"] .app-product .account-identity-step { padding-inline-start: 12px; padding-inline-end: 14px; }
 @media (max-width: 640px) { .app-product .account-identity-step { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--registrations .form-divider { margin-inline-start: 12px; } }
+
+/* Workspace and weekly return forms use an operational ledger rhythm: source rail, identity step, route choice, then quiet credential fields. */
+.app-product .account-flow--workspace .account-form,
+.app-product .account-flow--weekly-review .account-form { background: linear-gradient(180deg,rgba(7,27,61,.018),transparent 46%); }
+.app-product .account-flow--workspace .account-route-rail,
+.app-product .account-flow--weekly-review .account-route-rail { margin-bottom: 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--workspace .oauth-row,
+.app-product .account-flow--weekly-review .oauth-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 0; padding: 13px 12px 12px 14px; border-inline-start: 1px solid #dfe3ea; background: linear-gradient(90deg,rgba(7,27,61,.025),transparent 75%); }
+.app-product .account-flow--workspace .oauth-row .button,
+.app-product .account-flow--weekly-review .oauth-row .button { justify-content: space-between; min-height: 38px; padding-inline: 12px; border-color: #cfd5df; border-radius: 8px; background: rgba(251,251,248,.72); box-shadow: none; }
+.app-product .account-flow--workspace .form-divider,
+.app-product .account-flow--weekly-review .form-divider { margin-inline-start: 14px; }
+.app-product .account-flow--workspace .account-form > label,
+.app-product .account-flow--weekly-review .account-form > label { margin-inline-start: 14px; padding: 9px 12px 10px; border-inline-start: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; background: rgba(251,251,248,.55); }
+.app-product .account-flow--workspace .account-form > label input,
+.app-product .account-flow--weekly-review .account-form > label input { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+.app-product .account-flow--workspace .form-inline,
+.app-product .account-flow--weekly-review .form-inline { margin-inline-start: 14px; padding: 12px 12px 0; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--workspace .button.full,
+.app-product .account-flow--weekly-review .button.full { margin-inline-start: 14px; width: calc(100% - 14px); border-radius: 8px; }
+@media (max-width: 640px) { .app-product .account-flow--workspace .oauth-row,.app-product .account-flow--weekly-review .oauth-row { padding-inline-start: 12px; }.app-product .account-flow--workspace .form-divider,.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--workspace .account-form > label,.app-product .account-flow--weekly-review .account-form > label,.app-product .account-flow--workspace .form-inline,.app-product .account-flow--weekly-review .form-inline,.app-product .account-flow--workspace .button.full,.app-product .account-flow--weekly-review .button.full { margin-inline-start: 12px; }.app-product .account-flow--workspace .button.full,.app-product .account-flow--weekly-review .button.full { width: calc(100% - 12px); } }

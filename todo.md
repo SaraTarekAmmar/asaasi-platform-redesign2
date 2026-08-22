@@ -931,4 +931,10 @@
 - [x] Benchmark founder operating digests and cross-workflow learning views that surface bounded next actions without automatic prioritization.
 - [x] Audit Activity, Weekly Review, Knowledge, and completed-learning records for the most useful weekly synthesis and recovery gap.
 - [x] Build a bilingual weekly learning digest that surfaces only source-linked outcomes and direct recovery paths across founder workflows.
+
+## Founder Home Operating Workbench
+
+- [x] Benchmark founder dashboards and operating workbenches that keep current commitments, retained learning, and next recovery moves connected.
+- [x] Audit the Founder Operating Desk, Activity, and Weekly Review for the highest-value missing daily operating handoff.
+- [x] Build a bilingual founder home operating brief that connects the current bet, recent learning, and one source-linked next move without automatic prioritization.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
