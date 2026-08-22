@@ -1008,3 +1008,10 @@
 - [x] Audit Weekly Review, primary bets, current-week learning, research cadence, and open decision records for a bounded founder-owned export.
 - [x] Upgrade the bilingual Weekly Review download into a source-linked Markdown operating brief without automated recommendations, scoring, tasks, or sending.
 - [x] Validate English and Arabic RTL protected Weekly Review states, type safety, production build, and responsive layouts before checkpointing.
+
+## Event Debrief Source Review
+
+- [x] Benchmark event debrief practices for timely factual evidence, source limitations, focused action logs, named follow-through, and review dates.
+- [x] Audit ASaaSI event observations, follow-up drafts, linked decisions, and Activity surfaces for the most useful source-filtered debrief review.
+- [x] Build a bilingual Event → Fact → Follow-through source ledger with filters for observation, saved draft, linked decision, and missing follow-up draft.
+- [x] Validate English and Arabic RTL protected Activity states, type safety, production build, and responsive layouts before checkpointing.
