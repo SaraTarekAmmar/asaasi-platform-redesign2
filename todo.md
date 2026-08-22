@@ -1139,3 +1139,12 @@
 - [x] Restrict the update to review timing fields while preserving all evidence, source references, owner, status, decision relationships, and existing review context.
 - [x] Keep the editor bounded: no urgency score, evidence-quality assessment, freshness inference, task, reminder, source mutation, next-action selection, outcome update, or resolution claim.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Founder Evidence Review Note
+
+- [x] Research research-repository and synthesis practices for separating raw evidence, author notes, and later interpretation.
+- [x] Audit Customer Evidence save behavior, review timing, Activity recovery, source routes, and existing separate-note patterns for the correct implementation boundary.
+- [x] Build a bilingual post-save Customer Evidence form that requires a founder reading and remaining open question.
+- [x] Persist each review note as a separate source-linked note record and expose it in an Activity archive beside the original customer fact.
+- [x] Keep the note bounded: no verified finding, merged evidence, source mutation, score, pattern, confidence, validation, causality, answer, decision update, outcome, priority, recommendation, task, reminder, meeting, follow-up, or test creation.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

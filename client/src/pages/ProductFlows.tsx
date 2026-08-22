@@ -1052,6 +1052,9 @@ function CustomerEvidenceToolFlow() {
   const reviewDue = primaryResearchCadence?.dueDate ?? new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10);
   const [reviewPoint, setReviewPoint] = useState(() => sourceRecord?.reviewDue ?? reviewDue);
   const [reviewPointSaved, setReviewPointSaved] = useState(false);
+  const [reviewReflection, setReviewReflection] = useState("");
+  const [reviewRemainingQuestion, setReviewRemainingQuestion] = useState("");
+  const [reviewNoteSaved, setReviewNoteSaved] = useState(false);
   const actions = [
     { value: "interview", en: "Book a follow-up around the live workflow", ar: "احجز متابعة حول سير العمل الحي" },
     { value: "prototype", en: "Show one narrow workflow prototype", ar: "اعرض نموذجا أوليا ضيقا لسير العمل" },
@@ -1098,6 +1101,15 @@ function CustomerEvidenceToolFlow() {
     upsertWorkflowRecord({ ...current, reviewDue: reviewPoint, reviewDate: `Review customer validation on ${reviewPoint}`, reviewDateAr: `راجع تحقق العميل في ${reviewPoint}` });
     setReviewPointSaved(true);
   };
+  const saveReviewNote = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!savedRecordId || !reviewReflection.trim() || !reviewRemainingQuestion.trim()) return;
+    const current = getWorkflowRecords().find((record) => record.id === savedRecordId && Boolean(record.customerEvidence));
+    if (!current) return;
+    const createdAt = new Date().toISOString();
+    upsertWorkflowRecord({ id: `customer-evidence-review-note-${Date.now()}`, kind: "note", title: `Evidence review note: ${current.title}`, titleAr: `ملاحظة مراجعة الدليل: ${current.titleAr}`, href: current.href, status: "saved", customerEvidenceReviewNote: { customerEvidenceId: current.id, reflection: reviewReflection.trim(), remainingQuestion: reviewRemainingQuestion.trim(), createdAt } });
+    setReviewNoteSaved(true);
+  };
   return <>
     <div className="tool-room-hero"><div><SignalTag tone="soft">{t("Workbench / Customer fact", "طاولة عمل / حقيقة العميل")}</SignalTag><h1>{t("Turn one past customer moment into a dated validation action.", "حوّل لحظة عميل سابقة واحدة إلى فعل تحقق مؤرخ.")}</h1><p>{t("Capture what happened, what the buyer did instead, and the commitment that will make the next learning harder than an opinion.", "التقط ما حدث وما فعله المشتري بدلا من ذلك والالتزام الذي سيجعل التعلم التالي أصعب من رأي.")}</p></div><div className="tool-room-meta"><span className="mono">{t("Estimated time", "الوقت المقدر")}</span><strong>{t("08 min", "٨ دقائق")}</strong><span className="mono">{t("Output", "الناتج")}</span><strong>{t("Dated validation action", "فعل تحقق مؤرخ")}</strong></div></div>
     <div className="ai-boundary-note"><Sparkles size={15} /><span><strong>{t("What this validates:", "ما تتحقق منه هذه الأداة:")}</strong> {t("a concrete past instance and one meaningful next action. It does not treat an opinion, preference, or future promise as proof.", "حالة سابقة ملموسة وفعل تال ذي معنى. لا تتعامل مع رأي أو تفضيل أو وعد مستقبلي كإثبات.")}</span></div>
@@ -1121,6 +1133,7 @@ function CustomerEvidenceToolFlow() {
       </form>}
     </div>
     {saved && savedRecordId && <section className="customer-evidence-review-point" aria-labelledby="customer-evidence-review-point-title"><div><SectionLabel>{t("Founder-controlled review point", "نقطة مراجعة يتحكم بها المؤسس")}</SectionLabel><h3 id="customer-evidence-review-point-title">{t("Keep the evidence record, then choose when you will look at it again.", "احتفظ بسجل الدليل، ثم اختر متى ستنظر إليه مرة أخرى.")}</h3><p>{t("This date changes only the review timing on this saved Customer Evidence record. It does not assess the evidence, set urgency, create a task, send a reminder, or decide what the customer fact means.", "يغير هذا التاريخ توقيت المراجعة فقط في سجل دليل العميل المحفوظ. لا يقيّم الدليل أو يحدد الاستعجال أو ينشئ مهمة أو يرسل تذكيرا أو يقرر معنى حقيقة العميل.")}</p></div><form onSubmit={saveReviewPoint}><label>{t("Review date", "تاريخ المراجعة")}<input type="date" value={reviewPoint} onChange={(event) => { setReviewPoint(event.target.value); setReviewPointSaved(false); }} required /></label><div><button type="submit" className="button button-light"><Check size={14} /> {t("Save review point", "احفظ نقطة المراجعة")}</button>{reviewPointSaved && <span className="inline-success"><Check size={14} /> {t("Review date updated", "تم تحديث تاريخ المراجعة")}</span>}</div></form></section>}
+    {saved && savedRecordId && <section className="customer-evidence-review-note" aria-labelledby="customer-evidence-review-note-title"><header><SectionLabel>{t("Founder Evidence Review Note", "ملاحظة المؤسس لمراجعة الدليل")}</SectionLabel><h3 id="customer-evidence-review-note-title">{t("Name what this one customer fact changes or leaves open.", "سمِ ما الذي تغيره حقيقة العميل هذه أو تتركه مفتوحا.")}</h3><p>{t("This is your interpretation beside the source record, not a verified finding or a decision update. Write what you read, then state what you still need to learn.", "هذا تفسيرك بجانب سجل المصدر، وليس نتيجة متحققة أو تحديثا للقرار. اكتب ما تقرؤه، ثم اذكر ما لا تزال تحتاج إلى تعلمه.")}</p></header><form onSubmit={saveReviewNote}><label>{t("Founder reading", "قراءة المؤسس")}<textarea value={reviewReflection} onChange={(event) => { setReviewReflection(event.target.value); setReviewNoteSaved(false); }} placeholder={t("What did this fact change or keep uncertain?", "ما الذي غيرته هذه الحقيقة أو أبقته غير مؤكد؟")} required /></label><label>{t("What remains open?", "ما الذي يبقى مفتوحا؟")}<textarea value={reviewRemainingQuestion} onChange={(event) => { setReviewRemainingQuestion(event.target.value); setReviewNoteSaved(false); }} placeholder={t("Name the next question without turning it into a conclusion.", "سمِ السؤال التالي دون تحويله إلى استنتاج.")} required /></label><footer><button type="submit" className="button button-dark"><Check size={14} /> {t("Save founder note", "احفظ ملاحظة المؤسس")}</button>{reviewNoteSaved && <span className="inline-success"><Check size={14} /> {t("Saved separately from the evidence record", "حُفظت بصورة منفصلة عن سجل الدليل")}</span>}<Link href="/dashboard/registrations#customer-evidence-review-notes" className="text-link">{t("Open review notes", "افتح ملاحظات المراجعة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></footer></form></section>}
   </>;
 }
 

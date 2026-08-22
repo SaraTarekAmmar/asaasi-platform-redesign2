@@ -92,6 +92,13 @@ export type FounderReadingRevisit = {
   revisitedAt: string;
 };
 
+export type CustomerEvidenceReviewNote = {
+  customerEvidenceId: string;
+  reflection: string;
+  remainingQuestion: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -136,6 +143,7 @@ export type WorkflowRecord = {
   founderEvidenceReading?: FounderEvidenceReading;
   founderReadingReviewAgenda?: FounderReadingReviewAgenda;
   founderReadingRevisit?: FounderReadingRevisit;
+  customerEvidenceReviewNote?: CustomerEvidenceReviewNote;
   updatedAt: string;
 };
 
