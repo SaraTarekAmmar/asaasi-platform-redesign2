@@ -1121,3 +1121,12 @@
 - [x] Preserve the remaining uncertainty and recovery routes as reference-only context while requiring every Customer Evidence field to be freshly authored.
 - [x] Retain the revisit ID on the new unique Customer Evidence record without changing or overwriting the revisit, reading, event, or decision source.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Revisited Question Evidence Archive
+
+- [x] Research evidence-context and research-repository patterns for traceable retrieval of fresh records tied to an originating open question.
+- [x] Audit Customer Evidence revisit references, Founder Reading recovery, Activity archive patterns, and source-route boundaries for the highest-value archive view.
+- [x] Build a bilingual Activity archive that groups only fresh Customer Evidence records under their retained revisit source ID.
+- [x] Preserve direct routes to each Customer Evidence record, its revisit, and its Founder Reading without reconstructing a missing source note.
+- [x] Keep the archive bounded: no evidence score, agreement count, confidence, validation, conflict, causality, answer, decision, outcome, mutation, merge, ranking, selection, or automatic synthesis.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
