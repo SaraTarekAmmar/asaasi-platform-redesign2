@@ -959,3 +959,10 @@
 - [x] Audit the GTM Channel Map, Activity, and completed-tool archive for the most useful next source-linked recovery destination.
 - [x] Build a bilingual completed-channel-outcome-to-fresh-channel-test recovery path that retains provenance while requiring entirely new founder-authored inputs.
 - [x] Validate English and Arabic RTL protected GTM states, type safety, production build, and source-record integrity before checkpointing.
+
+## Activation Outcome Recovery
+
+- [x] Benchmark onboarding and activation practices for meaningful first-value milestones, cohort timing, observed friction, and behavior-led learning.
+- [x] Audit Activation Evidence, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-activation-outcome-to-fresh-activation-test workflow that keeps evidence visible while requiring current founder-authored inputs.
+- [x] Validate English and Arabic RTL protected Activation states, type safety, production build, and source-record integrity before checkpointing.
