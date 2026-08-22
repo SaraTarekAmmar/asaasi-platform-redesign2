@@ -966,3 +966,10 @@
 - [x] Audit Activation Evidence, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-activation-outcome-to-fresh-activation-test workflow that keeps evidence visible while requiring current founder-authored inputs.
 - [x] Validate English and Arabic RTL protected Activation states, type safety, production build, and source-record integrity before checkpointing.
+
+## Retention Outcome Recovery
+
+- [x] Benchmark retention and churn-learning practices for behavioral cohorts, risk windows, evidence-led hypotheses, and reversible interventions.
+- [x] Audit Retention Recovery, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-retention-outcome-to-fresh-recovery-test workflow that preserves evidence while requiring current founder-authored inputs.
+- [x] Validate English and Arabic RTL protected Retention states, type safety, production build, and source-record integrity before checkpointing.

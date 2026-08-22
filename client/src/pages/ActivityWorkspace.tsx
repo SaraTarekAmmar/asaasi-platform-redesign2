@@ -195,6 +195,14 @@ function ActivationOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] 
   return <section className="activation-outcome-recovery-rail" aria-labelledby="activation-outcome-recovery-title"><header><div><SectionLabel>{t("Activation outcome recovery", "استرجاع نتيجة التفعيل")}</SectionLabel><h2 id="activation-outcome-recovery-title">{t("Return to the finished first-value test before you change the path for a fresh cohort.", "عد إلى اختبار القيمة الأولى المكتمل قبل تغيير المسار لمجموعة جديدة.")}</h2><p>{t("Each source retains the value definition, observed friction, path change, and dated return signal. A new activation test begins with current cohort inputs.", "يحتفظ كل مصدر بتعريف القيمة والاحتكاك الملحوظ وتغيير المسار وإشارة العودة المؤرخة. يبدأ اختبار تفعيل جديد من مدخلات المجموعة الحالية.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="activation-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/activation-evidence?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh activation test", "افتح اختبار تفعيل جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
 }
 
+function RetentionOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL } = useLocale();
+  const outcomes = records.filter((record) => record.kind === "decision" && Boolean(record.outcome) && record.href.includes("/retention-recovery")).sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt)).slice(0, 2);
+  if (!outcomes.length) return null;
+  const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+  return <section className="retention-outcome-recovery-rail" aria-labelledby="retention-outcome-recovery-title"><header><div><SectionLabel>{t("Retention outcome recovery", "استرجاع نتيجة الاحتفاظ")}</SectionLabel><h2 id="retention-outcome-recovery-title">{t("Reopen the finished cohort recovery before you choose a fresh response to a current risk.", "أعد فتح استعادة المجموعة المكتملة قبل اختيار استجابة جديدة لخطر حالي.")}</h2><p>{t("Each source keeps the cohort lens, observed context, recovery move, and dated response visible. A new recovery test starts with current founder input.", "يبقي كل مصدر منظور المجموعة والسياق الملحوظ وخطوة الاستعادة والاستجابة المؤرخة ظاهرة. يبدأ اختبار الاستعادة الجديد من مدخلات المؤسس الحالية.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="retention-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/retention-recovery?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh recovery test", "افتح اختبار استعادة جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
+}
+
 function FounderLearningArchive({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
   const { t, isRTL, formatNum } = useLocale();
   const [filter, setFilter] = useState<LearningFilter>("all");
@@ -382,6 +390,8 @@ export function ActivityWorkspace() {
     <GTMOutcomeRecoveryRail records={records} />
 
     <ActivationOutcomeRecoveryRail records={records} />
+
+    <RetentionOutcomeRecoveryRail records={records} />
 
     {customerEvidenceRecords.length > 0 && <InterviewPatternArchive records={customerEvidenceRecords} />}
 
