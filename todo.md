@@ -919,4 +919,10 @@
 - [x] Benchmark recurring learning loops, operating-rule application, and weekly evidence review patterns across founder and product tools.
 - [x] Audit Knowledge, Founder Learning Archive, Weekly Review, and Customer Evidence for the highest-value missing recurring application handoff.
 - [x] Build a bilingual weekly rule-application handoff that carries a founder-authored working rule into a fresh bounded evidence move without treating it as certainty.
+
+## Evidence Synthesis and Outcome Recovery
+
+- [x] Benchmark founder learning digests and outcome-recovery workflows that turn completed evidence into a bounded next action without automated conclusions.
+- [x] Audit Activity, Events, Customer Evidence, and completed-learning archives for the most valuable missing evidence-to-action recovery route.
+- [x] Build a bilingual evidence-recovery handoff that turns a saved event observation or completed outcome into a fresh Customer Evidence prompt with source context only.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.

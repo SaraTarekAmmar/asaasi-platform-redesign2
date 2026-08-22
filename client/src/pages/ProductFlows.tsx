@@ -971,6 +971,11 @@ function CustomerEvidenceToolFlow() {
     const sourceId = new URLSearchParams(window.location.search).get("reuse");
     return sourceId ? getWorkflowRecords().find((record) => record.id === sourceId && record.kind === "decision") : undefined;
   });
+  const [eventObservationRecord] = useState(() => {
+    if (typeof window === "undefined") return undefined;
+    const sourceId = new URLSearchParams(window.location.search).get("eventObservation");
+    return sourceId ? getWorkflowRecords().find((record) => record.id === sourceId && record.kind === "event" && Boolean(record.eventOutcomeNote)) : undefined;
+  });
   const sourceEvidence = sourceRecord?.customerEvidence;
   const reuseSourceEvidence = reuseSourceRecord?.customerEvidence;
   const reuseProvenance = reuseSourceRecord?.href.startsWith("/tools/") ? t("Founder tool", "أداة المؤسس") : t("Founder workspace", "مساحة عمل المؤسس");
@@ -1009,7 +1014,7 @@ function CustomerEvidenceToolFlow() {
       status: "saved",
       owner: "Founder",
       ownerAr: "المؤسس",
-      linkedDecisionId: primaryBetRecord?.id,
+      linkedDecisionId: primaryBetRecord?.id ?? eventObservationRecord?.linkedDecisionId,
       nextAction: actionLabel.en + ". Review whether " + threshold.trim() + " by " + reviewDue + ".",
       nextActionAr: actionLabel.ar + ". راجع ما إذا كان " + threshold.trim() + " بحلول " + reviewDue + ".",
       reviewDate: "Review customer validation on " + reviewDue,
@@ -1018,6 +1023,7 @@ function CustomerEvidenceToolFlow() {
       evidence,
       customerEvidence: { buyer: buyer.trim(), lastEvent: lastEvent.trim(), trigger: trigger.trim(), workaround: workaround.trim(), quote: quote.trim(), success: success.trim(), action, actionAr: actionLabel.ar, threshold: threshold.trim(), capturedAt },
       reusedFromDecisionId: reuseSourceRecord?.id,
+      recoveredFromEventId: eventObservationRecord?.id,
     });
     setSavedRecordId(recordId);
     setSaved(true);
@@ -1027,6 +1033,7 @@ function CustomerEvidenceToolFlow() {
     <div className="ai-boundary-note"><Sparkles size={15} /><span><strong>{t("What this validates:", "ما تتحقق منه هذه الأداة:")}</strong> {t("a concrete past instance and one meaningful next action. It does not treat an opinion, preference, or future promise as proof.", "حالة سابقة ملموسة وفعل تال ذي معنى. لا تتعامل مع رأي أو تفضيل أو وعد مستقبلي كإثبات.")}</span></div>
     {sourceEvidence && <div className="tool-source-context"><span className="mono">{t("SOURCE RECORD", "سجل المصدر")}</span><p>{t("You are revisiting one saved interview. Update only what the new evidence changes.", "أنت تعود إلى مقابلة محفوظة واحدة. عدّل فقط ما يغيره الدليل الجديد.")}</p></div>}
     {reuseSourceRecord && <div className="tool-source-context"><span className="mono">{t("SOURCE REFERENCE", "مرجع المصدر")}</span><strong>{t(reuseSourceRecord.title, reuseSourceRecord.titleAr)}</strong><p>{t(`Retained from ${reuseProvenance}. This is reference context only, not a copied conclusion.`, `محفوظ من ${reuseProvenance}. هذا سياق مرجعي فقط، وليس استنتاجا منسوخا.`)}</p><p><strong>{t("Original test: ", "الاختبار الأصلي: ")}</strong>{t(reuseSourceRecord.nextAction ?? "No original test was retained.", reuseSourceRecord.nextActionAr ?? "لم يتم الاحتفاظ باختبار أصلي.")}</p><p><strong>{t("Evidence excerpt: ", "مقتطف الدليل: ")}</strong>{t(reuseSourceRecord.evidence ?? reuseSourceRecord.weeklyReflection ?? "No separate evidence note was retained.", reuseSourceRecord.evidence ?? reuseSourceRecord.weeklyReflection ?? "لم يتم الاحتفاظ بملاحظة دليل منفصلة.")}</p><p>{t("Name a new moment, trigger, workaround, quote, success condition, action, and response rule below. Previous outcome, status, principle, and threshold are intentionally not copied.", "سمِ لحظة جديدة ومحفزا وحلا التفافيا واقتباسا وشرط نجاح وفعلا وقاعدة استجابة أدناه. لا تُنسخ النتيجة أو الحالة أو المبدأ أو العتبة السابقة عمدا.")}</p><Link href={reuseSourceRecord.href} className="text-link">{t("Open original source", "افتح المصدر الأصلي")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div>}
+    {eventObservationRecord && <div className="tool-source-context"><span className="mono">{t("EVENT OBSERVATION / REFERENCE", "ملاحظة فعالية / مرجع")}</span><strong>{t(eventObservationRecord.title, eventObservationRecord.titleAr)}</strong><p><strong>{t("Room observation: ", "ملاحظة الغرفة: ")}</strong>{eventObservationRecord.eventOutcomeNote}</p>{eventObservationRecord.linkedDecisionId && <p>{t("This event is linked to a saved decision. Keep the link as context, not as proof that a customer will say the same thing.", "ترتبط هذه الفعالية بقرار محفوظ. أبقِ الرابط كسياق، لا كإثبات أن العميل سيقول الشيء نفسه.")}</p>}<p>{t("Use this room observation to frame a new customer question below. Name a new moment, trigger, workaround, quote, success condition, action, and response rule. Nothing from the event is copied into the test.", "استخدم ملاحظة الغرفة لتأطير سؤال عميل جديد أدناه. سمِ لحظة جديدة ومحفزا وحلا التفافيا واقتباسا وشرط نجاح وفعلا وقاعدة استجابة. لا يُنسخ شيء من الفعالية إلى الاختبار.")}</p><Link href={eventObservationRecord.href} className="text-link">{t("Open source event", "افتح الفعالية المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div>}
     {primaryResearchCadence && <div className="tool-source-context"><span className="mono">{t("PRIMARY BET / RESEARCH MOVE", "الرهان الرئيسي / خطوة البحث")}</span><p>{t(`This conversation is planned to reduce uncertainty in ${primaryBetRecord?.title ?? "the active decision"}. Focus: ${primaryResearchCadence.question} Decision rule: ${primaryResearchCadence.responseRule}`, `هذه المحادثة مخططة لتقليل عدم اليقين في ${primaryBetRecord?.titleAr ?? "القرار النشط"}. التركيز: ${primaryResearchCadence.question} قاعدة القرار: ${primaryResearchCadence.responseRule}`)}</p>{primaryResearchCadence.ruleClaim && <div className="tool-source-context__rule"><span className="mono">{t("REVISABLE RULE CONTEXT", "سياق قاعدة قابلة للمراجعة")}</span><strong>{primaryResearchCadence.ruleClaim}</strong><p>{t(`Use only when: ${primaryResearchCadence.ruleScope ?? "the saved boundary applies"}.`, `استخدم فقط عندما: ${primaryResearchCadence.ruleScope ?? "ينطبق الحد المحفوظ"}.`)}</p><p>{t(`Prior revision move: ${primaryResearchCadence.ruleNextEvidenceMove ?? "none retained"}. This is reference context only. Do not copy it into the new customer test.`, `خطوة المراجعة السابقة: ${primaryResearchCadence.ruleNextEvidenceMove ?? "لا يوجد شيء محفوظ"}. هذا سياق مرجعي فقط. لا تنسخه إلى اختبار العميل الجديد.`)}</p></div>}</div>}
     <div className="tool-workbench retention-test-workbench customer-test-workbench">
       <div className="tool-progress"><span className="active">{t("01 Past fact", "٠١ حقيقة سابقة")}</span><span className={result ? "active" : ""}>{t("02 Buyer action", "٠٢ فعل المشتري")}</span><span className={saved ? "active" : ""}>{t("03 Review", "٠٣ المراجعة")}</span></div>

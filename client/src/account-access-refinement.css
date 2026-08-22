@@ -729,3 +729,24 @@
 [dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "٠٢ / الهوية ← عُد إلى قرار هذا الأسبوع"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--weekly-review .oauth-row::before { content: "خيارات الهوية / أكمل قرار هذا الأسبوع"; letter-spacing: 0; }
 @media (max-width: 900px) { .app-product .account-flow--weekly-review .account-form { padding-top: 32px; } .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; top: 9px; margin: 0; padding: 0; border: 0; } }
+
+/* Activity commitment path and customer-language map: blue-grey defines the desk, while saffron is reserved for the one active state that identity restores. */
+@media (min-width: 901px) {
+  .app-product .account-flow--registrations .account-return-object,
+  .app-product .account-flow--customer .account-return-object { border: 1px solid rgba(223,227,234,.30); border-top-color: rgba(223,227,234,.48); box-shadow: inset 0 -1px 0 rgba(223,227,234,.18); }
+  .app-product .account-flow--registrations .account-return-object { background: linear-gradient(90deg,rgba(251,251,248,.035),transparent 62%); }
+  .app-product .account-flow--registrations .account-return-object > .mono { color: rgba(251,251,248,.74); }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol { border-inline-start-color: rgba(223,227,234,.38); }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { border-top-color: transparent; border-inline-start: 3px solid #f6c915; }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(4) { border-bottom-color: rgba(223,227,234,.45); }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li::before { background: rgba(223,227,234,.55); }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li.is-active::before { background: #f6c915; }
+  .app-product .account-flow--registrations .account-route-rail { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 72%); }
+  .app-product .account-flow--registrations .account-route-rail > div:first-child { border-top-color: #dfe3ea; }
+  .app-product .account-flow--registrations .account-route-rail > div:last-child { border-bottom: 2px solid #caa515; }
+  .app-product .account-flow--registrations .account-form,
+  .app-product .account-flow--customer .account-form { border-inline-start-color: #dfe3ea; }
+  .app-product .account-flow--registrations .account-form::before,
+  .app-product .account-flow--customer .account-form::before { background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid #f6c915; box-shadow: none; }
+}
