@@ -33,6 +33,43 @@ function researchCadenceDueDate(weekStart?: string) {
   return date.toISOString().slice(0, 10);
 }
 
+function weeklyDecisionSource(record: WorkflowRecord, t: (en: string, ar: string) => string) {
+  if (!record.href.startsWith("/tools/")) return t("Founder workspace", "مساحة عمل المؤسس");
+  const slug = record.href.split("/").filter(Boolean).at(-1) ?? "";
+  const labels: Record<string, [string, string]> = {
+    pricing: ["Pricing decision", "قرار التسعير"],
+    "saas-health": ["SaaS health", "صحة SaaS"],
+    "founder-diagnostic": ["Founder diagnostic", "تشخيص المؤسس"],
+    "unit-economics": ["Unit economics", "اقتصاديات الوحدة"],
+    "retention-recovery": ["Retention recovery", "استعادة الاحتفاظ"],
+    "activation-evidence": ["Activation evidence", "دليل التفعيل"],
+    "gtm-map": ["GTM channel map", "خريطة قناة GTM"],
+    "positioning-evidence": ["Positioning evidence", "دليل التموضع"],
+    "customer-evidence": ["Customer evidence", "دليل العميل"],
+    "market-map": ["Market map", "خريطة السوق"],
+    "survival-calculator": ["Runway", "المدرج النقدي"],
+  };
+  const label = labels[slug] ?? ["Founder tool", "أداة المؤسس"];
+  return t(label[0], label[1]);
+}
+
+function WeeklyLearningDigest({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL, formatNum } = useLocale();
+  const weekStart = getWeekStart();
+  const completed = records
+    .filter((record) => record.kind === "decision" && Boolean(record.outcome) && Boolean(record.outcomeAt) && (record.outcomeAt ?? "").slice(0, 10) >= weekStart)
+    .sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt));
+  const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+  const dateLabel = (record: WorkflowRecord) => new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { weekday: "short", month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt));
+  const excerpt = (record: WorkflowRecord) => {
+    const source = record.evidence || record.weeklyReflection || record.nextAction || "";
+    if (!source) return t("No separate evidence note was retained. Reopen the source before you apply this learning.", "لم تُحتفظ بملاحظة دليل منفصلة. أعد فتح المصدر قبل تطبيق هذا التعلم.");
+    return source.length > 220 ? `${source.slice(0, 217).trim()}…` : source;
+  };
+  if (!completed.length) return null;
+  return <section className="weekly-learning-digest" aria-labelledby="weekly-learning-digest-title"><header className="weekly-learning-digest__heading"><div><SectionLabel>{t("This week’s retained learning", "تعلم هذا الأسبوع المحتفظ به")}</SectionLabel><h2 id="weekly-learning-digest-title">{t("Read what closed before you open the next question.", "اقرأ ما أُغلق قبل أن تفتح السؤال التالي.")}</h2><p>{t("These are explicit Keep, Change, and Stop outcomes completed this week. They remain source records, not a ranking or a prescription for the next bet.", "هذه نتائج صريحة من استمر وغيّر وأوقف اكتملت هذا الأسبوع. تظل سجلات مصدر، وليست ترتيبا أو وصفة للرهان التالي.")}</p></div><dl><div><dt>{t("Closed this week", "أُغلقت هذا الأسبوع")}</dt><dd>{formatNum(completed.length)}</dd></div><div><dt>{t("Week of", "أسبوع")}</dt><dd>{weekStart}</dd></div></dl></header><div className="weekly-learning-digest__boundary"><span className="mono">{t("LEARNING BOUNDARY", "حد التعلم")}</span><p>{t("The digest keeps original context close. It does not merge outcomes, infer a recurring pattern, or choose a primary bet.", "يبقي الملخص السياق الأصلي قريبا. لا يدمج النتائج ولا يستنتج نمطا متكررا ولا يختار رهانا رئيسيا.")}</p></div><div className="weekly-learning-digest__records">{completed.slice(0, 3).map((record, index) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{isRTL ? `٠${index + 1}` : String(index + 1).padStart(2, "0")}</span><div><strong>{outcomeLabel(record)}</strong><small>{dateLabel(record)}</small></div></header><div className="weekly-learning-digest__copy"><span className="mono">{weeklyDecisionSource(record, t)}</span><h3>{t(record.title, record.titleAr)}</h3><p>{excerpt(record)}</p></div><dl><div><dt>{t("Original test", "الاختبار الأصلي")}</dt><dd>{t(record.nextAction ?? "Open the source record", record.nextActionAr ?? "افتح سجل المصدر")}</dd></div><div><dt>{t("Owner", "المالك")}</dt><dd>{t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")}</dd></div></dl><div className="weekly-learning-digest__actions"><Link href={record.href} className="button button-light">{t("Reopen source", "أعد فتح المصدر")}</Link><Link href={`/tools/customer-evidence?reuse=${encodeURIComponent(record.id)}`} className="text-link">{t("Open a fresh customer test", "افتح اختبار عميل جديد")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div><footer><Link href="/dashboard/registrations" className="text-link">{t("Open full learning archive", "افتح أرشيف التعلم الكامل")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><p>{t("Only the three latest closed records are shown here. Activity retains the complete archive.", "تُعرض هنا فقط أحدث ثلاثة سجلات مغلقة. يحتفظ النشاط بالأرشيف الكامل.")}</p></footer></section>;
+}
+
 export function WeeklyDecisionReviewWorkspace() {
   const { t, formatNum, isRTL } = useLocale();
   const [records, setRecords] = useState(() => getWorkflowRecords());
@@ -235,6 +272,8 @@ export function WeeklyDecisionReviewWorkspace() {
         <dl><div><dt>{t("Open", "مفتوحة")}</dt><dd>{formatNum(agenda.length)}</dd></div><div><dt>{t("This week", "هذا الأسبوع")}</dt><dd>{formatNum(dueThisWeek.length)}</dd></div><div><dt>{t("Overdue", "متأخرة")}</dt><dd>{formatNum(overdue.length)}</dd></div></dl>
         <div className="weekly-review-brief__actions"><Link href="/dashboard/decision-accountability" className="button button-light">{t("Assign accountability", "عيّن المساءلة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="text-link" onClick={downloadWeeklyReview}><Download size={14} /> {t("Download week in review", "نزّل مراجعة الأسبوع")}</button></div>
       </section>
+
+      <WeeklyLearningDigest records={records} />
 
       {introductionLearnings.length > 0 && <section className="weekly-introduction-learning">
         <div><SectionLabel>{t("Conversation learning", "تعلم المحادثة")}</SectionLabel><h2>{t("New conversation evidence is ready for the next decision.", "دليل محادثة جديد جاهز للقرار التالي.")}</h2></div>

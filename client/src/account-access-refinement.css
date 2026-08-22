@@ -750,3 +750,16 @@
   .app-product .account-flow--customer .account-form::before { background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid #f6c915; box-shadow: none; }
 }
+
+/* Identity step integration: credentials visibly restore a named operating object, with route-specific language rather than an isolated generic form. */
+.app-product .account-identity-step { display: grid; gap: 5px; margin: 15px 0 0; padding: 11px 12px 11px 14px; border-block: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg,rgba(202,165,21,.065),transparent 78%); }
+.app-product .account-identity-step .mono { color: #8c7110; font-size: 8px; letter-spacing: .1em; }
+.app-product .account-identity-step strong { max-width: 48ch; color: #071b3d; font: 600 11px/1.45 "DM Sans",sans-serif; }
+.app-product .account-flow--weekly-review .account-identity-step { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 78%); border-inline-start-color: #071b3d; }
+.app-product .account-flow--weekly-review .account-identity-step .mono { color: #53627a; }
+.app-product .account-flow--registrations .account-identity-step { background: linear-gradient(90deg,rgba(202,165,21,.07),transparent 72%); }
+.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { margin-top: 0; padding: 14px 12px 0 14px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--registrations .form-divider { margin-inline-start: 14px; }
+.app-product .account-flow--weekly-review > .account-form-wrap,.app-product .account-flow--registrations > .account-form-wrap { background: linear-gradient(180deg,rgba(251,251,248,.95),#fbfbf8 72%); }
+[dir="rtl"] .app-product .account-identity-step { padding-inline-start: 12px; padding-inline-end: 14px; }
+@media (max-width: 640px) { .app-product .account-identity-step { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--registrations .form-divider { margin-inline-start: 12px; } }

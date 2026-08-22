@@ -925,4 +925,10 @@
 - [x] Benchmark founder learning digests and outcome-recovery workflows that turn completed evidence into a bounded next action without automated conclusions.
 - [x] Audit Activity, Events, Customer Evidence, and completed-learning archives for the most valuable missing evidence-to-action recovery route.
 - [x] Build a bilingual evidence-recovery handoff that turns a saved event observation or completed outcome into a fresh Customer Evidence prompt with source context only.
+
+## Founder Learning Digest and Cross-Workflow Recovery
+
+- [x] Benchmark founder operating digests and cross-workflow learning views that surface bounded next actions without automatic prioritization.
+- [x] Audit Activity, Weekly Review, Knowledge, and completed-learning records for the most useful weekly synthesis and recovery gap.
+- [x] Build a bilingual weekly learning digest that surfaces only source-linked outcomes and direct recovery paths across founder workflows.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
