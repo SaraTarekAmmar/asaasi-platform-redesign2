@@ -973,3 +973,10 @@
 - [x] Audit Retention Recovery, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-retention-outcome-to-fresh-recovery-test workflow that preserves evidence while requiring current founder-authored inputs.
 - [x] Validate English and Arabic RTL protected Retention states, type safety, production build, and source-record integrity before checkpointing.
+
+## Unit Economics Outcome Recovery
+
+- [x] Benchmark unit-economics scenario guidance for transparent CAC-payback formulas, gross-margin basis, cohort context, and cash-return trade-offs.
+- [x] Audit Unit Economics, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-unit-economics-outcome-to-fresh-scenario workflow that retains source context while requiring current founder-authored assumptions.
+- [x] Validate English and Arabic RTL protected Unit Economics states, type safety, production build, formula basis, and source-record integrity before checkpointing.
