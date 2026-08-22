@@ -2,6 +2,39 @@
 /* Editorial operating system: founder outcomes stay specific, reviewable, and connected through soft rectangular work surfaces. */
 
 /* Decision-to-event planning handoff: an intentional source-preserving bridge from an open decision to a founder-chosen room, using linear saffron provenance only. */
+.app-product .post-event-learning-export { margin: 28px 0; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 22px; background: rgba(255,255,255,.8); box-shadow: 0 15px 34px rgba(7,27,61,.05); }
+.app-product .post-event-learning-export__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 24px; align-items: start; padding: clamp(24px,4vw,40px); border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
+.app-product .post-event-learning-export__heading > div:first-child { max-width: 720px; }
+.app-product .post-event-learning-export__heading h2 { max-width: 24ch; margin: 8px 0 11px; color: #071b3d; font: 500 clamp(25px,3.2vw,42px)/1.04 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .post-event-learning-export__heading p { max-width: 650px; margin: 0; color: #53627a; font: 13px/1.65 "DM Sans",sans-serif; }
+.app-product .post-event-learning-export__metric { min-width: 112px; padding-inline-start: 22px; border-inline-start: 1px solid rgba(7,27,61,.13); }
+.app-product .post-event-learning-export__metric strong,.app-product .post-event-learning-export__metric span { display: block; }
+.app-product .post-event-learning-export__metric strong { color: #071b3d; font: 500 32px/1 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .post-event-learning-export__metric span { margin-top: 6px; color: #6d7789; font: 600 9px/1.35 "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .post-event-learning-export__boundary { display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 18px; padding: 16px clamp(24px,4vw,40px); border-bottom: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .post-event-learning-export__boundary .mono { color: #8c7110; font-size: 9px; letter-spacing: .09em; }
+.app-product .post-event-learning-export__boundary p { max-width: 740px; margin: 0; color: #53627a; font: 12px/1.6 "DM Sans",sans-serif; }
+.app-product .post-event-learning-export__body { display: grid; grid-template-columns: minmax(220px,.5fr) minmax(0,1.05fr) minmax(245px,.55fr); }
+.app-product .post-event-learning-export__body > label { display: grid; align-content: start; gap: 8px; padding: clamp(20px,3vw,30px); border-inline-end: 1px solid #dfe3ea; background: #fbfbf8; color: #071b3d; font: 600 10px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .post-event-learning-export__body select { width: 100%; border: 1px solid rgba(7,27,61,.18); border-radius: 10px; background: #fff; padding: 10px 11px; color: #071b3d; font: 600 12px/1.4 "DM Sans",sans-serif; }
+.app-product .post-event-learning-export__body select:focus { outline: 2px solid rgba(202,165,21,.34); outline-offset: 2px; }
+.app-product .post-event-learning-export__source { display: grid; align-content: start; gap: 9px; padding: clamp(20px,3vw,30px); border-inline-end: 1px solid #dfe3ea; }
+.app-product .post-event-learning-export__source .mono,.app-product .post-event-learning-export__download .mono { color: #8c7110; font-size: 9px; letter-spacing: .08em; }
+.app-product .post-event-learning-export__source h3 { margin: 0; color: #071b3d; font: 600 19px/1.18 "Manrope",sans-serif; letter-spacing: -.04em; }
+.app-product .post-event-learning-export__source > p { margin: 0; color: #53627a; font: 12px/1.58 "DM Sans",sans-serif; white-space: pre-line; }
+.app-product .post-event-learning-export__source dl { display: grid; gap: 8px; margin: 3px 0; padding: 10px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .post-event-learning-export__source dl > div { display: grid; gap: 3px; }
+.app-product .post-event-learning-export__source dt { color: #6d7789; font: 600 9px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .post-event-learning-export__source dd { margin: 0; color: #071b3d; font: 500 11px/1.45 "DM Sans",sans-serif; }
+.app-product .post-event-learning-export__source > div:last-child { display: flex; flex-wrap: wrap; gap: 12px; }
+.app-product .post-event-learning-export__download { display: grid; align-content: start; gap: 10px; padding: clamp(20px,3vw,30px); background: #fbfbf8; }
+.app-product .post-event-learning-export__download strong { color: #071b3d; font: 600 16px/1.28 "Manrope",sans-serif; letter-spacing: -.035em; }
+.app-product .post-event-learning-export__download p { margin: 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+.app-product .post-event-learning-export__download .button { justify-self: start; margin-top: 4px; }
+.app-product .post-event-learning-export > footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 15px clamp(24px,4vw,40px); border-top: 1px solid #dfe3ea; background: #fff; }
+.app-product .post-event-learning-export > footer p { max-width: 730px; margin: 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+@media (max-width: 900px) { .app-product .post-event-learning-export__body { grid-template-columns: minmax(220px,.5fr) minmax(0,1fr); } .app-product .post-event-learning-export__download { grid-column: 1 / -1; grid-template-columns: minmax(0,1fr) auto; align-items: end; border-top: 1px solid #dfe3ea; } .app-product .post-event-learning-export__download .mono,.app-product .post-event-learning-export__download strong,.app-product .post-event-learning-export__download p { grid-column: 1; } .app-product .post-event-learning-export__download .button { grid-column: 2; grid-row: 1 / span 3; align-self: center; } }
+@media (max-width: 760px) { .app-product .post-event-learning-export__heading { grid-template-columns: 1fr; padding: 24px 18px; } .app-product .post-event-learning-export__metric { padding: 14px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7,27,61,.13); } .app-product .post-event-learning-export__boundary { grid-template-columns: 1fr; gap: 8px; padding: 15px 18px; } .app-product .post-event-learning-export__body { grid-template-columns: 1fr; } .app-product .post-event-learning-export__body > label,.app-product .post-event-learning-export__source { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .app-product .post-event-learning-export__download { display: grid; grid-template-columns: 1fr; padding: 20px 18px; } .app-product .post-event-learning-export__download .mono,.app-product .post-event-learning-export__download strong,.app-product .post-event-learning-export__download p,.app-product .post-event-learning-export__download .button { grid-column: 1; grid-row: auto; } .app-product .post-event-learning-export__download .button { width: 100%; justify-content: center; } .app-product .post-event-learning-export > footer { align-items: stretch; padding: 15px 18px; } .app-product .post-event-learning-export > footer .button { width: 100%; justify-content: center; } }
 .app-product .decision-to-event-handoff { margin: 28px 0; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 22px; background: rgba(255,255,255,.8); box-shadow: 0 15px 34px rgba(7,27,61,.05); }
 .app-product .decision-to-event-handoff__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 24px; align-items: start; padding: clamp(24px,4vw,40px); border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
 .app-product .decision-to-event-handoff__heading > div:first-child { max-width: 720px; }

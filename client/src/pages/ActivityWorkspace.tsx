@@ -107,6 +107,74 @@ function EventDebriefSourceReview({ records }: { records: WorkflowRecord[] }) {
   return <section className="event-debrief-source-review" aria-labelledby="event-debrief-source-review-title"><header className="event-debrief-source-review__heading"><div><SectionLabel>{t("Event debrief source review", "مراجعة مصادر استخلاص الفعالية")}</SectionLabel><h2 id="event-debrief-source-review-title">{t("Return to the fact, then choose the follow-through that fits it.", "عد إلى الحقيقة، ثم اختر المتابعة التي تناسبها.")}</h2><p>{t("Use these filters to reopen the original room context. They do not count attendance, a saved draft, or a linked decision as a completed event outcome.", "استخدم هذه المرشحات لإعادة فتح سياق الغرفة الأصلي. لا تعد الحضور أو المسودة المحفوظة أو القرار المرتبط نتيجة فعالية مكتملة.")}</p></div><div className="event-debrief-source-review__metric"><strong>{formatNum(events.length)}</strong><span>{t("retained event sources", "مصادر فعاليات محتفظ بها")}</span></div></header><div className="event-debrief-source-review__boundary"><span className="mono">{t("FACT / INTERPRETATION / FOLLOW-THROUGH", "حقيقة / تفسير / متابعة")}</span><p>{t("A room observation is a fact. A follow-up draft is an editable next move. Neither is proof of a relationship, a decision, or an event result.", "ملاحظة الغرفة حقيقة. مسودة المتابعة خطوة تالية قابلة للتعديل. ولا تمثل أي منهما دليلا على علاقة أو قرار أو نتيجة فعالية.")}</p></div><div className="event-debrief-source-review__filters" role="group" aria-label={t("Event source filter", "مرشح مصدر الفعالية")}>{sourceFilters.map((option) => <button key={option.id} type="button" className={filter === option.id ? "is-active" : ""} aria-pressed={filter === option.id} onClick={() => setFilter(option.id)}><span>{t(option.label, option.labelAr)}</span><strong>{formatNum(option.count)}</strong></button>)}</div><div className="event-debrief-source-review__records">{shown.length ? shown.slice(0, 6).map((record, index) => <article key={record.id}><header><span>{isRTL ? `٠${index + 1}` : String(index + 1).padStart(2, "0")}</span><div><strong>{t(record.title, record.titleAr)}</strong><small>{dateLabel(record)}</small></div><em>{record.eventFollowUp?.draft ? t("Draft saved", "مسودة محفوظة") : t("Source ready", "المصدر جاهز")}</em></header><dl><div><dt>{t("Factual room observation", "ملاحظة الغرفة الواقعية")}</dt><dd>{record.eventOutcomeNote ?? t("No factual observation has been retained yet.", "لم تُحتفظ بملاحظة واقعية بعد.")}</dd></div><div><dt>{t("Follow-through", "المتابعة")}</dt><dd>{record.eventFollowUp ? `${record.eventFollowUp.nextMove} · ${record.eventFollowUp.dueDate}` : t("No follow-up draft saved. Reopen the context before writing one.", "لم تُحفظ مسودة متابعة. أعد فتح السياق قبل كتابة واحدة.")}</dd></div></dl><div className="event-debrief-source-review__actions"><Link href={record.href} className="text-link">{t("Revisit event", "عد إلى الفعالية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{record.linkedDecisionId && <Link href="/dashboard/decision-review" className="text-link">{t("Open linked decision", "افتح القرار المرتبط")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>}{record.eventOutcomeNote && <Link href="/dashboard/registrations#event-follow-up-desk" className="button button-light">{record.eventFollowUp?.draft ? t("Revise follow-up", "عدّل المتابعة") : t("Draft follow-up", "اكتب مسودة متابعة")}</Link>}</div></article>) : <div className="event-debrief-source-review__empty"><strong>{t("No retained source matches this filter.", "لا يطابق أي مصدر محتفظ به هذا المرشح.")}</strong><p>{t("Change the filter or return to the event ledger to retain a factual room observation first.", "غيّر المرشح أو عد إلى سجل الفعاليات للاحتفاظ بملاحظة غرفة واقعية أولا.")}</p></div>}</div><footer><Link href="/events" className="button button-light">{t("Open event ledger", "افتح سجل الفعاليات")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><p>{t("Filters narrow the source list only. They do not produce an event score, causal explanation, or next priority.", "المرشحات تضيق قائمة المصادر فقط. لا تنتج درجة فعالية أو تفسيرا سببيا أو أولوية تالية.")}</p></footer></section>;
 }
 
+function PostEventLearningExport({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL, formatNum } = useLocale();
+  const events = records.filter((record) => record.kind === "event" && Boolean(record.eventOutcomeNote)).sort((a, b) => (b.eventOutcomeAt ?? b.updatedAt).localeCompare(a.eventOutcomeAt ?? a.updatedAt));
+  const decisions = records.filter((record) => record.kind === "decision");
+  const [selectedId, setSelectedId] = useState(() => events[0]?.id ?? "");
+  const selected = events.find((record) => record.id === selectedId) ?? events[0];
+  useEffect(() => { if (selected && !events.some((record) => record.id === selectedId)) setSelectedId(selected.id); }, [selected, selectedId, events]);
+  if (!selected) return null;
+  const linkedDecision = decisions.find((record) => record.id === selected.linkedDecisionId);
+  const question = selected.eventPreparation?.question || (selected.evidence ?? "").replace("Event question: ", "").replace("سؤال الفعالية: ", "");
+  const outcomeLabel = selected.eventOutcome === "decision-moved" ? t("Decision context", "سياق قرار") : selected.eventOutcome === "useful-connection" ? t("Connection context", "سياق اتصال") : selected.eventOutcome === "useful-learning" ? t("Learning context", "سياق تعلم") : selected.eventOutcome === "no-useful-outcome" ? t("No outcome claimed", "لا توجد نتيجة مُدعاة") : t("No outcome label retained", "لا توجد تسمية نتيجة محتفظ بها");
+  const recordedAt = selected.eventOutcomeAt ?? selected.updatedAt;
+  const formatDate = (value: string, locale: string) => new Intl.DateTimeFormat(locale, { month: "short", day: "numeric", year: "numeric" }).format(new Date(value));
+  const downloadLearning = () => {
+    const missing = [!question ? t("Focused room question / السؤال المركز للغرفة", "السؤال المركز للغرفة / Focused room question") : "", !selected.eventOutcome ? t("Event outcome label / تسمية نتيجة الفعالية", "تسمية نتيجة الفعالية / Event outcome label") : "", !linkedDecision ? t("Linked decision / القرار المرتبط", "القرار المرتبط / Linked decision") : "", !selected.eventFollowUp ? t("Follow-up metadata / بيانات المتابعة", "بيانات المتابعة / Follow-up metadata") : ""].filter(Boolean);
+    const lines = [
+      "# ASaaSI Post-event Learning Export / تصدير تعلم ما بعد الفعالية",
+      "",
+      `**Prepared / تم الإعداد:** ${formatDate(new Date().toISOString(), "en-GB")} / ${formatDate(new Date().toISOString(), "ar-EG")}`,
+      `**Recorded observation / الملاحظة المسجلة:** ${formatDate(recordedAt, "en-GB")} / ${formatDate(recordedAt, "ar-EG")}`,
+      "",
+      "## Review boundary / حد المراجعة",
+      "This export compiles only source context retained by the founder: the preparation question, factual room observation, explicitly saved event label, optional linked decision context, optional saved follow-up metadata, and direct return paths. It does not assess attendance, event ROI, conversion, quality, causality, or event success; it does not create a decision, task, reminder, outreach, or outcome.",
+      "يجمع هذا التصدير فقط سياق المصدر الذي احتفظ به المؤسس: سؤال التحضير، وملاحظة الغرفة الواقعية، وتسمية الفعالية المحفوظة صراحة، وسياق القرار المرتبط الاختياري، وبيانات المتابعة المحفوظة الاختيارية، ومسارات العودة المباشرة. لا يقيّم الحضور أو عائد الفعالية أو التحويل أو الجودة أو السببية أو نجاح الفعالية، ولا ينشئ قرارا أو مهمة أو تذكيرا أو تواصلا أو نتيجة.",
+      "",
+      "## Event source / مصدر الفعالية",
+      `- **Event / الفعالية:** ${selected.title} / ${selected.titleAr}`,
+      `- **Preparation question / سؤال التحضير:** ${question || "Not retained / غير محتفظ به"}`,
+      `- **Factual room observation / ملاحظة الغرفة الواقعية:** ${selected.eventOutcomeNote}`,
+      `- **Explicit event label / تسمية الفعالية الصريحة:** ${outcomeLabel}`,
+      `- **Event source route / مسار مصدر الفعالية:** [Revisit event / عد إلى الفعالية](${selected.href})`,
+      "",
+      "## Linked decision context / سياق القرار المرتبط",
+      linkedDecision ? `- **Decision / القرار:** ${linkedDecision.title} / ${linkedDecision.titleAr}` : "- No linked decision retained / لا يوجد قرار مرتبط محتفظ به",
+      linkedDecision ? `- **Original evidence / الدليل الأصلي:** ${linkedDecision.evidence || linkedDecision.weeklyReflection || "Not retained / غير محتفظ به"}` : "",
+      linkedDecision ? `- **Original test / الاختبار الأصلي:** ${linkedDecision.nextAction || "Not retained / غير محتفظ به"}` : "",
+      linkedDecision ? `- **Owner / المالك:** ${linkedDecision.owner || "Not retained"} / ${linkedDecision.ownerAr || "غير محتفظ به"}` : "",
+      linkedDecision ? `- **Review point / نقطة المراجعة:** ${linkedDecision.reviewDate || linkedDecision.reviewDue || "Not retained"} / ${linkedDecision.reviewDateAr || linkedDecision.reviewDue || "غير محتفظ به"}` : "",
+      linkedDecision ? `- **Decision source route / مسار مصدر القرار:** [Open source / افتح المصدر](${linkedDecision.href})` : "",
+      linkedDecision ? `- **Accountability route / مسار المساءلة:** [Open accountability / افتح المساءلة](/dashboard/decision-accountability?decision=${encodeURIComponent(linkedDecision.id)})` : "",
+      "",
+      "## Follow-up metadata / بيانات المتابعة",
+      selected.eventFollowUp ? `- **Recipient context / سياق المستلم:** ${selected.eventFollowUp.recipientContext}` : "- No follow-up metadata retained / لا توجد بيانات متابعة محتفظ بها",
+      selected.eventFollowUp ? `- **Next move / الخطوة التالية:** ${selected.eventFollowUp.nextMove}` : "",
+      selected.eventFollowUp ? `- **Due date / تاريخ الاستحقاق:** ${selected.eventFollowUp.dueDate}` : "",
+      "",
+      "## Fields not retained / الحقول غير المحتفظ بها",
+      ...(missing.length ? missing.map((field) => `- ${field}`) : ["- None of the checked fields are missing. This does not indicate that the event was successful or that the evidence is sufficient.", "- لا يفقد أي من الحقول المفحوصة. لا يشير ذلك إلى نجاح الفعالية أو كفاية الدليل."]),
+      "",
+      "## Return paths / مسارات العودة",
+      `- **Activity debrief / استخلاص النشاط:** [Open event debrief source review / افتح مراجعة مصدر استخلاص الفعالية](/dashboard/registrations#event-debrief-source-review)`,
+      `- **Activity follow-through / متابعة النشاط:** [Open follow-up desk / افتح مكتب المتابعة](/dashboard/registrations#event-follow-up-desk)`,
+      "",
+      "The source records remain unchanged by this export. Reopen the source before you interpret, generalize, or move a decision. / تبقى سجلات المصدر دون تغيير بهذا التصدير. أعد فتح المصدر قبل التفسير أو التعميم أو تحريك قرار.",
+    ].filter(Boolean);
+    const blob = new Blob([lines.join("\n")], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `asaasi-post-event-learning-${selected.id}.md`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  };
+  return <section className="post-event-learning-export" aria-labelledby="post-event-learning-export-title"><header className="post-event-learning-export__heading"><div><SectionLabel>{t("Post-event learning", "تعلم ما بعد الفعالية")}</SectionLabel><h2 id="post-event-learning-export-title">{t("Keep the room’s factual record close before you decide what it taught you.", "أبقِ السجل الواقعي للغرفة قريبا قبل أن تقرر ما الذي علّمته لك.")}</h2><p>{t("Choose one retained room observation and download its preparation, observation, optional decision context, optional follow-up metadata, and return paths together.", "اختر ملاحظة غرفة محتفظا بها ونزّل تحضيرها وملاحظتها وسياق القرار الاختياري وبيانات المتابعة الاختيارية ومسارات العودة معا.")}</p></div><div className="post-event-learning-export__metric"><strong>{formatNum(events.length)}</strong><span>{t("observed event", "فعالية بملاحظة")}</span></div></header><div className="post-event-learning-export__boundary"><span className="mono">{t("REVIEW ARTIFACT, NOT EVENT VERDICT", "أداة مراجعة، لا حكم فعالية")}</span><p>{t("The export preserves founder-retained sources for review. It does not calculate performance, attribution, attendance quality, conversion, ROI, or a conclusion.", "يحافظ التصدير على مصادر المؤسس المحتفظ بها للمراجعة. لا يحسب الأداء أو الإسناد أو جودة الحضور أو التحويل أو العائد أو استنتاجا.")}</p></div><div className="post-event-learning-export__body"><label>{t("Observed event source", "مصدر الفعالية المرصودة")}<select value={selected.id} onChange={(event) => setSelectedId(event.target.value)}>{events.map((record) => <option value={record.id} key={record.id}>{t(record.title, record.titleAr)}</option>)}</select></label><div className="post-event-learning-export__source"><span className="mono">{t("FACTUAL SOURCE", "مصدر واقعي")}</span><h3>{t(selected.title, selected.titleAr)}</h3><p>{selected.eventOutcomeNote}</p><dl><div><dt>{t("Preparation question", "سؤال التحضير")}</dt><dd>{question || t("No focused question retained", "لا يوجد سؤال مركز محتفظ به")}</dd></div><div><dt>{t("Explicit label", "التسمية الصريحة")}</dt><dd>{outcomeLabel}</dd></div><div><dt>{t("Linked decision", "القرار المرتبط")}</dt><dd>{linkedDecision ? t(linkedDecision.title, linkedDecision.titleAr) : t("No linked decision retained", "لا يوجد قرار مرتبط محتفظ به")}</dd></div></dl><div><Link href={selected.href} className="text-link">{t("Revisit event", "عد إلى الفعالية")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{linkedDecision && <Link href={linkedDecision.href} className="text-link">{t("Open decision source", "افتح مصدر القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>}</div></div><div className="post-event-learning-export__download"><span className="mono">{t("FOUNDER-CONTROLLED EXPORT", "تصدير يتحكم به المؤسس")}</span><strong>{t("Download this source without turning it into a result.", "نزّل هذا المصدر من دون تحويله إلى نتيجة.")}</strong><p>{t("The document names missing context rather than filling it. A saved follow-up remains editable context, not proof of a connection or commitment.", "يسمي المستند السياق المفقود بدلا من ملئه. تظل المتابعة المحفوظة سياقا قابلا للتعديل، وليست دليلا على اتصال أو التزام.")}</p><button type="button" className="button button-dark" onClick={downloadLearning}><Download size={14} /> {t("Download post-event learning", "نزّل تعلم ما بعد الفعالية")}</button></div></div><footer><p>{t("Only events with a factual room observation are eligible. The export does not change event, decision, or follow-up records.", "لا تكون مؤهلة إلا الفعاليات التي تحمل ملاحظة غرفة واقعية. لا يغير التصدير سجلات الفعالية أو القرار أو المتابعة.")}</p><Link href="/events" className="button button-light">{t("Open event ledger", "افتح سجل الفعاليات")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link></footer></section>;
+}
+
 function DecisionComparisonDesk({ records, onClear }: { records: WorkflowRecord[]; onClear: () => void }) {
   const { t, isRTL } = useLocale();
   const outcomeLabel = (record: WorkflowRecord) => !record.outcome ? t("Open review", "مراجعة مفتوحة") : record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
@@ -577,6 +645,7 @@ export function ActivityWorkspace() {
     <ReviewDateReconciliation records={records} />
     <CrossEventObservationReview records={records} />
     <EventDebriefSourceReview records={records} />
+    <PostEventLearningExport records={records} />
     <EventFollowUpDraftDesk events={records.filter((record) => record.kind === "event" && Boolean(record.eventOutcomeNote))} decisions={decisions} onRecordsChanged={() => setRecords(getWorkflowRecords())} />
 
     {decisions.length > 0 && <CrossToolDecisionArchive records={decisions} />}

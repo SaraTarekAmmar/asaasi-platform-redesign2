@@ -1061,3 +1061,11 @@
 - [x] Build a bilingual founder-controlled Activity handoff that selects an open decision, preserves its source context, and opens Events with valid reference-only query context.
 - [x] Keep the route bounded: no automatic event choice, registration, evidence copying, owner or review-date change, task creation, reminder, score, recommendation, or outcome claim.
 - [x] Validate authenticated English and Arabic RTL Activity states, source-recovery behavior, type safety, production build, and source checks before checkpointing.
+
+## Post-event Learning Export
+
+- [x] Research event-debrief and after-action-review patterns for separating retained context, factual observation, learning prompts, and measurement claims.
+- [x] Audit Activity event debrief, linked-decision recovery, and follow-up-draft workflows for a concise founder-controlled learning artifact.
+- [x] Build a bilingual one-event Markdown export with retained preparation, factual observation, explicit label, optional decision context, optional follow-up metadata, missing-field visibility, and direct return paths.
+- [x] Keep the export bounded: no attendance or ROI calculation, scoring, attribution, causal inference, conclusion, task, reminder, outreach, decision, or outcome creation.
+- [x] Validate type safety, production build, source preservation, Arabic RTL copy, responsive component rules, and no em dashes before checkpointing.
