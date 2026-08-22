@@ -1112,3 +1112,12 @@
 - [x] Persist each acknowledgement as a separate note with the founder-reading ID, review-agenda ID, remaining uncertainty, and timestamp.
 - [x] Keep the acknowledgement bounded: no resolution claim, record mutation, primary-bet selection, outcome, priority, recommendation, task, reminder, meeting, new test, or conclusion.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Open Question Revisit to Customer Evidence
+
+- [x] Research customer-discovery and repository practices for carrying a source-aware uncertainty into a fresh evidence inquiry without copying a conclusion.
+- [x] Audit revisit notes, Founder Reading sources, Customer Evidence query recovery, unique record IDs, and existing source-reference patterns for the correct handoff boundary.
+- [x] Build a bilingual Weekly Review handoff from a saved revisit acknowledgement into a fresh Customer Evidence workbench route.
+- [x] Preserve the remaining uncertainty and recovery routes as reference-only context while requiring every Customer Evidence field to be freshly authored.
+- [x] Retain the revisit ID on the new unique Customer Evidence record without changing or overwriting the revisit, reading, event, or decision source.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

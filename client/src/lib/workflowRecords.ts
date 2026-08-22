@@ -128,6 +128,7 @@ export type WorkflowRecord = {
   operatingPrinciple?: OperatingPrinciple;
   researchCadence?: ResearchCadencePlan;
   reusedFromDecisionId?: string;
+  reusedFromRevisitId?: string;
   recoveredFromEventId?: string;
   knowledgeGuidance?: KnowledgeGuidance;
   eventFollowUp?: EventFollowUpDraft;
