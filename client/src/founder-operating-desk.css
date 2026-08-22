@@ -1057,6 +1057,47 @@
 .app-product .event-follow-up-desk__actions .inline-success { display: inline-flex; align-items: center; gap: 7px; color: #176b4b; font-size: 11px; }
 /* The previous in-row local toggle is intentionally hidden: Activity now offers one persisted, source-linked draft desk instead. */
 .app-product .receipt-list .activity-row-actions button[aria-pressed] { display: none; }
+
+/* Completed Tool Experiment Archive: a bounded retrieval ledger for closed tool decisions, never a scorecard or pattern engine. */
+.app-product .completed-tool-experiment-archive { margin: 30px 0; padding: clamp(24px,4vw,42px); border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; background: #fbfbf8; }
+.app-product .completed-tool-experiment-archive__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 30px; align-items: end; }
+.app-product .completed-tool-experiment-archive__heading > div:first-child { max-width: 760px; }
+.app-product .completed-tool-experiment-archive h2,.app-product .completed-tool-experiment-archive h3 { margin: 8px 0 10px; color: #071b3d; font-family: "Manrope",sans-serif; font-weight: 500; letter-spacing: -.06em; }
+.app-product .completed-tool-experiment-archive h2 { max-width: 25ch; font-size: clamp(27px,3vw,42px); line-height: 1.04; }
+.app-product .completed-tool-experiment-archive h3 { font-size: clamp(20px,2.1vw,28px); line-height: 1.08; }
+.app-product .completed-tool-experiment-archive p { margin: 0; color: #53627a; font-size: 13px; line-height: 1.58; }
+.app-product .completed-tool-experiment-archive__metric { display: grid; align-content: end; min-width: 118px; padding-inline-start: 15px; border-inline-start: 2px solid #caa515; }
+.app-product .completed-tool-experiment-archive__metric strong { color: #071b3d; font: 500 38px/1 "Manrope",sans-serif; letter-spacing: -.08em; }
+.app-product .completed-tool-experiment-archive__metric span { margin-top: 5px; color: #788396; font: 600 9px "DM Sans",sans-serif; letter-spacing: .09em; text-transform: uppercase; }
+.app-product .completed-tool-experiment-archive__rule { display: grid; grid-template-columns: 160px minmax(0,1fr); gap: 18px; margin: 25px 0; padding: 13px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .completed-tool-experiment-archive__rule .mono,.app-product .completed-tool-experiment-archive__comparison .mono { color: #8c7110; font-size: 9px; letter-spacing: .1em; }
+.app-product .completed-tool-experiment-archive__filters { display: grid; gap: 13px; margin: 0 0 18px; padding: 16px 0 0 15px; border-inline-start: 2px solid #caa515; }
+.app-product .completed-tool-experiment-archive__filters > div { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.app-product .completed-tool-experiment-archive__filters > div > span { min-width: 80px; color: #53627a; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .completed-tool-experiment-archive__filters button { border: 1px solid #dfe3ea; border-radius: 8px; background: transparent; padding: 7px 9px; color: #53627a; font: 600 10px "DM Sans",sans-serif; transition: background 160ms ease,border-color 160ms ease,color 160ms ease; }
+.app-product .completed-tool-experiment-archive__filters button:hover,.app-product .completed-tool-experiment-archive__filters button.is-active { border-color: #071b3d; background: #071b3d; color: #fbfbf8; }
+.app-product .completed-tool-experiment-archive__comparison { display: flex; justify-content: space-between; gap: 24px; align-items: center; margin: 23px 0 0; padding: 14px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .completed-tool-experiment-archive__comparison p { margin-top: 5px; font-size: 11px; }
+.app-product .completed-tool-experiment-archive__comparison > strong { color: #071b3d; font: 500 25px/1 "Manrope",sans-serif; letter-spacing: -.06em; white-space: nowrap; }
+.app-product .completed-tool-experiment-archive__records { border-top: 2px solid #071b3d; }
+.app-product .completed-tool-experiment-archive__records > article { display: grid; grid-template-columns: 112px minmax(0,1fr) minmax(190px,.55fr) auto; gap: 22px; align-items: start; padding: 23px 0 24px 17px; border-bottom: 1px solid #dfe3ea; border-inline-start: 2px solid transparent; }
+.app-product .completed-tool-experiment-archive__records > article.is-keep { border-inline-start-color: #1a6a4b; }
+.app-product .completed-tool-experiment-archive__records > article.is-change { border-inline-start-color: #caa515; }
+.app-product .completed-tool-experiment-archive__records > article.is-stop { border-inline-start-color: #9a4a38; }
+.app-product .completed-tool-experiment-archive__records header { display: grid; gap: 7px; padding-top: 2px; }
+.app-product .completed-tool-experiment-archive__records header span { color: #071b3d; font: 600 10px "DM Sans",sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+.app-product .completed-tool-experiment-archive__records header small { color: #788396; font: 600 9px/1.35 "DM Sans",sans-serif; }
+.app-product .completed-tool-experiment-archive__copy .mono { color: #8c7110; font-size: 9px; letter-spacing: .09em; }
+.app-product .completed-tool-experiment-archive__copy h3 { margin-top: 7px; }
+.app-product .completed-tool-experiment-archive__records dl { display: grid; gap: 13px; margin: 4px 0 0; padding-inline-start: 16px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .completed-tool-experiment-archive__records dt { color: #788396; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.app-product .completed-tool-experiment-archive__records dd { margin: 4px 0 0; color: #53627a; font: 11px/1.45 "DM Sans",sans-serif; }
+.app-product .completed-tool-experiment-archive__actions { display: grid; gap: 8px; min-width: 152px; padding-top: 2px; }
+.app-product .completed-tool-experiment-archive__actions .button { justify-content: center; }
+.app-product .completed-tool-experiment-archive__actions .text-link { justify-self: start; font-size: 11px; }
+.app-product .completed-tool-experiment-archive__empty { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding: 22px 0; border-top: 2px solid #071b3d; color: #071b3d; font: 600 13px "DM Sans",sans-serif; }
+@media (max-width: 900px) { .app-product .completed-tool-experiment-archive__records > article { grid-template-columns: 88px minmax(0,1fr); }.app-product .completed-tool-experiment-archive__records dl,.app-product .completed-tool-experiment-archive__actions { grid-column: 2; }.app-product .completed-tool-experiment-archive__actions { display: flex; flex-wrap: wrap; align-items: center; }.app-product .completed-tool-experiment-archive__actions .text-link { width: 100%; } }
+@media (max-width: 620px) { .app-product .completed-tool-experiment-archive { margin: 24px 0; padding: 22px 0; }.app-product .completed-tool-experiment-archive__heading { grid-template-columns: 1fr; gap: 17px; }.app-product .completed-tool-experiment-archive__metric { justify-self: start; }.app-product .completed-tool-experiment-archive__rule { grid-template-columns: 1fr; gap: 8px; }.app-product .completed-tool-experiment-archive__filters { padding-inline-start: 12px; }.app-product .completed-tool-experiment-archive__filters > div > span { width: 100%; }.app-product .completed-tool-experiment-archive__comparison { align-items: start; }.app-product .completed-tool-experiment-archive__records > article { grid-template-columns: 1fr; gap: 13px; padding-inline-start: 13px; }.app-product .completed-tool-experiment-archive__records dl,.app-product .completed-tool-experiment-archive__actions { grid-column: 1; }.app-product .completed-tool-experiment-archive__actions { display: grid; }.app-product .completed-tool-experiment-archive__actions .text-link { width: auto; } }
 @media (max-width: 860px) { .app-product .event-follow-up-desk__heading, .app-product .event-follow-up-desk__body { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__sources { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .app-product .event-follow-up-desk__sources > div:last-child { grid-template-columns: repeat(2,minmax(0,1fr)); } .app-product .event-follow-up-desk__sources button:nth-child(odd) { border-inline-end: 1px solid rgba(7,27,61,.12); } }
 @media (max-width: 620px) { .app-product .event-follow-up-desk { margin: 24px 0; padding: 20px 16px; border-radius: 18px; } .app-product .event-follow-up-desk__metric { padding-inline-start: 12px; } .app-product .event-follow-up-desk__boundary { grid-template-columns: 1fr; gap: 8px; } .app-product .event-follow-up-desk__body { border-radius: 14px; } .app-product .event-follow-up-desk__sources, .app-product .event-follow-up-desk__editor { padding: 20px 16px; } .app-product .event-follow-up-desk__sources > div:last-child { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__sources button:nth-child(odd) { border-inline-end: 0; } .app-product .event-follow-up-desk__source-context { padding-inline-start: 12px; } .app-product .event-follow-up-desk__source-context dl { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__fields { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__fields label { grid-column: 1; } }
 

@@ -907,4 +907,10 @@
 - [x] Benchmark event follow-through, post-session recap, and founder learning-loop workflows for useful source-linked next actions.
 - [x] Audit Events, Activity, and Weekly Review for the highest-value missing handoff from a saved room observation to a specific follow-up.
 - [x] Build a bilingual event follow-up draft flow that remains attached to its room observation and linked decision without fabricating an outcome.
+
+## Experiment Learning Archive and Evidence Handoffs
+
+- [x] Benchmark experiment-learning archives and evidence-to-action handoffs that preserve source context without generating conclusions.
+- [x] Audit Founder Learning Archive, Knowledge, Activity, and Customer Evidence for the most useful cross-tool completion and recovery gap.
+- [x] Build a bilingual completed-experiment learning archive with bounded source comparison and direct recovery paths across founder tools.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.

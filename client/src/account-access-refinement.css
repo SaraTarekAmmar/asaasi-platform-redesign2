@@ -673,3 +673,27 @@
 .locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid #caa515; background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
 [dir="rtl"] .app-product .account-flow--knowledge .account-form::after { content: "وصول الدليل الميداني / استعد الادعاء والدليل والاختبار التالي"; letter-spacing: 0; }
 @media (max-width: 640px) { .app-product .account-flow--knowledge .account-form { padding-inline-start: 13px; } .locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 13px; } }
+
+/* Protected route-state integration: identity is visibly one indexed step inside a specific return desk, never a detached generic form. */
+@media (min-width: 901px) {
+  .app-product .account-flow--registrations .account-form,
+  .app-product .account-flow--customer .account-form { min-height: 455px; margin-top: 14px; padding-top: 43px; }
+  .app-product .account-flow--registrations .account-form::before,
+  .app-product .account-flow--customer .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
+  .app-product .account-flow--registrations .account-form::after,
+  .app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border-top: 0; border-bottom: 1px solid #dfe3ea; color: #8c7110; }
+  .app-product .account-flow--registrations .account-form::after { content: "02 / IDENTITY → RETURN TO EVENT COMMITMENT"; }
+  .app-product .account-flow--customer .account-form::after { content: "02 / IDENTITY → RETURN TO CUSTOMER LANGUAGE"; }
+  .app-product .account-flow--registrations .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE EVENT COMMITMENT"; }
+  .app-product .account-flow--customer .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE EVIDENCE LOOP"; }
+  .app-product .account-flow--registrations .account-route-rail,
+  .app-product .account-flow--customer .account-route-rail { margin-top: 16px; padding-bottom: 7px; background: linear-gradient(90deg,rgba(202,165,21,.075),transparent 72%); }
+  .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
+  .app-product .account-flow--registrations .account-route-rail > div:last-child,
+  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom: 2px solid #caa515; }
+}
+[dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "٠٢ / الهوية ← عُد إلى التزام الفعالية"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--customer .account-form::after { content: "٠٢ / الهوية ← عُد إلى لغة العميل"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--registrations .oauth-row::before { content: "خيارات الهوية / أكمل التزام الفعالية"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--customer .oauth-row::before { content: "خيارات الهوية / أكمل حلقة الدليل"; letter-spacing: 0; }
+@media (max-width: 900px) { .app-product .account-flow--registrations .account-form,.app-product .account-flow--customer .account-form { padding-top: 32px; } .app-product .account-flow--registrations .account-form::after,.app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; top: 9px; margin: 0; padding: 0; border: 0; } }
