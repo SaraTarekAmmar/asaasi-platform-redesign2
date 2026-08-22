@@ -2,7 +2,7 @@
 /* Editorial operating system: Events opens with a dated outcome path and a bounded decision-linked preparation desk, using linear saffron signals only. */
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Bookmark, CalendarDays, Check, MapPin, SlidersHorizontal } from "lucide-react";
-import { Link, useLocation } from "wouter";
+import { Link, useLocation, useSearchParams } from "wouter";
 import { SectionLabel, SignalTag, Toast, useToast } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -34,6 +34,7 @@ export default function Events() {
   const { t, formatNum, isRTL } = useLocale();
   const { isAuthed } = useAuth();
   const [, setLocation] = useLocation();
+  const [searchParams] = useSearchParams();
   const { message, showToast, clearToast } = useToast();
   const [intent, setIntent] = useState<(typeof eventIntents)[number]>("All events");
   const [featuredSaved, setFeaturedSaved] = useState(() => getWorkflowRecords().some((record) => record.id === `event-${events[0].slug}`));
@@ -43,12 +44,15 @@ export default function Events() {
   const [linkedDecisionId, setLinkedDecisionId] = useState(() => featuredRecord?.linkedDecisionId ?? "");
   const decisions = useMemo(() => getWorkflowRecords().filter((record) => record.kind === "decision"), [eventRevision]);
   const openDecisions = decisions.filter((record) => !record.outcome);
+  const requestedDecisionId = searchParams.get("decision") ?? "";
+  const requestedDecision = openDecisions.find((record) => record.id === requestedDecisionId);
   const linkedDecision = decisions.find((record) => record.id === featuredRecord?.linkedDecisionId);
   useEffect(() => {
     if (!featuredRecord) return;
     setEventQuestion(retainedEventQuestion(featuredRecord));
     setLinkedDecisionId(featuredRecord.linkedDecisionId ?? "");
   }, [featuredRecord?.updatedAt]);
+  useEffect(() => { if (requestedDecision) setLinkedDecisionId(requestedDecision.id); }, [requestedDecision?.id]);
   const filteredEvents = useMemo(() => intent === "All events" ? events : events.filter((event) => event.intent === intent), [intent]);
   const displayEvents = filteredEvents.map((event) => {
     const month = t(event.month, monthAr[event.month] ?? event.month);

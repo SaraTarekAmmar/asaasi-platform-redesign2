@@ -1053,3 +1053,11 @@
 - [x] Add a bilingual founder-controlled event preparation checklist with a retained room question, optional existing open decision, direct source routes, and manual preparation checks.
 - [x] Keep the checklist bounded: no recommended people or sessions, automatic completion, attendance inference, event score, outreach, reminder, task creation, or linked-decision mutation.
 - [x] Validate English and Arabic RTL authenticated Events views, desktop and 375px responsive layouts, type safety, production build, and source checks before checkpointing.
+
+## Decision-to-Event Planning Handoff
+
+- [x] Research contextual work-item linking and event-planning patterns across modern product and operations platforms.
+- [x] Audit the Activity archive, open decision records, Events preparation desk, source recovery, and accountability routes for the best bounded planning bridge.
+- [x] Build a bilingual founder-controlled Activity handoff that selects an open decision, preserves its source context, and opens Events with valid reference-only query context.
+- [x] Keep the route bounded: no automatic event choice, registration, evidence copying, owner or review-date change, task creation, reminder, score, recommendation, or outcome claim.
+- [x] Validate authenticated English and Arabic RTL Activity states, source-recovery behavior, type safety, production build, and source checks before checkpointing.
