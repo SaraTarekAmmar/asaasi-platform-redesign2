@@ -1130,3 +1130,12 @@
 - [x] Preserve direct routes to each Customer Evidence record, its revisit, and its Founder Reading without reconstructing a missing source note.
 - [x] Keep the archive bounded: no evidence score, agreement count, confidence, validation, conflict, causality, answer, decision, outcome, mutation, merge, ranking, selection, or automatic synthesis.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Customer Evidence Review Point
+
+- [x] Research decision-log and product-discovery cadence patterns for visible, editable review timing without automatic prioritization.
+- [x] Audit Customer Evidence save behavior, retained review dates, Activity timing views, and source recovery to identify the smallest useful founder-controlled timing edit.
+- [x] Build a bilingual post-save Customer Evidence editor with an explicit calendar date and in-place confirmation.
+- [x] Restrict the update to review timing fields while preserving all evidence, source references, owner, status, decision relationships, and existing review context.
+- [x] Keep the editor bounded: no urgency score, evidence-quality assessment, freshness inference, task, reminder, source mutation, next-action selection, outcome update, or resolution claim.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

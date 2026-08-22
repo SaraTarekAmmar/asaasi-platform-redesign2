@@ -1050,6 +1050,8 @@ function CustomerEvidenceToolFlow() {
   const [saved, setSaved] = useState(false);
   const [savedRecordId, setSavedRecordId] = useState<string | null>(sourceRecord?.id ?? null);
   const reviewDue = primaryResearchCadence?.dueDate ?? new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10);
+  const [reviewPoint, setReviewPoint] = useState(() => sourceRecord?.reviewDue ?? reviewDue);
+  const [reviewPointSaved, setReviewPointSaved] = useState(false);
   const actions = [
     { value: "interview", en: "Book a follow-up around the live workflow", ar: "احجز متابعة حول سير العمل الحي" },
     { value: "prototype", en: "Show one narrow workflow prototype", ar: "اعرض نموذجا أوليا ضيقا لسير العمل" },
@@ -1088,6 +1090,14 @@ function CustomerEvidenceToolFlow() {
     setSavedRecordId(recordId);
     setSaved(true);
   };
+  const saveReviewPoint = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!savedRecordId || !reviewPoint) return;
+    const current = getWorkflowRecords().find((record) => record.id === savedRecordId && Boolean(record.customerEvidence));
+    if (!current) return;
+    upsertWorkflowRecord({ ...current, reviewDue: reviewPoint, reviewDate: `Review customer validation on ${reviewPoint}`, reviewDateAr: `راجع تحقق العميل في ${reviewPoint}` });
+    setReviewPointSaved(true);
+  };
   return <>
     <div className="tool-room-hero"><div><SignalTag tone="soft">{t("Workbench / Customer fact", "طاولة عمل / حقيقة العميل")}</SignalTag><h1>{t("Turn one past customer moment into a dated validation action.", "حوّل لحظة عميل سابقة واحدة إلى فعل تحقق مؤرخ.")}</h1><p>{t("Capture what happened, what the buyer did instead, and the commitment that will make the next learning harder than an opinion.", "التقط ما حدث وما فعله المشتري بدلا من ذلك والالتزام الذي سيجعل التعلم التالي أصعب من رأي.")}</p></div><div className="tool-room-meta"><span className="mono">{t("Estimated time", "الوقت المقدر")}</span><strong>{t("08 min", "٨ دقائق")}</strong><span className="mono">{t("Output", "الناتج")}</span><strong>{t("Dated validation action", "فعل تحقق مؤرخ")}</strong></div></div>
     <div className="ai-boundary-note"><Sparkles size={15} /><span><strong>{t("What this validates:", "ما تتحقق منه هذه الأداة:")}</strong> {t("a concrete past instance and one meaningful next action. It does not treat an opinion, preference, or future promise as proof.", "حالة سابقة ملموسة وفعل تال ذي معنى. لا تتعامل مع رأي أو تفضيل أو وعد مستقبلي كإثبات.")}</span></div>
@@ -1110,6 +1120,7 @@ function CustomerEvidenceToolFlow() {
         <div className="retention-test-form__inputs"><SectionLabel>{t("Action and evidence rule", "الفعل وقاعدة الدليل")}</SectionLabel><h2>{t("Define success in the buyer’s terms, then choose one action that asks for a meaningful commitment.", "حدد النجاح بشروط المشتري، ثم اختر فعلا واحدا يطلب التزاما ذا معنى.")}</h2><label>{t("How does this buyer measure success or failure?", "كيف يقيس هذا المشتري النجاح أو الفشل؟")}<textarea value={success} onChange={(event) => setSuccess(event.target.value)} required /></label><label>{t("One meaningful action", "فعل واحد ذو معنى")}<select value={action} onChange={(event) => setAction(event.target.value)}>{actions.map((option) => <option key={option.value} value={option.value}>{t(option.en, option.ar)}</option>)}</select></label><label>{t("What observed response changes the assumption?", "ما الاستجابة الملحوظة التي تغير الافتراض؟")}<textarea value={threshold} onChange={(event) => setThreshold(event.target.value)} required /></label><button type="submit" className="button button-dark">{t("Build validation action", "ابنِ فعل التحقق")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</button><p>{t("Treat stated interest as context. Keep the next cycle only when the buyer takes an action that makes the learning more concrete.", "تعامل مع الاهتمام المعلن كسياق. أبقِ الدورة التالية فقط عندما يتخذ المشتري فعلا يجعل التعلم أكثر واقعية.")}</p></div>
       </form>}
     </div>
+    {saved && savedRecordId && <section className="customer-evidence-review-point" aria-labelledby="customer-evidence-review-point-title"><div><SectionLabel>{t("Founder-controlled review point", "نقطة مراجعة يتحكم بها المؤسس")}</SectionLabel><h3 id="customer-evidence-review-point-title">{t("Keep the evidence record, then choose when you will look at it again.", "احتفظ بسجل الدليل، ثم اختر متى ستنظر إليه مرة أخرى.")}</h3><p>{t("This date changes only the review timing on this saved Customer Evidence record. It does not assess the evidence, set urgency, create a task, send a reminder, or decide what the customer fact means.", "يغير هذا التاريخ توقيت المراجعة فقط في سجل دليل العميل المحفوظ. لا يقيّم الدليل أو يحدد الاستعجال أو ينشئ مهمة أو يرسل تذكيرا أو يقرر معنى حقيقة العميل.")}</p></div><form onSubmit={saveReviewPoint}><label>{t("Review date", "تاريخ المراجعة")}<input type="date" value={reviewPoint} onChange={(event) => { setReviewPoint(event.target.value); setReviewPointSaved(false); }} required /></label><div><button type="submit" className="button button-light"><Check size={14} /> {t("Save review point", "احفظ نقطة المراجعة")}</button>{reviewPointSaved && <span className="inline-success"><Check size={14} /> {t("Review date updated", "تم تحديث تاريخ المراجعة")}</span>}</div></form></section>}
   </>;
 }
 
