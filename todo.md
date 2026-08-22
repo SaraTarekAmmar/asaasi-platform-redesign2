@@ -1045,3 +1045,11 @@
 - [x] Build a bilingual Markdown export for founder-selected monthly Keep, Change, and Stop outcomes with original evidence, tests, owner, review point, and direct source paths.
 - [x] Keep the export bounded as a preparation artifact with no scoring, priority selection, causal inference, task creation, field mutation, or reminders.
 - [x] Validate English and Arabic RTL authenticated Activity views, empty-month handling, type safety, production build, source checks, and responsive layout rules before checkpointing.
+
+## Source-linked Event Preparation Checklist
+
+- [x] Research event-platform and networking follow-through patterns for attendee preparation, source context, and bounded post-event recovery.
+- [x] Audit the Events preparation desk, Activity ledger, event observation, follow-up, and decision-accountability flows for the highest-value connected handoff gap.
+- [x] Add a bilingual founder-controlled event preparation checklist with a retained room question, optional existing open decision, direct source routes, and manual preparation checks.
+- [x] Keep the checklist bounded: no recommended people or sessions, automatic completion, attendance inference, event score, outreach, reminder, task creation, or linked-decision mutation.
+- [x] Validate English and Arabic RTL authenticated Events views, desktop and 375px responsive layouts, type safety, production build, and source checks before checkpointing.

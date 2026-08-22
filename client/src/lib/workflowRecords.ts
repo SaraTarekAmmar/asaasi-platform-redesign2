@@ -64,6 +64,14 @@ export type EventFollowUpDraft = {
   copiedAt?: string;
 };
 
+export type EventPreparationChecklist = {
+  question: string;
+  decisionSourceReviewed: boolean;
+  questionReviewed: boolean;
+  observationCaptureReady: boolean;
+  updatedAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -103,6 +111,7 @@ export type WorkflowRecord = {
   recoveredFromEventId?: string;
   knowledgeGuidance?: KnowledgeGuidance;
   eventFollowUp?: EventFollowUpDraft;
+  eventPreparation?: EventPreparationChecklist;
   updatedAt: string;
 };
 
