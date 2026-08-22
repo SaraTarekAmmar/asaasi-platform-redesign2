@@ -1077,3 +1077,11 @@
 - [x] Build a bilingual founder-controlled calendar-week window with separate open-decision and observed-event source lanes, direct recovery routes, and undated-record disclosure.
 - [x] Keep the view bounded: no ranking, score, urgency, progress inference, date movement, task, reminder, meeting, decision, follow-up draft, or combined event-and-decision conclusion.
 - [x] Validate type safety, production build, source boundaries, Arabic RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Event and Decision Evidence Desk
+
+- [x] Research evidence proximity, commitment, and repository traceability practices for a source-preserving comparison workflow.
+- [x] Audit Activity’s decision comparison, cross-event observation, event debrief, source recovery, and decision accountability flows for the useful remaining comparison gap.
+- [x] Build a bilingual founder-controlled side-by-side desk for one factual event observation and one retained decision source with direct recovery routes.
+- [x] Keep the desk bounded: no source score or weighting, count, causal inference, confirmation or contradiction claim, conclusion, record change, task, reminder, follow-up, or customer-test creation.
+- [x] Validate type safety, production build, bilingual component copy, source boundaries, responsive layout rules, and no em dashes before checkpointing.
