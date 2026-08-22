@@ -980,3 +980,10 @@
 - [x] Audit Unit Economics, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-unit-economics-outcome-to-fresh-scenario workflow that retains source context while requiring current founder-authored assumptions.
 - [x] Validate English and Arabic RTL protected Unit Economics states, type safety, production build, formula basis, and source-record integrity before checkpointing.
+
+## Founder Diagnostic Outcome Recovery
+
+- [x] Benchmark decision-hygiene and product-discovery practices for evidence context, bounded hypotheses, interpretation, and review.
+- [x] Audit Founder Diagnostic, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-bottleneck-outcome-to-fresh-diagnostic workflow that retains prior context while requiring current founder-authored evidence and experiment inputs.
+- [x] Validate English and Arabic RTL protected Founder Diagnostic states, type safety, production build, and source-record integrity before checkpointing.
