@@ -937,4 +937,10 @@
 - [x] Benchmark founder dashboards and operating workbenches that keep current commitments, retained learning, and next recovery moves connected.
 - [x] Audit the Founder Operating Desk, Activity, and Weekly Review for the highest-value missing daily operating handoff.
 - [x] Build a bilingual founder home operating brief that connects the current bet, recent learning, and one source-linked next move without automatic prioritization.
+
+## Cross-Event Synthesis and Evidence Recovery
+
+- [x] Benchmark cross-event synthesis and post-session learning workflows that preserve individual source observations without manufacturing a shared conclusion.
+- [x] Audit Events, Activity, Founder Operating Desk, and Customer Evidence for the most useful event-observation synthesis and recovery gap.
+- [x] Build a bilingual cross-event observation synthesis that groups only retained factual notes, preserves source routes, and opens a fresh Customer Evidence test with reference-only context.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
