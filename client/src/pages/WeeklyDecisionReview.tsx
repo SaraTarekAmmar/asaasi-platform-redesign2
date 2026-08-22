@@ -96,6 +96,10 @@ export function WeeklyDecisionReviewWorkspace() {
   const primaryRuleGuide = primaryRecord?.knowledgeGuidance;
   const candidateResearchCadence = primaryRecord?.researchCadence;
   const activeResearchCadence = candidateResearchCadence?.primaryBetWeek === primaryBet?.weekStart ? candidateResearchCadence : undefined;
+  const completedThisWeek = decisions
+    .filter((record) => Boolean(record.outcome) && Boolean(record.outcomeAt) && (record.outcomeAt ?? "").slice(0, 10) >= getWeekStart())
+    .sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt))
+    .slice(0, 3);
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
   const canClosePrimary = Boolean(reflection.trim() || primaryRecord?.weeklyReflection || primaryRecord?.evidence);
   const repeatedDeferral = (primaryBet?.carryCount ?? 0) >= 2;
@@ -140,9 +144,14 @@ export function WeeklyDecisionReviewWorkspace() {
 
   const downloadWeeklyReview = () => {
     const labels = isRTL
-      ? { title: "مراجعة تشغيلية أسبوعية من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", plan: "حالة الخطة", carry: "حالة الترحيل", carryCount: "مرات الترحيل", reflection: "تأمل الجمعة", open: "القرارات المفتوحة", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد" }
-      : { title: "ASaaSI weekly operating review", week: "Week of", primary: "Primary bet", intention: "Friday intention", plan: "Plan status", carry: "Carry-forward status", carryCount: "Carry-forward count", reflection: "Friday reflection", open: "Open decisions", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet", noIntention: "No Friday intention recorded yet" };
-    const decisionLines = agenda.map((record) => `- ${t(record.title, record.titleAr)} | ${t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")} | ${t(record.nextAction ?? "No next action", record.nextActionAr ?? "لا توجد خطوة تالية")}`).join("\n");
+      ? { title: "موجز التشغيل الأسبوعي من ASaaSI", week: "أسبوع", primary: "الرهان الرئيسي", intention: "نية الجمعة", plan: "حالة الخطة", carry: "حالة الترحيل", carryCount: "مرات الترحيل", reflection: "تأمل الجمعة", research: "خطوة البحث الحالية", learning: "تعلم صريح أُغلق هذا الأسبوع", open: "أقرب قرارات مفتوحة", source: "سجل المصدر", status: primaryBet?.completedAt ? "تم تحديد الخطة" : "قيد الإعداد", carried: primaryBet?.carryForward ? "مقرر للأسبوع التالي" : "غير مقرر", none: "لم يتم اختيار رهان رئيسي بعد", noReflection: "لم يُسجل تأمل بعد", noIntention: "لم تُسجل نية الجمعة بعد", noResearch: "لا توجد خطوة بحث حالية مرتبطة بالرهان الرئيسي", noLearning: "لا توجد نتيجة صريحة مكتملة هذا الأسبوع", noOpen: "لا توجد قرارات مفتوحة مجدولة" }
+      : { title: "ASaaSI weekly operating brief", week: "Week of", primary: "Primary bet", intention: "Friday intention", plan: "Plan status", carry: "Carry-forward status", carryCount: "Carry-forward count", reflection: "Friday reflection", research: "Current research move", learning: "Explicit learning closed this week", open: "Nearest open decisions", source: "Source record", status: primaryBet?.completedAt ? "Plan set" : "In progress", carried: primaryBet?.carryForward ? "Staged for next week" : "Not staged", none: "No primary bet selected yet", noReflection: "No reflection recorded yet", noIntention: "No Friday intention recorded yet", noResearch: "No current research move attached to the primary bet", noLearning: "No explicit outcome was completed this week", noOpen: "No open decisions are scheduled" };
+    const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+    const decisionLines = agenda.slice(0, 3).map((record) => `- ${t(record.title, record.titleAr)}\n  - ${t(record.owner ?? "Founder", record.ownerAr ?? "المؤسس")}: ${t(record.nextAction ?? "No next action", record.nextActionAr ?? "لا توجد خطوة تالية")}\n  - ${labels.source}: ${record.href}`).join("\n");
+    const learningLines = completedThisWeek.map((record) => `- ${outcomeLabel(record)} | ${weeklyDecisionSource(record, t)} | ${t(record.title, record.titleAr)}\n  - ${record.evidence || record.weeklyReflection || t("No separate evidence note retained.", "لم تُحتفظ بملاحظة دليل منفصلة.")}\n  - ${labels.source}: ${record.href}`).join("\n");
+    const researchLine = activeResearchCadence
+      ? `${activeResearchCadence.question}\n- ${t("Buyer", "المشتري")}: ${activeResearchCadence.buyer}\n- ${t("Due", "الموعد")}: ${activeResearchCadence.dueDate}\n- ${t("Decision rule", "قاعدة القرار")}: ${activeResearchCadence.responseRule}\n- ${labels.source}: ${primaryRecord?.href ?? "/dashboard/weekly-review"}`
+      : labels.noResearch;
     const summary = [
       `# ${labels.title}`,
       "",
@@ -154,14 +163,22 @@ export function WeeklyDecisionReviewWorkspace() {
       `${labels.carryCount}: ${primaryBet?.carryCount ?? 0}`,
       `${labels.reflection}: ${primaryRecord?.weeklyReflection ?? labels.noReflection}`,
       "",
+      `## ${labels.research}`,
+      researchLine,
+      "",
+      `## ${labels.learning}`,
+      learningLines || `- ${labels.noLearning}`,
+      "",
       `## ${labels.open}`,
-      decisionLines || `- ${labels.none}`,
+      decisionLines || `- ${labels.noOpen}`,
+      "",
+      t("This brief contains retained source records only. It does not rank learnings, infer a trend, choose a priority, or create a task.", "يحتوي هذا الموجز على سجلات مصدر محفوظة فقط. لا يرتب التعلم ولا يستنتج اتجاها ولا يختار أولوية ولا ينشئ مهمة."),
       "",
     ].join("\n");
     const url = URL.createObjectURL(new Blob([summary], { type: "text/markdown;charset=utf-8" }));
     const link = document.createElement("a");
     link.href = url;
-    link.download = `asaasi-weekly-review-${primaryBet?.weekStart ?? getWeekStart()}.md`;
+    link.download = `asaasi-weekly-operating-brief-${primaryBet?.weekStart ?? getWeekStart()}.md`;
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -270,7 +287,7 @@ export function WeeklyDecisionReviewWorkspace() {
           <p>{t("One decision does not need more activity. It needs a named owner, a review date, and the evidence that changes the approach.", "لا يحتاج قرار واحد إلى نشاط أكثر. يحتاج إلى مالك مسمى وتاريخ مراجعة ودليل يغيّر النهج.")}</p>
         </div>
         <dl><div><dt>{t("Open", "مفتوحة")}</dt><dd>{formatNum(agenda.length)}</dd></div><div><dt>{t("This week", "هذا الأسبوع")}</dt><dd>{formatNum(dueThisWeek.length)}</dd></div><div><dt>{t("Overdue", "متأخرة")}</dt><dd>{formatNum(overdue.length)}</dd></div></dl>
-        <div className="weekly-review-brief__actions"><Link href="/dashboard/decision-accountability" className="button button-light">{t("Assign accountability", "عيّن المساءلة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="text-link" onClick={downloadWeeklyReview}><Download size={14} /> {t("Download week in review", "نزّل مراجعة الأسبوع")}</button></div>
+        <div className="weekly-review-brief__actions"><Link href="/dashboard/decision-accountability" className="button button-light">{t("Assign accountability", "عيّن المساءلة")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="text-link" onClick={downloadWeeklyReview}><Download size={14} /> {t("Download operating brief", "نزّل موجز التشغيل")}</button></div>
       </section>
 
       <WeeklyLearningDigest records={records} />

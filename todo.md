@@ -1001,3 +1001,10 @@
 - [x] Audit Market Map, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-market-map-outcome-to-fresh-assumption-test workflow that retains source context while requiring current founder-authored evidence inputs.
 - [x] Validate English and Arabic RTL protected Market Map states, type safety, production build, and source-record integrity before checkpointing.
+
+## Weekly Operating Brief Export
+
+- [x] Benchmark weekly operating-review practices for decision readiness, active evidence, current customer context, and explicit follow-through.
+- [x] Audit Weekly Review, primary bets, current-week learning, research cadence, and open decision records for a bounded founder-owned export.
+- [x] Upgrade the bilingual Weekly Review download into a source-linked Markdown operating brief without automated recommendations, scoring, tasks, or sending.
+- [x] Validate English and Arabic RTL protected Weekly Review states, type safety, production build, and responsive layouts before checkpointing.
