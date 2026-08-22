@@ -41,6 +41,10 @@ export type ResearchCadencePlan = {
   buyer: string;
   dueDate: string;
   responseRule: string;
+  ruleSourceId?: string;
+  ruleClaim?: string;
+  ruleScope?: string;
+  ruleNextEvidenceMove?: string;
   createdAt: string;
 };
 

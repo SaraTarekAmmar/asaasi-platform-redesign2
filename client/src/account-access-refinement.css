@@ -697,3 +697,35 @@
 [dir="rtl"] .app-product .account-flow--registrations .oauth-row::before { content: "خيارات الهوية / أكمل التزام الفعالية"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--customer .oauth-row::before { content: "خيارات الهوية / أكمل حلقة الدليل"; letter-spacing: 0; }
 @media (max-width: 900px) { .app-product .account-flow--registrations .account-form,.app-product .account-flow--customer .account-form { padding-top: 32px; } .app-product .account-flow--registrations .account-form::after,.app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; top: 9px; margin: 0; padding: 0; border: 0; } }
+
+/* Final protected-route differentiation: Weekly Review is a return ledger, Customer Evidence is an evidence loop. Saffron marks current state only, never a perimeter decoration. */
+@media (min-width: 901px) {
+  .app-product .account-flow--weekly-review .account-return-object,
+  .app-product .account-flow--customer .account-return-object { border: 1px solid rgba(223,227,234,.28); border-top-color: rgba(223,227,234,.42); box-shadow: inset 0 -1px 0 rgba(223,227,234,.20); }
+  .app-product .account-flow--weekly-review .account-return-object { min-height: 376px; max-width: 45rem; padding: 1.4rem 1.5rem; background: linear-gradient(90deg,rgba(251,251,248,.035),transparent 62%); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono { display: block; padding-bottom: 10px; border-bottom: 1px solid rgba(223,227,234,.22); color: rgba(251,251,248,.74); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol { display: grid; grid-template-columns: 1fr; min-height: 274px; margin-top: 13px; padding: 0 0 0 1.35rem; border-inline-start: 1px solid rgba(223,227,234,.35); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li,
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(n) { width: auto; min-height: 78px; margin: 0; padding: .72rem 1rem .72rem 1.15rem; border: 0; border-bottom: 1px solid rgba(223,227,234,.18); background: transparent; }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li::before { inset-inline-start: -1.5rem; top: 1.08rem; width: 5px; height: 17px; background: rgba(223,227,234,.55); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid #f6c915; background: linear-gradient(90deg,rgba(202,165,21,.08),transparent 72%); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::before { background: #f6c915; }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3) { border-bottom: 2px solid rgba(223,227,234,.36); }
+  .app-product .account-flow--weekly-review .account-form { min-height: 455px; margin-top: 14px; padding-top: 43px; }
+  .app-product .account-flow--weekly-review .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
+  .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border: 0; border-bottom: 1px solid #dfe3ea; color: #8c7110; content: "02 / IDENTITY → RETURN TO THIS WEEK'S DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+  .app-product .account-flow--weekly-review .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE WEEKLY DECISION"; }
+
+  .app-product .account-flow--customer .account-return-object { background: linear-gradient(180deg,rgba(251,251,248,.025),transparent 60%); }
+  .app-product .account-flow--customer .account-return-object > .mono { color: rgba(251,251,248,.74); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol::after { background: linear-gradient(90deg,rgba(223,227,234,.22),rgba(223,227,234,.44) 48%,rgba(223,227,234,.22)); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1),
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { border-color: rgba(223,227,234,.48); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top-color: #f6c915; border-bottom-color: rgba(223,227,234,.45); background: rgba(251,251,248,.035); box-shadow: inset 3px 0 0 #f6c915; }
+  .app-product .account-flow--customer .account-route-rail { background: linear-gradient(90deg,rgba(7,27,61,.04),transparent 72%); }
+  .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.035); }
+  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom-color: #dfe3ea; }
+}
+[dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "٠٢ / الهوية ← عُد إلى قرار هذا الأسبوع"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--weekly-review .oauth-row::before { content: "خيارات الهوية / أكمل قرار هذا الأسبوع"; letter-spacing: 0; }
+@media (max-width: 900px) { .app-product .account-flow--weekly-review .account-form { padding-top: 32px; } .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; top: 9px; margin: 0; padding: 0; border: 0; } }

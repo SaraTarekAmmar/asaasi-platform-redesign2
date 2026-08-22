@@ -913,4 +913,10 @@
 - [x] Benchmark experiment-learning archives and evidence-to-action handoffs that preserve source context without generating conclusions.
 - [x] Audit Founder Learning Archive, Knowledge, Activity, and Customer Evidence for the most useful cross-tool completion and recovery gap.
 - [x] Build a bilingual completed-experiment learning archive with bounded source comparison and direct recovery paths across founder tools.
+
+## Recurring Learning and Weekly Application
+
+- [x] Benchmark recurring learning loops, operating-rule application, and weekly evidence review patterns across founder and product tools.
+- [x] Audit Knowledge, Founder Learning Archive, Weekly Review, and Customer Evidence for the highest-value missing recurring application handoff.
+- [x] Build a bilingual weekly rule-application handoff that carries a founder-authored working rule into a fresh bounded evidence move without treating it as certainty.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.

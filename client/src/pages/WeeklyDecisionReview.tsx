@@ -47,6 +47,7 @@ export function WeeklyDecisionReviewWorkspace() {
   const [researchDueDate, setResearchDueDate] = useState("");
   const [researchResponseRule, setResearchResponseRule] = useState("");
   const [researchSaved, setResearchSaved] = useState(false);
+  const [includeRuleGuide, setIncludeRuleGuide] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
   const decisions = records.filter((record) => record.kind === "decision");
   const agenda = decisions
@@ -55,6 +56,7 @@ export function WeeklyDecisionReviewWorkspace() {
   const overdue = agenda.filter((record) => record.reviewDue && record.reviewDue < today);
   const dueThisWeek = agenda.filter((record) => record.reviewDue && record.reviewDue >= today && record.reviewDue <= new Date(Date.now() + 7 * 86_400_000).toISOString().slice(0, 10));
   const primaryRecord = decisions.find((record) => record.id === primaryBet?.recordId);
+  const primaryRuleGuide = primaryRecord?.knowledgeGuidance;
   const candidateResearchCadence = primaryRecord?.researchCadence;
   const activeResearchCadence = candidateResearchCadence?.primaryBetWeek === primaryBet?.weekStart ? candidateResearchCadence : undefined;
   const introductionLearnings = records.filter((record) => record.kind === "introduction" && record.status === "completed" && record.introductionReflection && record.linkedDecisionId && agenda.some((decision) => decision.id === record.linkedDecisionId));
@@ -76,6 +78,7 @@ export function WeeklyDecisionReviewWorkspace() {
     setResearchBuyer(currentCadence?.buyer ?? "");
     setResearchDueDate(currentCadence?.dueDate ?? researchCadenceDueDate(primaryBet?.weekStart));
     setResearchResponseRule(currentCadence?.responseRule ?? "");
+    setIncludeRuleGuide(Boolean(currentCadence?.ruleSourceId && primaryRecord?.knowledgeGuidance));
     setReflectionSaved(false);
     setWeekIntentSaved(false);
     setResearchSaved(false);
@@ -171,6 +174,10 @@ export function WeeklyDecisionReviewWorkspace() {
         buyer: researchBuyer.trim(),
         dueDate: researchDueDate,
         responseRule: researchResponseRule.trim(),
+        ruleSourceId: includeRuleGuide && primaryRuleGuide ? primaryRecord.id : undefined,
+        ruleClaim: includeRuleGuide && primaryRuleGuide ? primaryRuleGuide.claim : undefined,
+        ruleScope: includeRuleGuide && primaryRuleGuide ? primaryRuleGuide.scope : undefined,
+        ruleNextEvidenceMove: includeRuleGuide && primaryRuleGuide ? primaryRuleGuide.nextEvidenceMove : undefined,
         createdAt: primaryRecord.researchCadence?.primaryBetWeek === primaryBet.weekStart ? primaryRecord.researchCadence.createdAt : new Date().toISOString(),
       },
     });
@@ -258,8 +265,9 @@ export function WeeklyDecisionReviewWorkspace() {
 
         <section className="weekly-research-cadence" aria-labelledby="weekly-research-cadence-title">
           <div className="weekly-research-cadence__intro"><SectionLabel>{t("Research cadence", "إيقاع البحث")}</SectionLabel><h2 id="weekly-research-cadence-title">{t("Let one customer conversation reduce this bet’s uncertainty.", "دع محادثة عميل واحدة تقلل عدم يقين هذا الرهان.")}</h2><p>{t("Plan one short conversation or evidence move tied to the primary bet. This is a dated learning move, not a promise that the buyer will respond.", "خطط لمحادثة قصيرة واحدة أو خطوة دليل مرتبطة بالرهان الرئيسي. هذه خطوة تعلم مؤرخة، وليست وعدا بأن المشتري سيرد.")}</p></div>
+          {primaryRuleGuide && <aside className={`weekly-rule-application ${includeRuleGuide ? "is-included" : ""}`}><div><span className="mono">{t("REVISABLE FIELD GUIDE", "دليل ميداني قابل للمراجعة")}</span><h3>{t("Carry this rule as context, not as a conclusion.", "احمل هذه القاعدة كسياق، لا كاستنتاج.")}</h3><p>{t("This working rule was saved on the current primary bet. You can keep it beside this week’s research, but the new question, buyer, and response rule below must still be written for this fresh move.", "حُفظت قاعدة العمل هذه على الرهان الرئيسي الحالي. يمكنك إبقاؤها بجانب بحث هذا الأسبوع، لكن يجب أن تكتب السؤال والمشتري وقاعدة الاستجابة أدناه لهذه الخطوة الجديدة.")}</p></div><dl><div><dt>{t("Current rule", "القاعدة الحالية")}</dt><dd>{primaryRuleGuide.claim}</dd></div><div><dt>{t("Use only when", "استخدم فقط عندما")}</dt><dd>{primaryRuleGuide.scope}</dd></div><div><dt>{t("Prior revision move", "خطوة المراجعة السابقة")}</dt><dd>{primaryRuleGuide.nextEvidenceMove}</dd></div></dl><label><input type="checkbox" checked={includeRuleGuide} onChange={(event) => { setIncludeRuleGuide(event.target.checked); setResearchSaved(false); }} /><span>{t("Keep this rule as reference context for this week’s evidence move", "أبقِ هذه القاعدة كسياق مرجعي لخطوة دليل هذا الأسبوع")}</span></label>{includeRuleGuide && <p className="weekly-rule-application__notice">{t("The rule will travel with the saved research cadence and appear as a reference in Customer Evidence. It will not prefill or decide the new test.", "ستنتقل القاعدة مع إيقاع البحث المحفوظ وتظهر كمرجع في دليل العميل. لن تملأ الاختبار الجديد مسبقا ولن تقرره.")}</p>}</aside>}
           <form onSubmit={(event) => { event.preventDefault(); saveResearchCadence(); }} className="weekly-research-cadence__form"><label>{t("Focused question", "السؤال المركّز")}<textarea value={researchQuestion} onChange={(event) => { setResearchQuestion(event.target.value); setResearchSaved(false); }} placeholder={t("What customer fact could change this week’s approach?", "ما حقيقة العميل التي يمكن أن تغيّر نهج هذا الأسبوع؟")} required /></label><label>{t("Buyer context", "سياق المشتري")}<input value={researchBuyer} onChange={(event) => { setResearchBuyer(event.target.value); setResearchSaved(false); }} placeholder={t("Who has the relevant recent experience?", "من لديه الخبرة الحديثة ذات الصلة؟")} required /></label><label>{t("By when", "بحلول متى")}<input type="date" min={today} value={researchDueDate} onChange={(event) => { setResearchDueDate(event.target.value); setResearchSaved(false); }} required /></label><label>{t("Response that changes the bet", "الاستجابة التي تغيّر الرهان")}<textarea value={researchResponseRule} onChange={(event) => { setResearchResponseRule(event.target.value); setResearchSaved(false); }} placeholder={t("Name the observable reply or behavior that would keep, change, or stop the approach.", "سمِ الرد أو السلوك الملحوظ الذي سيبقي النهج أو يغيره أو يوقفه.")} required /></label><div className="weekly-research-cadence__actions"><button type="submit" className="button button-dark"><Check size={14} /> {t("Save research move", "احفظ خطوة البحث")}</button>{researchSaved && <span className="inline-success"><Check size={14} /> {t("Research plan saved with this primary bet", "حُفظت خطة البحث مع هذا الرهان الرئيسي")}</span>}{activeResearchCadence && <Link href={`/tools/customer-evidence?primaryBet=${encodeURIComponent(primaryRecord.id)}`} className="button button-light">{t("Capture customer evidence", "التقط دليل العميل")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link>}</div></form>
-          {activeResearchCadence && <aside className="weekly-research-cadence__saved"><span className="mono">{t("SAVED RESEARCH MOVE", "خطوة البحث المحفوظة")}</span><strong>{activeResearchCadence.question}</strong><p>{t("Buyer: ", "المشتري: ")}{activeResearchCadence.buyer} · {t("Due: ", "الموعد: ")}{activeResearchCadence.dueDate}</p><p>{t("Decision rule: ", "قاعدة القرار: ")}{activeResearchCadence.responseRule}</p></aside>}
+          {activeResearchCadence && <aside className="weekly-research-cadence__saved"><span className="mono">{t("SAVED RESEARCH MOVE", "خطوة البحث المحفوظة")}</span><strong>{activeResearchCadence.question}</strong><p>{t("Buyer: ", "المشتري: ")}{activeResearchCadence.buyer} · {t("Due: ", "الموعد: ")}{activeResearchCadence.dueDate}</p><p>{t("Decision rule: ", "قاعدة القرار: ")}{activeResearchCadence.responseRule}</p>{activeResearchCadence.ruleClaim && <div className="weekly-research-cadence__rule-source"><span className="mono">{t("RULE CONTEXT", "سياق القاعدة")}</span><strong>{activeResearchCadence.ruleClaim}</strong><p>{t("Scope: ", "النطاق: ")}{activeResearchCadence.ruleScope}</p><p>{t("Prior revision move: ", "خطوة المراجعة السابقة: ")}{activeResearchCadence.ruleNextEvidenceMove}</p></div>}</aside>}
         </section>
 
         <section className="weekly-friday-reflection">
