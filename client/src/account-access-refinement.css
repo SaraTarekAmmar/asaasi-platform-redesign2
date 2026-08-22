@@ -101,6 +101,32 @@
 .app-product .account-flow--registrations .oauth-row::before, .app-product .account-flow--network .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY OPTIONS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--registrations .oauth-row::before, [dir="rtl"] .app-product .account-flow--network .oauth-row::before { content: "خيارات الهوية"; letter-spacing: 0; }
 
+/* Pricing access is a three-step value-test ledger; Activity registrations is a four-step commitment-return ledger. Both use linear sequence markers, never circles or rings. */
+.app-product .account-flow--pricing .account-visual h1 { max-width: 8.8ch; font-size: clamp(2.75rem,4.7vw,5.1rem); }
+.app-product .account-flow--pricing .account-return-object { max-width: 39rem; min-height: 278px; margin-top: 1.7rem; padding: 1.2rem 1.3rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(90deg, rgba(246,201,21,.055), transparent 70%) !important; }
+.app-product .account-flow--pricing .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol { grid-template-columns: 1fr; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.2rem minmax(0,1fr); gap: 10px; min-height: 64px; padding: .55rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(1)::after { content: "NAME THE NARROW BUYER AND THEIR LIVE ALTERNATIVE"; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(2)::after { content: "MAKE ONE VALUE PROMISE AND PRICE ASSUMPTION VISIBLE"; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(3)::after { content: "RECORD EXPLICIT RESPONSES BEFORE YOU CHANGE THE OFFER"; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li.is-active { box-shadow: inset 2px 0 0 #f6c915; }
+.app-product .account-flow--pricing .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--pricing .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 54px; background: #caa515; content: ""; }
+.app-product .account-flow--pricing .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "VALUE TEST / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--pricing .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--pricing .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 62%); }
+.app-product .account-flow--pricing .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }.app-product .account-flow--pricing .account-route-rail > div:first-child { border-top: 2px solid #caa515; }.app-product .account-flow--pricing .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }.app-product .account-flow--pricing .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--pricing .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }.app-product .account-flow--pricing .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE PRICING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--registrations .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "COMMITMENT RETURN / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+[dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ المشتري المحدد وبديله الحالي"; }
+[dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(2)::after { content: "اجعل وعد قيمة واحدا وافتراض سعر ظاهرا"; }
+[dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(3)::after { content: "سجل الاستجابات الصريحة قبل تغيير العرض"; }
+[dir="rtl"] .app-product .account-flow--pricing .account-form::after { content: "اختبار القيمة / نقطة تحقق الهوية"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--pricing .oauth-row::before { content: "الهوية لاختبار التسعير"; letter-spacing: 0; }
+[dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "عودة الالتزام / نقطة تحقق الهوية"; letter-spacing: 0; }
+
 .app-product .account-flow .account-return-object li.is-active i {
   background: #f6c915;
   color: #071b3d;

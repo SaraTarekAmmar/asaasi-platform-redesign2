@@ -943,4 +943,10 @@
 - [x] Benchmark cross-event synthesis and post-session learning workflows that preserve individual source observations without manufacturing a shared conclusion.
 - [x] Audit Events, Activity, Founder Operating Desk, and Customer Evidence for the most useful event-observation synthesis and recovery gap.
 - [x] Build a bilingual cross-event observation synthesis that groups only retained factual notes, preserves source routes, and opens a fresh Customer Evidence test with reference-only context.
+
+## Outcome-to-Tool Recovery
+
+- [x] Benchmark outcome-to-tool recovery patterns that use a completed decision as reference context for a fresh bounded test without copying conclusions.
+- [x] Audit completed learning archives, Founder Operating Desk, and founder tools for the most valuable source-linked recovery destination beyond Customer Evidence.
+- [x] Build a bilingual completed-outcome-to-tool handoff that preserves provenance while requiring a founder-authored new test, threshold, and review point.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
