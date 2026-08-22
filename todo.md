@@ -1030,3 +1030,10 @@
 - [x] Build a bilingual Owner → Evidence → Review point ledger that distinguishes named owner with date, named owner without date, and no owner retained.
 - [x] Make Decision Accountability open the source-selected decision from Activity without creating task state or automatic assignments.
 - [x] Validate English and Arabic RTL protected Activity and accountability states, type safety, production build, and responsive layouts before checkpointing.
+
+## Review Date Reconciliation
+
+- [x] Benchmark operating-review and decision-log cadence practices for retained owners, review timing, source clarity, and record reconciliation.
+- [x] Audit open decision owner fields, review dates, Activity, and accountability recovery routes for the most useful bounded field-alignment view.
+- [x] Build a bilingual Owner → Review date → Source ledger that distinguishes all retained owner and review-date combinations without creating urgency scores.
+- [x] Validate English and Arabic RTL protected Activity and accountability states, type safety, production build, and responsive layouts before checkpointing.
