@@ -1015,3 +1015,10 @@
 - [x] Audit ASaaSI event observations, follow-up drafts, linked decisions, and Activity surfaces for the most useful source-filtered debrief review.
 - [x] Build a bilingual Event → Fact → Follow-through source ledger with filters for observation, saved draft, linked decision, and missing follow-up draft.
 - [x] Validate English and Arabic RTL protected Activity states, type safety, production build, and responsive layouts before checkpointing.
+
+## Evidence Freshness Review
+
+- [x] Benchmark continuous-discovery practices for recurring customer touchpoints, evidence context, and revalidation without confusing recency with quality.
+- [x] Audit open decisions, captured customer and market evidence, timestamped reflections, and Activity surfaces for the most useful bounded freshness view.
+- [x] Build a bilingual Decision → Last evidence → Next review ledger that distinguishes no evidence, undated context, older dated context, and recent dated context.
+- [x] Validate English and Arabic RTL protected Activity states, type safety, production build, and responsive layouts before checkpointing.
