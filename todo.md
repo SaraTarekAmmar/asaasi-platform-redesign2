@@ -952,3 +952,10 @@
 - [x] Add SaaS Health outcome recovery with a source-only reference ledger, fresh cohort inputs, and traceable record linkage.
 - [x] Ensure fresh source-linked Pricing and Health tests receive unique record identifiers and cannot overwrite a retained completed source.
 - [x] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.
+
+## Channel Outcome Recovery
+
+- [x] Benchmark GTM experimentation frameworks for falsifiable channel tests, current baselines, explicit decision rules, one-variable focus, and time-boxed pilots.
+- [x] Audit the GTM Channel Map, Activity, and completed-tool archive for the most useful next source-linked recovery destination.
+- [x] Build a bilingual completed-channel-outcome-to-fresh-channel-test recovery path that retains provenance while requiring entirely new founder-authored inputs.
+- [x] Validate English and Arabic RTL protected GTM states, type safety, production build, and source-record integrity before checkpointing.

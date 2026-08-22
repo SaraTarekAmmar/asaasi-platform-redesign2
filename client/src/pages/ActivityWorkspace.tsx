@@ -179,6 +179,14 @@ function HealthOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] }) {
   return <section className="health-outcome-recovery-rail" aria-labelledby="health-outcome-recovery-title"><header><div><SectionLabel>{t("Health outcome recovery", "استرجاع نتيجة الصحة")}</SectionLabel><h2 id="health-outcome-recovery-title">{t("Carry the completed cohort context into a new check, not a copied conclusion.", "احمل سياق المجموعة المكتملة إلى فحص جديد، لا إلى استنتاج منسوخ.")}</h2><p>{t("Each source retains its original evidence and intervention. A new check must start with a current cohort and fresh observed inputs.", "يحتفظ كل مصدر بدليله وتدخله الأصليين. يجب أن يبدأ الفحص الجديد بمجموعة حالية ومدخلات ملحوظة جديدة.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="health-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/saas-health?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh health check", "افتح فحص صحة جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
 }
 
+function GTMOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL } = useLocale();
+  const outcomes = records.filter((record) => record.kind === "decision" && Boolean(record.outcome) && record.href.includes("/gtm-map")).sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt)).slice(0, 2);
+  if (!outcomes.length) return null;
+  const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+  return <section className="gtm-outcome-recovery-rail" aria-labelledby="gtm-outcome-recovery-title"><header><div><SectionLabel>{t("Channel outcome recovery", "استرجاع نتيجة القناة")}</SectionLabel><h2 id="gtm-outcome-recovery-title">{t("Revisit the finished channel motion before you route a fresh audience into another test.", "أعد زيارة حركة القناة المكتملة قبل توجيه جمهور جديد إلى اختبار آخر.")}</h2><p>{t("Each source keeps the buyer situation, promise, response rule, and retained signal visible. A new channel test starts from fresh founder input.", "يبقي كل مصدر حالة المشتري والوعد وقاعدة الاستجابة والإشارة المحتفظ بها ظاهرة. يبدأ اختبار القناة الجديد من مدخلات جديدة للمؤسس.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="gtm-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/gtm-map?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh channel test", "افتح اختبار قناة جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
+}
+
 function FounderLearningArchive({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
   const { t, isRTL, formatNum } = useLocale();
   const [filter, setFilter] = useState<LearningFilter>("all");
@@ -362,6 +370,8 @@ export function ActivityWorkspace() {
     <CompletedToolExperimentArchive records={records} />
 
     <HealthOutcomeRecoveryRail records={records} />
+
+    <GTMOutcomeRecoveryRail records={records} />
 
     {customerEvidenceRecords.length > 0 && <InterviewPatternArchive records={customerEvidenceRecords} />}
 
