@@ -1094,3 +1094,12 @@
 - [x] Persist readings as separate source-linked note records without altering original evidence, owners, dates, outcomes, event context, or follow-up records.
 - [x] Keep the reading bounded: no automated content, score, verification, pattern claim, conclusion, task, reminder, registration, decision, outcome, follow-up, or customer-test creation.
 - [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Founder Reading to Review Handoff
+
+- [x] Research pre-read, meeting-agenda, decision-context, and scope-boundary patterns across product and meeting platforms.
+- [x] Audit Founder Evidence Reading persistence, Activity source recovery, Weekly Decision Review composition, and accountability routes for the right agenda handoff.
+- [x] Build a bilingual founder-controlled Activity handoff that adds one saved founder reading as a separate source-linked weekly-review pre-read.
+- [x] Add a Weekly Review pre-read with retained author wording, open question, event route, decision route, and decision-specific accountability route.
+- [x] Keep the handoff bounded: no ranking, meeting scheduling, owner assignment, task, reminder, decision selection, primary-bet choice, outcome, recommendation, or conclusion.
+- [x] Validate type safety, production build, source preservation, bilingual RTL copy, responsive component rules, and no em dashes before checkpointing.

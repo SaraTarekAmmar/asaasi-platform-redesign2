@@ -80,6 +80,11 @@ export type FounderEvidenceReading = {
   createdAt: string;
 };
 
+export type FounderReadingReviewAgenda = {
+  founderReadingId: string;
+  createdAt: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -121,6 +126,7 @@ export type WorkflowRecord = {
   eventFollowUp?: EventFollowUpDraft;
   eventPreparation?: EventPreparationChecklist;
   founderEvidenceReading?: FounderEvidenceReading;
+  founderReadingReviewAgenda?: FounderReadingReviewAgenda;
   updatedAt: string;
 };
 
