@@ -1022,3 +1022,11 @@
 - [x] Audit open decisions, captured customer and market evidence, timestamped reflections, and Activity surfaces for the most useful bounded freshness view.
 - [x] Build a bilingual Decision → Last evidence → Next review ledger that distinguishes no evidence, undated context, older dated context, and recent dated context.
 - [x] Validate English and Arabic RTL protected Activity states, type safety, production build, and responsive layouts before checkpointing.
+
+## Decision Owner Follow-through
+
+- [x] Benchmark decision-log practices for retained rationale, ownership, review timing, source traceability, and accountable follow-through.
+- [x] Audit Decision Accountability, open decisions, Activity, and recovery routes for the most useful bounded ownership view.
+- [x] Build a bilingual Owner → Evidence → Review point ledger that distinguishes named owner with date, named owner without date, and no owner retained.
+- [x] Make Decision Accountability open the source-selected decision from Activity without creating task state or automatic assignments.
+- [x] Validate English and Arabic RTL protected Activity and accountability states, type safety, production build, and responsive layouts before checkpointing.

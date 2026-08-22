@@ -15,7 +15,10 @@ export function DecisionAccountabilityWorkspace() {
   const { t, formatNum, isRTL } = useLocale();
   const [records, setRecords] = useState(() => getWorkflowRecords());
   const decisions = records.filter((record) => record.kind === "decision");
-  const [selectedId, setSelectedId] = useState(() => decisions[0]?.id ?? "");
+  const [selectedId, setSelectedId] = useState(() => {
+    const requestedId = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("decision") : null;
+    return decisions.some((record) => record.id === requestedId) ? requestedId ?? "" : decisions[0]?.id ?? "";
+  });
   const selected = decisions.find((record) => record.id === selectedId) ?? decisions[0];
   const [owner, setOwner] = useState("");
   const [due, setDue] = useState("");
