@@ -51,6 +51,15 @@ export type KnowledgeGuidance = {
   createdAt: string;
 };
 
+export type EventFollowUpDraft = {
+  recipientContext: string;
+  nextMove: string;
+  dueDate: string;
+  draft: string;
+  createdAt: string;
+  copiedAt?: string;
+};
+
 export type WorkflowRecord = {
   id: string;
   kind: WorkflowRecordKind;
@@ -88,6 +97,7 @@ export type WorkflowRecord = {
   researchCadence?: ResearchCadencePlan;
   reusedFromDecisionId?: string;
   knowledgeGuidance?: KnowledgeGuidance;
+  eventFollowUp?: EventFollowUpDraft;
   updatedAt: string;
 };
 

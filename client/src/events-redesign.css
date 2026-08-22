@@ -158,6 +158,8 @@
 .app-product .event-directory-section::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 46px; height: 2px; background: #caa515; content: ""; }
 .app-product .event-results-summary { padding: 12px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
 .app-product .event-timeline { margin-top: 0; border-top: 0; }
+.app-product .event-timeline { position: relative; padding-inline-start: 0; }
+.app-product .event-timeline::before { position: absolute; inset-inline-start: 16px; top: 24px; bottom: 24px; width: 1px; background: linear-gradient(#caa515,rgba(202,165,21,.16)); content: ""; }
 .app-product .event-timeline-row { min-height: 142px; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
 .app-product .event-timeline-row:hover { padding-inline: 11px; background: transparent !important; border-inline-start: 2px solid #caa515; }
 .app-product .event-timeline-row.is-next { padding-inline-start: 17px; background: transparent !important; }
@@ -166,12 +168,22 @@
 .app-product .event-timeline-date::before { position: absolute; inset-inline-start: 0; top: 10px; width: 2px; height: 28px; background: transparent; content: ""; }
 .app-product .event-timeline-row.is-next .event-timeline-date::before,.app-product .event-timeline-row:hover .event-timeline-date::before { background: #caa515; }
 .app-product .event-timeline-meta { padding-inline-start: 15px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .event-intent-controls { position: relative; margin-top: 24px; padding: 14px 0 14px 16px; border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg,rgba(202,165,21,.055),transparent 48%); }
+.app-product .event-intent-controls::after { position: absolute; inset-inline-end: 0; top: -2px; width: 54px; height: 2px; background: #caa515; content: ""; }
+.app-product .event-intent-controls button { position: relative; border-radius: 7px; background: transparent; }
+.app-product .event-intent-controls button.is-active { border-color: #071b3d; background: #071b3d; color: #fbfbf8; }
+.app-product .event-intent-controls button.is-active::before { position: absolute; inset-inline-start: 9px; inset-inline-end: 9px; top: -6px; height: 2px; background: #caa515; content: ""; }
 .app-product .section-clay#past { position: relative; border-top: 1px solid #dfe3ea; background: #fbfbf8; }
 .app-product .section-clay#past::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 34px; height: 2px; background: #071b3d; content: ""; }
-.app-product .past-events-list { border-top: 2px solid #071b3d; background: transparent; }
-.app-product .past-event-row { position: relative; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.app-product .past-events-list { counter-reset: past-event; border-top: 2px solid #071b3d; background: transparent; }
+.app-product .past-event-row { position: relative; display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; align-items: center; counter-increment: past-event; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.app-product .past-event-row::after { grid-column: 1; grid-row: 1; color: #8c7110; content: "0" counter(past-event); font: 600 10px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .past-event-row > * { grid-column: 2; }
 .app-product .past-event-row::before { position: absolute; inset-inline-start: 0; top: 50%; width: 2px; height: 24px; transform: translateY(-50%); background: #caa515; content: ""; }
 .app-product .past-event-row .signal-tag { margin-inline-start: 12px; border-radius: 7px; background: transparent; }
 .app-product .events-preparation-desk { border-radius: 14px; box-shadow: none; }
 .app-product .events-preparation-desk__actions .button-dark { border-inline-start: 2px solid #caa515; }
-@media (max-width: 620px) { .app-product .event-directory-section { padding-top: 48px; }.app-product .event-timeline-row { min-height: auto; }.app-product .event-timeline-meta { padding-inline-start: 0; border-inline-start: 0; }.app-product .event-timeline-date::before { top: 7px; }.app-product .past-event-row::before { inset-inline-start: 0; }.app-product .event-directory-section::before,.app-product .section-clay#past::before { inset-inline-start: 18px; } }
+.app-product .section-clay#past + .section { position: relative; padding-top: 56px; border-top: 1px solid #dfe3ea; background: linear-gradient(90deg,rgba(7,27,61,.025),transparent 48%); }
+.app-product .section-clay#past + .section::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 46px; height: 2px; background: #caa515; content: ""; }
+.app-product .section-clay#past + .section .section-header { align-items: end; padding-inline-start: 18px; border-inline-start: 2px solid #071b3d; }
+@media (max-width: 620px) { .app-product .event-directory-section { padding-top: 48px; }.app-product .event-timeline::before { inset-inline-start: 7px; top: 17px; bottom: 17px; }.app-product .event-timeline-row { min-height: auto; }.app-product .event-timeline-meta { padding-inline-start: 0; border-inline-start: 0; }.app-product .event-timeline-date::before { top: 7px; }.app-product .past-event-row { grid-template-columns: 34px minmax(0,1fr); gap: 10px; }.app-product .past-event-row::before { inset-inline-start: 0; }.app-product .section-clay#past + .section { padding-top: 42px; }.app-product .section-clay#past + .section::before,.app-product .event-directory-section::before,.app-product .section-clay#past::before { inset-inline-start: 18px; }.app-product .section-clay#past + .section .section-header { padding-inline-start: 13px; } }

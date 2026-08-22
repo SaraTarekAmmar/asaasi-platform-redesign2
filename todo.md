@@ -901,4 +901,10 @@
 - [x] Build a bilingual reusable-experiment handoff that carries selected prior context into a founder-owned new test without copying outcome claims or thresholds.
 - [x] Build a bilingual monthly evidence-review digest that surfaces overdue, upcoming, and undated open decisions with their retained source context and direct recovery paths.
 - [x] Rebuild Knowledge as a bilingual source-linked field guide for revisable founder-authored operating guidance.
+
+## Event Follow-through and Learning Loop
+
+- [x] Benchmark event follow-through, post-session recap, and founder learning-loop workflows for useful source-linked next actions.
+- [x] Audit Events, Activity, and Weekly Review for the highest-value missing handoff from a saved room observation to a specific follow-up.
+- [x] Build a bilingual event follow-up draft flow that remains attached to its room observation and linked decision without fabricating an outcome.
 - [ ] Validate English and Arabic RTL behavior, type safety, production build, record integrity, representative reuse journeys, and responsive layouts before checkpointing.

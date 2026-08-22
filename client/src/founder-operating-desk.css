@@ -1012,6 +1012,54 @@
 .app-product .monthly-evidence-digest > footer { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-top: 24px; padding-top: 17px; border-top: 1px solid #dfe3ea; }
 .app-product .monthly-evidence-digest > footer p { max-width: 720px; }
 
+/* Event Follow-up Desk: retain a room observation, then author one proportionate next move. Drafts remain editable and never imply that a result happened. */
+.app-product .event-follow-up-desk { margin: 30px 0; padding: clamp(24px,4vw,42px); border: 1px solid #dfe3ea; border-radius: 22px; background: #fff; box-shadow: 0 12px 30px rgba(7,27,61,.04); }
+.app-product .event-follow-up-desk__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 30px; align-items: end; }
+.app-product .event-follow-up-desk__heading > div:first-child { max-width: 770px; }
+.app-product .event-follow-up-desk h2, .app-product .event-follow-up-desk h3 { margin: 8px 0 10px; color: #071b3d; font-family: "Manrope",sans-serif; font-weight: 500; letter-spacing: -.055em; }
+.app-product .event-follow-up-desk h2 { max-width: 25ch; font-size: clamp(27px,3vw,41px); line-height: 1.05; }
+.app-product .event-follow-up-desk h3 { font-size: clamp(20px,2.2vw,29px); line-height: 1.12; }
+.app-product .event-follow-up-desk p { margin: 0; color: #53627a; font-size: 13px; line-height: 1.6; }
+.app-product .event-follow-up-desk__metric { display: grid; align-content: end; min-width: 115px; padding-inline-start: 16px; border-inline-start: 2px solid #caa515; }
+.app-product .event-follow-up-desk__metric strong { color: #071b3d; font: 500 36px/1 "Manrope",sans-serif; letter-spacing: -.07em; }
+.app-product .event-follow-up-desk__metric span { margin-top: 5px; color: #788396; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .event-follow-up-desk__boundary { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 18px; margin: 24px 0; padding: 13px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .event-follow-up-desk__boundary .mono { color: #8c7110; font-size: 9px; letter-spacing: .1em; }
+.app-product .event-follow-up-desk__body { display: grid; grid-template-columns: minmax(290px,.76fr) minmax(0,1.24fr); border: 1px solid #dfe3ea; border-radius: 18px; overflow: hidden; }
+.app-product .event-follow-up-desk__sources { display: grid; align-content: start; gap: 20px; padding: clamp(20px,3vw,32px); border-inline-end: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .event-follow-up-desk__sources > div:last-child { display: grid; border-top: 1px solid rgba(7,27,61,.12); }
+.app-product .event-follow-up-desk__sources button { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 10px; padding: 14px 0 14px 12px; border: 0; border-bottom: 1px solid rgba(7,27,61,.12); border-inline-start: 2px solid transparent; background: transparent; color: #071b3d; text-align: start; transition: background 160ms ease, border-color 160ms ease; }
+.app-product .event-follow-up-desk__sources button:hover, .app-product .event-follow-up-desk__sources button.is-active { border-inline-start-color: #caa515; background: rgba(255,255,255,.64); }
+.app-product .event-follow-up-desk__sources button > span { color: #8c7110; font: 600 10px "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk__sources button small { display: block; margin-bottom: 4px; color: #788396; font: 600 8px "DM Sans",sans-serif; letter-spacing: .08em; }
+.app-product .event-follow-up-desk__sources button strong { display: block; font: 600 12px/1.35 "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk__sources button p { display: -webkit-box; overflow: hidden; margin-top: 5px; font-size: 10px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.app-product .event-follow-up-desk__editor { display: grid; align-content: start; gap: 17px; padding: clamp(20px,3vw,36px); }
+.app-product .event-follow-up-desk__source-context { display: grid; gap: 7px; padding: 0 0 16px 15px; border-bottom: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; }
+.app-product .event-follow-up-desk__source-context .mono { color: #8c7110; font-size: 9px; letter-spacing: .1em; }
+.app-product .event-follow-up-desk__source-context > strong { color: #071b3d; font: 600 15px "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk__source-context dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin: 4px 0 0; }
+.app-product .event-follow-up-desk__source-context dl > div { min-width: 0; padding-top: 9px; border-top: 1px solid rgba(7,27,61,.1); }
+.app-product .event-follow-up-desk__source-context dt { color: #788396; font: 600 8px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+.app-product .event-follow-up-desk__source-context dd { margin: 5px 0 0; color: #53627a; font: 11px/1.5 "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk__source-context > div:last-child { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 3px; }
+.app-product .event-follow-up-desk__form-heading { margin-top: 2px; }
+.app-product .event-follow-up-desk__form-heading h3 { max-width: 26ch; }
+.app-product .event-follow-up-desk__fields { display: grid; grid-template-columns: minmax(0,1fr) 150px; gap: 13px; }
+.app-product .event-follow-up-desk__fields label, .app-product .event-follow-up-desk__draft { display: grid; gap: 7px; color: #071b3d; font: 600 11px/1.4 "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk__fields .event-follow-up-desk__next-move { grid-column: 1 / -1; }
+.app-product .event-follow-up-desk input, .app-product .event-follow-up-desk textarea { width: 100%; box-sizing: border-box; border: 1px solid rgba(7,27,61,.16); border-radius: 10px; background: #fbfbf8; padding: 10px 11px; color: #071b3d; font: 13px/1.5 "DM Sans",sans-serif; }
+.app-product .event-follow-up-desk textarea { min-height: 148px; resize: vertical; white-space: pre-wrap; }
+.app-product .event-follow-up-desk input:focus, .app-product .event-follow-up-desk textarea:focus { outline: 2px solid rgba(202,165,21,.3); outline-offset: 2px; }
+.app-product .event-follow-up-desk__draft-action { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 1px 0; }
+.app-product .event-follow-up-desk__draft-action p { max-width: 420px; font-size: 11px; }
+.app-product .event-follow-up-desk__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; padding-top: 2px; }
+.app-product .event-follow-up-desk__actions .inline-success { display: inline-flex; align-items: center; gap: 7px; color: #176b4b; font-size: 11px; }
+/* The previous in-row local toggle is intentionally hidden: Activity now offers one persisted, source-linked draft desk instead. */
+.app-product .receipt-list .activity-row-actions button[aria-pressed] { display: none; }
+@media (max-width: 860px) { .app-product .event-follow-up-desk__heading, .app-product .event-follow-up-desk__body { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__sources { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .app-product .event-follow-up-desk__sources > div:last-child { grid-template-columns: repeat(2,minmax(0,1fr)); } .app-product .event-follow-up-desk__sources button:nth-child(odd) { border-inline-end: 1px solid rgba(7,27,61,.12); } }
+@media (max-width: 620px) { .app-product .event-follow-up-desk { margin: 24px 0; padding: 20px 16px; border-radius: 18px; } .app-product .event-follow-up-desk__metric { padding-inline-start: 12px; } .app-product .event-follow-up-desk__boundary { grid-template-columns: 1fr; gap: 8px; } .app-product .event-follow-up-desk__body { border-radius: 14px; } .app-product .event-follow-up-desk__sources, .app-product .event-follow-up-desk__editor { padding: 20px 16px; } .app-product .event-follow-up-desk__sources > div:last-child { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__sources button:nth-child(odd) { border-inline-end: 0; } .app-product .event-follow-up-desk__source-context { padding-inline-start: 12px; } .app-product .event-follow-up-desk__source-context dl { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__fields { grid-template-columns: 1fr; } .app-product .event-follow-up-desk__fields label { grid-column: 1; } }
+
 /* Knowledge Field Guide: one retained source, one revisable rule, one fresh evidence move. No autonomous synthesis or circular status decoration. */
 .app-product .knowledge-field-guide { max-width: 1180px; margin: 0 auto; }
 .app-product .knowledge-guide-brief { display: grid; grid-template-columns: minmax(0,1fr) minmax(340px,.85fr); gap: clamp(26px,5vw,64px); align-items: end; margin: 26px 0; padding: clamp(24px,4vw,40px); border: 1px solid rgba(7,27,61,.12); border-radius: 22px; background: rgba(255,255,255,.72); box-shadow: 0 12px 30px rgba(7,27,61,.045); }

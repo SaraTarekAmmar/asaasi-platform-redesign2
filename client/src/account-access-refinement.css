@@ -632,6 +632,8 @@
 /* Protected-return geometry refinement: Activity is a commitment timeline; Customer Evidence is an asymmetric evidence map. Both keep identity subordinate to the restored work and use only linear saffron state signals. */
 @media (min-width: 901px) {
   .app-product .account-flow--registrations .account-return-object { min-height: 342px; padding: 1.35rem 1.45rem 1.5rem; }
+  .app-product .account-flow--registrations .account-visual { padding-inline: clamp(58px,7vw,116px); }
+  .app-product .account-flow--registrations .account-return-object { min-height: 382px; max-width: 46rem; }
   .app-product .account-flow--registrations .account-return-object > .mono + ol { min-height: 244px; padding: 1rem 0 0 1.25rem; border-inline-start: 1px solid rgba(223,227,234,.42); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li { min-height: 60px; padding: .65rem 1rem .65rem 1.15rem; background: linear-gradient(90deg, rgba(251,251,248,.035), transparent 76%); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1) { width: 74%; margin-inline-start: 0; }
