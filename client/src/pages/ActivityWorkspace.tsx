@@ -227,6 +227,14 @@ function PositioningOutcomeRecoveryRail({ records }: { records: WorkflowRecord[]
   return <section className="positioning-outcome-recovery-rail" aria-labelledby="positioning-outcome-recovery-title"><header><div><SectionLabel>{t("Message outcome recovery", "استرجاع نتيجة الرسالة")}</SectionLabel><h2 id="positioning-outcome-recovery-title">{t("Return to the finished message test before you write the next buyer-facing frame.", "عد إلى اختبار الرسالة المكتمل قبل كتابة الإطار التالي المواجه للمشتري.")}</h2><p>{t("Each source keeps the original buyer language, evidence, test, and dated outcome visible. The next message must earn its own response.", "يبقي كل مصدر لغة المشتري والدليل والاختبار والنتيجة المؤرخة الأصلية ظاهرة. يجب أن تكسب الرسالة التالية استجابتها الخاصة.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="positioning-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/positioning-evidence?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh message test", "افتح اختبار رسالة جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
 }
 
+function MarketMapOutcomeRecoveryRail({ records }: { records: WorkflowRecord[] }) {
+  const { t, isRTL } = useLocale();
+  const outcomes = records.filter((record) => record.kind === "decision" && Boolean(record.outcome) && record.href.includes("/market-map")).sort((a, b) => (b.outcomeAt ?? b.updatedAt).localeCompare(a.outcomeAt ?? a.updatedAt)).slice(0, 2);
+  if (!outcomes.length) return null;
+  const outcomeLabel = (record: WorkflowRecord) => record.outcome === "keep" ? t("Keep", "استمر") : record.outcome === "change" ? t("Change", "غيّر") : t("Stop", "أوقف");
+  return <section className="market-outcome-recovery-rail" aria-labelledby="market-outcome-recovery-title"><header><div><SectionLabel>{t("Market outcome recovery", "استرجاع نتيجة السوق")}</SectionLabel><h2 id="market-outcome-recovery-title">{t("Return to the finished market test before you make the next market assumption.", "عد إلى اختبار السوق المكتمل قبل وضع افتراض السوق التالي.")}</h2><p>{t("Each source keeps the original segment, market evidence, test, and dated outcome visible. A fresh assumption still needs a current segment and observable response.", "يبقي كل مصدر الشريحة ودليل السوق والاختبار والنتيجة المؤرخة الأصلية ظاهرة. لا يزال الافتراض الجديد يحتاج إلى شريحة حالية واستجابة قابلة للملاحظة.")}</p></div><span className="mono">{t("REFERENCE ONLY", "مرجع فقط")}</span></header><div className="market-outcome-recovery-rail__records">{outcomes.map((record) => <article key={record.id} className={`is-${record.outcome}`}><header><span>{outcomeLabel(record)}</span><small>{new Intl.DateTimeFormat(isRTL ? "ar-EG" : "en-GB", { month: "short", day: "numeric" }).format(new Date(record.outcomeAt ?? record.updatedAt))}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{archiveExcerpt(record, t)}</p><div><Link href={`/tools/market-map?outcome=${encodeURIComponent(record.id)}`} className="button button-dark">{t("Open fresh assumption test", "افتح اختبار افتراض جديد")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><Link href="/dashboard/decision-review" className="text-link">{t("Review source", "راجع المصدر")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link></div></article>)}</div></section>;
+}
+
 function FounderLearningArchive({ records, onRecordsChanged }: { records: WorkflowRecord[]; onRecordsChanged: () => void }) {
   const { t, isRTL, formatNum } = useLocale();
   const [filter, setFilter] = useState<LearningFilter>("all");
@@ -422,6 +430,8 @@ export function ActivityWorkspace() {
     <FounderDiagnosticOutcomeRecoveryRail records={records} />
 
     <PositioningOutcomeRecoveryRail records={records} />
+
+    <MarketMapOutcomeRecoveryRail records={records} />
 
     {customerEvidenceRecords.length > 0 && <InterviewPatternArchive records={customerEvidenceRecords} />}
 

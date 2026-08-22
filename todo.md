@@ -994,3 +994,10 @@
 - [x] Audit Positioning Evidence, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
 - [x] Build a bilingual completed-positioning-outcome-to-fresh-message-test workflow that retains source language while requiring current founder-authored claim and response inputs.
 - [x] Validate English and Arabic RTL protected Positioning Evidence states, type safety, production build, and source-record integrity before checkpointing.
+
+## Market Map Outcome Recovery
+
+- [x] Benchmark market-hypothesis and competitor-evidence practices for critical assumptions, ongoing monitoring, customer context, and actionable tests.
+- [x] Audit Market Map, Activity, and completed-tool workflows for the highest-value remaining source-linked recovery path.
+- [x] Build a bilingual completed-market-map-outcome-to-fresh-assumption-test workflow that retains source context while requiring current founder-authored evidence inputs.
+- [x] Validate English and Arabic RTL protected Market Map states, type safety, production build, and source-record integrity before checkpointing.
