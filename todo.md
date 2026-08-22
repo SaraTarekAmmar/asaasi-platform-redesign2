@@ -1069,3 +1069,11 @@
 - [x] Build a bilingual one-event Markdown export with retained preparation, factual observation, explicit label, optional decision context, optional follow-up metadata, missing-field visibility, and direct return paths.
 - [x] Keep the export bounded: no attendance or ROI calculation, scoring, attribution, causal inference, conclusion, task, reminder, outreach, decision, or outcome creation.
 - [x] Validate type safety, production build, source preservation, Arabic RTL copy, responsive component rules, and no em dashes before checkpointing.
+
+## Decision and Event Review Window
+
+- [x] Research operating-cadence and review-log patterns for human-led planning, review, and adjustment without opaque prioritization.
+- [x] Audit Activity’s dated decision reviews, observed-event records, source recovery, reconciliation views, and event debrief flows for the highest-value time-windowed improvement.
+- [x] Build a bilingual founder-controlled calendar-week window with separate open-decision and observed-event source lanes, direct recovery routes, and undated-record disclosure.
+- [x] Keep the view bounded: no ranking, score, urgency, progress inference, date movement, task, reminder, meeting, decision, follow-up draft, or combined event-and-decision conclusion.
+- [x] Validate type safety, production build, source boundaries, Arabic RTL copy, responsive component rules, and no em dashes before checkpointing.

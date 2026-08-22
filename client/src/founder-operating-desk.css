@@ -2,6 +2,58 @@
 /* Editorial operating system: founder outcomes stay specific, reviewable, and connected through soft rectangular work surfaces. */
 
 /* Decision-to-event planning handoff: an intentional source-preserving bridge from an open decision to a founder-chosen room, using linear saffron provenance only. */
+.app-product .decision-event-review-window { margin: 28px 0; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 22px; background: rgba(255,255,255,.8); box-shadow: 0 15px 34px rgba(7,27,61,.05); }
+.app-product .decision-event-review-window__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 24px; align-items: start; padding: clamp(24px,4vw,40px); border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
+.app-product .decision-event-review-window__heading > div:first-child { max-width: 720px; }
+.app-product .decision-event-review-window__heading h2 { max-width: 26ch; margin: 8px 0 11px; color: #071b3d; font: 500 clamp(25px,3.2vw,42px)/1.04 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .decision-event-review-window__heading p { max-width: 660px; margin: 0; color: #53627a; font: 13px/1.65 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__metric { min-width: 122px; padding-inline-start: 22px; border-inline-start: 1px solid rgba(7,27,61,.13); }
+.app-product .decision-event-review-window__metric strong,.app-product .decision-event-review-window__metric span { display: block; }
+.app-product .decision-event-review-window__metric strong { color: #071b3d; font: 500 32px/1 "Manrope",sans-serif; letter-spacing: -.06em; }
+.app-product .decision-event-review-window__metric span { margin-top: 6px; color: #6d7789; font: 600 9px/1.35 "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .decision-event-review-window__boundary { display: grid; grid-template-columns: 170px minmax(0,1fr); gap: 18px; padding: 16px clamp(24px,4vw,40px); border-bottom: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .decision-event-review-window__boundary .mono { color: #8c7110; font-size: 9px; letter-spacing: .09em; }
+.app-product .decision-event-review-window__boundary p { max-width: 720px; margin: 0; color: #53627a; font: 12px/1.6 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__control { display: flex; flex-wrap: wrap; align-items: end; gap: 16px 28px; padding: 17px clamp(24px,4vw,40px); border-bottom: 1px solid #dfe3ea; background: #fbfbf8; }
+.app-product .decision-event-review-window__control label { display: grid; gap: 7px; color: #071b3d; font: 600 9px "DM Sans",sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.app-product .decision-event-review-window__control input { border: 1px solid rgba(7,27,61,.18); border-radius: 10px; background: #fff; padding: 9px 10px; color: #071b3d; font: 600 12px "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__control input:focus { outline: 2px solid rgba(202,165,21,.34); outline-offset: 2px; }
+.app-product .decision-event-review-window__control p { margin: 0 0 3px; color: #53627a; font: 12px/1.45 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__lanes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.app-product .decision-event-review-window__lanes > section { min-width: 0; border-inline-end: 1px solid #dfe3ea; }
+.app-product .decision-event-review-window__lanes > section:last-child { border-inline-end: 0; }
+.app-product .decision-event-review-window__lanes > section > header { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding: 17px clamp(20px,3vw,30px); border-bottom: 1px solid #dfe3ea; background: #fbfbf8; }
+.app-product .decision-event-review-window__lanes > section > header .mono { color: #8c7110; font-size: 9px; letter-spacing: .08em; }
+.app-product .decision-event-review-window__lanes > section > header strong { color: #071b3d; font: 500 23px/1 "Manrope",sans-serif; letter-spacing: -.05em; }
+.app-product .decision-event-review-window__lane-copy { padding: 18px clamp(20px,3vw,30px); border-bottom: 1px solid #dfe3ea; }
+.app-product .decision-event-review-window__lane-copy h3 { max-width: 29ch; margin: 0 0 6px; color: #071b3d; font: 600 16px/1.23 "Manrope",sans-serif; letter-spacing: -.035em; }
+.app-product .decision-event-review-window__lane-copy p { margin: 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__records > article { display: grid; gap: 12px; padding: 18px clamp(20px,3vw,30px); border-bottom: 1px solid #dfe3ea; }
+.app-product .decision-event-review-window__records > article > header { display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 10px; }
+.app-product .decision-event-review-window__records > article > header > span { color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .08em; }
+.app-product .decision-event-review-window__records > article > header strong,.app-product .decision-event-review-window__records > article > header small { display: block; }
+.app-product .decision-event-review-window__records > article > header strong { color: #071b3d; font: 600 14px/1.28 "Manrope",sans-serif; letter-spacing: -.03em; }
+.app-product .decision-event-review-window__records > article > header small { margin-top: 3px; color: #6d7789; font: 600 9px "DM Sans",sans-serif; letter-spacing: .04em; }
+.app-product .decision-event-review-window__records dl { display: grid; gap: 8px; margin: 0; padding: 11px 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .decision-event-review-window__records dl > div { display: grid; gap: 3px; }
+.app-product .decision-event-review-window__records dt { color: #6d7789; font: 600 9px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .decision-event-review-window__records dd { margin: 0; color: #071b3d; font: 500 11px/1.5 "DM Sans",sans-serif; white-space: pre-line; }
+.app-product .decision-event-review-window__records > article > div:last-child { display: flex; flex-wrap: wrap; gap: 12px; }
+.app-product .decision-event-review-window__empty { padding: 23px clamp(20px,3vw,30px); color: #53627a; }
+.app-product .decision-event-review-window__empty strong { display: block; color: #071b3d; font: 600 13px/1.35 "Manrope",sans-serif; }
+.app-product .decision-event-review-window__empty p { margin: 7px 0 0; font: 11px/1.55 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__undated { display: grid; grid-template-columns: 170px minmax(0,1fr) auto; gap: 18px; align-items: start; padding: 16px clamp(24px,4vw,40px); border-top: 1px solid #dfe3ea; background: #fffdf5; }
+.app-product .decision-event-review-window__undated .mono { color: #8c7110; font-size: 9px; letter-spacing: .09em; }
+.app-product .decision-event-review-window__undated p { max-width: 660px; margin: 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window__undated dl { display: flex; gap: 18px; margin: 0; }
+.app-product .decision-event-review-window__undated dt { color: #6d7789; font: 600 9px "DM Sans",sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.app-product .decision-event-review-window__undated dd { margin: 4px 0 0; color: #071b3d; font: 500 20px/1 "Manrope",sans-serif; letter-spacing: -.04em; }
+.app-product .decision-event-review-window__quiet { padding: 18px clamp(24px,4vw,40px); border-top: 1px solid #dfe3ea; background: #fbfbf8; }
+.app-product .decision-event-review-window__quiet strong { color: #071b3d; font: 600 13px/1.35 "Manrope",sans-serif; }
+.app-product .decision-event-review-window__quiet p { margin: 6px 0 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+.app-product .decision-event-review-window > footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 15px clamp(24px,4vw,40px); border-top: 1px solid #dfe3ea; background: #fff; }
+.app-product .decision-event-review-window > footer p { max-width: 710px; margin: 0; color: #53627a; font: 11px/1.55 "DM Sans",sans-serif; }
+@media (max-width: 760px) { .app-product .decision-event-review-window__heading { grid-template-columns: 1fr; padding: 24px 18px; } .app-product .decision-event-review-window__metric { padding: 14px 0 0; border-inline-start: 0; border-top: 1px solid rgba(7,27,61,.13); } .app-product .decision-event-review-window__boundary { grid-template-columns: 1fr; gap: 8px; padding: 15px 18px; } .app-product .decision-event-review-window__control { display: grid; gap: 10px; padding: 15px 18px; } .app-product .decision-event-review-window__lanes { grid-template-columns: 1fr; } .app-product .decision-event-review-window__lanes > section { border-inline-end: 0; border-bottom: 1px solid #dfe3ea; } .app-product .decision-event-review-window__undated { grid-template-columns: 1fr; gap: 10px; padding: 15px 18px; } .app-product .decision-event-review-window__undated dl { gap: 24px; } .app-product .decision-event-review-window__quiet,.app-product .decision-event-review-window > footer { padding: 15px 18px; } .app-product .decision-event-review-window > footer { align-items: stretch; } .app-product .decision-event-review-window > footer .button { width: 100%; justify-content: center; } }
 .app-product .post-event-learning-export { margin: 28px 0; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 22px; background: rgba(255,255,255,.8); box-shadow: 0 15px 34px rgba(7,27,61,.05); }
 .app-product .post-event-learning-export__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 24px; align-items: start; padding: clamp(24px,4vw,40px); border-top: 2px solid #071b3d; border-bottom: 1px solid #dfe3ea; }
 .app-product .post-event-learning-export__heading > div:first-child { max-width: 720px; }
