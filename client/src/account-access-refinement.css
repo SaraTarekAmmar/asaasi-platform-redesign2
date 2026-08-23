@@ -18,7 +18,7 @@
   width: 2rem;
   height: 1px;
   margin-bottom: 0.75rem;
-  background: #f6c915;
+  background: var(--saffron);
   content: "";
 }
 
@@ -46,18 +46,18 @@
 }
 
 .app-product .account-flow .account-return-object > .mono + ol li:last-child { border-inline-end: 0; }
-.app-product .account-flow .account-return-object > .mono + ol li i { color: #f6c915; font: 600 .65rem "DM Sans", sans-serif; font-style: normal; }
-.app-product .account-flow .account-return-object > .mono + ol li strong { color: #fbfbf8; font: 600 .7rem/1.3 "DM Sans", sans-serif; letter-spacing: .04em; }
-.app-product .account-flow .account-return-object > .mono + ol li.is-active { border-top: 2px solid #f6c915; }
+.app-product .account-flow .account-return-object > .mono + ol li i { color: var(--saffron); font: 600 .65rem "DM Sans", sans-serif; font-style: normal; }
+.app-product .account-flow .account-return-object > .mono + ol li strong { color: var(--paper); font: 600 .7rem/1.3 "DM Sans", sans-serif; letter-spacing: .04em; }
+.app-product .account-flow .account-return-object > .mono + ol li.is-active { border-top: 2px solid var(--saffron); }
 
 .app-product .account-flow .account-route-rail { display: grid; }
 .app-product .account-flow .account-route-rail::before,
 .app-product .account-flow .account-route-rail::after { display: none !important; content: none !important; }
-.app-product .account-flow .account-route-rail { gap: 0; margin-top: 20px; padding: 0 0 0 14px; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; border-left: 2px solid #caa515; }
-.app-product .account-flow .account-route-rail > div { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 10px; align-items: center; min-height: 37px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow .account-route-rail { gap: 0; margin-top: 20px; padding: 0 0 0 14px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-left: 2px solid var(--gold); }
+.app-product .account-flow .account-route-rail > div { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 10px; align-items: center; min-height: 37px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow .account-route-rail > div:last-child { border-bottom: 0; }
 .app-product .account-flow .account-route-rail .mono { margin: 0; color: #6a7688; font-size: 8px; letter-spacing: .1em; }
-.app-product .account-flow .account-route-rail strong { min-height: 0; color: #071b3d; font: 600 10px/1.25 "DM Sans", sans-serif; }
+.app-product .account-flow .account-route-rail strong { min-height: 0; color: var(--ink); font: 600 10px/1.25 "DM Sans", sans-serif; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol,
 .app-product .account-flow--health .account-return-object > .mono + ol,
 .app-product .account-flow--event .account-return-object > .mono + ol { grid-template-columns: 1fr; gap: .25rem; }
@@ -65,8 +65,8 @@
 .app-product .account-flow--health .account-return-object > .mono + ol li,
 .app-product .account-flow--event .account-return-object > .mono + ol li { grid-template-columns: 2rem minmax(0, 1fr); align-items: center; min-height: 30px; padding: .35rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223, 227, 234, .18); }
 .app-product .account-flow--event .account-visual h1 { max-width: 8.5ch; }
-.app-product .account-flow--event .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
-.app-product .account-flow--event .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--event .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
+.app-product .account-flow--event .account-return-object > .mono { color: var(--saffron); letter-spacing: .15em; }
 .app-product .account-flow--event .account-return-object > .mono + ol li { position: relative; min-height: 52px; grid-template-columns: 2rem minmax(0, 1fr); gap: 10px; }
 .app-product .account-flow--event .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251, 251, 248, .6); font: 500 9px/1.35 "DM Sans", sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(1)::after { content: "18 SEP / DUBAI + ONLINE"; }
@@ -76,8 +76,8 @@
 [dir="rtl"] .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(2)::after { content: "أحضر السؤال الواحد"; }
 [dir="rtl"] .app-product .account-flow--event .account-return-object > .mono + ol li:nth-child(3)::after { content: "احمل الملاحظة الميدانية إلى الأمام"; }
 .app-product .account-flow--registrations .account-visual h1 { max-width: 9.5ch; }
-.app-product .account-flow--registrations .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
-.app-product .account-flow--registrations .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--registrations .account-return-object { max-width: 38rem; margin-top: 2rem; padding: 1.1rem 1.15rem 1.15rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223, 227, 234, .24); border-inline-end: 1px solid rgba(223, 227, 234, .24); border-bottom: 1px solid rgba(223, 227, 234, .24); }
+.app-product .account-flow--registrations .account-return-object > .mono { color: var(--saffron); letter-spacing: .15em; }
 .app-product .account-flow--registrations .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--registrations .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2rem minmax(0, 1fr); gap: 10px; min-height: 52px; padding: .45rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223, 227, 234, .18); }
 .app-product .account-flow--registrations .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251, 251, 248, .6); font: 500 9px/1.35 "DM Sans", sans-serif; letter-spacing: .03em; }
@@ -87,39 +87,39 @@
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1)::after { content: "الغرف والعمل المحفوظ والمتابعة"; }
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2)::after { content: "أكد سجل المؤسس"; }
 [dir="rtl"] .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3)::after { content: "استأنف الخطوة المنتظرة"; }
-.app-product .account-flow--registrations .account-form, .app-product .account-flow--network .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--registrations .account-form::before, .app-product .account-flow--network .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--registrations .account-form > p, .app-product .account-flow--network .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .account-form, .app-product .account-flow--network .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--registrations .account-form::before, .app-product .account-flow--network .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--registrations .account-form > p, .app-product .account-flow--network .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--registrations .account-route-rail, .app-product .account-flow--network .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; }
 .app-product .account-flow--registrations .account-route-rail { background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--network .account-route-rail { background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--registrations .account-route-rail > div, .app-product .account-flow--network .account-route-rail > div { min-height: 43px; grid-template-columns: 108px minmax(0,1fr); }
-.app-product .account-flow--registrations .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
-.app-product .account-flow--network .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--registrations .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
+.app-product .account-flow--network .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--registrations .account-route-rail > div:last-child strong, .app-product .account-flow--network .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--registrations .oauth-row, .app-product .account-flow--network .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--registrations .oauth-row, .app-product .account-flow--network .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--registrations .oauth-row::before, .app-product .account-flow--network .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY OPTIONS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--registrations .oauth-row::before, [dir="rtl"] .app-product .account-flow--network .oauth-row::before { content: "خيارات الهوية"; letter-spacing: 0; }
 
 /* Pricing access is a three-step value-test ledger; Activity registrations is a four-step commitment-return ledger. Both use linear sequence markers, never circles or rings. */
 .app-product .account-flow--pricing .account-visual h1 { max-width: 8.8ch; font-size: clamp(2.75rem,4.7vw,5.1rem); }
-.app-product .account-flow--pricing .account-return-object { max-width: 39rem; min-height: 278px; margin-top: 1.7rem; padding: 1.2rem 1.3rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(90deg, rgba(246,201,21,.055), transparent 70%) !important; }
-.app-product .account-flow--pricing .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--pricing .account-return-object { max-width: 39rem; min-height: 278px; margin-top: 1.7rem; padding: 1.2rem 1.3rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(90deg, rgba(246,201,21,.055), transparent 70%) !important; }
+.app-product .account-flow--pricing .account-return-object > .mono { color: var(--saffron); letter-spacing: .15em; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.2rem minmax(0,1fr); gap: 10px; min-height: 64px; padding: .55rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(1)::after { content: "NAME THE NARROW BUYER AND THEIR LIVE ALTERNATIVE"; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(2)::after { content: "MAKE ONE VALUE PROMISE AND PRICE ASSUMPTION VISIBLE"; }
 .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(3)::after { content: "RECORD EXPLICIT RESPONSES BEFORE YOU CHANGE THE OFFER"; }
-.app-product .account-flow--pricing .account-return-object > .mono + ol li.is-active { box-shadow: inset 2px 0 0 #f6c915; }
-.app-product .account-flow--pricing .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--pricing .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 54px; background: #caa515; content: ""; }
-.app-product .account-flow--pricing .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "VALUE TEST / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--pricing .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--pricing .account-return-object > .mono + ol li.is-active { box-shadow: inset 2px 0 0 var(--saffron); }
+.app-product .account-flow--pricing .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--pricing .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 54px; background: var(--gold); content: ""; }
+.app-product .account-flow--pricing .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "VALUE TEST / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--pricing .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--pricing .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 62%); }
-.app-product .account-flow--pricing .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }.app-product .account-flow--pricing .account-route-rail > div:first-child { border-top: 2px solid #caa515; }.app-product .account-flow--pricing .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }.app-product .account-flow--pricing .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--pricing .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }.app-product .account-flow--pricing .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE PRICING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--registrations .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "COMMITMENT RETURN / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--pricing .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }.app-product .account-flow--pricing .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }.app-product .account-flow--pricing .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }.app-product .account-flow--pricing .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--pricing .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }.app-product .account-flow--pricing .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE PRICING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--registrations .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "COMMITMENT RETURN / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ المشتري المحدد وبديله الحالي"; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(2)::after { content: "اجعل وعد قيمة واحدا وافتراض سعر ظاهرا"; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(3)::after { content: "سجل الاستجابات الصريحة قبل تغيير العرض"; }
@@ -128,33 +128,33 @@
 [dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "عودة الالتزام / نقطة تحقق الهوية"; letter-spacing: 0; }
 
 .app-product .account-flow .account-return-object li.is-active i {
-  background: #f6c915;
-  color: #071b3d;
+  background: var(--saffron);
+  color: var(--ink);
 }
 
 .app-product .account-flow--network .account-visual h1 { max-width: 11ch; }
-.app-product .account-flow--network .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--network .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 
 /* SaaS Health access resumes a saved diagnostic ledger, not a generic sign-in state. Linear saffron cues intentionally replace the forbidden circular motif. */
 .app-product .account-flow--health .account-visual h1 { max-width: 10ch; font-size: clamp(2.65rem,4.5vw,4.95rem); }
-.app-product .account-flow--health .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--health .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--health .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--health .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--health .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--health .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.35rem minmax(0,1fr); gap: 12px; min-height: 61px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--health .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE COHORT INPUTS AND THEIR DIRECTION"; }
 .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(2)::after { content: "SEE THE WEAKEST COMPONENT WITH ITS CONTEXT"; }
 .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE SAVED SEVEN-DAY INTERVENTION"; }
-.app-product .account-flow--health .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--health .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--health .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SaaS HEALTH / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--health .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--health .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--health .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--health .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SaaS HEALTH / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--health .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--health .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--health .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--health .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--health .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--health .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
 .app-product .account-flow--health .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--health .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--health .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--health .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED DIAGNOSIS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد مدخلات المجموعة واتجاهها"; }
 [dir="rtl"] .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(2)::after { content: "شاهد أضعف مكون مع سياقه"; }
@@ -164,24 +164,24 @@
 
 /* Founder Diagnostic access restores the evidence behind one bottleneck and the next bounded test. */
 .app-product .account-flow--diagnostic .account-visual h1 { max-width: 10ch; font-size: clamp(2.65rem,4.5vw,4.95rem); }
-.app-product .account-flow--diagnostic .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--diagnostic .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--diagnostic .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--diagnostic .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.35rem minmax(0,1fr); gap: 12px; min-height: 61px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE FOUR OPERATING DIMENSIONS"; }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(2)::after { content: "SEE THE LIVE EVIDENCE BEHIND THE LOWEST SIGNAL"; }
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE BOUNDED ONE-WEEK EXPERIMENT"; }
-.app-product .account-flow--diagnostic .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--diagnostic .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--diagnostic .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "FOUNDER DIAGNOSTIC / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--diagnostic .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--diagnostic .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--diagnostic .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--diagnostic .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FOUNDER DIAGNOSTIC / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--diagnostic .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--diagnostic .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--diagnostic .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--diagnostic .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--diagnostic .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--diagnostic .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
 .app-product .account-flow--diagnostic .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--diagnostic .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--diagnostic .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--diagnostic .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED DIAGNOSIS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد الأبعاد التشغيلية الأربعة"; }
 [dir="rtl"] .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(2)::after { content: "شاهد الدليل الحي وراء أضعف إشارة"; }
@@ -191,24 +191,24 @@
 
 /* Unit Economics access restores a revenue-quality ledger before asking for identity confirmation. */
 .app-product .account-flow--economics .account-visual h1 { max-width: 10ch; font-size: clamp(2.65rem,4.5vw,4.95rem); }
-.app-product .account-flow--economics .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--economics .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--economics .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--economics .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--economics .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--economics .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.35rem minmax(0,1fr); gap: 12px; min-height: 61px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--economics .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE ARPA AND GROSS-MARGIN CONTRIBUTION"; }
 .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(2)::after { content: "REVIEW THE RETENTION ASSUMPTION BEHIND LIFETIME VALUE"; }
 .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE PAYBACK EVIDENCE MOVE"; }
-.app-product .account-flow--economics .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--economics .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--economics .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "UNIT ECONOMICS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--economics .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--economics .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--economics .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--economics .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "UNIT ECONOMICS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--economics .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--economics .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--economics .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--economics .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--economics .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--economics .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
 .app-product .account-flow--economics .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--economics .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--economics .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--economics .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED SCENARIO"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد مساهمة ARPA والهامش الإجمالي"; }
 [dir="rtl"] .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(2)::after { content: "راجع افتراض الاحتفاظ وراء قيمة العمر"; }
@@ -218,24 +218,24 @@
 
 /* Retention Recovery access restores the cohort's observed drop-off before the identity step. */
 .app-product .account-flow--retention .account-visual h1 { max-width: 10ch; font-size: clamp(2.65rem,4.5vw,4.95rem); }
-.app-product .account-flow--retention .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--retention .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--retention .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--retention .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--retention .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--retention .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.35rem minmax(0,1fr); gap: 12px; min-height: 61px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--retention .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE COHORT COUNT AND THE DROP-OFF MOMENT"; }
 .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(2)::after { content: "KEEP THE OBSERVED REASON AS A TESTABLE HYPOTHESIS"; }
 .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED COHORT INTERVENTION"; }
-.app-product .account-flow--retention .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--retention .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--retention .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "RETENTION RECOVERY / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--retention .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--retention .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--retention .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--retention .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "RETENTION RECOVERY / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--retention .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--retention .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--retention .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--retention .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--retention .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--retention .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
 .app-product .account-flow--retention .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--retention .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--retention .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--retention .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED RECOVERY TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد عدد المجموعة ولحظة التراجع"; }
 [dir="rtl"] .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(2)::after { content: "أبقِ السبب الملحوظ كفرضية قابلة للاختبار"; }
@@ -245,24 +245,24 @@
 
 /* Activation Evidence makes identity a narrow checkpoint inside the saved first-value experiment. */
 .app-product .account-flow--activation .account-visual h1 { max-width: 10ch; font-size: clamp(2.65rem,4.5vw,4.95rem); }
-.app-product .account-flow--activation .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--activation .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--activation .account-return-object { max-width: 39rem; min-height: 252px; margin-top: 1.45rem; padding: 1.3rem 1.35rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--activation .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--activation .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--activation .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.35rem minmax(0,1fr); gap: 12px; min-height: 61px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--activation .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE VALUE EVENT AND ITS TIME WINDOW"; }
 .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(2)::after { content: "KEEP THE OBSERVED FRICTION NEXT TO THE COUNT"; }
 .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED PATH-CHANGE EXPERIMENT"; }
-.app-product .account-flow--activation .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--activation .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--activation .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "ACTIVATION EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
-.app-product .account-flow--activation .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--activation .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--activation .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--activation .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "ACTIVATION EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--activation .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--activation .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--activation .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--activation .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--activation .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--activation .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
 .app-product .account-flow--activation .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--activation .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--activation .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--activation .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED FIRST-VALUE TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد حدث القيمة والنافذة الزمنية"; }
 [dir="rtl"] .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(2)::after { content: "أبقِ الاحتكاك الملحوظ بجانب العدد"; }
@@ -272,24 +272,24 @@
 
 /* GTM makes identity subordinate to the saved audience, channel, and evidence hypothesis. */
 .app-product .account-flow--gtm .account-visual h1 { max-width: 9.2ch; font-size: clamp(2.75rem,4.65vw,5.1rem); }
-.app-product .account-flow--gtm .account-return-object { max-width: 43rem; min-height: 286px; margin-top: 1.55rem; padding: 1.45rem 1.5rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.25); border-inline-end: 1px solid rgba(223,227,234,.25); border-bottom: 1px solid rgba(223,227,234,.25); }
-.app-product .account-flow--gtm .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--gtm .account-return-object { max-width: 43rem; min-height: 286px; margin-top: 1.55rem; padding: 1.45rem 1.5rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.25); border-inline-end: 1px solid rgba(223,227,234,.25); border-bottom: 1px solid rgba(223,227,234,.25); }
+.app-product .account-flow--gtm .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--gtm .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--gtm .account-return-object > .mono + ol li { position: relative; grid-template-columns: 3rem minmax(0,1fr); min-height: 67px; padding: .6rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--gtm .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(1)::after { content: "NAME THE BUYER CONTEXT WORTH HEARING"; }
 .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(2)::after { content: "RUN ONE CHANNEL HYPOTHESIS, NOT A MIX"; }
 .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(3)::after { content: "KEEP THE RESPONSE THRESHOLD WITH THE SIGNAL"; }
-.app-product .account-flow--gtm .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--gtm .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
-.app-product .account-flow--gtm .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SAVED CHANNEL HYPOTHESIS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--gtm .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--gtm .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--gtm .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
+.app-product .account-flow--gtm .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED CHANNEL HYPOTHESIS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--gtm .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--gtm .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--gtm .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--gtm .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--gtm .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--gtm .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
 .app-product .account-flow--gtm .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--gtm .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--gtm .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--gtm .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED CHANNEL TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ سياق المشتري الذي يستحق الاستماع"; }
 [dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(2)::after { content: "شغّل فرضية قناة واحدة لا مزيجا"; }
@@ -299,24 +299,24 @@
 
 /* Positioning Evidence links the saved buyer alternative, proof, and frame test across the access desk. */
 .app-product .account-flow--positioning .account-visual h1 { max-width: 9.7ch; font-size: clamp(2.7rem,4.55vw,5rem); }
-.app-product .account-flow--positioning .account-return-object { max-width: 42rem; min-height: 278px; margin-top: 1.5rem; padding: 1.4rem 1.45rem; border-top: 2px solid #f6c915; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--positioning .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--positioning .account-return-object { max-width: 42rem; min-height: 278px; margin-top: 1.5rem; padding: 1.4rem 1.45rem; border-top: 2px solid var(--saffron); border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--positioning .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--positioning .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--positioning .account-return-object > .mono + ol li { position: relative; grid-template-columns: 3rem minmax(0,1fr); min-height: 65px; padding: .58rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--positioning .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE ALTERNATIVE THE BUYER ALREADY KNOWS"; }
 .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(2)::after { content: "KEEP THE FACTUAL OUTCOME PROOF WITH THE CLAIM"; }
 .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED BUYER-LANGUAGE FRAME TEST"; }
-.app-product .account-flow--positioning .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--positioning .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
-.app-product .account-flow--positioning .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SAVED POSITIONING TEST / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--positioning .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--positioning .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--positioning .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
+.app-product .account-flow--positioning .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED POSITIONING TEST / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--positioning .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--positioning .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--positioning .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--positioning .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--positioning .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--positioning .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
 .app-product .account-flow--positioning .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--positioning .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--positioning .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--positioning .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED POSITIONING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد البديل الذي يعرفه المشتري بالفعل"; }
 [dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(2)::after { content: "أبقِ إثبات النتيجة الواقعي مع الادعاء"; }
@@ -326,24 +326,24 @@
 
 /* Customer Evidence restores a fact, direct language, and meaningful commitment rather than a generic access path. */
 .app-product .account-flow--customer .account-visual h1 { max-width: 9.2ch; font-size: clamp(2.7rem,4.6vw,5rem); }
-.app-product .account-flow--customer .account-return-object { max-width: 42rem; min-height: 278px; margin-top: 1.5rem; padding: 1.4rem 1.45rem; border-top: 2px solid #f6c915; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--customer .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--customer .account-return-object { max-width: 42rem; min-height: 278px; margin-top: 1.5rem; padding: 1.4rem 1.45rem; border-top: 2px solid var(--saffron); border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--customer .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--customer .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--customer .account-return-object > .mono + ol li { position: relative; grid-template-columns: 3rem minmax(0,1fr); min-height: 65px; padding: .58rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--customer .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1)::after { content: "RESTORE THE PAST MOMENT BEHIND THE ASSUMPTION"; }
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2)::after { content: "KEEP THE EXACT CUSTOMER WORDS WITH THE WORKAROUND"; }
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED COMMITMENT THAT EARNS ANOTHER CYCLE"; }
-.app-product .account-flow--customer .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--customer .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
-.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "SAVED CUSTOMER EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--customer .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--customer .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--customer .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
+.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED CUSTOMER EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--customer .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--customer .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--customer .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--customer .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--customer .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
 .app-product .account-flow--customer .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--customer .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--customer .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--customer .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED CUSTOMER FACT"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد اللحظة السابقة خلف الافتراض"; }
 [dir="rtl"] .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2)::after { content: "أبقِ كلمات العميل الدقيقة مع الحل الالتفافي"; }
@@ -353,28 +353,28 @@
 
 /* Dashboard, profile, and settings arrive through the expanded return object while preserving the composed account-panel grammar. */
 .app-product .account-flow--workspace .account-visual h1 { max-width: 9.5ch; }
-.app-product .account-flow--workspace .account-return-object { max-width: 42rem; margin-top: 1.9rem; padding: 1.15rem 0 0; border-top: 2px solid #f6c915; }
-.app-product .account-flow--workspace .account-return-object > .mono { display: block; padding-inline: 1rem; color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--workspace .account-return-object { max-width: 42rem; margin-top: 1.9rem; padding: 1.15rem 0 0; border-top: 2px solid var(--saffron); }
+.app-product .account-flow--workspace .account-return-object > .mono { display: block; padding-inline: 1rem; color: var(--saffron); letter-spacing: .15em; }
 .app-product .account-flow--workspace .account-return-object > .mono + ol { grid-template-columns: repeat(3, minmax(0,1fr)); margin-top: .9rem; border-top-color: rgba(223,227,234,.28); }
 .app-product .account-flow--workspace .account-return-object > .mono + ol li { min-height: 92px; padding: .85rem .9rem; border-inline-end-color: rgba(223,227,234,.2); }
-.app-product .account-flow--workspace .account-return-object > .mono + ol li strong { display: block; margin-top: .6rem; color: #fbfbf8; font: 500 .72rem/1.3 "DM Sans", sans-serif; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li strong { display: block; margin-top: .6rem; color: var(--paper); font: 500 .72rem/1.3 "DM Sans", sans-serif; }
 .app-product .account-flow--workspace .account-route-rail { margin-top: 23px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--workspace .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }
-.app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid #071b3d; }
+.app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--workspace .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--workspace .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #071b3d; content: ""; }
-.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "FOUNDER WORKSPACE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--workspace .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--workspace .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--ink); content: ""; }
+.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FOUNDER WORKSPACE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--workspace .account-form::after { content: "مساحة عمل المؤسس / مكتب العودة"; letter-spacing: 0; }
 .app-product .account-flow--network .account-return-object > .mono + ol { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(223, 227, 234, 0.28); }
 .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 78px; padding: .75rem .7rem; border-inline-end: 1px solid rgba(223, 227, 234, 0.2); }
 .app-product .account-flow--network .account-return-object > .mono + ol li:last-child { border-inline-end: 0; }
-.app-product .account-flow--network .account-return-object > .mono + ol li strong { display: block; margin-top: .55rem; color: #fbfbf8; font: 500 .7rem/1.25 "DM Sans", sans-serif; }
+.app-product .account-flow--network .account-return-object > .mono + ol li strong { display: block; margin-top: .55rem; color: var(--paper); font: 500 .7rem/1.25 "DM Sans", sans-serif; }
 
 /* Weekly Review uses an explicit cadence object, distinct from the general network return, and carries the same route vocabulary into the identity desk. */
 .app-product .account-flow--weekly-review .account-visual h1 { max-width: 9ch; font-size: clamp(2.65rem,4.2vw,4.7rem); }
-.app-product .account-flow--weekly-review .account-return-object { max-width: 40rem; min-height: 248px; margin-top: 1.35rem; padding: 1.35rem 1.35rem 1.3rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--weekly-review .account-return-object > .mono { color: #f6c915; letter-spacing: .15em; }
+.app-product .account-flow--weekly-review .account-return-object { max-width: 40rem; min-height: 248px; margin-top: 1.35rem; padding: 1.35rem 1.35rem 1.3rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.24); border-inline-end: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--weekly-review .account-return-object > .mono { color: var(--saffron); letter-spacing: .15em; }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol { grid-template-columns: 1fr; }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol li { position: relative; grid-template-columns: 2.4rem minmax(0,1fr); gap: 12px; min-height: 62px; padding: .52rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.6); font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
@@ -386,17 +386,17 @@
 [dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3)::after { content: "انقل تعلم الجمعة إلى الخطوة التالية"; }
 .app-product .account-flow--weekly-review .account-route-rail { margin-top: 24px; border-inline-start-width: 2px; }
 .app-product .account-flow--weekly-review .account-route-rail > div:first-child strong, .app-product .account-flow--weekly-review .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--weekly-review .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--weekly-review .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: #caa515; content: ""; }
-.app-product .account-flow--weekly-review .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "WEEKLY REVIEW / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--weekly-review .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--weekly-review .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
+.app-product .account-flow--weekly-review .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "WEEKLY REVIEW / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "المراجعة الأسبوعية / مكتب العودة"; letter-spacing: 0; }
-.app-product .account-flow--weekly-review .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--weekly-review .account-route-rail { position: relative; margin-inline-start: -18px; padding-inline-start: 18px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--weekly-review .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
-.app-product .account-flow--weekly-review .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--weekly-review .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--weekly-review .account-route-rail > div:last-child { background: rgba(7,27,61,.028); }
 .app-product .account-flow--weekly-review .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
-.app-product .account-flow--weekly-review .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--weekly-review .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY OPTIONS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--weekly-review .oauth-row::before { content: "خيارات الهوية"; letter-spacing: 0; }
 .app-product .account-flow--weekly-review .account-form > label { display: grid; gap: 7px; padding-block: 9px; border-bottom: 1px solid rgba(223,227,234,.78); }
@@ -431,15 +431,15 @@
   top: 1.05rem;
   width: .8rem;
   height: .8rem;
-  border: 1px solid #f6c915;
+  border: 1px solid var(--saffron);
   border-radius: 50%;
   content: "";
 }
 
-.app-product .signup-aside .signup-trail span.active { color: #fbfbf8; background: rgba(255,255,255,.045); }
-.app-product .signup-aside .signup-trail span.active::before { background: #f6c915; box-shadow: 0 0 0 4px rgba(246,201,21,.1); }
-.app-product .signup-aside .signup-trail span.done { color: #fbfbf8; }
-.app-product .signup-aside .signup-trail span.done::before { background: #f6c915; }
+.app-product .signup-aside .signup-trail span.active { color: var(--paper); background: rgba(255,255,255,.045); }
+.app-product .signup-aside .signup-trail span.active::before { background: var(--saffron); box-shadow: 0 0 0 4px rgba(246,201,21,.1); }
+.app-product .signup-aside .signup-trail span.done { color: var(--paper); }
+.app-product .signup-aside .signup-trail span.done::before { background: var(--saffron); }
 
 @media (max-width: 760px) {
   .account-flow {
@@ -511,28 +511,28 @@
 
 /* Segment Evidence Map: a stepped customer-to-positioning record, never a generic access illustration or circular motif. */
 .app-product .account-flow--market .account-visual h1 { max-width: 10.5ch; font-size: clamp(2.75rem, 4.8vw, 5.25rem); }
-.app-product .account-flow--market .account-return-object { max-width: 43rem; min-height: 294px; margin-top: 1.55rem; padding: 1.45rem 1.5rem; border-top: 2px solid #f6c915; border-inline-start: 1px solid rgba(223,227,234,.25); border-inline-end: 1px solid rgba(223,227,234,.25); border-bottom: 1px solid rgba(223,227,234,.25); }
-.app-product .account-flow--market .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--market .account-return-object { max-width: 43rem; min-height: 294px; margin-top: 1.55rem; padding: 1.45rem 1.5rem; border-top: 2px solid var(--saffron); border-inline-start: 1px solid rgba(223,227,234,.25); border-inline-end: 1px solid rgba(223,227,234,.25); border-bottom: 1px solid rgba(223,227,234,.25); }
+.app-product .account-flow--market .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--market .account-return-object > .mono + ol { display: block; position: relative; min-height: 202px; padding: 1.1rem 0 0; }
 .app-product .account-flow--market .account-return-object > .mono + ol::before { position: absolute; inset-inline-start: 2rem; inset-inline-end: 2rem; top: 2.75rem; height: 1px; background: rgba(223,227,234,.30); content: ""; }
-.app-product .account-flow--market .account-return-object > .mono + ol li { position: relative; display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 12px; min-height: 58px; padding: .55rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); background: #071b3d; }
+.app-product .account-flow--market .account-return-object > .mono + ol li { position: relative; display: grid; grid-template-columns: 2.5rem minmax(0,1fr); gap: 12px; min-height: 58px; padding: .55rem 0; border-inline-end: 0; border-bottom: 1px solid rgba(223,227,234,.18); background: var(--ink); }
 .app-product .account-flow--market .account-return-object > .mono + ol li::after { grid-column: 2; margin-top: -6px; color: rgba(251,251,248,.62); content: ""; font: 500 9px/1.35 "DM Sans",sans-serif; letter-spacing: .03em; }
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(1) { width: 58%; }
-.app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(2) { width: 70%; margin-inline-start: 12%; border-top: 2px solid #f6c915; }
+.app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(2) { width: 70%; margin-inline-start: 12%; border-top: 2px solid var(--saffron); }
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(3) { width: 82%; margin-inline-start: 18%; }
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(1)::after { content: "LIVE JOB + CURRENT WORKAROUND"; }
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(2)::after { content: "RETAINED SOURCE, COUNT, AND BOUNDARY"; }
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(3)::after { content: "DATED RESPONSE THRESHOLD"; }
-.app-product .account-flow--market .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid #dfe3ea; }
-.app-product .account-flow--market .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: #caa515; content: ""; }
-.app-product .account-flow--market .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "IDENTITY FOR THE SAVED SEGMENT MAP"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--market .account-form > p { padding-bottom: 13px; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--market .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
+.app-product .account-flow--market .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
+.app-product .account-flow--market .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "IDENTITY FOR THE SAVED SEGMENT MAP"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--market .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--market .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--market .account-route-rail > div { min-height: 43px; grid-template-columns: 118px minmax(0,1fr); }
-.app-product .account-flow--market .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--market .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--market .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
 .app-product .account-flow--market .account-route-rail > div:last-child strong { color: #8c7110; }
-.app-product .account-flow--market .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--market .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--market .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY TO REOPEN THE SEGMENT MAP"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(1)::after { content: "العمل الحي والحل الالتفافي الحالي"; }
 [dir="rtl"] .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(2)::after { content: "المصدر المحتفظ به والعدد والحد"; }
@@ -546,11 +546,11 @@
 .app-product .account-flow--workspace .account-visual h1,
 .app-product .account-flow--weekly-review .account-visual h1,
 .app-product .account-flow--customer .account-visual h1 { text-wrap: balance; line-height: 1.02; }
-.app-product .account-flow--workspace .account-return-object { max-width: 43rem; min-height: 294px; padding: 1.4rem 1.5rem 1.2rem; border-top: 2px solid #f6c915; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
-.app-product .account-flow--workspace .account-return-object > .mono { color: #f6c915; letter-spacing: .14em; }
+.app-product .account-flow--workspace .account-return-object { max-width: 43rem; min-height: 294px; padding: 1.4rem 1.5rem 1.2rem; border-top: 2px solid var(--saffron); border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); }
+.app-product .account-flow--workspace .account-return-object > .mono { color: var(--saffron); letter-spacing: .14em; }
 .app-product .account-flow--workspace .account-return-object > .mono + ol { grid-template-columns: 1.1fr .78fr 1.05fr; min-height: 176px; padding-top: 1rem; }
 .app-product .account-flow--workspace .account-return-object > .mono + ol li { position: relative; min-height: 142px; padding: .65rem .75rem; border-inline-end: 1px solid rgba(223,227,234,.18); background: linear-gradient(180deg, rgba(251,251,248,.035), transparent 58%); }
-.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1) { border-top: 2px solid #f6c915; }
+.app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1) { border-top: 2px solid var(--saffron); }
 .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(2) { align-self: end; min-height: 110px; background: rgba(202,165,21,.045); }
 .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(3) { border-bottom: 2px solid rgba(202,165,21,.68); }
 .app-product .account-flow--workspace .account-return-object > .mono + ol li::after { display: block; margin-top: 7px; color: rgba(251,251,248,.62); font: 500 9px/1.35 "DM Sans",sans-serif; content: ""; }
@@ -560,21 +560,21 @@
 .app-product .account-flow--weekly-review .account-return-object { max-width: 43rem; min-height: 326px; padding: 1.45rem 1.5rem; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 64%); }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol { min-height: 224px; }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(1) { width: 72%; }
-.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { width: 86%; margin-inline-start: 7%; border-top: 2px solid #f6c915; background: rgba(251,251,248,.035); }
+.app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { width: 86%; margin-inline-start: 7%; border-top: 2px solid var(--saffron); background: rgba(251,251,248,.035); }
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3) { width: 100%; margin-inline-start: 0; background: linear-gradient(90deg, rgba(202,165,21,.07), transparent 72%); }
 .app-product .account-flow--customer .account-return-object { max-width: 43rem; min-height: 316px; padding: 1.45rem 1.5rem; border-inline: 1px solid rgba(223,227,234,.24); border-bottom: 1px solid rgba(223,227,234,.24); background: linear-gradient(180deg, rgba(7,27,61,.02), transparent); }
 .app-product .account-flow--customer .account-return-object > .mono + ol { display: grid; grid-template-columns: .78fr 1.3fr .92fr; min-height: 202px; padding-top: 1rem; }
 .app-product .account-flow--customer .account-return-object > .mono + ol li { min-height: 154px; padding: .7rem .75rem; border-inline-end: 1px solid rgba(223,227,234,.18); }
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1) { align-self: end; min-height: 108px; border-top: 2px solid rgba(223,227,234,.48); }
-.app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top: 2px solid #f6c915; background: rgba(202,165,21,.05); }
+.app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top: 2px solid var(--saffron); background: rgba(202,165,21,.05); }
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { align-self: start; min-height: 124px; border-bottom: 2px solid rgba(202,165,21,.72); }
 .app-product .account-flow--workspace .account-form,
 .app-product .account-flow--weekly-review .account-form,
 .app-product .account-flow--customer .account-form { background: linear-gradient(90deg, rgba(7,27,61,.024), transparent 74%); }
-.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "WORKSPACE IDENTITY / RETURN LEDGER"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "WORKSPACE IDENTITY / RETURN LEDGER"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--workspace .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 58%); }
 .app-product .account-flow--workspace .account-route-rail > div { min-height: 46px; grid-template-columns: 112px minmax(0,1fr); }
-.app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid #caa515; }
+.app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--workspace .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.035); }
 .app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: #8c7110; }
 .app-product .account-flow--workspace .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY TO RESUME THE DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
@@ -590,7 +590,7 @@
 .app-product .account-flow--registrations .account-return-object,
 .app-product .account-flow--workspace .account-return-object,
 .app-product .account-flow--weekly-review .account-return-object,
-.app-product .account-flow--customer .account-return-object { position: relative; box-shadow: inset 2px 0 0 #f6c915, inset 0 -1px 0 rgba(223,227,234,.24); }
+.app-product .account-flow--customer .account-return-object { position: relative; box-shadow: inset 2px 0 0 var(--saffron), inset 0 -1px 0 rgba(223,227,234,.24); }
 .app-product .account-flow--registrations .account-return-object > .mono + ol,
 .app-product .account-flow--workspace .account-return-object > .mono + ol,
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol,
@@ -606,15 +606,15 @@
 .app-product .account-flow--registrations .account-return-object > .mono + ol li.is-active::before,
 .app-product .account-flow--workspace .account-return-object > .mono + ol li.is-active::before,
 .app-product .account-flow--weekly-review .account-return-object > .mono + ol li.is-active::before,
-.app-product .account-flow--customer .account-return-object > .mono + ol li.is-active::before { background: #f6c915; }
+.app-product .account-flow--customer .account-return-object > .mono + ol li.is-active::before { background: var(--saffron); }
 .app-product .account-flow--registrations .account-form,
 .app-product .account-flow--workspace .account-form,
 .app-product .account-flow--weekly-review .account-form,
-.app-product .account-flow--customer .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
+.app-product .account-flow--customer .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
 .app-product .account-flow--registrations .account-form::after,
 .app-product .account-flow--workspace .account-form::after,
 .app-product .account-flow--weekly-review .account-form::after,
-.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "ACCESS DESK / IDENTITY RESTORES THE SAVED ROUTE"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "ACCESS DESK / IDENTITY RESTORES THE SAVED ROUTE"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--registrations .account-form::after { content: "COMMITMENT ACCESS / RESTORE EVENT FOLLOW-THROUGH"; }
 .app-product .account-flow--workspace .account-form::after { content: "WORKSPACE ACCESS / RESTORE THE NEXT DECISION"; }
 .app-product .account-flow--weekly-review .account-form::after { content: "REVIEW ACCESS / RESTORE THE PRIMARY BET"; }
@@ -622,7 +622,7 @@
 .app-product .account-flow--registrations .oauth-row,
 .app-product .account-flow--workspace .oauth-row,
 .app-product .account-flow--weekly-review .oauth-row,
-.app-product .account-flow--customer .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--customer .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid var(--line); }
 .app-product .account-flow--registrations .oauth-row button,
 .app-product .account-flow--workspace .oauth-row button,
 .app-product .account-flow--weekly-review .oauth-row button,
@@ -630,11 +630,11 @@
 .app-product .account-flow--registrations .account-form input,
 .app-product .account-flow--workspace .account-form input,
 .app-product .account-flow--weekly-review .account-form input,
-.app-product .account-flow--customer .account-form input { border-radius: 7px; background: #fbfbf8; }
+.app-product .account-flow--customer .account-form input { border-radius: 7px; background: var(--paper); }
 .locale-ar .app-product .account-flow--registrations .account-form,
 .locale-ar .app-product .account-flow--workspace .account-form,
 .locale-ar .app-product .account-flow--weekly-review .account-form,
-.locale-ar .app-product .account-flow--customer .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid #caa515; background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
+.locale-ar .app-product .account-flow--customer .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid var(--gold); background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
 [dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "وصول الالتزام / استعد متابعة الفعالية"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--workspace .account-form::after { content: "وصول مساحة العمل / استعد القرار التالي"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "وصول المراجعة / استعد الرهان الأساسي"; letter-spacing: 0; }
@@ -651,7 +651,7 @@
   .app-product .account-flow--customer .account-return-object { max-width: 46rem; min-height: 392px; margin-top: 2.45rem; padding: 1.55rem 1.65rem 1.75rem; }
   .app-product .account-flow--customer .account-return-object > .mono { display: block; padding-bottom: 10px; border-bottom: 1px solid rgba(223,227,234,.22); }
   .app-product .account-flow--customer .account-return-object > .mono + ol { min-height: 252px; }
-  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { box-shadow: inset 2px 0 0 #f6c915, inset 0 -1px 0 rgba(223,227,234,.24); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { box-shadow: inset 2px 0 0 var(--saffron), inset 0 -1px 0 rgba(223,227,234,.24); }
   .app-product .account-flow--customer .account-visual > p { max-width: 37rem; }
 }
 
@@ -663,40 +663,40 @@
   .app-product .account-flow--registrations .account-return-object > .mono + ol { min-height: 244px; padding: 1rem 0 0 1.25rem; border-inline-start: 1px solid rgba(223,227,234,.42); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li { min-height: 60px; padding: .65rem 1rem .65rem 1.15rem; background: linear-gradient(90deg, rgba(251,251,248,.035), transparent 76%); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(1) { width: 74%; margin-inline-start: 0; }
-.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { width: 84%; margin-inline-start: 8%; border-top: 2px solid #f6c915; background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { width: 84%; margin-inline-start: 8%; border-top: 2px solid var(--saffron); background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
 .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(3) { width: 92%; margin-inline-start: 16%; border-bottom: 2px solid rgba(202,165,21,.68); }
-.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(4) { width: 100%; margin-inline-start: 24%; border-top: 1px solid rgba(223,227,234,.42); border-bottom: 2px solid #f6c915; background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
+.app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(4) { width: 100%; margin-inline-start: 24%; border-top: 1px solid rgba(223,227,234,.42); border-bottom: 2px solid var(--saffron); background: linear-gradient(90deg, rgba(202,165,21,.075), transparent 78%); }
 .app-product .account-flow--registrations .account-return-object > .mono + ol li::before { inset-inline-start: -1.25rem; top: 1.08rem; width: 5px; height: 16px; }
 
   .app-product .account-flow--customer .account-return-object { min-height: 356px; padding: 1.45rem 1.5rem 1.6rem; }
   .app-product .account-flow--customer .account-return-object > .mono + ol { grid-template-columns: .8fr 1.25fr .8fr; grid-template-rows: 82px 112px; column-gap: 14px; row-gap: 14px; min-height: 230px; padding-top: 1rem; }
-  .app-product .account-flow--customer .account-return-object > .mono + ol::after { position: absolute; inset-inline: 0; top: 57%; height: 1px; background: linear-gradient(90deg, rgba(223,227,234,.18), #f6c915 48%, rgba(223,227,234,.18)); content: ""; }
+  .app-product .account-flow--customer .account-return-object > .mono + ol::after { position: absolute; inset-inline: 0; top: 57%; height: 1px; background: linear-gradient(90deg, rgba(223,227,234,.18), var(--saffron) 48%, rgba(223,227,234,.18)); content: ""; }
   .app-product .account-flow--customer .account-return-object > .mono + ol li { z-index: 1; min-height: 0; margin: 0; padding: .78rem .8rem .78rem 1rem; background: #0b2348; }
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1) { grid-column: 1; grid-row: 2; align-self: stretch; border-top: 2px solid rgba(223,227,234,.48); }
-  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid #f6c915; border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid var(--saffron); border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { grid-column: 3; grid-row: 2; align-self: stretch; border-bottom: 2px solid rgba(202,165,21,.72); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li::before { top: .9rem; width: 4px; height: 21px; }
 
   .app-product .account-flow--knowledge .account-return-object { max-width: 46rem; min-height: 356px; margin-top: 2.4rem; padding: 1.45rem 1.5rem 1.6rem; }
   .app-product .account-flow--knowledge .account-return-object > .mono { display: block; padding-bottom: 10px; border-bottom: 1px solid rgba(223,227,234,.22); }
   .app-product .account-flow--knowledge .account-return-object > .mono + ol { position: relative; display: grid; grid-template-columns: .82fr 1.18fr .82fr; grid-template-rows: 82px 112px; column-gap: 14px; row-gap: 14px; min-height: 230px; padding-top: 1rem; }
-  .app-product .account-flow--knowledge .account-return-object > .mono + ol::after { position: absolute; inset-inline: 0; top: 57%; height: 1px; background: linear-gradient(90deg, rgba(223,227,234,.18), #f6c915 48%, rgba(223,227,234,.18)); content: ""; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol::after { position: absolute; inset-inline: 0; top: 57%; height: 1px; background: linear-gradient(90deg, rgba(223,227,234,.18), var(--saffron) 48%, rgba(223,227,234,.18)); content: ""; }
   .app-product .account-flow--knowledge .account-return-object > .mono + ol li { z-index: 1; min-height: 0; margin: 0; padding: .78rem .8rem .78rem 1rem; border-inline-start: 3px solid rgba(223,227,234,.42); background: #0b2348; }
   .app-product .account-flow--knowledge .account-return-object > .mono + ol li::before { display: none; }
   .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(1) { grid-column: 1; grid-row: 2; border-top: 2px solid rgba(223,227,234,.48); }
-  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid #f6c915; border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(2) { grid-column: 2; grid-row: 1 / span 2; border-top: 2px solid var(--saffron); border-bottom: 2px solid rgba(202,165,21,.72); background: rgba(202,165,21,.07); }
   .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(3) { grid-column: 3; grid-row: 1; border-top: 2px solid rgba(223,227,234,.48); }
-  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(4) { grid-column: 3; grid-row: 2; border-bottom: 2px solid #f6c915; }
+  .app-product .account-flow--knowledge .account-return-object > .mono + ol li:nth-child(4) { grid-column: 3; grid-row: 2; border-bottom: 2px solid var(--saffron); }
   .app-product .account-flow--knowledge .account-visual > p { max-width: 38rem; }
 }
 
 /* Knowledge identity is visibly the restoration mechanism within Claim → Evidence → Test → Return, not a generic sign-in panel. */
-.app-product .account-flow--knowledge .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
-.app-product .account-flow--knowledge .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid #dfe3ea; color: #8c7110; content: "FIELD GUIDE ACCESS / RESTORE CLAIM, EVIDENCE, AND NEXT TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--knowledge .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid #dfe3ea; }
+.app-product .account-flow--knowledge .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
+.app-product .account-flow--knowledge .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FIELD GUIDE ACCESS / RESTORE CLAIM, EVIDENCE, AND NEXT TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--knowledge .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid var(--line); }
 .app-product .account-flow--knowledge .oauth-row button, .app-product .account-flow--knowledge .account-form input { border-radius: 7px; box-shadow: none; }
-.app-product .account-flow--knowledge .account-form input { background: #fbfbf8; }
-.locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid #caa515; background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
+.app-product .account-flow--knowledge .account-form input { background: var(--paper); }
+.locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 18px; border-inline-start: 0; border-inline-end: 2px solid var(--gold); background: linear-gradient(-90deg, rgba(7,27,61,.025), transparent 78%); }
 [dir="rtl"] .app-product .account-flow--knowledge .account-form::after { content: "وصول الدليل الميداني / استعد الادعاء والدليل والاختبار التالي"; letter-spacing: 0; }
 @media (max-width: 640px) { .app-product .account-flow--knowledge .account-form { padding-inline-start: 13px; } .locale-ar .app-product .account-flow--knowledge .account-form { padding-inline-start: 0; padding-inline-end: 13px; } }
 
@@ -705,9 +705,9 @@
   .app-product .account-flow--registrations .account-form,
   .app-product .account-flow--customer .account-form { min-height: 455px; margin-top: 14px; padding-top: 43px; }
   .app-product .account-flow--registrations .account-form::before,
-  .app-product .account-flow--customer .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
+  .app-product .account-flow--customer .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(var(--gold) 0 48px,var(--line) 48px 100%); }
   .app-product .account-flow--registrations .account-form::after,
-  .app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border-top: 0; border-bottom: 1px solid #dfe3ea; color: #8c7110; }
+  .app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border-top: 0; border-bottom: 1px solid var(--line); color: #8c7110; }
   .app-product .account-flow--registrations .account-form::after { content: "02 / IDENTITY → RETURN TO EVENT COMMITMENT"; }
   .app-product .account-flow--customer .account-form::after { content: "02 / IDENTITY → RETURN TO CUSTOMER LANGUAGE"; }
   .app-product .account-flow--registrations .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE EVENT COMMITMENT"; }
@@ -716,7 +716,7 @@
   .app-product .account-flow--customer .account-route-rail { margin-top: 16px; padding-bottom: 7px; background: linear-gradient(90deg,rgba(202,165,21,.075),transparent 72%); }
   .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
   .app-product .account-flow--registrations .account-route-rail > div:last-child,
-  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom: 2px solid #caa515; }
+  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom: 2px solid var(--gold); }
 }
 [dir="rtl"] .app-product .account-flow--registrations .account-form::after { content: "٠٢ / الهوية ← عُد إلى التزام الفعالية"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--customer .account-form::after { content: "٠٢ / الهوية ← عُد إلى لغة العميل"; letter-spacing: 0; }
@@ -734,12 +734,12 @@
   .app-product .account-flow--weekly-review .account-return-object > .mono + ol li,
   .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(n) { width: auto; min-height: 78px; margin: 0; padding: .72rem 1rem .72rem 1.15rem; border: 0; border-bottom: 1px solid rgba(223,227,234,.18); background: transparent; }
   .app-product .account-flow--weekly-review .account-return-object > .mono + ol li::before { inset-inline-start: -1.5rem; top: 1.08rem; width: 5px; height: 17px; background: rgba(223,227,234,.55); }
-  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid #f6c915; background: linear-gradient(90deg,rgba(202,165,21,.08),transparent 72%); }
-  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::before { background: #f6c915; }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid var(--saffron); background: linear-gradient(90deg,rgba(202,165,21,.08),transparent 72%); }
+  .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::before { background: var(--saffron); }
   .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3) { border-bottom: 2px solid rgba(223,227,234,.36); }
   .app-product .account-flow--weekly-review .account-form { min-height: 455px; margin-top: 14px; padding-top: 43px; }
-  .app-product .account-flow--weekly-review .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
-  .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border: 0; border-bottom: 1px solid #dfe3ea; color: #8c7110; content: "02 / IDENTITY → RETURN TO THIS WEEK'S DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+  .app-product .account-flow--weekly-review .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(var(--gold) 0 48px,var(--line) 48px 100%); }
+  .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); color: #8c7110; content: "02 / IDENTITY → RETURN TO THIS WEEK'S DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
   .app-product .account-flow--weekly-review .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE WEEKLY DECISION"; }
 
   .app-product .account-flow--customer .account-return-object { background: linear-gradient(180deg,rgba(251,251,248,.025),transparent 60%); }
@@ -747,10 +747,10 @@
   .app-product .account-flow--customer .account-return-object > .mono + ol::after { background: linear-gradient(90deg,rgba(223,227,234,.22),rgba(223,227,234,.44) 48%,rgba(223,227,234,.22)); }
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1),
   .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3) { border-color: rgba(223,227,234,.48); }
-  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top-color: #f6c915; border-bottom-color: rgba(223,227,234,.45); background: rgba(251,251,248,.035); box-shadow: inset 3px 0 0 #f6c915; }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-top-color: var(--saffron); border-bottom-color: rgba(223,227,234,.45); background: rgba(251,251,248,.035); box-shadow: inset 3px 0 0 var(--saffron); }
   .app-product .account-flow--customer .account-route-rail { background: linear-gradient(90deg,rgba(7,27,61,.04),transparent 72%); }
   .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.035); }
-  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom-color: #dfe3ea; }
+  .app-product .account-flow--customer .account-route-rail > div:last-child { border-bottom-color: var(--line); }
 }
 [dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "٠٢ / الهوية ← عُد إلى قرار هذا الأسبوع"; letter-spacing: 0; }
 [dir="rtl"] .app-product .account-flow--weekly-review .oauth-row::before { content: "خيارات الهوية / أكمل قرار هذا الأسبوع"; letter-spacing: 0; }
@@ -763,30 +763,30 @@
   .app-product .account-flow--registrations .account-return-object { background: linear-gradient(90deg,rgba(251,251,248,.035),transparent 62%); }
   .app-product .account-flow--registrations .account-return-object > .mono { color: rgba(251,251,248,.74); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol { border-inline-start-color: rgba(223,227,234,.38); }
-  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { border-top-color: transparent; border-inline-start: 3px solid #f6c915; }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(2) { border-top-color: transparent; border-inline-start: 3px solid var(--saffron); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li:nth-child(4) { border-bottom-color: rgba(223,227,234,.45); }
   .app-product .account-flow--registrations .account-return-object > .mono + ol li::before { background: rgba(223,227,234,.55); }
-  .app-product .account-flow--registrations .account-return-object > .mono + ol li.is-active::before { background: #f6c915; }
+  .app-product .account-flow--registrations .account-return-object > .mono + ol li.is-active::before { background: var(--saffron); }
   .app-product .account-flow--registrations .account-route-rail { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 72%); }
-  .app-product .account-flow--registrations .account-route-rail > div:first-child { border-top-color: #dfe3ea; }
-  .app-product .account-flow--registrations .account-route-rail > div:last-child { border-bottom: 2px solid #caa515; }
+  .app-product .account-flow--registrations .account-route-rail > div:first-child { border-top-color: var(--line); }
+  .app-product .account-flow--registrations .account-route-rail > div:last-child { border-bottom: 2px solid var(--gold); }
   .app-product .account-flow--registrations .account-form,
-  .app-product .account-flow--customer .account-form { border-inline-start-color: #dfe3ea; }
+  .app-product .account-flow--customer .account-form { border-inline-start-color: var(--line); }
   .app-product .account-flow--registrations .account-form::before,
-  .app-product .account-flow--customer .account-form::before { background: linear-gradient(#caa515 0 48px,#dfe3ea 48px 100%); }
-  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid #f6c915; box-shadow: none; }
+  .app-product .account-flow--customer .account-form::before { background: linear-gradient(var(--gold) 0 48px,var(--line) 48px 100%); }
+  .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(2) { border-inline-start: 3px solid var(--saffron); box-shadow: none; }
 }
 
 /* Identity step integration: credentials visibly restore a named operating object, with route-specific language rather than an isolated generic form. */
-.app-product .account-identity-step { display: grid; gap: 5px; margin: 15px 0 0; padding: 11px 12px 11px 14px; border-block: 1px solid #dfe3ea; border-inline-start: 2px solid #caa515; background: linear-gradient(90deg,rgba(202,165,21,.065),transparent 78%); }
+.app-product .account-identity-step { display: grid; gap: 5px; margin: 15px 0 0; padding: 11px 12px 11px 14px; border-block: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg,rgba(202,165,21,.065),transparent 78%); }
 .app-product .account-identity-step .mono { color: #8c7110; font-size: 8px; letter-spacing: .1em; }
-.app-product .account-identity-step strong { max-width: 48ch; color: #071b3d; font: 600 11px/1.45 "DM Sans",sans-serif; }
-.app-product .account-flow--weekly-review .account-identity-step { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 78%); border-inline-start-color: #071b3d; }
-.app-product .account-flow--weekly-review .account-identity-step .mono { color: #53627a; }
+.app-product .account-identity-step strong { max-width: 48ch; color: var(--ink); font: 600 11px/1.45 "DM Sans",sans-serif; }
+.app-product .account-flow--weekly-review .account-identity-step { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 78%); border-inline-start-color: var(--ink); }
+.app-product .account-flow--weekly-review .account-identity-step .mono { color: var(--body-muted); }
 .app-product .account-flow--registrations .account-identity-step { background: linear-gradient(90deg,rgba(202,165,21,.07),transparent 72%); }
-.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { margin-top: 0; padding: 14px 12px 0 14px; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { margin-top: 0; padding: 14px 12px 0 14px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--registrations .form-divider { margin-inline-start: 14px; }
-.app-product .account-flow--weekly-review > .account-form-wrap,.app-product .account-flow--registrations > .account-form-wrap { background: linear-gradient(180deg,rgba(251,251,248,.95),#fbfbf8 72%); }
+.app-product .account-flow--weekly-review > .account-form-wrap,.app-product .account-flow--registrations > .account-form-wrap { background: linear-gradient(180deg,rgba(251,251,248,.95),var(--paper) 72%); }
 [dir="rtl"] .app-product .account-identity-step { padding-inline-start: 12px; padding-inline-end: 14px; }
 @media (max-width: 640px) { .app-product .account-identity-step { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .oauth-row,.app-product .account-flow--registrations .oauth-row { padding-inline-start: 12px; }.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--registrations .form-divider { margin-inline-start: 12px; } }
 
@@ -794,19 +794,19 @@
 .app-product .account-flow--workspace .account-form,
 .app-product .account-flow--weekly-review .account-form { background: linear-gradient(180deg,rgba(7,27,61,.018),transparent 46%); }
 .app-product .account-flow--workspace .account-route-rail,
-.app-product .account-flow--weekly-review .account-route-rail { margin-bottom: 0; border-top: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .account-route-rail { margin-bottom: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .app-product .account-flow--workspace .oauth-row,
-.app-product .account-flow--weekly-review .oauth-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 0; padding: 13px 12px 12px 14px; border-inline-start: 1px solid #dfe3ea; background: linear-gradient(90deg,rgba(7,27,61,.025),transparent 75%); }
+.app-product .account-flow--weekly-review .oauth-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 0; padding: 13px 12px 12px 14px; border-inline-start: 1px solid var(--line); background: linear-gradient(90deg,rgba(7,27,61,.025),transparent 75%); }
 .app-product .account-flow--workspace .oauth-row .button,
 .app-product .account-flow--weekly-review .oauth-row .button { justify-content: space-between; min-height: 38px; padding-inline: 12px; border-color: #cfd5df; border-radius: 8px; background: rgba(251,251,248,.72); box-shadow: none; }
 .app-product .account-flow--workspace .form-divider,
 .app-product .account-flow--weekly-review .form-divider { margin-inline-start: 14px; }
 .app-product .account-flow--workspace .account-form > label,
-.app-product .account-flow--weekly-review .account-form > label { margin-inline-start: 14px; padding: 9px 12px 10px; border-inline-start: 1px solid #dfe3ea; border-bottom: 1px solid #dfe3ea; background: rgba(251,251,248,.55); }
+.app-product .account-flow--weekly-review .account-form > label { margin-inline-start: 14px; padding: 9px 12px 10px; border-inline-start: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(251,251,248,.55); }
 .app-product .account-flow--workspace .account-form > label input,
 .app-product .account-flow--weekly-review .account-form > label input { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
 .app-product .account-flow--workspace .form-inline,
-.app-product .account-flow--weekly-review .form-inline { margin-inline-start: 14px; padding: 12px 12px 0; border-inline-start: 1px solid #dfe3ea; }
+.app-product .account-flow--weekly-review .form-inline { margin-inline-start: 14px; padding: 12px 12px 0; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--workspace .button.full,
 .app-product .account-flow--weekly-review .button.full { margin-inline-start: 14px; width: calc(100% - 14px); border-radius: 8px; }
 @media (max-width: 640px) { .app-product .account-flow--workspace .oauth-row,.app-product .account-flow--weekly-review .oauth-row { padding-inline-start: 12px; }.app-product .account-flow--workspace .form-divider,.app-product .account-flow--weekly-review .form-divider,.app-product .account-flow--workspace .account-form > label,.app-product .account-flow--weekly-review .account-form > label,.app-product .account-flow--workspace .form-inline,.app-product .account-flow--weekly-review .form-inline,.app-product .account-flow--workspace .button.full,.app-product .account-flow--weekly-review .button.full { margin-inline-start: 12px; }.app-product .account-flow--workspace .button.full,.app-product .account-flow--weekly-review .button.full { width: calc(100% - 12px); } }

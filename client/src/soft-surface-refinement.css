@@ -167,7 +167,7 @@
 }
 
 .app-product .roadmap-stage-course {
-  background: #071b3d !important;
+  background: var(--ink) !important;
   color: #fff !important;
 }
 

@@ -1,6 +1,6 @@
 /* Editorial operating system: usability audit refinements preserve quiet landing-derived controls while making keyboard focus, action targets, and RTL language explicit. */
 .app-product :is(button,a,input,select,textarea) { -webkit-tap-highlight-color: transparent; }
-.app-product :is(button,a,input,select,textarea):focus-visible { outline: 2px solid #caa515; outline-offset: 3px; }
+.app-product :is(button,a,input,select,textarea):focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .app-product .button,.app-product .icon-button { min-height: 44px; }
 .app-product .product-main .notification-row { min-height: 72px; }
 .app-product .product-main .notification-row:hover { background: linear-gradient(90deg,rgba(202,165,21,.07),transparent 52%); }

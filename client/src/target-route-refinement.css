@@ -2,16 +2,16 @@
 .app-product .commercial-path--sponsor { border-top-width: 3px; }
 .app-product .commercial-path--sponsor > ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .app-product .commercial-path--sponsor > ol > li { min-height: 210px; align-content: space-between; }
-.app-product .commercial-path--sponsor > ol > li > span { color: #caa515; font-size: 15px; }
+.app-product .commercial-path--sponsor > ol > li > span { color: var(--gold); font-size: 15px; }
 .app-product .commercial-path--sponsor > ol > li strong { font-size: clamp(23px, 2.3vw, 34px); line-height: 1.06; }
 .app-product .requests-browse-page .request-row,
-.app-product .request-list .request-row { grid-template-columns: 42px minmax(180px,.5fr) minmax(230px,1fr) auto; border-top: 1px solid #dfe3ea; }
+.app-product .request-list .request-row { grid-template-columns: 42px minmax(180px,.5fr) minmax(230px,1fr) auto; border-top: 1px solid var(--line); }
 .app-product .requests-browse-page .request-row::before,
-.app-product .request-list .request-row::before { color: #caa515; font: 700 11px/1 "DM Sans", sans-serif; content: "RECORD"; }
+.app-product .request-list .request-row::before { color: var(--gold); font: 700 11px/1 "DM Sans", sans-serif; content: "RECORD"; }
 .app-product .account-visual h1 { max-width: 630px; font-size: clamp(28px, 3vw, 38px); line-height: 1.08; }
-.app-product .account-return-object { margin-top: 28px; padding-top: 24px; border-top: 2px solid #f6c915; }
+.app-product .account-return-object { margin-top: 28px; padding-top: 24px; border-top: 2px solid var(--saffron); }
 .app-product .account-return-object ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
 .app-product .account-return-object ol li { min-height: 102px; padding: 16px 12px; border-inline-start: 1px solid rgba(255,255,255,.26); }
 .app-product .account-return-object ol li:first-child { border-inline-start: 0; }
-.app-product .account-return-object ol li strong { display: block; margin-top: 18px; color: #fbfbf8; font-size: 15px; }
+.app-product .account-return-object ol li strong { display: block; margin-top: 18px; color: var(--paper); font-size: 15px; }
 @media (max-width: 760px) { .app-product .commercial-path--sponsor > ol { grid-template-columns: 1fr; }.app-product .commercial-path--sponsor > ol > li { min-height: 0; }.app-product .account-visual h1 { font-size: clamp(26px, 8vw, 32px); }.app-product .account-return-object ol { grid-template-columns: 1fr; }.app-product .account-return-object ol li { min-height: 0; border-inline-start: 0; border-top: 1px solid rgba(255,255,255,.26); }.app-product .account-return-object ol li:first-child { border-top: 0; } }

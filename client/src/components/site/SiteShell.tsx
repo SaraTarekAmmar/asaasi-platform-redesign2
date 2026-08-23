@@ -5,8 +5,23 @@ import { ArrowLeft, ArrowRight, Bell, ChevronDown, ChevronLeft, ChevronRight, Me
 import { LanguageToggle, useLocale } from "../../contexts/LocaleContext";
 import { useAuth } from "../../contexts/AuthContext";
 import { AnimatePresence, motion } from "framer-motion";
+import { BackToTop, ConfirmDialog, CookieBanner, FloatingContact, ScrollProgressBar, ThemeToggle } from "./SiteExtras";
 import "../../navigation.css";
 import "../../logo-asset.css";
+
+// UTM params are common to capture on first landing so a later signup/contact action can be
+// attributed - there's no backend here to send them to, so they're kept in sessionStorage
+// (cleared per browser session, matches how most UTM attribution windows work) for whatever
+// reads them next, instead of being silently dropped.
+function useUtmCapture() {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const utmKeys = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+    const captured: Record<string, string> = {};
+    utmKeys.forEach((key) => { const value = params.get(key); if (value) captured[key] = value; });
+    if (Object.keys(captured).length) window.sessionStorage.setItem("asaasi-utm", JSON.stringify(captured));
+  }, []);
+}
 
 export function Logo({ inverted = false, className = "" }: { inverted?: boolean; className?: string }) {
   const [location] = useLocation();
@@ -132,7 +147,7 @@ export function SiteHeader() {
 
   return <header className="site-header landing-site-header" ref={navRef}>
     <div className="network-strip"><div className="container"><span>{t("ASaaSI / The SaaS ecosystem for MENA", "أساسي / منظومة البرمجيات لمنطقة الشرق الأوسط وشمال أفريقيا")}</span><span className="network-strip-accent">{t("Free to join · 2026", "الانضمام مجاني · ٢٠٢٦")}</span></div></div>
-    <div className="container"><div className="nav-row landing-header-row"><Logo /><span className="header-signal-node" aria-hidden="true" /><nav className="nav-links landing-header-nav" aria-label={t("Primary", "التنقل الرئيسي")}>{navigationMenus.map((menu) => renderMenu(menu))}</nav><div className="nav-actions landing-header-actions">{isAuthed ? <><LanguageToggle compact /><Link href="/dashboard/notifications" className="icon-button" aria-label={t("Open notifications", "فتح الإشعارات")}><Bell size={17} /><span className="notification-dot" /></Link><Link href="/dashboard/profile" className="avatar-button" aria-label={t("Open profile", "فتح الملف الشخصي")}>SA</Link><Link href="/dashboard" className="button button-primary button-small">{t("Dashboard", "لوحتي")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></> : <><LanguageToggle /><Link href="/signup" className="button button-primary button-small">{t("Join ASaaSI", "انضم إلى ASaaSI")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></>}<button className="menu-button" type="button" aria-label={mobileOpen ? t("Close menu", "إغلاق القائمة") : t("Open menu", "فتح القائمة")} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={() => { setMobileOpen((current) => !current); setOpenMenu(null); }}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button></div></div>
+    <div className="container"><div className="nav-row landing-header-row"><Logo /><span className="header-signal-node" aria-hidden="true" /><nav className="nav-links landing-header-nav" aria-label={t("Primary", "التنقل الرئيسي")}>{navigationMenus.map((menu) => renderMenu(menu))}</nav><div className="nav-actions landing-header-actions">{isAuthed ? <><ThemeToggle compact /><LanguageToggle compact /><Link href="/dashboard/notifications" className="icon-button" aria-label={t("Open notifications", "فتح الإشعارات")}><Bell size={17} /><span className="notification-dot" /></Link><Link href="/dashboard/profile" className="avatar-button" aria-label={t("Open profile", "فتح الملف الشخصي")}>SA</Link><Link href="/dashboard" className="button button-primary button-small">{t("Dashboard", "لوحتي")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></> : <><ThemeToggle /><LanguageToggle /><Link href="/signup" className="button button-primary button-small">{t("Join ASaaSI", "انضم إلى ASaaSI")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></>}<button className="menu-button" type="button" aria-label={mobileOpen ? t("Close menu", "إغلاق القائمة") : t("Open menu", "فتح القائمة")} aria-expanded={mobileOpen} aria-controls="mobile-navigation" onClick={() => { setMobileOpen((current) => !current); setOpenMenu(null); }}>{mobileOpen ? <X size={22} /> : <Menu size={22} />}</button></div></div>
       <nav id="mobile-navigation" className={`mobile-menu ${mobileOpen ? "open" : ""}`} aria-label={t("Mobile navigation", "تنقل الجوال")} aria-hidden={!mobileOpen}>{navigationMenus.map((menu) => renderMenu(menu, true))}<div className="mobile-menu-footer">{isAuthed ? <><LanguageToggle compact /><Link href="/dashboard" className="button button-primary button-small" onClick={closeMenus}>{t("Dashboard", "لوحتي")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></> : <><LanguageToggle compact /><Link href="/signup" className="button button-primary button-small" onClick={closeMenus}>{t("Join ASaaSI", "انضم إلى ASaaSI")} <DirectionalArrow isRTL={isRTL} size={14} /></Link></>}</div></nav>
     </div>
   </header>;
@@ -142,18 +157,27 @@ export function WorkspaceHeader() {
   const { t } = useLocale();
   const { logout } = useAuth();
   const [, setLocation] = useLocation();
-  return <header className="site-header workspace-header landing-site-header">
+  const [confirmLogout, setConfirmLogout] = useState(false);
+  return <><ConfirmDialog
+    open={confirmLogout}
+    title={t("Log out of ASaaSI?", "تسجيل الخروج من ASaaSI؟")}
+    body={t("You'll need to sign back in to reach your workspace.", "ستحتاج لتسجيل الدخول مجددا للوصول إلى مساحة عملك.")}
+    confirmLabel={t("Log out", "تسجيل الخروج")}
+    onConfirm={() => { setConfirmLogout(false); logout(); setLocation("/"); }}
+    onCancel={() => setConfirmLogout(false)}
+  /><header className="site-header workspace-header landing-site-header">
     <div className="container nav-row landing-header-row">
       <Logo />
       <div className="nav-actions">
         <Link href="/pricing" className="nav-login">{t("Join ASaaSI", "انضم إلى ASaaSI")}</Link>
+        <ThemeToggle compact />
         <LanguageToggle compact />
         <Link href="/dashboard/notifications" className="icon-button" aria-label={t("Open notifications", "فتح الإشعارات")}><Bell size={17} /><span className="notification-dot" /></Link>
         <Link href="/dashboard/profile" className="avatar-button" aria-label={t("Open profile", "فتح الملف الشخصي")}>SA</Link>
-        <button type="button" className="nav-login" onClick={() => { logout(); setLocation("/"); }}>{t("Log out", "تسجيل الخروج")}</button>
+        <button type="button" className="nav-login" onClick={() => setConfirmLogout(true)}>{t("Log out", "تسجيل الخروج")}</button>
       </div>
     </div>
-  </header>;
+  </header></>;
 }
 
 export function SiteFooter() {
@@ -164,6 +188,7 @@ export function SiteFooter() {
 export function SiteShell({ children }: { children: ReactNode }) {
   const { t } = useLocale();
   const [location] = useLocation();
+  useUtmCapture();
   const routeName = location.replace(/^\//, "").split("/")[0] || "home";
   // Account and recovery routes are full-bleed 100vh flows with their own embedded logo; the site header pushes their form off-screen, so they stay header-free. Every other
   // authenticated app route now gets the same header as the public site, just without the footer.
@@ -175,7 +200,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   {/* app-product (see flint-workspace.css) is applied to every route so the whole app - not just
       the dashboard - picks up the landing's navy/gold Flint palette and Manrope headings; the
       landing route itself is unaffected since flint-landing.css uses literal colors, not these vars. */}
-  return <div className={`app route-${routeName} app-product`}><a className="skip-link" href="#main-content">{t("Skip to main content", "انتقل إلى المحتوى الرئيسي")}</a>{(accountRoute || landingRoute) ? children : appRoute ? <><WorkspaceHeader />{children}</> : <><SiteHeader /><AnimatePresence mode="wait" initial={false}><motion.main id="main-content" key={location} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}>{children}</motion.main></AnimatePresence><SiteFooter /></>}</div>;
+  return <div className={`app route-${routeName} app-product`}><ScrollProgressBar /><a className="skip-link" href="#main-content">{t("Skip to main content", "انتقل إلى المحتوى الرئيسي")}</a>{(accountRoute || landingRoute) ? children : appRoute ? <><WorkspaceHeader />{children}</> : <><SiteHeader /><AnimatePresence mode="wait" initial={false}><motion.main id="main-content" key={location} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.28, ease: [0.23, 1, 0.32, 1] }}>{children}</motion.main></AnimatePresence><SiteFooter /></>}{!accountRoute && <><BackToTop /><FloatingContact /></>}<CookieBanner /></div>;
 }
 
 export function Toast({ message, onClose }: { message: string; onClose: () => void }) {

@@ -1,55 +1,23 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
 type Theme = "light" | "dark";
+type ThemeContextValue = { theme: Theme; toggleTheme: () => void };
 
-interface ThemeContextType {
-  theme: Theme;
-  toggleTheme?: () => void;
-  switchable: boolean;
-}
+const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-interface ThemeProviderProps {
-  children: React.ReactNode;
-  defaultTheme?: Theme;
-  switchable?: boolean;
-}
-
-export function ThemeProvider({
-  children,
-  defaultTheme = "light",
-  switchable = false,
-}: ThemeProviderProps) {
+export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (switchable) {
-      const stored = localStorage.getItem("theme");
-      return (stored as Theme) || defaultTheme;
-    }
-    return defaultTheme;
+    if (typeof window === "undefined") return "light";
+    const saved = window.localStorage.getItem("asaasi-theme");
+    if (saved === "dark" || saved === "light") return saved;
+    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   });
-
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-
-    if (switchable) {
-      localStorage.setItem("theme", theme);
-    }
-  }, [theme, switchable]);
-
-  const toggleTheme = switchable
-    ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
-      }
-    : undefined;
-
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("asaasi-theme", theme);
+  }, [theme]);
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, switchable }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme: () => setTheme((current) => (current === "dark" ? "light" : "dark")) }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -57,8 +25,6 @@ export function ThemeProvider({
 
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
-  }
+  if (!context) throw new Error("useTheme must be used within ThemeProvider");
   return context;
 }

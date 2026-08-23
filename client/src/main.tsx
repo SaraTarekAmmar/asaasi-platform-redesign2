@@ -4,5 +4,6 @@ import "./index.css";
 import "./locale.css";
 import { LocaleProvider } from "./contexts/LocaleContext";
 import { AuthProvider } from "./contexts/AuthContext";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
-createRoot(document.getElementById("root")!).render(<LocaleProvider><AuthProvider><App /></AuthProvider></LocaleProvider>);
+createRoot(document.getElementById("root")!).render(<ThemeProvider><LocaleProvider><AuthProvider><App /></AuthProvider></LocaleProvider></ThemeProvider>);

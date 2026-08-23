@@ -1,0 +1,99 @@
+/* Dark theme: overrides the same token set every component already reads (var(--ink), var(--paper),
+   etc. - see the site-wide hex-to-var pass in asaasi-unified.css/flint-workspace.css and friends).
+   ponytail: the standalone landing page (flint-landing.css) paints its own literal colors rather
+   than these tokens, by original design ("landing route itself is unaffected... uses literal
+   colors, not these vars" - SiteShell.tsx), so it intentionally stays fixed-light; the toggle only
+   appears in the product/dashboard/auth chrome where it actually changes anything. */
+html[data-theme="dark"] .app-product {
+  --ink: #e8ecf3;
+  --ink-soft: #c7d2e3;
+  --paper: #0b1626;
+  --white: #10192b;
+  --clay: #131f33;
+  --mint: #0f1c2e;
+  --mist: #101c30;
+  --graphite: #e6e7e2;
+  --muted: #98a2b3;
+  --line: #24344c;
+  --line-soft: #1c2a3f;
+  --gold: #e6c257;
+  --saffron: #f6c915;
+  --body-muted: #a7b0c0;
+}
+
+.theme-toggle-compact { padding: 8px; }
+
+/* Floating actions: back-to-top and the contact shortcut share one bottom-corner treatment. */
+.floating-action {
+  position: fixed;
+  bottom: 22px;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--line, #dfe3ea);
+  background: var(--ink, #071b3d);
+  color: var(--paper, #fff);
+  box-shadow: 0 12px 28px rgba(7, 27, 61, .22);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.floating-action:hover { transform: translateY(-3px); box-shadow: 0 16px 34px rgba(7, 27, 61, .28); }
+.back-to-top { right: 22px; }
+.floating-contact { left: 22px; }
+.locale-ar .back-to-top { right: auto; left: 22px; }
+.locale-ar .floating-contact { left: auto; right: 22px; }
+@media (max-width: 620px) { .floating-action { width: 42px; height: 42px; bottom: 16px; } .back-to-top { right: 16px; } .floating-contact { left: 16px; } .locale-ar .back-to-top { left: 16px; right: auto; } .locale-ar .floating-contact { right: 16px; left: auto; } }
+
+/* Scroll progress: thin fixed bar under the sticky header. */
+.scroll-progress-track { position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: 3px; background: transparent; pointer-events: none; }
+.scroll-progress-bar { height: 100%; background: var(--saffron, #f6c915); transition: width 80ms linear; }
+
+/* Cookie notice */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 70;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  border: 1px solid var(--line, #dfe3ea);
+  border-radius: 14px;
+  background: var(--white, #fff);
+  color: var(--graphite, #242520);
+  box-shadow: 0 18px 40px rgba(7, 27, 61, .16);
+}
+.cookie-banner p { margin: 0; flex: 1 1 260px; font-size: 13px; line-height: 1.5; color: var(--body-muted, #53627a); }
+.cookie-banner > div { display: flex; gap: 8px; flex: 0 0 auto; }
+
+/* Confirm dialog */
+.confirm-dialog-overlay { position: fixed; inset: 0; z-index: 90; display: grid; place-items: center; padding: 20px; background: rgba(7, 27, 61, .45); backdrop-filter: blur(2px); }
+.confirm-dialog { width: min(420px, 100%); padding: 26px; border-radius: 16px; background: var(--white, #fff); color: var(--graphite, #242520); box-shadow: 0 24px 60px rgba(7, 27, 61, .28); }
+.confirm-dialog h2 { margin: 0 0 8px; font: 500 20px/1.2 "Manrope", sans-serif; color: var(--ink, #071b3d); }
+.confirm-dialog p { margin: 0; color: var(--body-muted, #53627a); font-size: 13px; line-height: 1.55; }
+.confirm-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+/* Password field */
+.password-field-input { position: relative; display: block; }
+.password-field-input input { width: 100%; padding-right: 40px; }
+.locale-ar .password-field-input input { padding-right: 12px; padding-left: 40px; }
+.password-field-toggle { position: absolute; top: 50%; right: 10px; transform: translateY(-50%); border: 0; background: none; color: var(--body-muted, #53627a); cursor: pointer; }
+.locale-ar .password-field-toggle { right: auto; left: 10px; }
+
+/* Print: keep the words, drop the chrome. */
+@media print {
+  .site-header, .site-footer, .workspace-header, .workspace-sidebar-wrap, .product-mobile-menu,
+  .floating-action, .cookie-banner, .scroll-progress-track, .skip-link, .nav-mega-menu,
+  .theme-toggle, .language-toggle, button, .button { display: none !important; }
+  .product-shell-grid { display: block !important; width: 100% !important; }
+  body { background: #fff !important; color: #000 !important; }
+  a { color: #000 !important; text-decoration: underline; }
+}

@@ -35,7 +35,7 @@
 
 .app-product .site-header.workspace-header {
   background: rgba(251, 251, 248, 0.92);
-  border-bottom: 1px solid #dfe3ea;
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
   box-shadow: none;
 }
