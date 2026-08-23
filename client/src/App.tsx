@@ -98,6 +98,7 @@ import "./decorative-process-removal.css";
 import "./events-redesign.css";
 import "./soft-surface-refinement.css";
 import "./founder-operating-desk.css";
+import "./design-system-v2.css";
 import { SiteShell } from "./components/site";
 
 function Router() {

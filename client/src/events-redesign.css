@@ -236,3 +236,9 @@
 .app-product .section-clay#past + .section::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 46px; height: 2px; background: var(--gold); content: ""; }
 .app-product .section-clay#past + .section .section-header { align-items: end; padding-inline-start: 18px; border-inline-start: 2px solid var(--ink); }
 @media (max-width: 620px) { .app-product .event-directory-section { padding-top: 48px; }.app-product .event-timeline::before { inset-inline-start: 7px; top: 17px; bottom: 17px; }.app-product .event-timeline-row { min-height: auto; }.app-product .event-timeline-meta { padding-inline-start: 0; border-inline-start: 0; }.app-product .event-timeline-date::before { top: 7px; }.app-product .past-event-row { grid-template-columns: 34px minmax(0,1fr); gap: 10px; }.app-product .past-event-row::before { inset-inline-start: 0; }.app-product .section-clay#past + .section { padding-top: 42px; }.app-product .section-clay#past + .section::before,.app-product .event-directory-section::before,.app-product .section-clay#past::before { inset-inline-start: 18px; }.app-product .section-clay#past + .section .section-header { padding-inline-start: 13px; } }
+
+/* Closing CTA: a real gold color block instead of a plain white section-header, so the
+   page ends on emphasis rather than repeating its own reading rhythm one more time. */
+.app-product .events-host-cta__layout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.app-product .events-host-cta__layout h2 { margin: 10px 0 0; max-width: 32ch; }
+@media (max-width: 620px) { .app-product .events-host-cta__layout { align-items: flex-start; } .app-product .events-host-cta__layout .button { width: 100%; justify-content: center; } }

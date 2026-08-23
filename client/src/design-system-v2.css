@@ -1,0 +1,192 @@
+/* Design System v2 — one deliberate visual language for every non-landing route,
+   grounded in what already works on flint-landing.css (real typographic contrast,
+   tinted fills instead of only outlines, content that sometimes has no box at all).
+
+   Loads LAST (see App.tsx import order) so it is the final word over the ~15 narrow,
+   !important-laden patch files above it. Two of those files are the concrete cause of
+   the "every page is a generic template" complaint:
+     - asaasi-unified.css gives resource-card/person-card/tool-card/support-card/
+       event-card/panel-card/profile-preview/settings-panel/match-card/org-form/
+       registration-card the exact same shape: `border:1px solid #dddeda;
+       border-radius:0; background:#fff;` — 11 different content types, one rectangle.
+     - soft-surface-refinement.css then forces a *different* single identical shape
+       (rounded corners + translucent white fill + drop shadow) onto almost anything
+       via `[class*="-card"], [class*="-panel"], [class*="-row"]` wildcard selectors.
+   This file replaces both blanket rules with a small set of role-based surface
+   treatments (outline / tinted fill / solid / flush-no-box) so different content
+   reads as different content, the way flint-landing's pages-card (navy tint),
+   agents-card (gold tint), and faq-item (no box at all) do.
+
+   Consolidation target: soft-surface-refinement.css's card rules, craft-refinement.css's
+   generic panel rules, and decorative-process-removal.css's radius resets are safe to
+   retire into this file over time rather than gaining a 16th patch alongside them. */
+
+.app-product {
+  /* Extended range for tokens that already exist (--gold, --clay, --mint, --surface-dark)
+     but were only ever used as flat black-on-white + one accent. Named tints so future
+     page work reaches for a name, not a hex literal. */
+  --tint-navy: var(--mint);      /* #f1f5fa — same fill as flint-landing's pages-card */
+  --tint-gold: #fdf3d6;          /* same fill as flint-landing's agents-card family */
+  --tint-gold-strong: #fff2c1;
+  --tint-clay: var(--clay);
+  --hairline: rgba(7, 27, 61, .12);
+  --hairline-soft: rgba(7, 27, 61, .08);
+  --shadow-lift: 0 12px 28px rgba(7, 27, 61, .08);
+  --shadow-deep: 0 24px 48px rgba(7, 27, 61, .16);
+  --ds-ease: cubic-bezier(.23, 1, .32, 1);
+}
+
+/* ============================================================
+   TYPOGRAPHY SCALE — real contrast between levels.
+   The shared section heading was clamp(21px,1.8vw,26px): barely bigger than body
+   copy, so every inner page reads flat. Landing's own section heads run 36–63px;
+   this brings in-page headings partway there without landing's full poster scale.
+   ============================================================ */
+.app-product .section-header h2,
+.app-product .connection-route__intro h2,
+.app-product .product-main h2 {
+  font: 500 clamp(28px, 2.6vw, 40px)/1.08 "Manrope", sans-serif !important;
+  letter-spacing: -.045em;
+}
+
+/* Opt-in scale for next-phase page work — apply directly, no wrapper needed. */
+.app-product .ds-display-l { margin: 0; font: 500 clamp(34px, 3.6vw, 52px)/1.03 "Manrope", sans-serif; letter-spacing: -.05em; color: var(--ink); }
+.app-product .ds-display-m { margin: 0; font: 500 clamp(26px, 2.4vw, 34px)/1.08 "Manrope", sans-serif; letter-spacing: -.045em; color: var(--ink); }
+.app-product .ds-lede { margin: 0; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.5; color: #3f5372; max-width: 60ch; }
+.app-product .ds-kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font: 700 10px/1 "DM Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+
+/* ============================================================
+   SURFACE SYSTEM — pick a weight/fill by role instead of one shape for everything.
+   Four primitives, composable on any element:
+     .surface-outline   thin border, no fill        (informational, low emphasis)
+     .surface-fill-*     tinted fill, no border       (grouped/related content)
+     .surface-solid      navy fill, white text        (featured/emphasis)
+     .surface-flush       no box at all, just a rule    (content that should breathe)
+   ============================================================ */
+.app-product .surface-outline { border: 1px solid var(--hairline); border-radius: 0; background: transparent; box-shadow: none; }
+.app-product .surface-fill-navy { border: 0; border-radius: 0; background: var(--tint-navy); box-shadow: none; }
+.app-product .surface-fill-gold { border: 0; border-radius: 0; background: var(--tint-gold); box-shadow: none; }
+.app-product .surface-fill-clay { border: 0; border-radius: 0; background: var(--tint-clay); box-shadow: none; }
+.app-product .surface-solid { border: 0; border-radius: 0; background: var(--surface-dark); color: #fff; box-shadow: none; }
+.app-product .surface-flush { border: 0; background: transparent; box-shadow: none; padding: 0; border-radius: 0; }
+.app-product .surface-lift { box-shadow: var(--shadow-lift); }
+
+/* Section-level tints, alongside the existing .section-clay / .section-dark. */
+.app-product .section-navy { background: var(--tint-navy) !important; }
+.app-product .section-gold { background: var(--tint-gold) !important; }
+
+/* ============================================================
+   BREAK THE UNIFORM-CARD SAMENESS on the shared component set every route already
+   renders through. Supersedes asaasi-unified.css's "one white rectangle for 11
+   content types" rule and soft-surface-refinement.css's "one rounded-shadow rectangle
+   for everything" rule with treatment chosen by what the content actually is.
+   ============================================================ */
+.app-product :is(.resource-card, .support-card, .tool-card) {
+  border: 1px solid var(--hairline) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+.app-product :is(.person-card, .match-card) {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: var(--tint-navy) !important;
+  box-shadow: none !important;
+}
+.app-product :is(.event-card, .post-card) {
+  border: 0 !important;
+  border-inline-start: 3px solid var(--gold) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+.app-product :is(.panel-card, .profile-preview, .settings-panel, .org-form, .registration-card, .next-moves) {
+  border: 0 !important;
+  border-top: 2px solid var(--ink) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.app-product .form-panel {
+  border: 1px solid var(--hairline) !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  box-shadow: var(--shadow-lift) !important;
+}
+.app-product .resource-card.featured {
+  background: var(--surface-dark) !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+.app-product .resource-card.featured :is(h3, p) { color: inherit !important; }
+
+/* ============================================================
+   NUMBERED-LIST / STEP PATTERNS that aren't a bordered rectangle with a number
+   pinned to the corner. Two shapes, pick by list length and density.
+   ============================================================ */
+
+/* Rail: a thin baseline with circular index nodes, no per-step box.
+   Use for 3–6 short steps. Markup: <div className="ds-step-rail" style={{ "--ds-steps": n }}>
+   <div data-step="1"><h4/><p/></div>...</div> */
+.app-product .ds-step-rail {
+  display: grid;
+  grid-template-columns: repeat(var(--ds-steps, 4), minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hairline);
+}
+.app-product .ds-step-rail > div { position: relative; padding-top: 26px; }
+.app-product .ds-step-rail > div::before {
+  content: attr(data-step);
+  position: absolute; top: -13px; left: 0;
+  display: grid; place-items: center;
+  width: 26px; height: 26px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  background: #fff; color: var(--ink);
+  font: 700 11px/1 "DM Sans", sans-serif;
+}
+.app-product .ds-step-rail > div h4 { margin: 0 0 6px; font: 500 18px/1.15 "Manrope", sans-serif; letter-spacing: -.03em; color: var(--ink); }
+.app-product .ds-step-rail > div p { margin: 0; color: var(--body-muted); font-size: 13px; line-height: 1.5; }
+
+/* Ledger: full-width rows separated only by a rule, no box at all.
+   Use for longer or denser lists. Markup: <div className="ds-step-ledger">
+   <div><span>01</span><div><h4/><p/></div></div>...</div> */
+.app-product .ds-step-ledger { border-top: 1px solid var(--hairline); }
+.app-product .ds-step-ledger > div { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--hairline); }
+.app-product .ds-step-ledger > div > span { color: var(--gold); font: 700 13px/1 "DM Sans", sans-serif; }
+.app-product .ds-step-ledger h4 { margin: 0 0 4px; font: 500 17px/1.2 "Manrope", sans-serif; color: var(--ink); }
+.app-product .ds-step-ledger p { margin: 0; color: var(--body-muted); font-size: 13px; line-height: 1.5; }
+
+@media (max-width: 760px) {
+  .app-product .ds-step-rail { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* ============================================================
+   MOTION — the same quiet arrival flint-landing.css already opens with
+   (flintFadeUp), applied to the elements every inner page already renders, so it
+   ripples automatically without any page-level change.
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .app-product .page-hero-grid,
+  .app-product .landing-page-intro__content,
+  .app-product .section-header,
+  .app-product .assessment-layout .product-page-heading {
+    animation: dsFadeUp .6s cubic-bezier(.23, 1, .32, 1) both;
+  }
+}
+@keyframes dsFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Opt-in scroll-reveal hook for next-phase per-page work. Starts hidden; animates in
+   once .is-visible lands (toggle it with an IntersectionObserver, or drive the same
+   effect directly with framer-motion's `initial`/`whileInView` on the element instead —
+   framer-motion is already a project dependency and is the better fit for anything
+   that needs stagger or spring physics; this class is the plain-CSS fallback). */
+.app-product [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity .5s var(--ds-ease), transform .5s var(--ds-ease); }
+.app-product [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .app-product [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
