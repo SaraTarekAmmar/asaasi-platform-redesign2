@@ -1438,28 +1438,19 @@ export function BillingWorkspace() {
 }
 
 export function AssessmentWorkspace() {
-  const { t, formatNum } = useLocale();
+  const { t } = useLocale();
   const { isAuthed } = useAuth();
-  const [step, setStep] = useState(0);
-  const [complete, setComplete] = useState(false);
-  const [answers, setAnswers] = useState<string[]>([]);
-  const prompts = [["Which decision feels most expensive right now?", "أي قرار يبدو الأكثر تكلفة الآن؟"], ["Where is the evidence still thin?", "أين لا تزال الأدلة ضعيفة؟"], ["What would make next month calmer?", "ما الذي سيجعل الشهر القادم أكثر هدوءا؟"]] as const;
-  const choiceSets = [
-    [["I need sharper customer evidence", "أحتاج دليلا أوضح من العملاء"], ["I need a better pricing story", "أحتاج قصة تسعير أفضل"], ["I need the right person", "أحتاج الشخص المناسب"], ["I need to stop changing direction", "أحتاج التوقف عن تغيير الاتجاه"]],
-    [["Three customer conversations in the next seven days", "ثلاث محادثات مع عملاء خلال الأيام السبعة القادمة"], ["A written buyer and value hypothesis", "فرضية مكتوبة للمشتري والقيمة"], ["One metric that would change the decision", "مقياس واحد من شأنه تغيير القرار"], ["A comparison with one relevant operator", "مقارنة مع مشغل ذي صلة"]],
-    [["Run one small test before changing the plan", "نفذ اختبارا صغيرا واحدا قبل تغيير الخطة"], ["Write a focused request for context", "اكتب طلبا مركزا للسياق"], ["Keep the direction for 14 days and review evidence", "حافظ على الاتجاه ١٤ يوما وراجع الدليل"], ["Turn the signal into a price conversation", "حوّل الإشارة إلى محادثة تسعير"]],
-  ] as const;
-  const records = [["Constraint", "القيد", answers[0] ?? t("Name the decision that is consuming this week.", "سمِّ القرار الذي يستهلك هذا الأسبوع.")], ["Evidence", "الدليل", answers[1] ?? t("Choose the smallest proof that could change your view.", "اختر أصغر دليل يمكن أن يغير وجهة نظرك.")], ["Next move", "الخطوة التالية", answers[2] ?? t("Commit to one bounded test.", "التزم باختبار محدد واحد.")]] as const;
-  const choose = (answer: string) => { setAnswers((current) => [...current.slice(0, step), answer]); if (step === prompts.length - 1) setComplete(true); else setStep((current) => current + 1); };
-  const body = <div className="assessment-layout"><section className="assessment-diagnostic-object" aria-label={t("Founder signal record", "سجل إشارة المؤسس")}><div><SectionLabel>{t("Founder signal record", "سجل إشارة المؤسس")}</SectionLabel><strong>{t("A diagnosis is useful only when it names the next test.", "يكون التشخيص مفيدا فقط عندما يسمي الاختبار التالي.")}</strong></div><ol>{[["CONSTRAINT", "القيد"], ["EVIDENCE", "الدليل"], ["NEXT MOVE", "الخطوة التالية"]].map(([english, arabic], index) => <li key={english} className={complete || index < step ? "is-complete" : index === step ? "is-active" : ""}><i>{formatNum(index + 1)}</i><span>{t(english, arabic)}</span></li>)}</ol></section><div className="product-page-heading compact"><SectionLabel>{t("Diagnostic", "التشخيص")} / {complete ? t("Signal record ready", "سجل الإشارة جاهز") : t(`Signal 0${step + 1}`, `الإشارة ٠${formatNum(step + 1)}`)}</SectionLabel><h1>{complete ? t("Your signal has a shape now.", "إشارتك أصبح لها شكل الآن.") : t(prompts[step][0], prompts[step][1])}</h1><p>{complete ? t("This is a contextual record, not a predictive score. Keep it with the next experiment and revise it when the evidence changes.", "هذا سجل سياقي، لا درجة تنبؤية. أبقه مع التجربة التالية وراجعه عندما يتغير الدليل.") : t("Choose the truest answer for this week. The record will turn it into one bounded next experiment.", "اختر الإجابة الأصدق لهذا الأسبوع. سيحوّلها السجل إلى تجربة تالية واحدة محددة.")}</p></div>{complete ? <div className="assessment-result-record"><div className="assessment-result-record__head"><div className="complete-node"><Check size={22} /></div><div><SectionLabel>{t("Signal record / ready to test", "سجل الإشارة / جاهز للاختبار")}</SectionLabel><h2>{t("Keep the next decision small enough to learn from.", "أبقِ القرار التالي صغيرا بما يكفي للتعلم منه.")}</h2></div></div><div className="assessment-result-record__rows">{records.map(([english, arabic, value], index) => <article key={english}><span>{formatNum(index + 1)}</span><div><small>{t(english, arabic)}</small><strong>{value}</strong></div></article>)}</div><p>{t("ASaaSI can now route this record to a relevant tool, person, or learning path. It does not replace founder judgement or make an investment-readiness claim.", "يمكن لأساسي الآن توجيه هذا السجل إلى أداة أو شخص أو مسار تعلم ذي صلة. لا يحل محل حكم المؤسس ولا يقدم ادعاء جاهزية للاستثمار.")}</p><div className="result-actions"><Link href="/tools/pricing" className="button button-primary">{t("Open the next workbench", "افتح طاولة العمل التالية")} <ArrowRight size={14} /></Link>{isAuthed ? <Link href="/dashboard" className="text-link">{t("Carry this to the dashboard", "احمل هذا إلى اللوحة")} <ArrowRight size={14} /></Link> : <Link href="/signup" className="text-link">{t("Create a free profile to keep this record", "أنشئ ملفا مجانيا لحفظ هذا السجل")} <ArrowRight size={14} /></Link>}</div></div> : <div className="assessment-options">{choiceSets[step].map((item, index) => <button className="tool-option" key={item[0]} onClick={() => choose(item[0])}><span className="assessment-choice-index">{formatNum(index + 1)}</span><span>{t(item[0], item[1])}</span><ArrowRight size={15} /></button>)}</div>}</div>;
-  // The public /assessment route (the landing page's "Take the founder test" CTA) must stay
-  // open to anonymous visitors - the quiz itself is the hook, signup only gates saving the
-  // result. ProductShell force-redirects to /login when signed out, so only wrap authed
-  // visitors in it (this also covers the /dashboard/assessment entry point); everyone else
-  // gets the same content in a plain public shell, same pattern as RequestDetailPage's public branch.
+  // ponytail: this used to be its own thin 3-question stub (fixed multiple-choice, result just
+  // echoed the picks back) - meanwhile the actual founder diagnostic, rated across four operating
+  // dimensions with a computed bottleneck and value/risk prioritization, already existed at
+  // /tools/founder-diagnostic but was gated behind login, so the landing page's public "Take the
+  // founder test" CTA (which points here) was sending every anonymous visitor to the weaker tool.
+  // Render the real one here instead, same public/authed split /assessment always had - the quiz
+  // itself is the free hook, only saving the result to Activity needs an account.
+  const body = <FounderDiagnosticToolFlow />;
   return isAuthed
-    ? <ProductShell title={t("Founder diagnostic", "تشخيص المؤسس")} active="/dashboard/assessment">{body}</ProductShell>
-    : <div className="missing-public"><div className="container detail-page">{body}</div></div>;
+    ? <ProductShell title={t("Founder diagnostic", "تشخيص المؤسس")} active="/dashboard/assessment"><div className="assessment-layout">{body}</div></ProductShell>
+    : <div className="missing-public"><div className="container detail-page"><div className="assessment-layout">{body}</div></div></div>;
 }
 
 export function KnowledgeWorkspace() {
