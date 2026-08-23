@@ -171,10 +171,10 @@
 .app-product .event-intent-controls { position: relative; margin-top: 24px; padding: 14px 0 14px 16px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg,rgba(202,165,21,.055),transparent 48%); }
 .app-product .event-intent-controls::after { position: absolute; inset-inline-end: 0; top: -2px; width: 54px; height: 2px; background: var(--gold); content: ""; }
 .app-product .event-intent-controls button { position: relative; border-radius: 7px; background: transparent; }
-.app-product .event-intent-controls button.is-active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.app-product .event-intent-controls button.is-active { border-color: var(--ink); background: var(--surface-dark); color: var(--paper); }
 .app-product .event-intent-controls button.is-active::before { position: absolute; inset-inline-start: 9px; inset-inline-end: 9px; top: -6px; height: 2px; background: var(--gold); content: ""; }
 .app-product .section-clay#past { position: relative; border-top: 1px solid var(--line); background: var(--paper); }
-.app-product .section-clay#past::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 34px; height: 2px; background: var(--ink); content: ""; }
+.app-product .section-clay#past::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 34px; height: 2px; background: var(--surface-dark); content: ""; }
 .app-product .past-events-list { counter-reset: past-event; border-top: 2px solid var(--ink); background: transparent; }
 .app-product .past-event-row { position: relative; display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; align-items: center; counter-increment: past-event; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
 .app-product .past-event-row::after { grid-column: 1; grid-row: 1; color: #8c7110; content: "0" counter(past-event); font: 600 10px "DM Sans",sans-serif; letter-spacing: .1em; }

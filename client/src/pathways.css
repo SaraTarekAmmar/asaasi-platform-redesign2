@@ -176,7 +176,7 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 
 /* Community, Popular this week: a ranked list, deliberately different from the plain post feed. */
 .popular-week-list { display: grid; gap: .6rem; list-style: none; margin: 1.6rem 0 0; padding: 0; }
-.popular-week-list a { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--ink); color: var(--paper); text-decoration: none; transition: transform .16s var(--ease-out); }
+.popular-week-list a { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.2rem; background: var(--surface-dark); color: var(--paper); text-decoration: none; transition: transform .16s var(--ease-out); }
 .popular-week-list a:hover { transform: translateY(-2px); }
 .popular-week-rank { font: 700 22px/1 "Space Grotesk", sans-serif; color: var(--saffron); min-width: 2ch; }
 .popular-week-list a > div:nth-child(2) { flex: 1; min-width: 0; display: grid; gap: .2rem; }
@@ -248,7 +248,7 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .framework-recap-stages li { display: flex; align-items: center; gap: .4rem; padding: .4rem .8rem; background: var(--white); border: 1px solid var(--line); font-size: .8rem; font-weight: 600; }
 .framework-recap-stages .mono { color: var(--brand-blue); font-size: .68rem; }
 .framework-recap-pillars { display: flex; flex-wrap: wrap; gap: .5rem; }
-.framework-recap-pillars span { padding: .35rem .7rem; background: var(--ink); color: var(--paper); font-size: .75rem; font-weight: 600; }
+.framework-recap-pillars span { padding: .35rem .7rem; background: var(--surface-dark); color: var(--paper); font-size: .75rem; font-weight: 600; }
 .section-dark .framework-recap-stages li { background: rgba(247, 244, 236, .06); border-color: rgba(247, 244, 236, .22); color: var(--paper); }
 .section-dark .framework-recap-stages .mono { color: var(--saffron); }
 .section-dark .framework-recap-pillars span { background: var(--saffron); color: var(--ink); }

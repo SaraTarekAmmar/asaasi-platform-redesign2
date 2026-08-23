@@ -16,6 +16,7 @@
   --graphite: #242520;
   --muted: #74766c;
   --line: #dfe3ea;
+  --surface-dark: #071b3d;
   --radius-chip: 999px;
   --radius-control: 8px;
   --radius-card: 14px;
@@ -53,7 +54,7 @@
 }
 
 .app-product .avatar-button {
-  background: var(--ink);
+  background: var(--surface-dark);
   color: var(--saffron);
   border-radius: 8px;
 }

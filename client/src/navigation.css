@@ -193,7 +193,7 @@
   justify-content: flex-end;
   gap: 12px;
   padding: 18px;
-  background: var(--ink);
+  background: var(--surface-dark);
   color: var(--paper);
   transition: background 180ms var(--ease-out), transform 180ms var(--ease-out);
 }

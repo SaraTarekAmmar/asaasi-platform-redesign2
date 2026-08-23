@@ -88,7 +88,7 @@
 .contact-hero-route > strong { color: var(--ink); font: 500 1.05rem/1.15 "Manrope", sans-serif; }
 .contact-hero-route ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3rem; margin: 0.25rem 0 0; padding: 0; list-style: none; }
 .contact-hero-route li { position: relative; padding-top: 1.4rem; color: var(--body-muted); font: 500 0.6rem/1.25 "DM Sans", sans-serif; }
-.contact-hero-route li::before { position: absolute; inset-inline-start: 0; top: 0; width: 0.7rem; height: 0.7rem; border: 1px solid var(--gold); border-radius: 50%; background: var(--paper); content: ""; }
+.contact-hero-route li::before { content: none; }
 .contact-hero-route li:nth-child(2)::before { background: var(--gold); }
 
 .contact-routing-section { padding-top: 5rem; }

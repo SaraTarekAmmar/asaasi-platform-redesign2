@@ -44,7 +44,7 @@ html[data-theme="dark"] .app-product {
 .floating-contact { left: 22px; }
 .locale-ar .back-to-top { right: auto; left: 22px; }
 .locale-ar .floating-contact { left: auto; right: 22px; }
-@media (max-width: 620px) { .floating-action { width: 42px; height: 42px; bottom: 16px; } .back-to-top { right: 16px; } .floating-contact { left: 16px; } .locale-ar .back-to-top { left: 16px; right: auto; } .locale-ar .floating-contact { right: 16px; left: auto; } }
+@media (max-width: 620px) { .floating-action { width: 42px; height: 42px; bottom: 16px; } .back-to-top { right: 16px; } .floating-contact { left: 16px; } .locale-ar .back-to-top { left: 16px; right: auto; } .locale-ar .floating-contact { right: 16px; left: auto; } .cookie-banner { top: 92px; } }
 
 /* Scroll progress: thin fixed bar under the sticky header. */
 .scroll-progress-track { position: fixed; top: 0; left: 0; right: 0; z-index: 60; height: 3px; background: transparent; pointer-events: none; }
@@ -52,10 +52,13 @@ html[data-theme="dark"] .app-product {
 
 /* Cookie notice */
 .cookie-banner {
+  /* ponytail: was bottom-anchored, which sat directly on top of the floating back-to-top/
+     contact buttons (same corner, higher z-index) and blocked clicks on both until dismissed.
+     Top-anchored avoids that overlap entirely instead of computing offsets between the two. */
   position: fixed;
   left: 16px;
   right: 16px;
-  bottom: 16px;
+  top: 118px; /* clears the 108px sticky header */
   z-index: 70;
   display: flex;
   flex-wrap: wrap;

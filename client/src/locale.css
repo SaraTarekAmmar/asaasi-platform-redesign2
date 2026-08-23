@@ -22,7 +22,7 @@
 }
 
 .language-toggle button.is-active {
-  background: var(--ink);
+  background: var(--surface-dark);
   color: var(--paper);
 }
 
