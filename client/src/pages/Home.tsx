@@ -7,10 +7,10 @@ import { Logo, navigationMenus } from "../components/site";
 import { LanguageToggle, useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
 
-const heroArtwork = "/manus-storage/asaasi-ecosystem-hero-original_eb1b1abe.webp";
-const pageProductArtwork = "/manus-storage/asaasi-community-network-original_df78b7ff.webp";
-const agentProductArtwork = "/manus-storage/asaasi-events-learning-original_c75bc81e.webp";
-const announcementArtwork = "/manus-storage/asaasi-founder-briefing-thumb-original_024a9eac.webp";
+const heroArtwork = "/brand-assets/asaasi-ecosystem-hero.webp";
+const pageProductArtwork = "/brand-assets/asaasi-community-network.webp";
+const agentProductArtwork = "/brand-assets/asaasi-events-learning.webp";
+const announcementArtwork = "/brand-assets/asaasi-founder-briefing-thumb.webp";
 
 // Shared with framer-motion so scroll-triggered cards/links stay real <a> tags for
 // wouter routing instead of losing client-side navigation to a wrapping motion.div.

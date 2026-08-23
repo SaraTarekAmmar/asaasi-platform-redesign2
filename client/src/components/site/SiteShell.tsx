@@ -10,7 +10,7 @@ import "../../logo-asset.css";
 
 export function Logo({ inverted = false, className = "" }: { inverted?: boolean; className?: string }) {
   const [location] = useLocation();
-  const src = inverted ? "/manus-storage/asaasi-logo-white_c6d1d735.svg" : "/manus-storage/asaasi-logo-navy_b67d2a37.svg";
+  const src = inverted ? "/brand/asaasi-logo-white.svg" : "/brand/asaasi-logo-navy.svg";
   const classes = `brand ${className}`.trim();
   const image = <img className="brand-logo-asset" src={src} alt="ASaaSI أساسي" />;
   // Account and recovery flows wrap Logo in a route link for bespoke layouts; avoid rendering a second anchor inside it.

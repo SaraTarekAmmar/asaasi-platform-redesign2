@@ -5,8 +5,8 @@ import { Link } from "wouter";
 import { SectionLabel, SignalTag } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 
-const connectArtwork = "/manus-storage/asaasi-community-network-original_df78b7ff.webp";
-const signalArtwork = "/manus-storage/asaasi-founder-briefing-thumb-original_024a9eac.webp";
+const connectArtwork = "/brand-assets/asaasi-community-network.webp";
+const signalArtwork = "/brand-assets/asaasi-founder-briefing-thumb.webp";
 
 const people = [
   { id: 1, initials: "NH", name: "Nour Haddad", role: "Founder, B2B SaaS · Amman", copy: "Building repeatable sales motion after the first ten customers.", tag: "GTM", arRole: "مؤسسة برمجيات B2B · عمان", arCopy: "تبني حركة مبيعات قابلة للتكرار بعد أول عشرة عملاء.", arTag: "نمو السوق" },
