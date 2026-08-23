@@ -9,7 +9,7 @@
     <title>ASaaSI · MENA SaaS Founder Community</title>
     <meta name="theme-color" content="#0C2233" />
     <meta name="description" content="ASaaSI, the MENA SaaS founder network for practical connections, decisions, and momentum." />
-    <link rel="icon" type="image/svg+xml" href="/manus-storage/asaasi-logo-navy_b67d2a37.svg" />
+    <link rel="icon" type="image/svg+xml" href="/brand/asaasi-logo-navy.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Cairo:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
@@ -18,10 +18,10 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <!-- ponytail: analytics script removed — VITE_ANALYTICS_ENDPOINT/WEBSITE_ID were never
+         set anywhere (no .env, no Vercel env var), so this rendered as a literal
+         "%VITE_ANALYTICS_ENDPOINT%/umami" URL and failed on every page load. Re-add with
+         real values if/when an analytics provider (e.g. self-hosted Umami) is configured. -->
   </body>
 
 </html>
