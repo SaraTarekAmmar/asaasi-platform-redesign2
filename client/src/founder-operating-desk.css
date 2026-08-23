@@ -383,7 +383,7 @@
 .app-product .founder-operating-desk {
   max-width: 1180px;
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 70px) clamp(18px, 4vw, 48px) 76px;
+  padding: clamp(24px, 3vw, 40px) clamp(16px, 3vw, 32px) 48px;
 }
 
 .app-product .event-outcome-pulse { display: grid; grid-template-columns: minmax(0, .85fr) minmax(340px, 1.15fr); gap: clamp(24px, 5vw, 64px); align-items: start; margin-top: clamp(34px, 5vw, 68px); padding: clamp(24px, 4vw, 42px); border: 1px solid rgba(7, 27, 61, .1); border-radius: 20px; background: rgba(255, 255, 255, .78); box-shadow: 0 16px 34px rgba(7, 27, 61, .05); }
@@ -413,12 +413,12 @@
   display: flex;
   align-items: end;
   justify-content: space-between;
-  gap: 28px;
-  padding-bottom: clamp(28px, 4vw, 46px);
+  gap: 20px;
+  padding-bottom: clamp(20px, 2.5vw, 32px);
 }
 
 .app-product .founder-desk-intro > div { max-width: 720px; }
-.app-product .founder-desk-intro h1 { margin: 10px 0 14px; color: #071b3d; font: 500 clamp(38px, 5vw, 68px)/0.99 "Manrope", sans-serif; letter-spacing: -0.065em; }
+.app-product .founder-desk-intro h1 { margin: 10px 0 14px; color: #071b3d; font: 500 clamp(24px, 2vw, 30px)/1.15 "Manrope", sans-serif; letter-spacing: -0.03em; }
 .app-product .founder-desk-intro p { max-width: 620px; margin: 0; color: #53627a; font-size: 16px; line-height: 1.65; }
 .app-product .founder-desk-priority { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: clamp(24px, 4vw, 54px); padding: clamp(26px, 4vw, 44px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 24px; background: rgba(255, 255, 255, 0.76); box-shadow: 0 16px 36px rgba(7, 27, 61, 0.06); }
 .app-product .founder-desk-priority__copy h2 { max-width: 650px; margin: 10px 0 14px; color: #071b3d; font: 500 clamp(26px, 3.5vw, 42px)/1.05 "Manrope", sans-serif; letter-spacing: -0.055em; }
@@ -1130,7 +1130,7 @@
 .app-product .workspace-outcome-match .text-link { display: inline-flex; align-items: center; gap: 6px; justify-self: start; color: #071b3d; font-size: 11px; }
 .app-product .public-member-profile-hero { padding: clamp(54px,8vw,104px) 0 clamp(38px,6vw,72px); border-bottom: 1px solid #dfe3ea; background: #fbfbf8; }
 .app-product .public-member-profile-hero__inner { display: grid; grid-template-columns: minmax(0,1.05fr) minmax(300px,.75fr); gap: clamp(36px,7vw,88px); align-items: end; }
-.app-product .public-member-profile-hero h1 { max-width: 13ch; margin: 10px 0 13px; color: #071b3d; font: 500 clamp(44px,7.4vw,88px)/.98 "Manrope",sans-serif; letter-spacing: -.075em; }
+.app-product .public-member-profile-hero h1 { max-width: 13ch; margin: 10px 0 13px; color: #071b3d; font: 500 clamp(28px,3.2vw,42px)/1.05 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .public-member-profile-hero__inner > div > p { max-width: 45rem; margin: 0 0 24px; color: #53627a; font-size: 15px; line-height: 1.65; }
 .app-product .public-member-profile-rail { padding: 16px 0 0; border-top: 2px solid #071b3d; border-inline-start: 2px solid #caa515; }
 .app-product .public-member-profile-rail > .mono { display: block; padding: 0 16px 12px; color: #8c7110; font-size: 9px; letter-spacing: .11em; }
@@ -1253,7 +1253,7 @@
 @media (max-width: 620px) {
   .app-product .founder-operating-desk { padding-inline: 16px; }
   .app-product .founder-desk-intro { align-items: flex-start; flex-direction: column; gap: 18px; }
-  .app-product .founder-desk-intro h1 { font-size: clamp(36px, 12vw, 50px); }
+  .app-product .founder-desk-intro h1 { font-size: clamp(22px, 8vw, 26px); }
   .app-product .founder-desk-priority { padding: 22px; border-radius: 18px; }
   .app-product .founder-desk-priority__selector { grid-template-columns: 1fr; }
   .app-product .founder-desk-records article { border-radius: 17px; padding: 21px; }
@@ -1842,3 +1842,23 @@
 @media (max-width: 860px) { .app-product .review-date-reconciliation__lanes { grid-template-columns: 1fr; gap: 0; }.app-product .review-date-reconciliation__lanes > article { border-bottom: 1px solid #dfe3ea; }.app-product .review-date-reconciliation__lanes > article:last-child { border-bottom: 0; } }
 @media (max-width: 720px) { .app-product .review-date-reconciliation__heading { grid-template-columns: 1fr; gap: 14px; }.app-product .review-date-reconciliation__metric { justify-self: start; }.app-product .review-date-reconciliation__boundary { grid-template-columns: 1fr; gap: 8px; }.app-product .review-date-reconciliation__records dl { grid-template-columns: 1fr; }.app-product .review-date-reconciliation > footer { display: grid; align-items: start; } }
 @media (max-width: 620px) { .app-product .review-date-reconciliation { margin: 24px 0; padding: 20px 16px; border-radius: 18px; }.app-product .review-date-reconciliation__boundary, .app-product .review-date-reconciliation > footer { padding-inline-start: 12px; }.app-product .review-date-reconciliation__lanes > article { padding: 15px 13px; } }
+
+/* ponytail: this file grew ~90 near-duplicate heading rules (one per shipped section, each
+   hand-tuned between clamp(21-28px, 2-3.6vw, 30-46px)) instead of sharing a scale, which is
+   why every desk heading reads oversized next to its 12-13px body copy. Rather than rewrite
+   ~90 call sites, one rule at the end of this file's cascade (equal or higher specificity than
+   every rule above it, and last in source order) restates the whole component tree on a single,
+   dashboard-appropriate scale. Upgrade path: if a future section genuinely needs a bigger
+   moment (e.g. a hero metric), give it a deliberate one-off rule below this block, not another
+   copy of the old per-component pattern above. */
+.app-product .founder-operating-desk h1 { font: 500 clamp(24px, 2vw, 30px)/1.15 "Manrope", sans-serif; letter-spacing: -0.03em; }
+/* h2 is already capped at clamp(20px,1.8vw,26px) by the site-wide `.product-main h2 !important`
+   rule in asaasi-unified.css — no override needed here, it would just be dead code. */
+.app-product .founder-operating-desk h3 { font: 600 15px/1.3 "Manrope", sans-serif; letter-spacing: -0.01em; }
+.app-product .founder-operating-desk__metric,
+.app-product .founder-desk-priority__copy strong,
+.app-product .review-date-reconciliation__metric strong,
+.app-product .decision-owner-follow-through__metric strong { font-size: clamp(24px, 2.2vw, 32px); }
+@media (max-width: 620px) {
+  .app-product .founder-operating-desk h1 { font-size: 22px; }
+}
