@@ -65,7 +65,7 @@ export function FloatingContact() {
   );
 }
 
-export function CookieBanner() {
+export function CookieBanner({ noHeader }: { noHeader?: boolean }) {
   const { t } = useLocale();
   const [dismissed, setDismissed] = useState(() => typeof window !== "undefined" && !!window.localStorage.getItem("asaasi-cookie-consent"));
   if (dismissed) return null;
@@ -74,7 +74,7 @@ export function CookieBanner() {
     setDismissed(true);
   };
   return (
-    <div className="cookie-banner" role="region" aria-label={t("Cookie notice", "إشعار ملفات تعريف الارتباط")}>
+    <div className={`cookie-banner${noHeader ? " cookie-banner-no-header" : ""}`} role="region" aria-label={t("Cookie notice", "إشعار ملفات تعريف الارتباط")}>
       <p>{t("We use a small set of cookies to keep you signed in and remember your preferences. No tracking cookies.", "نستخدم مجموعة صغيرة من ملفات تعريف الارتباط لإبقائك مسجلا وحفظ تفضيلاتك. لا توجد ملفات تعقب.")}</p>
       <div>
         <button type="button" className="button button-ghost" onClick={() => respond("declined")}>{t("Decline", "رفض")}</button>

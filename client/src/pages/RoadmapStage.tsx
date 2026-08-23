@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "wouter";
 import { SectionLabel } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
+import NotFound from "./NotFound";
 
 type Pair = readonly [string, string];
 type Outcome = { title: Pair; detail: Pair };
@@ -161,7 +162,11 @@ const stageWorkingObjects: Record<string, { label: Pair; heading: Pair; copy: Pa
 export default function RoadmapStagePage() {
   const { stage: requestedStage } = useParams<{ stage?: string }>();
   const { t, isRTL, formatNum } = useLocale();
-  const activeIndex = Math.max(0, stages.findIndex((item) => item.slug === requestedStage));
+  const activeIndex = stages.findIndex((item) => item.slug === requestedStage);
+  // ponytail: used to clamp an unmatched slug to index 0 and silently render Stage 1 as if
+  // /roadmap/typo were a real page. A real 404 is one line here; NotFound is already what
+  // every other unknown route in the app renders.
+  if (activeIndex === -1) return <NotFound />;
   const stage = stages[activeIndex];
   const courseReady = Number(stage.number) <= 2;
   const artifact = stageArtifacts[stage.slug];
@@ -190,7 +195,7 @@ export default function RoadmapStagePage() {
             <Link href={`/roadmap/${item.slug}`} aria-current={index === activeIndex ? "page" : undefined}><span>{formatNum(item.number)}</span><b>{t(item.title[0], item.title[1])}</b></Link>
           </li>)}
         </ol>
-        <div className={`roadmap-stage-artifact roadmap-stage-artifact--${stage.slug}`} aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === activeIndex % 3 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
+        <div className={`roadmap-stage-artifact roadmap-stage-artifact--${stage.slug}`} aria-label={t(artifact.label[0], artifact.label[1])}><span className="mono">{t(artifact.label[0], artifact.label[1])}</span>{artifact.items.map((item, index) => <div key={item[0]} className={index === 0 ? "is-active" : ""}><i>{formatNum(index + 1)}</i><strong>{t(item[0], item[1])}</strong></div>)}</div>
       </div>
     </section>
 
@@ -239,7 +244,8 @@ export default function RoadmapStagePage() {
 export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
   const { stage: requestedStage } = useParams<{ stage?: string }>();
   const { t, isRTL, formatNum } = useLocale();
-  const stage = stages.find((item) => item.slug === (stageSlug ?? requestedStage)) ?? stages[0];
+  const stage = stages.find((item) => item.slug === (stageSlug ?? requestedStage));
+  if (!stage) return <NotFound />;
   const courseReady = Number(stage.number) <= 2;
   const artifact = stageArtifacts[stage.slug];
   const workingObject = stageWorkingObjects[stage.slug];

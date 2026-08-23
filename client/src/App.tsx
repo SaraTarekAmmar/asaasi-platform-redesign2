@@ -1,4 +1,5 @@
 /* Editorial operating system: public discovery stays open, while member actions live in a persistent navy-and-saffron operational workspace. */
+import { lazy, Suspense, type ComponentType } from "react";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -8,15 +9,72 @@ import Community, { CommunityPost } from "./pages/Community";
 import Events from "./pages/Events";
 import Learn from "./pages/Learn";
 import Tools from "./pages/Tools";
-import { AccountableActivityWorkspace } from "./pages/AccountableActivity";
-import { DecisionAccountabilityWorkspace } from "./pages/DecisionAccountability";
-import { WeeklyDecisionReviewWorkspace } from "./pages/WeeklyDecisionReview";
 import Pricing from "./pages/Pricing";
 import OperatingModel from "./pages/OperatingModel";
 import Support from "./pages/Support";
 import RoadmapStagePage, { RoadmapCoursePage } from "./pages/RoadmapStage";
-import { Dashboard, DecisionReviewWorkspace, LearnerWorkspace, CoachWorkspace, ProfileWorkspace, SavedWorkspace, SettingsWorkspace, NotificationsWorkspace, LoginFlow, SignupFlow, RequestFlow, MatchingWorkspace, OrganizationFlow, EventFlow, ToolFlow, RecoveryFlow, FollowingWorkspace, InvitationsWorkspace, BillingWorkspace, AssessmentWorkspace, KnowledgeWorkspace, ContactFlow } from "./pages/ProductFlows";
-import { ApplicationsPage, AdminWorkspacePage, CommercialPage, ContentIndexPage, DemoDayPage, DirectoryPage, HostEventPage, InformationPage, MemberProfilePage, MembershipHubPage, OrganizationHubPage, PartnerDirectoryPage, PerksPublicPage, PublicDetailPage, RegistrationsPage, RequestBrowsePage, RequestDetailPage, SystemStatePage, WebinarsPage, WorkshopsPage, WorkspaceCommunityPage, WorkspaceDirectoryPage, WorkspaceEventsPage, WorkspaceRequestsPage } from "./pages/MissingPages";
+
+// ponytail: ProductFlows.tsx and MissingPages.tsx together account for most of the app's route
+// components (~46 of them) and were the biggest single contributor to the >500kB JS chunk vite
+// flagged on every build - a landing-page visitor was downloading the entire authenticated
+// dashboard/tools/workspace code before ever needing it. lazyNamed splits each of those two
+// files into its own chunk, fetched only once a route that actually needs it is visited, instead
+// of restructuring the ~90-route Switch below (which is the riskier change).
+function lazyNamed<T extends ComponentType<any>>(loader: () => Promise<Record<string, unknown>>, name: string) {
+  return lazy(async () => ({ default: (await loader())[name] as T }));
+}
+const Dashboard = lazyNamed(() => import("./pages/ProductFlows"), "Dashboard");
+const DecisionReviewWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "DecisionReviewWorkspace");
+const LearnerWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "LearnerWorkspace");
+const CoachWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "CoachWorkspace");
+const ProfileWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "ProfileWorkspace");
+const SavedWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "SavedWorkspace");
+const SettingsWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "SettingsWorkspace");
+const NotificationsWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "NotificationsWorkspace");
+const LoginFlow = lazyNamed(() => import("./pages/ProductFlows"), "LoginFlow");
+const SignupFlow = lazyNamed(() => import("./pages/ProductFlows"), "SignupFlow");
+const RequestFlow = lazyNamed(() => import("./pages/ProductFlows"), "RequestFlow");
+const MatchingWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "MatchingWorkspace");
+const OrganizationFlow = lazyNamed(() => import("./pages/ProductFlows"), "OrganizationFlow");
+const EventFlow = lazyNamed(() => import("./pages/ProductFlows"), "EventFlow");
+const ToolFlow = lazyNamed(() => import("./pages/ProductFlows"), "ToolFlow");
+const RecoveryFlow = lazyNamed(() => import("./pages/ProductFlows"), "RecoveryFlow");
+const FollowingWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "FollowingWorkspace");
+const InvitationsWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "InvitationsWorkspace");
+const BillingWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "BillingWorkspace");
+const AssessmentWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "AssessmentWorkspace");
+const KnowledgeWorkspace = lazyNamed(() => import("./pages/ProductFlows"), "KnowledgeWorkspace");
+const ContactFlow = lazyNamed(() => import("./pages/ProductFlows"), "ContactFlow");
+const ApplicationsPage = lazyNamed(() => import("./pages/MissingPages"), "ApplicationsPage");
+const AdminWorkspacePage = lazyNamed(() => import("./pages/MissingPages"), "AdminWorkspacePage");
+const CommercialPage = lazyNamed(() => import("./pages/MissingPages"), "CommercialPage");
+const ContentIndexPage = lazyNamed(() => import("./pages/MissingPages"), "ContentIndexPage");
+const DemoDayPage = lazyNamed(() => import("./pages/MissingPages"), "DemoDayPage");
+const DirectoryPage = lazyNamed(() => import("./pages/MissingPages"), "DirectoryPage");
+const HostEventPage = lazyNamed(() => import("./pages/MissingPages"), "HostEventPage");
+const InformationPage = lazyNamed(() => import("./pages/MissingPages"), "InformationPage");
+const MemberProfilePage = lazyNamed(() => import("./pages/MissingPages"), "MemberProfilePage");
+const MembershipHubPage = lazyNamed(() => import("./pages/MissingPages"), "MembershipHubPage");
+const OrganizationHubPage = lazyNamed(() => import("./pages/MissingPages"), "OrganizationHubPage");
+const PartnerDirectoryPage = lazyNamed(() => import("./pages/MissingPages"), "PartnerDirectoryPage");
+const PerksPublicPage = lazyNamed(() => import("./pages/MissingPages"), "PerksPublicPage");
+const PublicDetailPage = lazyNamed(() => import("./pages/MissingPages"), "PublicDetailPage");
+const RegistrationsPage = lazyNamed(() => import("./pages/MissingPages"), "RegistrationsPage");
+const RequestBrowsePage = lazyNamed(() => import("./pages/MissingPages"), "RequestBrowsePage");
+const RequestDetailPage = lazyNamed(() => import("./pages/MissingPages"), "RequestDetailPage");
+const SystemStatePage = lazyNamed(() => import("./pages/MissingPages"), "SystemStatePage");
+const WebinarsPage = lazyNamed(() => import("./pages/MissingPages"), "WebinarsPage");
+const WorkshopsPage = lazyNamed(() => import("./pages/MissingPages"), "WorkshopsPage");
+const WorkspaceCommunityPage = lazyNamed(() => import("./pages/MissingPages"), "WorkspaceCommunityPage");
+const WorkspaceDirectoryPage = lazyNamed(() => import("./pages/MissingPages"), "WorkspaceDirectoryPage");
+const WorkspaceEventsPage = lazyNamed(() => import("./pages/MissingPages"), "WorkspaceEventsPage");
+const WorkspaceRequestsPage = lazyNamed(() => import("./pages/MissingPages"), "WorkspaceRequestsPage");
+// These three each only import ProductShell from ProductFlows.tsx, but a static import from an
+// eagerly-loaded file would have pulled the whole ProductFlows chunk back into the initial
+// bundle anyway - lazy-loading them too keeps that split effective.
+const AccountableActivityWorkspace = lazyNamed(() => import("./pages/AccountableActivity"), "AccountableActivityWorkspace");
+const DecisionAccountabilityWorkspace = lazyNamed(() => import("./pages/DecisionAccountability"), "DecisionAccountabilityWorkspace");
+const WeeklyDecisionReviewWorkspace = lazyNamed(() => import("./pages/WeeklyDecisionReview"), "WeeklyDecisionReviewWorkspace");
 import "./product-flows.css";
 import "./missing-pages.css";
 import "./ux-system.css";
@@ -43,7 +101,7 @@ import "./founder-operating-desk.css";
 import { SiteShell } from "./components/site";
 
 function Router() {
-  return <Switch>
+  return <Suspense fallback={<div className="route-loading" aria-hidden="true" />}><Switch>
     <Route path="/" component={Home} />
     <Route path="/login" component={LoginFlow} />
     <Route path="/signup" component={SignupFlow} />
@@ -163,7 +221,7 @@ function Router() {
     <Route path="/invitation/expired" component={() => <SystemStatePage code="invitation-expired" />} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
-  </Switch>;
+  </Switch></Suspense>;
 }
 
 export default function App() {

@@ -23,6 +23,10 @@ html[data-theme="dark"] .app-product {
 
 .theme-toggle-compact { padding: 8px; }
 
+/* Route-level lazy-load fallback (App.tsx Suspense) - chunks are small and cached after first
+   visit, so this is a brief flash at worst; a fixed min-height just avoids a layout jump. */
+.route-loading { min-height: 60vh; }
+
 /* Floating actions: back-to-top and the contact shortcut share one bottom-corner treatment. */
 .floating-action {
   position: fixed;
@@ -60,6 +64,11 @@ html[data-theme="dark"] .app-product {
   right: 16px;
   top: 118px; /* clears the 108px sticky header */
   z-index: 70;
+}
+/* login/signup/etc. are full-bleed, header-free flows - the 118px offset above would leave a
+   big empty gap at the top, so drop straight to the same 16px used everywhere on mobile. */
+.cookie-banner.cookie-banner-no-header {
+  top: 16px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
