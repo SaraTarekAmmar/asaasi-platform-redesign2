@@ -17,25 +17,21 @@ const people = [
   { id: 6, initials: "FS", name: "Fadi Saad", role: "Founder, fintech SaaS · Beirut", copy: "Open to sharing the messy version of fundraising and runway planning.", tag: "Fundraising", arRole: "مؤسس برمجيات مالية · بيروت", arCopy: "مستعد لمشاركة الجانب المعقد من جمع التمويل وتخطيط المدرج المالي.", arTag: "جمع التمويل" },
 ];
 
-// ponytail: was ["All", "Pricing", "Hiring", "Expansion"] - only 3 of the 6 real tags in
-// `people` below (GTM, Revenue, and Fundraising had no matching chip), so filtering could
-// never surface Nour, Maha, or Fadi's cards. Derived from the actual data instead of a
-// hand-picked subset, so a new tag added to `people` shows up here automatically.
-const focusOptions = ["All", ...Array.from(new Set(people.map((person) => person.tag)))] as const;
+// ponytail: dropped the "filter by tag" chip row - with 6 people and 6 distinct tags, every
+// non-"All" chip matched exactly one card (a filter UI acting as a single-result lookup).
+// Search already covers the same job (name, role, copy, and tag are all matched below).
 
 export default function Connect() {
   const { t, formatNum, isRTL } = useLocale();
   const [query, setQuery] = useState("");
-  const [focus, setFocus] = useState<(typeof focusOptions)[number]>("All");
-  const focusArabic: Record<string, string> = { All: "كل المسارات", ...Object.fromEntries(people.map((person) => [person.tag, person.arTag])) };
   const translated = useMemo(() => people.map((person) => ({ ...person, role: t(person.role, person.arRole), copy: t(person.copy, person.arCopy), tag: t(person.tag, person.arTag), rawTag: person.tag })), [t]);
-  const filtered = useMemo(() => translated.filter((person) => `${person.name} ${person.role} ${person.copy} ${person.tag}`.toLowerCase().includes(query.toLowerCase()) && (focus === "All" || person.rawTag === focus)), [translated, query, focus]);
+  const filtered = useMemo(() => translated.filter((person) => `${person.name} ${person.role} ${person.copy} ${person.tag}`.toLowerCase().includes(query.toLowerCase())), [translated, query]);
   const direction = isRTL ? <ArrowLeft size={15} /> : <ArrowRight size={15} />;
 
   return <>
     <section className="connect-landing-hero">
       <div className="container connect-landing-hero__copy">
-        <SectionLabel>{t("Connect / Founder network", "تواصل / شبكة المؤسسين")}</SectionLabel>
+        <SectionLabel>{t("Founder network", "شبكة المؤسسين")}</SectionLabel>
         <h1>{t("Find the person who makes the next decision easier.", "اعثر على الشخص الذي يجعل القرار التالي أسهل.")}</h1>
         <p>{t("A focused network of founders, operators, mentors, and specialists who understand what it means to build SaaS across MENA.", "شبكة مركزة من المؤسسين والمشغلين والمرشدين والمتخصصين الذين يفهمون معنى بناء SaaS عبر المنطقة.")}</p>
         <div className="connect-landing-hero__actions"><Link href="/requests/new" className="button button-primary">{t("Build a matching brief", "أنشئ موجز مطابقة")} {direction}</Link><a href="#match-slate" className="button button-ghost">{t("Browse the network", "تصفح الشبكة")} <ArrowUpRight size={15} /></a></div>
@@ -49,13 +45,17 @@ export default function Connect() {
 
     <section className="connect-landing-intro"><div className="container"><div className="connect-intro-heading"><div><SectionLabel>{t("The founder network", "شبكة المؤسسين")}</SectionLabel><h2>{t("The right introduction begins before the profile card.", "المقدمة المناسبة تبدأ قبل بطاقة الملف الشخصي.")}</h2></div><p>{t("Good matching is not a keyword search. It starts with a real question, the conditions around it, and someone who has walked enough of the path to help.", "المطابقة الجيدة ليست بحثا بالكلمات المفتاحية. تبدأ بسؤال حقيقي والشروط المحيطة به وشخص سار في المسار بما يكفي للمساعدة.")}</p></div></div></section>
 
-    <section className="connect-landing-slate" id="match-slate"><div className="container"><div className="connect-slate-top"><div><SectionLabel>{t("People with context", "أشخاص يملكون السياق")}</SectionLabel><h2>{t("Not more contacts. Better starting points.", "ليس مزيدا من جهات الاتصال. بل نقاط بداية أفضل.")}</h2></div><div className="connect-slate-search"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("Search a person, market, or problem", "ابحث عن شخص أو سوق أو مشكلة")} /></div></div><div className="connect-slate-filters"><span>{t("Show people useful for", "اعرض الأشخاص المناسبين لـ")}</span>{focusOptions.map((option) => <button type="button" className={focus === option ? "is-active" : ""} key={option} onClick={() => setFocus(option)}>{t(option, focusArabic[option])}</button>)}</div>{filtered.length ? <div className="connect-landing-grid">{filtered.map((person, index) => <article className="connect-landing-card" key={person.id}><div className="connect-card-top"><span className="connect-card-index">{formatNum(index + 1)}</span><SignalTag tone="soft">{person.tag}</SignalTag></div><div className="connect-card-identity"><span>{person.initials}</span><div><h3>{person.name}</h3><p><MapPin size={12} /> {person.role}</p></div></div><p className="connect-card-reason">{person.copy}</p><div className="connect-card-bottom">{/* ponytail: this card's person.id used to link to /members/:id, but that route reads from
+    <section className="connect-landing-slate" id="match-slate"><div className="container"><div className="connect-slate-top"><div><SectionLabel>{t("People with context", "أشخاص يملكون السياق")}</SectionLabel><h2>{t("Not more contacts. Better starting points.", "ليس مزيدا من جهات الاتصال. بل نقاط بداية أفضل.")}</h2></div><div className="connect-slate-search"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t("Search a person, market, or problem", "ابحث عن شخص أو سوق أو مشكلة")} /></div></div>{filtered.length ? <div className="connect-landing-grid">{filtered.map((person, index) => <article className="connect-landing-card" key={person.id}><div className="connect-card-top"><span className="connect-card-index">{formatNum(index + 1)}</span><SignalTag tone="soft">{person.tag}</SignalTag></div><div className="connect-card-identity"><span>{person.initials}</span><div><h3>{person.name}</h3><p><MapPin size={12} /> {person.role}</p></div></div><p className="connect-card-reason">{person.copy}</p><div className="connect-card-bottom">{/* ponytail: this card's person.id used to link to /members/:id, but that route reads from
     a completely different, independently-authored 3-person array in MissingPages.tsx - every
     card here pointed at an unrelated profile (e.g. Youssef Khalil's card opened Mariam
     Al-Hadid's page). Routing to the real directory instead of a specific wrong profile until
     these two rosters are merged into one shared data source. */}
 <span>{t("Open to a focused introduction", "متاح لمقدمة مركزة")}</span><Link href="/directory">{t("View profile", "شاهد الملف")} <ArrowUpRight size={14} /></Link></div></article>)}</div> : <div className="connect-slate-empty"><SignalTag>{t("No exact match yet", "لا توجد مطابقة دقيقة بعد")}</SignalTag><h3>{t("Write the specific question instead.", "اكتب السؤال المحدد بدلا من ذلك.")}</h3><p>{t("The network becomes useful when founders describe the real blocker in plain language.", "تصبح الشبكة مفيدة عندما يصف المؤسسون العائق الحقيقي بلغة واضحة.")}</p><Link href="/requests/new" className="button button-dark">{t("Create a matching brief", "أنشئ موجز مطابقة")} {direction}</Link></div>}</div></section>
 
-    <section className="connect-landing-callout"><div className="container"><div className="connect-callout-image"><img src={signalArtwork} alt="" /><span>{t("One clear next conversation", "محادثة تالية واضحة")}</span></div><div><SectionLabel>{t("Start free", "ابدأ مجانا")}</SectionLabel><h2>{t("One useful introduction can change the shape of the week.", "مقدمة مفيدة واحدة يمكن أن تغير شكل الأسبوع.")}</h2><p>{t("Join the network, write a focused brief, and let the right context travel further than another cold message.", "انضم إلى الشبكة، واكتب موجزا مركزا، ودع السياق المناسب يصل أبعد من رسالة باردة أخرى.")}</p><div><Link href="/signup" className="button button-primary">{t("Join free", "انضم مجانا")} {direction}</Link><Link href="/pricing" className="button button-ghost">{t("Explore membership", "استكشف العضوية")}</Link></div></div></div></section>
+    {/* ponytail: callout used to carry its own button-primary to /signup next to a ghost
+    button to /pricing - a second, differently-destined "primary" a few sections below the
+    hero's. Kept one conversion goal (the matching brief) primary throughout and demoted
+    signup/pricing to ghost. */}
+    <section className="connect-landing-callout"><div className="container"><div className="connect-callout-image"><img src={signalArtwork} alt="" /><span>{t("One clear next conversation", "محادثة تالية واضحة")}</span></div><div><SectionLabel>{t("Start free", "ابدأ مجانا")}</SectionLabel><h2>{t("One useful introduction can change the shape of the week.", "مقدمة مفيدة واحدة يمكن أن تغير شكل الأسبوع.")}</h2><p>{t("Join the network, write a focused brief, and let the right context travel further than another cold message.", "انضم إلى الشبكة، واكتب موجزا مركزا، ودع السياق المناسب يصل أبعد من رسالة باردة أخرى.")}</p><div><Link href="/requests/new" className="button button-primary">{t("Build a matching brief", "أنشئ موجز مطابقة")} {direction}</Link><Link href="/signup" className="button button-ghost">{t("Join free", "انضم مجانا")}</Link></div></div></div></section>
   </>;
 }

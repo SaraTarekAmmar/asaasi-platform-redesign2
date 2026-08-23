@@ -184,6 +184,7 @@ export default function RoadmapStagePage() {
           <SectionLabel>{t("The company journey", "رحلة الشركة")}</SectionLabel>
           <h1>{t(stage.routeLabel[0], stage.routeLabel[1])}</h1>
           <p>{t(stage.intro[0], stage.intro[1])}</p>
+          <Link href={courseReady ? stage.courseHref : "/signup"} className="button button-primary">{courseReady ? t("Open the course", "افتح الدورة") : t("Get the stage briefing", "احصل على موجز المرحلة")} <Arrow size={15} /></Link>
         </div>
         <aside className="roadmap-stage-hero__evidence">
           <span className="mono">{t("The stage promise", "وعد المرحلة")}</span>
@@ -247,6 +248,10 @@ export function RoadmapCoursePage({ stageSlug }: { stageSlug?: string }) {
   const stage = stages.find((item) => item.slug === (stageSlug ?? requestedStage));
   if (!stage) return <NotFound />;
   const courseReady = Number(stage.number) <= 2;
+  // ponytail: not-ready stages duplicated the stage page's content behind a route nothing
+  // links to (stage page only links here when courseReady). 404 instead of maintaining a
+  // second near-identical render of the same stage data.
+  if (!courseReady) return <NotFound />;
   const artifact = stageArtifacts[stage.slug];
   const workingObject = stageWorkingObjects[stage.slug];
   const Arrow = isRTL ? ArrowLeft : ArrowRight;

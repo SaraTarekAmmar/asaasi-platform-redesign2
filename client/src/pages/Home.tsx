@@ -131,7 +131,7 @@ export default function Home() {
         {navigationMenus.map((menu) => <NavDropdown menu={menu} isRTL={isRTL} key={menu.id} />)}
       </nav>
       <div className="header-actions">
-        <Link href="/assessment" className="sales-link">{t("Take Founder Test", "أجرِ اختبار المؤسس")}</Link>
+        <Link href="/assessment" className="sales-link">{t("Take the founder test", "أجرِ اختبار المؤسس")}</Link>
         <button type="button" className="sign-in language-toggle" onClick={toggleLocale} aria-label={t("Switch to Arabic", "التبديل إلى الإنجليزية")}>
           {t("العربية", "EN")}
         </button>
@@ -243,9 +243,9 @@ export default function Home() {
           <h2>{t("Seven stages.", "سبع مراحل.")}<br />{t("One growth path.", "مسار نمو واحد.")}</h2>
           <p>{t("Move from a sharp problem to regional scale with the right signal, people, and infrastructure at every stage.", "انتقل من مشكلة واضحة إلى التوسع الإقليمي عبر الإشارة والأشخاص والبنية المناسبة في كل مرحلة.")}</p>
           <div className="roadmap-proof">
-            <span><strong>2</strong> {t("stages fully built and taught", "مرحلتان مبنيتان بالكامل ومُدرَستان")}</span>
             <span><strong>9</strong> {t("functional pillars mapped", "ركائز وظيفية مرتبطة")}</span>
             <span>{t("Season 1 podcast recorded with top-tier SaaS founders", "الموسم الأول من البودكاست مسجل مع مؤسسي SaaS من الصفوف الأولى")}</span>
+            <span><strong>2</strong> {t("stages live now, more added monthly", "مرحلتان متاحتان الآن، ويُضاف المزيد كل شهر")}</span>
           </div>
         </motion.div>
         <div className="roadmap-key"><span><i /> {t("Company growth roadmap", "خارطة نمو الشركة")}</span><small>{t("Tap a stage to see where ASaaSI can help.", "اختر مرحلة لتعرف أين تساعدك ASaaSI.")}</small></div>
@@ -264,7 +264,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="testimonials" className="quote-section section-pad">
+      <section id="approach" className="quote-section section-pad">
         <motion.p className="eyebrow centered-eyebrow" {...reveal()}>{t("A SAAS ECOSYSTEM WITH A POINT OF VIEW", "منظومة SaaS برؤية واضحة")}</motion.p>
         <div className="quote-grid">{quotes.map((item, index) => <motion.blockquote className={index === 2 ? "quote-wide" : ""} key={item.number} {...reveal(index * 0.1)}><span>{formatNum(item.number)}</span><p>{t(item.quote[0], item.quote[1])}</p><footer><b>{t(item.label[0], item.label[1])}</b><small>{t(item.detail[0], item.detail[1])}</small></footer></motion.blockquote>)}</div>
       </section>
@@ -278,13 +278,14 @@ export default function Home() {
         </motion.div>
         <div className="faq-column">
           <motion.div className="provider-strip" {...fadeIn()}>
-            <div className="provider-track">{[...providerCategories, ...providerCategories, ...providerCategories].map((category, index) => { const Icon = category.icon; return <Link href={`/providers?service=${category.query}`} className="provider-chip" key={`${category.name[0]}-${index}`}>
+            {/* ponytail: only 3 categories exist today; static row instead of the tripled infinite-marquee that implied a larger directory. Re-enable the loop (drop this style + restore the triple-spread) once there are enough categories to need it. */}
+            <div className="provider-track" style={{ animation: "none" }}>{providerCategories.map((category, index) => { const Icon = category.icon; return <Link href={`/providers?service=${category.query}`} className="provider-chip" key={`${category.name[0]}-${index}`}>
               <span className="provider-chip-icon"><Icon size={16} /></span>
               <strong>{t(category.name[0], category.name[1])}</strong>
             </Link>; })}</div>
           </motion.div>
           <p className="provider-strip-hint">{t("Tap a specialty to filter the provider directory.", "اضغط على تخصص لتصفية دليل المزودين.")}</p>
-          <div className="faq-subhead">{t("Frequently asked", "أسئلة شائعة")}</div>
+          <div className="faq-subhead">{t("Provider FAQ", "أسئلة مزودي الخدمة")}</div>
           <div className="faq-list">{faqItems.map(([q, qAr, a, aAr], index) => { const isOpen = openFaq === index; return <div className={`faq-item ${isOpen ? "is-open" : ""}`} key={q}><button type="button" onClick={() => setOpenFaq(isOpen ? null : index)} aria-expanded={isOpen}><span>{t(q, qAr)}</span><Plus size={20} /></button>
             <AnimatePresence initial={false}>{isOpen && <motion.p initial={reduceMotion ? false : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={reduceMotion ? undefined : { height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: EASE }} style={{ overflow: "hidden" }}>{t(a, aAr)}</motion.p>}</AnimatePresence>
           </div>; })}</div>
@@ -294,14 +295,14 @@ export default function Home() {
       <section id="trial" className="cta-section">
         <div className="cta-grid" aria-hidden="true">{Array.from({ length: 14 }, (_, index) => <i key={index} />)}</div>
         <motion.div className="cta-inner" {...reveal()}>
-          <p className="eyebrow">{t("JOIN THE ECOSYSTEM", "انضم إلى المنظومة")}</p>
-          <h2>{t("MENA's SaaS economy needs a place to connect its strengths.", "يحتاج اقتصاد SaaS في المنطقة إلى مكان يجمع نقاط قوته.")}</h2>
-          <p>{t("ASaaSI brings the people, knowledge, companies, events, tools, and next moves into the same ecosystem.", "تجمع ASaaSI الأشخاص والمعرفة والشركات والفعاليات والأدوات والخطوات التالية في منظومة واحدة.")}</p>
+          <p className="eyebrow">{t("YOUR NEXT STEP", "خطوتك التالية")}</p>
+          <h2>{t("You've seen the ecosystem. Here's what joining actually gets you.", "لقد اطلعت على المنظومة. إليك ما الذي يمنحك إياه الانضمام فعليا.")}</h2>
+          <p>{t("Create a free profile, take the 2-minute founder assessment, and get matched to the roadmap stage, people, and tools that fit where your company is right now.", "أنشئ ملفا مجانيا، أجرِ اختبار المؤسس الذي يستغرق دقيقتين، واحصل على مطابقة مع مرحلة خارطة الطريق والأشخاص والأدوات التي تناسب موقع شركتك الحالي.")}</p>
           <ul>{ctaPoints.map((point) => <li key={point[0]}><Check size={14} /> {t(point[0], point[1])}</li>)}</ul>
           <div className="hero-actions">
+            <Link href="/pricing" className="btn btn-outline">{t("Compare membership plans", "قارن خطط العضوية")} <DirectionalArrow isRTL={isRTL} /></Link>
             {isAuthed ? <Link href="/connect" className="btn btn-black">{t("Explore ASaaSI", "استكشف ASaaSI")} <DirectionalArrow isRTL={isRTL} /></Link>
-              : <Link href="/signup" className="btn btn-black">{t("Join free", "انضم مجانا")} <DirectionalArrow isRTL={isRTL} /></Link>}
-            <Link href="/pricing" className="btn btn-outline">{t("See membership plans", "شاهد خطط العضوية")} <DirectionalArrow isRTL={isRTL} /></Link>
+              : <Link href="/signup" className="btn btn-black">{t("Create your free profile", "أنشئ ملفك المجاني")} <DirectionalArrow isRTL={isRTL} /></Link>}
           </div>
         </motion.div>
       </section>
