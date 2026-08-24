@@ -140,7 +140,7 @@
 
 /* Landing-derived tool discovery: a clear desk handoff, searchable ledger, and soft rectangular focus controls without decorative process graphics. */
 .app-product .tools-desk-section { padding-top: 28px; }
-.app-product .tools-desk-bridge { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: clamp(24px, 4vw, 50px); padding: clamp(25px, 4vw, 40px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 22px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 14px 34px rgba(7, 27, 61, 0.05); }
+.app-product .tools-desk-bridge { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: clamp(24px, 4vw, 50px); padding: clamp(25px, 4vw, 40px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 22px; background: color-mix(in srgb, var(--white) 72%, transparent); box-shadow: 0 14px 34px rgba(7, 27, 61, 0.05); }
 .app-product .tools-desk-bridge h2 { max-width: 660px; margin: 9px 0 11px; color: var(--ink); font: 500 clamp(27px, 3.4vw, 43px)/1.05 "Manrope", sans-serif; letter-spacing: -0.058em; }
 .app-product .tools-desk-bridge p { max-width: 610px; margin: 0; color: var(--body-muted); line-height: 1.6; }
 .app-product .tools-desk-bridge__rationale { display: grid; gap: 5px; margin-top: 15px !important; padding-inline-start: 13px; border-inline-start: 2px solid var(--gold); font-size: 13px; }

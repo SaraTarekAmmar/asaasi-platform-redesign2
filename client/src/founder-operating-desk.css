@@ -426,7 +426,7 @@
 .app-product .founder-desk-intro > div { max-width: 720px; }
 .app-product .founder-desk-intro h1 { margin: 10px 0 14px; color: var(--ink); font: 500 clamp(28px, 2vw, 32px)/1.15 "Manrope", sans-serif; letter-spacing: -0.03em; }
 .app-product .founder-desk-intro p { max-width: 620px; margin: 0; color: var(--body-muted); font-size: 16px; line-height: 1.65; }
-.app-product .founder-desk-priority { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: clamp(24px, 4vw, 54px); padding: clamp(26px, 4vw, 44px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 24px; background: rgba(255, 255, 255, 0.76); box-shadow: 0 16px 36px rgba(7, 27, 61, 0.06); }
+.app-product .founder-desk-priority { display: grid; grid-template-columns: minmax(0, 1fr) 285px; gap: clamp(24px, 4vw, 54px); padding: clamp(26px, 4vw, 44px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 24px; background: color-mix(in srgb, var(--white) 76%, transparent); box-shadow: 0 16px 36px rgba(7, 27, 61, 0.06); }
 .app-product .founder-desk-priority__copy h2 { max-width: 650px; margin: 10px 0 14px; color: var(--ink); font: 500 clamp(26px, 3.5vw, 42px)/1.05 "Manrope", sans-serif; letter-spacing: -0.055em; }
 .app-product .founder-desk-priority__copy p { max-width: 570px; margin: 0 0 22px; color: var(--body-muted); line-height: 1.6; }
 .app-product .founder-desk-priority__selector { display: grid; align-content: center; gap: 9px; padding-inline-start: 26px; border-inline-start: 1px solid rgba(7, 27, 61, 0.1); }
@@ -941,7 +941,7 @@
 .app-product .founder-profile-refresh p { margin: 0; color: var(--body-muted); font-size: 11px; line-height: 1.55; }
 .app-product .founder-profile-refresh .text-link { color: var(--ink); font-size: 11px; }
 .app-product .founder-desk-records { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
-.app-product .founder-desk-records article { display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; border: 1px solid rgba(7, 27, 61, 0.09); border-radius: 20px; background: rgba(255, 255, 255, 0.7); padding: 24px; box-shadow: 0 10px 28px rgba(7, 27, 61, 0.045); }
+.app-product .founder-desk-records article { display: flex; min-height: 250px; flex-direction: column; align-items: flex-start; border: 1px solid rgba(7, 27, 61, 0.09); border-radius: 20px; background: color-mix(in srgb, var(--white) 70%, transparent); padding: 24px; box-shadow: 0 10px 28px rgba(7, 27, 61, 0.045); }
 .app-product .founder-desk-records .mono { color: #6d7889; font-size: 9px; letter-spacing: 0.12em; }
 .app-product .founder-desk-records h2 { margin: 13px 0 10px; color: var(--ink); font: 500 23px/1.12 "Manrope", sans-serif; letter-spacing: -0.04em; }
 .app-product .founder-desk-records p { margin: 0; color: var(--body-muted); font-size: 14px; line-height: 1.58; }
@@ -1193,7 +1193,7 @@
 .app-product .founder-desk-guidance__count svg { color: var(--gold); }
 .app-product .activity-row-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: end; gap: 10px; }
 .app-product .activity-row-actions .text-link { border: 0; background: transparent; color: var(--body-muted); cursor: pointer; font: 600 13px "DM Sans", sans-serif; }
-.app-product .activity-review-panel { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 26px; align-items: center; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 22px; background: rgba(255, 255, 255, 0.72); box-shadow: 0 14px 34px rgba(7, 27, 61, 0.05); }
+.app-product .activity-review-panel { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 26px; align-items: center; margin: 18px 0; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(7, 27, 61, 0.1); border-radius: 22px; background: color-mix(in srgb, var(--white) 72%, transparent); box-shadow: 0 14px 34px rgba(7, 27, 61, 0.05); }
 .app-product .activity-review-panel h2 { max-width: 680px; margin: 9px 0 11px; color: var(--ink); font: 500 clamp(26px, 3vw, 39px)/1.07 "Manrope", sans-serif; letter-spacing: -0.052em; }
 .app-product .activity-review-panel p { max-width: 650px; margin: 0; color: var(--body-muted); line-height: 1.6; }
 .app-product .activity-review-panel__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 21px; }

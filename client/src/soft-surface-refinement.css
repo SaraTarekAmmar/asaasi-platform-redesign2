@@ -134,7 +134,7 @@
   border: 1px solid rgba(7, 27, 61, 0.1) !important;
   border-top-width: 1px !important;
   border-radius: var(--soft-radius-lg) !important;
-  background: rgba(255, 255, 255, 0.82) !important;
+  background: color-mix(in srgb, var(--white) 82%, transparent) !important;
   box-shadow: 0 16px 38px rgba(7, 27, 61, 0.07) !important;
 }
 
@@ -152,7 +152,7 @@
   .roadmap-stage-outcomes article
 ) {
   border: 1px solid rgba(7, 27, 61, 0.09) !important;
-  background: rgba(255, 255, 255, 0.64) !important;
+  background: color-mix(in srgb, var(--white) 64%, transparent) !important;
   box-shadow: 0 8px 22px rgba(7, 27, 61, 0.045) !important;
 }
 
@@ -262,7 +262,7 @@
   padding: 10px 12px !important;
   border: 1px solid rgba(7, 27, 61, 0.08) !important;
   border-radius: var(--soft-radius-md) !important;
-  background: rgba(255, 255, 255, 0.72) !important;
+  background: color-mix(in srgb, var(--white) 72%, transparent) !important;
   box-shadow: 0 8px 22px rgba(7, 27, 61, 0.04) !important;
   scrollbar-width: none;
 }
@@ -285,7 +285,7 @@
 .app-product .proof-cell {
   border: 1px solid rgba(7, 27, 61, 0.08) !important;
   border-radius: var(--soft-radius-md) !important;
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: color-mix(in srgb, var(--white) 70%, transparent) !important;
   box-shadow: 0 8px 22px rgba(7, 27, 61, 0.04) !important;
 }
 
