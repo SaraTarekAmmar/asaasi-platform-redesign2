@@ -433,7 +433,7 @@
 .app-product .founder-desk-priority__selector > span { margin-bottom: 4px; color: #6f7b8d; font-size: 9px; }
 .app-product .founder-desk-priority__selector button { width: 100%; border: 1px solid transparent; border-radius: 12px; background: transparent; padding: 11px 12px; color: var(--body-muted); font: 600 13px "DM Sans", sans-serif; text-align: start; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
 .app-product .founder-desk-priority__selector button.is-active { border-color: rgba(202, 165, 21, 0.34); background: rgba(246, 201, 21, 0.13); color: var(--ink); }
-.app-product .founder-context-status { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 28px; align-items: center; margin-top: 18px; padding: clamp(22px, 3.4vw, 31px); border: 1px solid rgba(202,165,21,.34); border-radius: 20px; background: rgba(255,253,245,.72); }
+.app-product .founder-context-status { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 28px; align-items: center; margin-top: 18px; padding: clamp(22px, 3.4vw, 31px); border: 1px solid rgba(202,165,21,.34); border-radius: 20px; background: color-mix(in srgb, var(--tint-paper) 72%, transparent); }
 .app-product .founder-context-status .mono { color: #8c7110; font-size: 9px; }
 .app-product .founder-context-status h2 { max-width: 680px; margin: 8px 0 9px; color: var(--ink); font: 500 clamp(24px, 3vw, 37px)/1.08 "Manrope", sans-serif; letter-spacing: -.055em; }
 .app-product .founder-context-status p { max-width: 690px; margin: 0; color: var(--body-muted); font-size: 13px; line-height: 1.6; }
@@ -1087,12 +1087,12 @@
 .app-product .weekly-close-learning > div:last-child { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; }
 .app-product .weekly-close-learning .text-link { border: 0; background: transparent; color: var(--ink); cursor: pointer; font: 600 11px "DM Sans",sans-serif; white-space: nowrap; }
 .app-product .weekly-close-learning button:disabled { cursor: not-allowed; opacity: .42; }
-.app-product .weekly-repeated-deferral { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; align-items: center; width: 100%; margin-top: 4px; padding: 14px 16px; border: 1px solid rgba(202,165,21,.4); border-inline-start: 3px solid var(--gold); border-radius: 14px; background: rgba(255,253,245,.74); }
+.app-product .weekly-repeated-deferral { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 16px; align-items: center; width: 100%; margin-top: 4px; padding: 14px 16px; border: 1px solid rgba(202,165,21,.4); border-inline-start: 3px solid var(--gold); border-radius: 14px; background: color-mix(in srgb, var(--tint-paper) 74%, transparent); }
 .app-product .weekly-repeated-deferral span { display: block; margin-bottom: 4px; color: #8c7110; font: 600 9px "DM Sans",sans-serif; letter-spacing: .08em; text-transform: uppercase; }
 .app-product .weekly-repeated-deferral p { max-width: 610px; margin: 0; color: var(--body-muted); font-size: 11px; line-height: 1.55; }
 .app-product .weekly-repeated-deferral > div:last-child { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; }
 .app-product .weekly-repeated-deferral .text-link { border: 0; background: transparent; color: var(--ink); cursor: pointer; font: 600 11px "DM Sans",sans-serif; white-space: nowrap; }
-.app-product .weekly-primary-close-success { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 14px; align-items: start; margin: 18px 0; padding: 20px 24px; border: 1px solid rgba(7,27,61,.11); border-inline-start: 3px solid var(--gold); border-radius: 18px; background: rgba(255,253,245,.72); }
+.app-product .weekly-primary-close-success { display: grid; grid-template-columns: auto minmax(0,1fr) auto; gap: 14px; align-items: start; margin: 18px 0; padding: 20px 24px; border: 1px solid rgba(7,27,61,.11); border-inline-start: 3px solid var(--gold); border-radius: 18px; background: color-mix(in srgb, var(--tint-paper) 72%, transparent); }
 .app-product .weekly-primary-close-success > svg { margin-top: 3px; color: #8c7110; }
 .app-product .weekly-primary-close-success h2 { margin: 4px 0 7px; color: var(--ink); font: 500 clamp(20px,2.1vw,29px)/1.12 "Manrope",sans-serif; letter-spacing: -.04em; }
 .app-product .weekly-primary-close-success p { max-width: 580px; margin: 0; color: var(--body-muted); font-size: 12px; line-height: 1.6; }
