@@ -8,7 +8,7 @@
      - asaasi-unified.css gives resource-card/person-card/tool-card/support-card/
        event-card/panel-card/profile-preview/settings-panel/match-card/org-form/
        registration-card the exact same shape: `border:1px solid #dddeda;
-       border-radius:0; background:#fff;` — 11 different content types, one rectangle.
+       border-radius:0; background:var(--white);` — 11 different content types, one rectangle.
      - soft-surface-refinement.css then forces a *different* single identical shape
        (rounded corners + translucent white fill + drop shadow) onto almost anything
        via `[class*="-card"], [class*="-panel"], [class*="-row"]` wildcard selectors.
@@ -52,7 +52,11 @@
 /* Opt-in scale for next-phase page work — apply directly, no wrapper needed. */
 .app-product .ds-display-l { margin: 0; font: 500 clamp(34px, 3.6vw, 52px)/1.03 "Manrope", sans-serif; letter-spacing: -.05em; color: var(--ink); }
 .app-product .ds-display-m { margin: 0; font: 500 clamp(26px, 2.4vw, 34px)/1.08 "Manrope", sans-serif; letter-spacing: -.045em; color: var(--ink); }
-.app-product .ds-lede { margin: 0; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.5; color: #3f5372; max-width: 60ch; }
+/* ponytail: was a literal #3f5372 - readable on the light page background it was designed
+   against, but never flips, so it goes low-contrast on the dark background in dark mode.
+   var(--body-muted) is the existing token for this exact "muted intro paragraph" role and
+   already flips correctly. */
+.app-product .ds-lede { margin: 0; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.5; color: var(--body-muted); max-width: 60ch; }
 .app-product .ds-kicker { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font: 700 10px/1 "DM Sans", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
 
 /* ============================================================
@@ -84,7 +88,7 @@
 .app-product :is(.resource-card, .support-card, .tool-card) {
   border: 1px solid var(--hairline) !important;
   border-radius: 0 !important;
-  background: #fff !important;
+  background: var(--white) !important;
   box-shadow: none !important;
 }
 .app-product :is(.person-card, .match-card) {
@@ -97,7 +101,7 @@
   border: 0 !important;
   border-inline-start: 3px solid var(--gold) !important;
   border-radius: 0 !important;
-  background: #fff !important;
+  background: var(--white) !important;
   box-shadow: none !important;
 }
 .app-product :is(.panel-card, .profile-preview, .settings-panel, .org-form, .registration-card, .next-moves) {
@@ -110,7 +114,7 @@
 .app-product .form-panel {
   border: 1px solid var(--hairline) !important;
   border-radius: 0 !important;
-  background: #fff !important;
+  background: var(--white) !important;
   box-shadow: var(--shadow-lift) !important;
 }
 .app-product .resource-card.featured {
@@ -143,7 +147,9 @@
   display: grid; place-items: center;
   width: 26px; height: 26px;
   border: 1px solid var(--gold); border-radius: 50%;
-  background: #fff; color: var(--ink);
+  /* ponytail: was a literal #fff paired with the flipping var(--ink) text - fine in light mode,
+     near-invisible in dark mode once --ink flips light. var(--white) flips with it. */
+  background: var(--white); color: var(--ink);
   font: 700 11px/1 "DM Sans", sans-serif;
 }
 .app-product .ds-step-rail > div h4 { margin: 0 0 6px; font: 500 18px/1.15 "Manrope", sans-serif; letter-spacing: -.03em; color: var(--ink); }

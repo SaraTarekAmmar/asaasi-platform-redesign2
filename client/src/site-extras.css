@@ -20,6 +20,11 @@ html[data-theme="dark"] .app-product {
   --saffron: #f6c915;
   --body-muted: #a7b0c0;
   --tint-paper: #141f30;
+  /* ponytail: --tint-gold/--tint-gold-strong (design-system-v2.css) and the literal #fff8d8
+     background scattered through asaasi-unified.css are the same warm-gold-tint role, still
+     paired with flipping var(--ink) text in several places - same bug as --tint-paper above. */
+  --tint-gold: #241f0c;
+  --tint-gold-strong: #2e2810;
 }
 
 .theme-toggle-compact { padding: 8px; }
@@ -110,6 +115,6 @@ html[data-theme="dark"] .app-product {
   .floating-action, .cookie-banner, .scroll-progress-track, .skip-link, .nav-mega-menu,
   .theme-toggle, .language-toggle, button, .button { display: none !important; }
   .product-shell-grid { display: block !important; width: 100% !important; }
-  body { background: #fff !important; color: #000 !important; }
+  body { background: var(--white) !important; color: #000 !important; }
   a { color: #000 !important; text-decoration: underline; }
 }

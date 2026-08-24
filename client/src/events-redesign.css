@@ -138,7 +138,7 @@
 .app-product .events-outcome-path ol li span { color: #8c7110; font: 600 10px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .events-outcome-path ol li strong { display: block; color: var(--ink); font: 600 14px/1.18 "Manrope",sans-serif; letter-spacing: -.03em; }
 .app-product .events-outcome-path ol li p { margin: 7px 0 0; color: #657287; font: 11px/1.42 "DM Sans",sans-serif; }
-.app-product .events-preparation-desk { display: grid; grid-template-columns: minmax(0,.8fr) minmax(210px,.68fr) minmax(190px,.54fr) auto; gap: 20px; align-items: end; margin-top: 30px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 18px; background: #fff; box-shadow: 0 10px 28px rgba(7,27,61,.045); }
+.app-product .events-preparation-desk { display: grid; grid-template-columns: minmax(0,.8fr) minmax(210px,.68fr) minmax(190px,.54fr) auto; gap: 20px; align-items: end; margin-top: 30px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); box-shadow: 0 10px 28px rgba(7,27,61,.045); }
 .app-product .events-preparation-desk h2 { max-width: 340px; margin: 9px 0 7px; color: var(--ink); font: 500 24px/1.05 "Manrope",sans-serif; letter-spacing: -.055em; }
 .app-product .events-preparation-desk p { max-width: 390px; margin: 0; color: var(--body-muted); font: 11px/1.48 "DM Sans",sans-serif; }
 .app-product .events-preparation-desk label { display: grid; gap: 7px; color: var(--body-muted); font: 600 9px "DM Sans",sans-serif; letter-spacing: .06em; }
@@ -171,7 +171,7 @@
 .app-product .event-intent-controls { position: relative; margin-top: 24px; padding: 14px 0 14px 16px; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg,rgba(202,165,21,.055),transparent 48%); }
 .app-product .event-intent-controls::after { position: absolute; inset-inline-end: 0; top: -2px; width: 54px; height: 2px; background: var(--gold); content: ""; }
 .app-product .event-intent-controls button { position: relative; border-radius: 7px; background: transparent; }
-.app-product .event-intent-controls button.is-active { border-color: var(--ink); background: var(--surface-dark); color: var(--paper); }
+.app-product .event-intent-controls button.is-active { border-color: var(--ink); background: var(--surface-dark); color: var(--surface-dark-text); }
 .app-product .event-intent-controls button.is-active::before { position: absolute; inset-inline-start: 9px; inset-inline-end: 9px; top: -6px; height: 2px; background: var(--gold); content: ""; }
 .app-product .section-clay#past { position: relative; border-top: 1px solid var(--line); background: var(--paper); }
 .app-product .section-clay#past::before { position: absolute; inset-inline-start: max(24px, calc((100% - 1180px) / 2)); top: 0; width: 34px; height: 2px; background: var(--surface-dark); content: ""; }

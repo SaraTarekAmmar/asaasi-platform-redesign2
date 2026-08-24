@@ -142,6 +142,10 @@ export function CommunityPost() {
     if (!comment.trim()) return;
     setComments((current) => [...current, { author: t("You", "أنت"), text: comment.trim(), arText: comment.trim() }]);
     setComment("");
+    // ponytail: posts/newPostsStore hold the comment/reaction counts the feed and popular
+    // list read; mutate the shared post object so those views stay correct after navigating
+    // back instead of only updating this component's local `comments` state.
+    post.comments += 1;
   };
   const saveNextMove = (event: FormEvent) => {
     event.preventDefault();
@@ -161,7 +165,9 @@ export function CommunityPost() {
     showToast(t("Your community next move is now this week's primary bet.", "أصبحت خطوتك من المجتمع رهان هذا الأسبوع الرئيسي."));
   };
 
-  const reactionCount = post.reactions + (reacted ? 1 : 0);
+  // ponytail: reactionCount mirrors post.reactions rather than adding a separate local
+  // offset, so toggling react also updates the shared post object the feed/popular list read.
+  const reactionCount = post.reactions;
 
   return <>
     <section className="section" style={{ paddingBottom: 0 }}><div className="container" style={{ maxWidth: "42rem" }}>
@@ -175,7 +181,7 @@ export function CommunityPost() {
         {post.image && <img className="post-detail-image" src={post.image} alt="" />}
         <div className="post-detail-stats"><span><ThumbsUp size={13} /> {formatNum(reactionCount)}</span><span>{t(`${comments.length} comments`, `${formatNum(comments.length)} تعليقات`)}</span></div>
         <div className="post-detail-actionbar">
-          <button type="button" className={reacted ? "is-active" : ""} aria-pressed={reacted} onClick={() => { setReacted((current) => !current); if (!reacted) showToast(t(`You reacted to ${post.author}’s post.`, `تفاعلت مع منشور ${post.author}.`)); }}><ThumbsUp size={16} /> {reacted ? t("Reacted", "تم التفاعل") : t("Like", "إعجاب")}</button>
+          <button type="button" className={reacted ? "is-active" : ""} aria-pressed={reacted} onClick={() => { post.reactions += reacted ? -1 : 1; setReacted((current) => !current); if (!reacted) showToast(t(`You reacted to ${post.author}’s post.`, `تفاعلت مع منشور ${post.author}.`)); }}><ThumbsUp size={16} /> {reacted ? t("Reacted", "تم التفاعل") : t("Like", "إعجاب")}</button>
           <button type="button" onClick={() => document.getElementById("comment-input")?.focus()}><MessageCircle size={16} /> {t("Comment", "علق")}</button>
           <button type="button" className={captured ? "is-active" : ""} onClick={() => setCaptureOpen((current) => !current)}><Check size={16} /> {captured ? t("Next move captured", "تم حفظ الخطوة التالية") : t("Capture next move", "احفظ الخطوة التالية")}</button>
         </div>

@@ -2,7 +2,7 @@
 .app-product .pricing-grid { gap: 0; border-top: 2px solid var(--ink); }
 .app-product .pricing-grid .plan { min-height: 0; padding: 26px 22px; border: 0; border-inline-end: 1px solid var(--line); border-radius: 0; box-shadow: none; background: transparent; }
 .app-product .pricing-grid .plan:last-child { border-inline-end: 0; }
-.app-product .pricing-grid .plan.highlight { background: var(--surface-dark); color: var(--paper); }
+.app-product .pricing-grid .plan.highlight { background: var(--surface-dark); color: var(--surface-dark-text); }
 .app-product .pricing-grid .plan.highlight :is(h3,p,.plan-price,.plan-features) { color: var(--paper); }
 .app-product .pricing-grid .plan::before { content: none; }
 .app-product .pricing-grid .plan.highlight::before { background: var(--saffron); box-shadow: 0 0 0 5px rgba(246,201,21,.12); }
@@ -29,6 +29,6 @@
 .app-product .system-recovery-path { border-top-color: var(--line) !important; background: var(--line) !important; }
 .app-product .system-recovery-path li { background: var(--paper) !important; }
 .app-product .system-recovery-path strong { color: var(--ink) !important; }
-.app-product .system-state-record .button-primary { background: var(--surface-dark) !important; color: var(--paper) !important; }
+.app-product .system-state-record .button-primary { background: var(--surface-dark) !important; color: var(--surface-dark-text) !important; }
 .app-product .system-state-record .button-ghost { border-color: #c6cfdb !important; color: var(--ink) !important; }
 @media (max-width: 760px) { .app-product .pricing-grid { display: block; }.app-product .pricing-grid .plan { border-inline-end: 0; border-bottom: 1px solid var(--line); }.app-product .pricing-grid .plan:last-child { border-bottom: 0; } }
