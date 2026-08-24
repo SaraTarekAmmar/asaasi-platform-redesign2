@@ -66,7 +66,7 @@
 .flint-landing .story-card { width: 350px; min-height: 155px; padding: 18px 19px; border: 1px solid #ddded7; background: #fff; display: flex; flex-direction: column; transition: transform .2s cubic-bezier(.23,1,.32,1), box-shadow .2s ease; }
 .flint-landing .story-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(24,27,18,.08); }
 .flint-landing .story-logo { font: 800 17px/1 "Manrope", sans-serif; letter-spacing: -.7px; margin-bottom: 25px; }
-.flint-landing .story-card h3 { font: 600 15px/1.25 "DM Sans", sans-serif; letter-spacing: -.3px; margin: 0 0 13px; }
+.flint-landing .story-card h2 { font: 600 15px/1.25 "DM Sans", sans-serif; letter-spacing: -.3px; margin: 0 0 13px; }
 .flint-landing .story-card a, .flint-landing .product-card-top a { margin-top: auto; color: #1d1f1a; text-decoration: none; display: inline-flex; gap: 6px; align-items: center; font: 600 12px/1 "DM Sans", sans-serif; }
 .flint-landing .story-card a:hover, .flint-landing .product-card-top a:hover { color: #b58409; }
 @keyframes flintStoryScroll { from { transform: translateX(0); } to { transform: translateX(-546px); } }

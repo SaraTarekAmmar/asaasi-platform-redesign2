@@ -139,7 +139,7 @@
 .app-product .ds-step-rail > div { position: relative; padding-top: 26px; }
 .app-product .ds-step-rail > div::before {
   content: attr(data-step);
-  position: absolute; top: -13px; left: 0;
+  position: absolute; top: -13px; inset-inline-start: 0;
   display: grid; place-items: center;
   width: 26px; height: 26px;
   border: 1px solid var(--gold); border-radius: 50%;

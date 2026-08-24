@@ -39,12 +39,12 @@
 .nav-menu-trigger::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 100%;
+  inset-inline-start: 0;
+  inset-inline-end: 100%;
   bottom: 9px;
   height: 2px;
   background: var(--saffron);
-  transition: right 300ms var(--ease-out);
+  transition: inset-inline-end 300ms var(--ease-out);
 }
 
 .nav-menu-trigger:hover,
@@ -56,7 +56,7 @@
 .nav-menu-trigger:hover::after,
 .nav-menu-trigger:focus-visible::after,
 .nav-menu-trigger.is-active::after {
-  right: 0;
+  inset-inline-end: 0;
 }
 
 .nav-menu.is-open .nav-menu-trigger svg {

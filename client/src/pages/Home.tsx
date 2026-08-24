@@ -183,7 +183,7 @@ export default function Home() {
         <div className="story-track">
           {[...stories, ...stories].map((story, index) => <Link href={story.href} className="story-card" key={`${story.href}-${index}`}>
             <span className="story-logo">{t(story.label[0], story.label[1])}</span>
-            <h3>{t(story.metric[0], story.metric[1])}</h3>
+            <h2>{t(story.metric[0], story.metric[1])}</h2>
             <span>{t(story.detail[0], story.detail[1])} <DirectionalArrow isRTL={isRTL} size={14} /></span>
           </Link>)}
         </div>
