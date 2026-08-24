@@ -7,8 +7,8 @@ import { ArrowLeft, ArrowRight, Check, ImagePlus, LockKeyhole, MessageCircle, Se
 import { PageIntro, SectionLabel, SignalTag, Toast, useToast } from "../components/site";
 import { useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
-import { upsertWorkflowRecord } from "../lib/workflowRecords";
-import { setWeeklyPrimaryBet } from "../lib/weeklyPrimaryBet";
+import { getWorkflowRecords, upsertWorkflowRecord } from "../lib/workflowRecords";
+import { getWeeklyPrimaryBet, setWeeklyPrimaryBet } from "../lib/weeklyPrimaryBet";
 
 const postTopics = ["All posts", "Pricing", "Growth", "Hiring", "Cofounder", "Enterprise"] as const;
 const topicArabic: Record<(typeof postTopics)[number], string> = { "All posts": "كل المنشورات", Pricing: "التسعير", Growth: "النمو", Hiring: "التوظيف", Cofounder: "شريك مؤسس", Enterprise: "المؤسسات" };
@@ -122,10 +122,12 @@ export function CommunityPost() {
   const [reacted, setReacted] = useState(false);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState(() => post?.seedComments ?? []);
-  const [nextMove, setNextMove] = useState("");
+  const commitmentId = `community-learning-${post?.id}`;
+  const existingCommitment = getWorkflowRecords().find((record) => record.id === commitmentId);
+  const [nextMove, setNextMove] = useState(() => existingCommitment?.nextAction ?? "");
   const [captureOpen, setCaptureOpen] = useState(false);
-  const [captured, setCaptured] = useState(false);
-  const [weeklyCommitment, setWeeklyCommitment] = useState(false);
+  const [captured, setCaptured] = useState(() => Boolean(existingCommitment));
+  const [weeklyCommitment, setWeeklyCommitment] = useState(() => getWeeklyPrimaryBet()?.recordId === commitmentId);
 
   if (!post) return <ThreadRouteState unavailable title={t("This thread is no longer active.", "هذا الموضوع لم يعد نشطا.")} copy={t("The network can still route you to a live founder question with room for a useful answer.", "لا تزال الشبكة قادرة على توجيهك إلى سؤال حي لمؤسس يتسع لإجابة مفيدة.")} />;
 

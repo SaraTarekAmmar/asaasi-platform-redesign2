@@ -24,7 +24,7 @@ const pastEvents = [
   { title: "Founder Briefing: hiring without a recruiter", arTitle: "إحاطة المؤسس: التوظيف بلا مسؤول توظيف", date: "05 May 2026", dateAr: "٥ مايو ٢٠٢٦", attendees: 41 }
 ];
 
-function retainedEventQuestion(record?: WorkflowRecord) {
+export function retainedEventQuestion(record?: WorkflowRecord) {
   if (!record) return "";
   if (record.eventPreparation?.question) return record.eventPreparation.question;
   return (record.evidence ?? "").replace("Event question: ", "").replace("سؤال الفعالية: ", "");
