@@ -636,6 +636,21 @@
   }
 }
 
+@media (max-width: 360px) {
+  /* ponytail: WorkspaceHeader (the actual /dashboard header) has no hamburger/mobile-menu
+     fallback at all, so its .nav-login links were already hidden here (navigation.css) at
+     620px - but that fix's own language-toggle rule loses a specificity tie to
+     ".app-product > .site-header .language-toggle.language-toggle-compact" above (both 0,4,0;
+     this file loads after navigation.css, so it wins and forces the toggle back on). Matching
+     the winning selector's specificity here, later in the same file, actually hides it: Logo +
+     theme + language + notification + avatar don't fit at 320-360px and there's no menu to move
+     them into, so cut the two least-essential (theme/language stay reachable from any other page). */
+  .app-product > .site-header .nav-actions > .theme-toggle,
+  .app-product > .site-header .nav-actions > .language-toggle.language-toggle-compact {
+    display: none;
+  }
+}
+
 /* Connect redesign: a founder-matching map rather than a generic directory hero. */
 .app-product .connect-map-hero { position: relative; overflow: hidden; padding: 82px 0 0; background: var(--surface-dark); color: #fff; }
 .app-product .connect-map-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/42px 42px, radial-gradient(circle at 76% 18%, rgba(202,165,21,.2), transparent 25%), radial-gradient(circle at 18% 72%, rgba(202,165,21,.1), transparent 28%); mask-image: linear-gradient(to bottom, black, transparent 90%); }
