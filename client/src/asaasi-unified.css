@@ -615,6 +615,15 @@
   .app-product .landing-site-header .landing-header-actions { gap: 8px; margin-left: auto; }
   .app-product .landing-site-header .landing-header-actions .language-toggle { padding: 9px 11px; font-size: 11px; }
   .app-product .landing-site-header .landing-header-actions .button { padding: 10px 11px; font-size: 10px; white-space: nowrap; }
+  /* ponytail: 44px is the WCAG min touch target (see --control-height), so shrinking these to fit
+     was never the fix - at this width the header row (icon-buttons + toggles + a button, all at
+     44px) genuinely doesn't have room for every control at once. Theme/language toggles now also
+     live in the mobile menu footer, so drop the header-row copies here and keep only what has no
+     other way in on mobile: notifications, profile, and the primary action. */
+  .app-product .landing-site-header .landing-header-actions > .theme-toggle,
+  .app-product .landing-site-header .landing-header-actions > .language-toggle {
+    display: none;
+  }
 }
 
 /* Connect redesign: a founder-matching map rather than a generic directory hero. */
