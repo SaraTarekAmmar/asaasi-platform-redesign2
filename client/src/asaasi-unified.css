@@ -268,7 +268,7 @@
 .app-product .connection-route__step.is-active { background: var(--surface-dark); }
 .app-product .connection-route__step.is-active h3,
 .app-product .connection-route__step.is-active p { color: #fff; }
-.app-product .connection-route__index { border-radius: 50%; background: var(--saffron); color: var(--ink); }
+.app-product .connection-route__index { border-radius: 50%; background: var(--saffron); color: #071b3d; }
 .app-product .post-list { border-top: 1px solid var(--line-soft); }
 .app-product .post-card { display: grid; grid-template-columns: 52px minmax(0,1fr); gap: 16px; padding: 24px; border-width: 0 0 1px; background: var(--white); }
 .app-product .post-card .avatar { border-radius: 50%; }

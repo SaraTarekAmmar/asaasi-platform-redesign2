@@ -251,7 +251,10 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .framework-recap-pillars span { padding: .35rem .7rem; background: var(--surface-dark); color: var(--surface-dark-text); font-size: .75rem; font-weight: 600; }
 .section-dark .framework-recap-stages li { background: rgba(247, 244, 236, .06); border-color: rgba(247, 244, 236, .22); color: var(--paper); }
 .section-dark .framework-recap-stages .mono { color: var(--saffron); }
-.section-dark .framework-recap-pillars span { background: var(--saffron); color: var(--ink); }
+/* ponytail: var(--ink) flips light in dark mode, but --saffron itself never darkens to match
+   (it's a constant bright accent by design) - was producing near-white text on bright yellow.
+   Fixed literal matches --ink's light-mode value, same fix pattern as .connect-floating-context. */
+.section-dark .framework-recap-pillars span { background: var(--saffron); color: #071b3d; }
 
 /* Learn hub, format library as an editorial row list (matches "Curated for focus" above it)
    instead of a card grid: fixes uneven card heights and an awkward half-empty last row. */

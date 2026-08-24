@@ -976,7 +976,7 @@
 .app-product .decision-outcome-options button { border: 1px solid rgba(255,255,255,.22); border-radius: 10px; background: transparent; padding: 11px; color: rgba(255,255,255,.72); font: 600 12px "DM Sans", sans-serif; }
 .app-product .decision-outcome-options button.is-active { border-color: var(--saffron); background: rgba(246,201,21,.12); color: #fff; }
 .app-product .decision-review-editor__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin-top: 20px; }
-.app-product .decision-review-editor__actions .button-primary { background: var(--saffron); color: var(--ink); }
+.app-product .decision-review-editor__actions .button-primary { background: var(--saffron); color: #071b3d; }
 .app-product .decision-review-editor__actions .text-link { color: #fff; }
 .app-product .decision-review-editor .inline-success { margin-top: 18px; background: rgba(255,255,255,.11); color: #fff; }
 .app-product .accountability-layout { display: grid; grid-template-columns: 285px minmax(0, 1fr); gap: 18px; margin-top: 18px; }
@@ -1019,7 +1019,7 @@
 .app-product .weekly-review-brief dl > div { padding-inline-start: 12px; border-inline-start: 1px solid rgba(255,255,255,.22); }
 .app-product .weekly-review-brief dt { color: rgba(255,255,255,.6); font: 600 9px "DM Sans", sans-serif; letter-spacing: .1em; text-transform: uppercase; }
 .app-product .weekly-review-brief dd { margin: 6px 0 0; color: var(--saffron); font: 500 28px/1 "Manrope", sans-serif; }
-.app-product .weekly-review-brief .button-light { white-space: nowrap; background: var(--saffron); color: var(--ink); }
+.app-product .weekly-review-brief .button-light { white-space: nowrap; background: var(--saffron); color: #071b3d; }
 .app-product .weekly-review-brief__actions { display: grid; justify-items: start; gap: 12px; }
 .app-product .weekly-review-brief__actions .text-link { display: inline-flex; align-items: center; gap: 7px; border: 0; background: transparent; color: #fff; cursor: pointer; font: 600 12px "DM Sans",sans-serif; }
 .app-product .weekly-review-agenda { padding: clamp(23px,3.5vw,34px); border-radius: 22px; background: color-mix(in srgb, var(--white) 68%, transparent); box-shadow: 0 10px 28px rgba(7,27,61,.04); }
@@ -1111,7 +1111,7 @@
 .app-product .activity-learning-summary__metrics span, .app-product .activity-learning-summary__metrics strong { display: block; }
 .app-product .activity-learning-summary__metrics span { color: rgba(255,255,255,.62); font: 600 9px "DM Sans", sans-serif; letter-spacing: .11em; text-transform: uppercase; }
 .app-product .activity-learning-summary__metrics strong { margin-top: 6px; color: var(--saffron); font: 500 28px/1 "Manrope", sans-serif; }
-.app-product .activity-learning-summary .button-dark { background: var(--saffron); color: var(--ink); white-space: nowrap; }
+.app-product .activity-learning-summary .button-dark { background: var(--saffron); color: #071b3d; white-space: nowrap; }
 .app-product .activity-review-tools { margin: 26px 0; border: 1px solid rgba(7,27,61,.12); border-radius: 18px; background: var(--paper); }
 .app-product .activity-review-tools > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: clamp(16px,2.4vw,22px); cursor: pointer; list-style: none; }
 .app-product .activity-review-tools > summary::-webkit-details-marker { display: none; }
@@ -1181,7 +1181,7 @@
 .app-product .founder-desk-next p { max-width: 650px; margin: 0; color: rgba(255, 255, 255, 0.74); line-height: 1.6; }
 .app-product .founder-desk-next .section-label { color: var(--saffron); }
 .app-product .founder-desk-next__actions { display: grid; justify-items: start; gap: 13px; flex: 0 0 auto; }
-.app-product .founder-desk-next .button-dark { background: var(--saffron); color: var(--ink); }
+.app-product .founder-desk-next .button-dark { background: var(--saffron); color: #071b3d; }
 .app-product .founder-desk-next .text-link { color: #fff; }
 .app-product .founder-desk-guidance { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 18px; padding: clamp(25px, 4vw, 38px); border: 1px solid rgba(202, 165, 21, 0.34); border-radius: 22px; background: rgba(246, 201, 21, 0.1); }
 .app-product .founder-desk-guidance > div { max-width: 690px; }

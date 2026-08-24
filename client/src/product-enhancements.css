@@ -20,7 +20,7 @@
 .app-product .access-tier-card.subscriber{background:var(--tint-gold-strong,#fff2c1)!important;border-top:2px solid var(--ink)!important;border-inline-start:3px solid var(--gold)}
 
 /* Final workspace composition: the first view is a decision briefing with a living relationship structure, never a blank dashboard field. */
-.product-shell-grid{align-items:start}.product-main{align-self:start}.product-hero-dashboard{position:relative;padding-top:6px}.cta-band{background:var(--clay)!important}.cta-band .button-primary{background:var(--saffron);color:var(--ink)}
+.product-shell-grid{align-items:start}.product-main{align-self:start}.product-hero-dashboard{position:relative;padding-top:6px}.cta-band{background:var(--clay)!important}.cta-band .button-primary{background:var(--saffron);color:#071b3d}
 
 
 /* Workspace typography scale: the marketing hero clamp (up to 72px) reused for every in-app page title
