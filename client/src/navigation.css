@@ -50,7 +50,7 @@
 .nav-menu-trigger:hover,
 .nav-menu-trigger:focus-visible,
 .nav-menu-trigger.is-active {
-  color: var(--brand-blue);
+  color: var(--ink);
 }
 
 .nav-menu-trigger:hover::after,
@@ -97,7 +97,7 @@
 .nav-mega-intro .mono,
 .nav-mega-group-label,
 .nav-mega-feature .mono {
-  color: var(--brand-blue);
+  color: var(--ink);
   font: 700 9px/1.3 "IBM Plex Mono", monospace;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -180,7 +180,7 @@
 
 .nav-mega-group a:hover strong,
 .nav-mega-group a[aria-current="page"] strong {
-  color: var(--brand-blue);
+  color: var(--ink);
 }
 
 .nav-mega-group a em {
@@ -292,12 +292,12 @@
   }
 
   .mobile-nav-trigger svg {
-    color: var(--brand-blue);
+    color: var(--ink);
     transition: transform 180ms var(--ease-out);
   }
 
   .mobile-nav-group.is-expanded .mobile-nav-trigger {
-    color: var(--brand-blue);
+    color: var(--ink);
   }
 
   .mobile-nav-group.is-expanded .mobile-nav-trigger svg {
@@ -335,7 +335,7 @@
   .mobile-subgroup > span {
     display: block;
     padding: 14px 0 3px;
-    color: var(--brand-blue);
+    color: var(--ink);
     font: 700 9px/1.3 "IBM Plex Mono", monospace;
     letter-spacing: 0.12em;
     text-transform: uppercase;
