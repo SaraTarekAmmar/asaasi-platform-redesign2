@@ -19,6 +19,7 @@ html[data-theme="dark"] .app-product {
   --gold: #e6c257;
   --saffron: #f6c915;
   --body-muted: #a7b0c0;
+  --tint-paper: #141f30;
 }
 
 .theme-toggle-compact { padding: 8px; }

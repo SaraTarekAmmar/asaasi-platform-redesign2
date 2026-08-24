@@ -115,7 +115,13 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: var(--ink);
+  /* ponytail: the mega-menu panel's background is a hardcoded #fffdf8/#fff (see below and
+     asaasi-unified.css's ".app-product > .site-header .nav-mega-menu") that never flips with
+     the theme - it's a permanently-light dropdown, same family as the site-footer/button-primary
+     "fixed surface, fixed text" pairing. var(--ink) DOES flip (near-white in dark mode), which
+     made this text invisible against the still-light panel once dark mode shipped. Fixed literal
+     to match the fixed panel instead. */
+  color: #071b3d;
   font-size: 12px;
   font-weight: 700;
 }
@@ -145,7 +151,9 @@
   display: block;
   padding: 8px 0;
   border-bottom: 1px solid rgba(6, 43, 85, 0.09);
-  color: var(--ink);
+  /* ponytail: same fixed-panel/fixed-text pairing as .nav-mega-overview above - var(--ink) would
+     go near-white in dark mode against this panel's still-hardcoded-light background. */
+  color: #071b3d;
 }
 
 .nav-mega-group a:last-child {
@@ -194,7 +202,12 @@
   gap: 12px;
   padding: 18px;
   background: var(--surface-dark);
-  color: var(--paper);
+  /* ponytail: --surface-dark is deliberately a fixed-value token that never flips with the theme
+     (see the ~120-site comment in asaasi-unified.css - it exists specifically so dark-styled
+     panels don't invert into white-on-near-white). var(--paper) DOES flip, so pairing it here
+     turned into near-black text on this permanently-dark panel once dark mode shipped. Every
+     other --surface-dark panel in the codebase pairs it with a fixed light literal instead. */
+  color: #edf1f8;
   transition: background 180ms var(--ease-out), transform 180ms var(--ease-out);
 }
 

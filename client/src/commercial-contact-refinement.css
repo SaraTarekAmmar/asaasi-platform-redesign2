@@ -112,7 +112,12 @@
 .contact-next-response .mono, .contact-response-rail .mono { color: var(--body-muted); font-size: 0.6rem; letter-spacing: 0.14em; }
 .contact-next-response strong { color: var(--ink); font: 600 0.78rem/1.25 "DM Sans", sans-serif; }
 .contact-context-form label { display: grid; gap: 0.45rem; color: var(--ink); font: 600 0.78rem/1.2 "DM Sans", sans-serif; }
-.contact-context-form input, .contact-context-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); font: 0.9rem/1.45 "DM Sans", sans-serif; }
+/* ponytail: ".app-product " prefix isn't decorative - it raises this rule's specificity (0,2,1)
+   above the generic ".app-product input,.app-product textarea{background:#fff}" reset in
+   asaasi-unified.css (0,1,1), which ties with the un-prefixed selector this used to be and can win
+   the tie depending on real bundle order. #fff behind this field's theme-flipping var(--ink) text
+   would go invisible in dark mode (light ink on a hardcoded-white field). */
+.app-product .contact-context-form input, .app-product .contact-context-form textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; background: var(--paper); color: var(--ink); font: 0.9rem/1.45 "DM Sans", sans-serif; }
 .contact-context-form textarea { min-height: 145px; resize: vertical; }
 .contact-response-rail { display: grid; gap: 0.45rem; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .contact-response-rail strong { max-width: 560px; color: var(--body-muted); font: 0.78rem/1.45 "DM Sans", sans-serif; }

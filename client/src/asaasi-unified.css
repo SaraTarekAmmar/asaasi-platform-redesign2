@@ -15,6 +15,10 @@
   --line-soft: #d5dce6;
   --gold: #caa515;
   --body-muted: #53627a;
+  /* ponytail: warm-cream tint used by ~48 founder-operating-desk.css rules as a literal #fffdf5 -
+     never flipped with the theme (dark --ink text landing on a permanently-light #fffdf5 patch).
+     Named token so it can flip like --paper/--white already do; see the dark override below. */
+  --tint-paper: #fffdf5;
   /* ponytail: --ink does double duty as "primary text color" (correctly inverts light<->dark)
      AND, via ~120 `background: var(--surface-dark)` rules, as the fill for dark-styled buttons/banners/
      sections whose text is hardcoded white - those must NOT invert, or dark mode turns them
