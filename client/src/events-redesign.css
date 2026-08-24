@@ -183,7 +183,7 @@
 .app-product .past-event-row .signal-tag { margin-inline-start: 12px; border-radius: 7px; background: transparent; }
 .app-product .events-preparation-desk { border-radius: 14px; box-shadow: none; }
 .app-product .events-preparation-desk__actions .button-dark { border-inline-start: 2px solid var(--gold); }
-.app-product .source-linked-event-preparation { margin-top: 18px; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 16px; background: rgba(255,255,255,.82); box-shadow: 0 10px 26px rgba(7,27,61,.035); }
+.app-product .source-linked-event-preparation { margin-top: 18px; overflow: hidden; border: 1px solid rgba(7,27,61,.13); border-radius: 16px; background: color-mix(in srgb, var(--white) 82%, transparent); box-shadow: 0 10px 26px rgba(7,27,61,.035); }
 .app-product .source-linked-event-preparation__heading { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 20px; align-items: start; padding: clamp(21px,3vw,31px); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
 .app-product .source-linked-event-preparation__heading > div { max-width: 700px; }
 .app-product .source-linked-event-preparation__heading h2 { max-width: 27ch; margin: 8px 0 9px; color: var(--ink); font: 500 clamp(22px,2.8vw,34px)/1.07 "Manrope",sans-serif; letter-spacing: -.055em; }
