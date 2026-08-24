@@ -996,6 +996,9 @@
 .app-product .decision-accountability-float strong, .app-product .decision-accountability-float small { display: block; }
 .app-product .decision-accountability-float strong { color: var(--saffron); font: 600 12px "DM Sans", sans-serif; }
 .app-product .decision-accountability-float small { margin-top: 3px; color: rgba(255,255,255,.7); font: 11px/1.35 "DM Sans", sans-serif; }
+.app-product .decision-accountability-float > a { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; color: #fff; text-decoration: none; }
+.app-product .decision-accountability-float > button { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border: none; border-radius: 50%; background: transparent; color: rgba(255,255,255,.6); cursor: pointer; padding: 0; }
+.app-product .decision-accountability-float > button:hover { color: #fff; background: rgba(255,255,255,.12); }
 .app-product .weekly-review-float { position: fixed; right: 24px; bottom: 24px; z-index: 59; display: flex; align-items: center; gap: 11px; max-width: min(370px, calc(100vw - 48px)); border: 1px solid rgba(7,27,61,.16); border-radius: 14px; background: var(--paper); box-shadow: 0 16px 38px rgba(7,27,61,.14); padding: 14px 16px; color: var(--ink); text-decoration: none; }
 .app-product .weekly-review-float span { min-width: 0; flex: 1; }
 .app-product .weekly-review-float strong, .app-product .weekly-review-float small { display: block; }
@@ -1103,6 +1106,14 @@
 .app-product .activity-learning-summary__metrics span { color: rgba(255,255,255,.62); font: 600 9px "DM Sans", sans-serif; letter-spacing: .11em; text-transform: uppercase; }
 .app-product .activity-learning-summary__metrics strong { margin-top: 6px; color: var(--saffron); font: 500 28px/1 "Manrope", sans-serif; }
 .app-product .activity-learning-summary .button-dark { background: var(--saffron); color: var(--ink); white-space: nowrap; }
+.app-product .activity-review-tools { margin: 26px 0; border: 1px solid rgba(7,27,61,.12); border-radius: 18px; background: var(--paper); }
+.app-product .activity-review-tools > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; padding: clamp(16px,2.4vw,22px); cursor: pointer; list-style: none; }
+.app-product .activity-review-tools > summary::-webkit-details-marker { display: none; }
+.app-product .activity-review-tools > summary::after { content: "+"; margin-inline-start: auto; color: var(--body-muted); font: 500 18px/1 "Manrope", sans-serif; }
+.app-product .activity-review-tools[open] > summary::after { content: "\2212"; }
+.app-product .activity-review-tools > summary span { color: var(--body-muted); font: 12px/1.5 "DM Sans", sans-serif; }
+.app-product .activity-review-tools__body { padding: 0 clamp(16px,2.4vw,22px) clamp(16px,2.4vw,22px); border-top: 1px solid rgba(7,27,61,.1); }
+.app-product .activity-review-tools__body > * { margin-top: 18px; }
 .app-product .activity-monthly-learning { display: grid; grid-template-columns: minmax(230px,.66fr) minmax(0,1.34fr); gap: clamp(22px,4vw,48px); margin: 18px 0; padding: clamp(23px,3.5vw,33px); border: 1px solid rgba(202,165,21,.34); border-radius: 20px; background: #fffdf5; }
 .app-product .activity-monthly-learning__intro h2 { max-width: 15ch; margin: 8px 0 11px; color: var(--ink); font: 500 clamp(24px,3vw,38px)/1.08 "Manrope",sans-serif; letter-spacing: -.055em; }
 .app-product .activity-monthly-learning__intro > p { max-width: 32rem; margin: 0; color: var(--body-muted); font-size: 13px; line-height: 1.6; }

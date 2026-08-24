@@ -27,10 +27,12 @@ function reviewStatus(record: WorkflowRecord, today: string, t: (en: string, ar:
   return { label: record.reviewDue ? t(`Due ${record.reviewDue}`, `مستحق ${record.reviewDue}`) : t("Set a review date", "حدد تاريخ المراجعة"), tone: "open" };
 }
 
-function researchCadenceDueDate(weekStart?: string) {
+function researchCadenceDueDate(weekStart?: string, today?: string) {
   const date = new Date(`${weekStart ?? getWeekStart()}T12:00:00`);
   date.setDate(date.getDate() + 4);
-  return date.toISOString().slice(0, 10);
+  const computed = date.toISOString().slice(0, 10);
+  const floor = today ?? new Date().toISOString().slice(0, 10);
+  return computed < floor ? floor : computed;
 }
 
 function weeklyDecisionSource(record: WorkflowRecord, t: (en: string, ar: string) => string) {
@@ -164,7 +166,7 @@ export function WeeklyDecisionReviewWorkspace() {
     const currentCadence = cadence?.primaryBetWeek === primaryBet?.weekStart ? cadence : undefined;
     setResearchQuestion(currentCadence?.question ?? "");
     setResearchBuyer(currentCadence?.buyer ?? "");
-    setResearchDueDate(currentCadence?.dueDate ?? researchCadenceDueDate(primaryBet?.weekStart));
+    setResearchDueDate(currentCadence?.dueDate ?? researchCadenceDueDate(primaryBet?.weekStart, today));
     setResearchResponseRule(currentCadence?.responseRule ?? "");
     setIncludeRuleGuide(Boolean(currentCadence?.ruleSourceId && primaryRecord?.knowledgeGuidance));
     setReflectionSaved(false);
@@ -351,7 +353,7 @@ export function WeeklyDecisionReviewWorkspace() {
 
       {!primaryRecord && commitmentCandidates.length > 0 && <section className="weekly-preweek-commitment" aria-label={t("Pre-week commitment", "التزام ما قبل الأسبوع")}>
         <div className="weekly-preweek-commitment__intro"><SectionLabel>{t("Pre-week commitment", "التزام ما قبل الأسبوع")}</SectionLabel><h2>{t("Name one decision you want to return to on Friday.", "سمِ قرارا واحدا تريد العودة إليه يوم الجمعة.")}</h2><p>{t("Choose an existing decision, not another task. The short intention you add next will give Friday’s reflection something specific to test.", "اختر قرارا قائما، لا مهمة أخرى. ستمنح النية القصيرة التي تضيفها لاحقا لتأمل الجمعة شيئا محددا لاختباره.")}</p></div>
-        <div className="weekly-preweek-commitment__items">{commitmentCandidates.map((record) => { const status = reviewStatus(record, today, t); return <article key={record.id}><span>{status.label}</span><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p><div><button type="button" className="button button-light" onClick={() => choosePrimary(record.id)}>{t("Choose for this week", "اختره لهذا الأسبوع")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button><Link href="/dashboard/decision-review" className="text-link">{t("Review first", "راجع أولا")}</Link></div></article>; })}</div>
+        <div className="weekly-preweek-commitment__items">{commitmentCandidates.map((record) => { const status = reviewStatus(record, today, t); return <article key={record.id}><span>{status.label}</span><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p><div><button type="button" className="button button-light" onClick={() => choosePrimary(record.id)}>{t("Choose for this week", "اختره لهذا الأسبوع")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</button><Link href={`/dashboard/decision-review?decision=${encodeURIComponent(record.id)}`} className="text-link">{t("Review first", "راجع أولا")}</Link></div></article>; })}</div>
         <Link href="/dashboard/decision-review" className="text-link weekly-preweek-commitment__review">{t("Prepare a different decision in Decision Review", "جهز قرارا مختلفا في مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
       </section>}
 
@@ -365,7 +367,7 @@ export function WeeklyDecisionReviewWorkspace() {
           </div>
           <div className="weekly-primary-intention"><label>{t("By Friday, what do you want to know, decide, or change?", "بحلول الجمعة، ماذا تريد أن تعرف أو تقرر أو تغيّر؟")}<textarea value={weekIntent} onChange={(event) => { setWeekIntent(event.target.value); setWeekIntentSaved(false); }} placeholder={t("For example: know whether three buyer conversations support the new offer framing.", "مثلا: معرفة ما إذا كانت ثلاث محادثات مع مشترين تدعم صياغة العرض الجديدة.")} /></label><div><button type="button" className="button button-light" onClick={saveWeekIntent} disabled={!weekIntent.trim()}>{t("Save Friday intention", "احفظ نية الجمعة")}</button>{weekIntentSaved && <span className="inline-success"><Check size={14} /> {t("Intention saved with this week’s bet", "حُفظت النية مع رهان هذا الأسبوع")}</span>}</div></div>
           <div className="weekly-primary-bet__actions">
-            {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href="/dashboard/decision-review" className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
+            {primaryBet?.completedAt ? <><span className="inline-success"><Check size={14} /> {t("Weekly plan set", "تم تحديد خطة الأسبوع")}</span><button type="button" className="text-link" onClick={clearPrimary}>{t("Choose another bet", "اختر رهانا آخر")}</button></> : <><Link href={`/dashboard/decision-review?decision=${encodeURIComponent(primaryRecord.id)}`} className="button button-light">{t("Open primary bet", "افتح الرهان الرئيسي")} {isRTL ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}</Link><button type="button" className="button button-dark" onClick={completePrimary}><Check size={14} /> {t("Set this week's plan", "حدد خطة هذا الأسبوع")}</button></>}
             <div className="weekly-primary-reminder"><span>{t("Desk reminder", "تذكير المكتب")}</span><div><button type="button" className={primaryBet?.reminderDay === "tuesday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "tuesday" ? undefined : "tuesday")}>{t("Tuesday check-in", "مراجعة الثلاثاء")}</button><button type="button" className={primaryBet?.reminderDay === "thursday" ? "is-active" : ""} onClick={() => setReminder(primaryBet?.reminderDay === "thursday" ? undefined : "thursday")}>{t("Thursday check-in", "مراجعة الخميس")}</button></div><button type="button" className="text-link" onClick={downloadPrimaryBetCalendar}><CalendarPlus size={13} /> {t("Download calendar reminder", "نزّل تذكير التقويم")}</button></div>
           </div>
         </section>
@@ -382,7 +384,7 @@ export function WeeklyDecisionReviewWorkspace() {
           <label>{t("What did you learn from the work?", "ماذا تعلمت من العمل؟")}<textarea value={reflection} onChange={(event) => { setReflection(event.target.value); setReflectionSaved(false); }} placeholder={t("Record the customer language, result, or constraint that should change the next decision.", "سجل لغة العميل أو النتيجة أو القيد الذي ينبغي أن يغيّر القرار التالي.")} /></label>
           <div className="weekly-friday-reflection__actions">
             <button type="button" className="button button-dark" onClick={saveReflection} disabled={!reflection.trim()}><Check size={14} /> {t("Save Friday reflection", "احفظ تأمل الجمعة")}</button>
-            <Link href="/dashboard/decision-review" className="text-link">{t("Open decision review", "افتح مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
+            <Link href={`/dashboard/decision-review?decision=${encodeURIComponent(primaryRecord.id)}`} className="text-link">{t("Open decision review", "افتح مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>
             {reflectionSaved && <span className="inline-success"><Check size={14} /> {t("Learning carried into the decision record", "نُقل التعلم إلى سجل القرار")}</span>}
 
             <div className="weekly-carry-forward">
@@ -390,7 +392,7 @@ export function WeeklyDecisionReviewWorkspace() {
 
             {repeatedDeferral && <div className="weekly-repeated-deferral">
               <div><span>{t("Repeated deferral", "ترحيل متكرر")}</span><p>{t("This bet has remained in focus across more than one rollover. Reframe the decision with its evidence, close the approach with learning, or release the primary-bet slot for a new commitment.", "بقي هذا الرهان في التركيز عبر أكثر من ترحيل واحد. أعد صياغة القرار مع دليله أو أغلق النهج بتعلم أو حرر خانة الرهان الرئيسي لالتزام جديد.")}</p></div>
-              <div><Link href="/dashboard/decision-review" className="button button-light">{t("Reframe in Decision Review", "أعد الصياغة في مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><button type="button" className="text-link" onClick={clearPrimary}>{t("Release primary bet", "حرر الرهان الرئيسي")}</button></div>
+              <div><Link href={`/dashboard/decision-review?decision=${encodeURIComponent(primaryRecord.id)}`} className="button button-light">{t("Reframe in Decision Review", "أعد الصياغة في مراجعة القرار")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link><button type="button" className="text-link" onClick={clearPrimary}>{t("Release primary bet", "حرر الرهان الرئيسي")}</button></div>
             </div>}
 
             <div className="weekly-close-learning">
@@ -413,7 +415,7 @@ export function WeeklyDecisionReviewWorkspace() {
             <span className="weekly-review-row__index">{isPrimary ? <Target size={15} /> : formatNum(index + 1).padStart(2, "0")}</span>
             <div className="weekly-review-row__main"><header><span>{isPrimary ? t("Primary bet", "الرهان الرئيسي") : status.label}</span><small>{owner}</small></header><h3>{t(record.title, record.titleAr)}</h3><p>{t(record.nextAction ?? "Choose the next action", record.nextActionAr ?? "اختر الخطوة التالية")}</p></div>
             <div className="weekly-review-row__evidence"><span>{t("Evidence", "الدليل")}</span><p>{record.evidence || t("No evidence recorded. Return to capture the result while it is specific.", "لم يُسجل دليل. عد لالتقاط النتيجة بينما تظل محددة.")}</p></div>
-            <div className="weekly-review-row__actions"><Link href="/dashboard/decision-review" className="button button-ghost">{t("Review", "مراجعة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{isPrimary ? <button type="button" className="text-link" onClick={clearPrimary}>{t("Clear primary", "أزل الرهان الرئيسي")}</button> : <button type="button" className="text-link" onClick={() => choosePrimary(record.id)}>{t("Make primary", "اجعله رئيسيا")}</button>}<Link href="/dashboard/decision-accountability" className="text-link">{t("Owner & date", "المالك والتاريخ")}</Link></div>
+            <div className="weekly-review-row__actions"><Link href={`/dashboard/decision-review?decision=${encodeURIComponent(record.id)}`} className="button button-ghost">{t("Review", "مراجعة")} {isRTL ? <ArrowLeft size={13} /> : <ArrowRight size={13} />}</Link>{isPrimary ? <button type="button" className="text-link" onClick={clearPrimary}>{t("Clear primary", "أزل الرهان الرئيسي")}</button> : <button type="button" className="text-link" onClick={() => choosePrimary(record.id)}>{t("Make primary", "اجعله رئيسيا")}</button>}<Link href="/dashboard/decision-accountability" className="text-link">{t("Owner & date", "المالك والتاريخ")}</Link></div>
           </article>;
         })}</div>
       </section>

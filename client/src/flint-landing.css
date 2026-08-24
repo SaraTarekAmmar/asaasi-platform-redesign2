@@ -188,14 +188,14 @@
 .flint-landing .quote-section { background: var(--paper); }
 .flint-landing .centered-eyebrow { text-align: center; margin-bottom: 38px; }
 .flint-landing .quote-grid { max-width: 1160px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-soft); border-left: 1px solid var(--line-soft); }
-.flint-landing .quote-grid blockquote { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 32px; margin: 0; min-height: 280px; display: flex; flex-direction: column; }
-.flint-landing .quote-grid blockquote > span { font: 500 52px/.7 Georgia, serif; color: #d0a20a; }
-.flint-landing .quote-grid blockquote p { font: 500 clamp(20px,2.1vw,27px)/1.18 "Manrope", sans-serif; letter-spacing: -1.2px; margin: 18px 0 30px; max-width: 500px; }
-.flint-landing .quote-grid footer { margin-top: auto; display: flex; flex-direction: column; gap: 4px; }
-.flint-landing .quote-grid footer b { font-size: 12px; color: var(--ink); }
-.flint-landing .quote-grid footer small { color: #6c7f99; font-size: 12px; }
+.flint-landing .quote-grid article { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding: 32px; margin: 0; min-height: 280px; display: flex; flex-direction: column; }
+.flint-landing .quote-grid article > span { font: 500 52px/.7 Georgia, serif; color: #d0a20a; }
+.flint-landing .quote-grid article h3 { font: 500 clamp(20px,2.1vw,27px)/1.18 "Manrope", sans-serif; letter-spacing: -1.2px; margin: 18px 0 30px; max-width: 500px; }
+.flint-landing .quote-grid .quote-card-foot { margin-top: auto; display: flex; flex-direction: column; gap: 4px; }
+.flint-landing .quote-grid .quote-card-foot b { font-size: 12px; color: var(--ink); }
+.flint-landing .quote-grid .quote-card-foot small { color: #6c7f99; font-size: 12px; }
 .flint-landing .quote-wide { grid-column: span 2; min-height: auto!important; }
-.flint-landing .quote-wide p { max-width: 860px!important; }
+.flint-landing .quote-wide h3 { max-width: 860px!important; }
 
 .flint-landing .faq-section { max-width: 1260px; margin: auto; display: grid; grid-template-columns: .8fr 1.2fr; gap: 110px; align-items: start; }
 .flint-landing .faq-heading h2 { font: 500 clamp(37px,4.3vw,60px)/1 "Manrope", sans-serif; letter-spacing: -3.3px; margin: 0 0 16px; }
@@ -283,7 +283,7 @@
 [dir="rtl"] .flint-landing .stage-4 .roadmap-node { left: auto; right: -7px; }
 [dir="rtl"] .flint-landing .roadmap-stage p { line-height: 1.7; }
 [dir="rtl"] .flint-landing .quote-grid { border-left: 0; border-right: 1px solid var(--line-soft); }
-[dir="rtl"] .flint-landing .quote-grid blockquote { border-right: 0; border-left: 1px solid var(--line-soft); text-align: right; }
+[dir="rtl"] .flint-landing .quote-grid article { border-right: 0; border-left: 1px solid var(--line-soft); text-align: right; }
 [dir="rtl"] .flint-landing .faq-item button { text-align: right; }
 [dir="rtl"] .flint-landing .faq-item p { margin-right: 0; margin-left: 35px; line-height: 1.75; }
 [dir="rtl"] .flint-landing .cta-inner ul { direction: rtl; }
@@ -347,7 +347,7 @@
   .flint-landing .roadmap-stage p { max-width: 285px; font-size: 13px; margin-bottom: 9px; }
   .flint-landing .workflow-closer { margin-top: 22px; }
   .flint-landing .quote-grid { grid-template-columns: 1fr; }
-  .flint-landing .quote-grid blockquote { padding: 25px; min-height: 224px; }
+  .flint-landing .quote-grid article { padding: 25px; min-height: 224px; }
   .flint-landing .quote-wide { grid-column: span 1; }
   .flint-landing .faq-section { grid-template-columns: 1fr; gap: 43px; }
   .flint-landing .faq-heading h2 { letter-spacing: -2.4px; }
@@ -378,7 +378,7 @@
   [dir="rtl"] .flint-landing .roadmap-node, [dir="rtl"] .flint-landing .stage-4 .roadmap-node { right: -35px; left: auto; }
   [dir="rtl"] .flint-landing .roadmap-stage p { max-width: 285px; }
   [dir="rtl"] .flint-landing .quote-grid { border-right: 1px solid var(--line-soft); }
-  [dir="rtl"] .flint-landing .quote-grid blockquote { border-left: 1px solid var(--line-soft); }
+  [dir="rtl"] .flint-landing .quote-grid article { border-left: 1px solid var(--line-soft); }
   [dir="rtl"] .flint-landing .faq-item p { margin-left: 0; }
   [dir="rtl"] .flint-landing .footer-top, [dir="rtl"] .flint-landing .footer-bottom { align-items: flex-start; }
   [dir="rtl"] .flint-landing .footer-grid div { align-items: flex-start; }

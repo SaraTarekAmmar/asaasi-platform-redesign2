@@ -69,7 +69,7 @@ const footerColumns = [
   { title: ["Companies", "الشركات"], links: [["Company signals", "إشارات الشركات", "/startups"], ["Founder journeys", "رحلات المؤسسين", "/learn"], ["Events", "الفعاليات", "/events"]] },
   { title: ["Knowledge", "المعرفة"], links: [["Guides", "الأدلة", "/learn"], ["Field notes", "الملاحظات الميدانية", "/articles"], ["Playbooks", "أدلة العمل", "/playbooks"]] },
   { title: ["Infrastructure", "البنية"], links: [["Tools", "الأدوات", "/tools"], ["Talent", "المواهب", "/requests/browse"], ["Providers", "مزودو الخدمة", "/providers"]] },
-  { title: ["ASaaSI", "ASaaSI"], links: [["Explore ecosystem", "استكشف المنظومة", "/connect"], ["Join as a provider", "انضم كمزود خدمة", "/providers/join"], ["Explore events", "استكشف الفعاليات", "/events"]] },
+  { title: ["ASaaSI", "ASaaSI"], links: [["Membership plans", "خطط العضوية", "/pricing"], ["Join as a provider", "انضم كمزود خدمة", "/providers/join"], ["About ASaaSI", "عن ASaaSI", "/about"]] },
 ] as const;
 
 const menuLabelAr: Record<string, string> = { Connect: "تواصل", Community: "المجتمع", Providers: "المتخصصون", Learn: "تعلم", Events: "الفعاليات", Tools: "الأدوات", Membership: "العضوية" };
@@ -196,7 +196,7 @@ export default function Home() {
           <p>{t("ASaaSI turns the people, companies, learning, events, and operating tools that founders need into one shared starting point.", "تحول ASaaSI الأشخاص والشركات والتعلم والفعاليات والأدوات التشغيلية التي يحتاجها المؤسسون إلى نقطة انطلاق مشتركة.")}</p>
         </motion.div>
         <div className="product-grid">
-          {introCards.map((card, index) => <motion.article id={card.index === "02" ? "events" : undefined} className={`product-card ${card.className}`} key={card.index} {...reveal(index * 0.12)}>
+          {introCards.map((card, index) => <motion.article className={`product-card ${card.className}`} key={card.index} {...reveal(index * 0.12)}>
             <div className="product-card-top"><div><span className="product-index">{formatNum(card.index)}</span><span className="product-name">{t(card.label[0], card.label[1])}</span></div><Link href={card.href}>{t(card.link[0], card.link[1])} <DirectionalArrow isRTL={isRTL} size={14} /></Link></div>
             <div className="product-card-copy"><h3>{t(card.title[0], card.title[1])}</h3><p>{t(card.description[0], card.description[1])}</p></div>
             <div className="product-art"><img src={card.art} alt={t(card.imageAlt[0], card.imageAlt[1])} /></div>
@@ -245,7 +245,7 @@ export default function Home() {
           <div className="roadmap-proof">
             <span><strong>9</strong> {t("functional pillars mapped", "ركائز وظيفية مرتبطة")}</span>
             <span>{t("Season 1 podcast recorded with top-tier SaaS founders", "الموسم الأول من البودكاست مسجل مع مؤسسي SaaS من الصفوف الأولى")}</span>
-            <span><strong>2</strong> {t("stages live now, more added monthly", "مرحلتان متاحتان الآن، ويُضاف المزيد كل شهر")}</span>
+            <span><strong>7</strong> {t("stages live now, from validation to governance", "سبع مراحل متاحة الآن، من التحقق إلى الحوكمة")}</span>
           </div>
         </motion.div>
         <div className="roadmap-key"><span><i /> {t("Company growth roadmap", "خارطة نمو الشركة")}</span><small>{t("Tap a stage to see where ASaaSI can help.", "اختر مرحلة لتعرف أين تساعدك ASaaSI.")}</small></div>
@@ -266,7 +266,7 @@ export default function Home() {
 
       <section id="approach" className="quote-section section-pad">
         <motion.p className="eyebrow centered-eyebrow" {...reveal()}>{t("A SAAS ECOSYSTEM WITH A POINT OF VIEW", "منظومة SaaS برؤية واضحة")}</motion.p>
-        <div className="quote-grid">{quotes.map((item, index) => <motion.blockquote className={index === 2 ? "quote-wide" : ""} key={item.number} {...reveal(index * 0.1)}><span>{formatNum(item.number)}</span><p>{t(item.quote[0], item.quote[1])}</p><footer><b>{t(item.label[0], item.label[1])}</b><small>{t(item.detail[0], item.detail[1])}</small></footer></motion.blockquote>)}</div>
+        <div className="quote-grid">{quotes.map((item, index) => <motion.article className={index === 2 ? "quote-wide" : ""} key={item.number} {...reveal(index * 0.1)}><span>{formatNum(item.number)}</span><h3>{t(item.quote[0], item.quote[1])}</h3><div className="quote-card-foot"><b>{t(item.label[0], item.label[1])}</b><small>{t(item.detail[0], item.detail[1])}</small></div></motion.article>)}</div>
       </section>
 
       <section id="providers" className="faq-section section-pad">
