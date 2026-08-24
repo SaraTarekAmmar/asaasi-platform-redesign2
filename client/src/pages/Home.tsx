@@ -159,7 +159,7 @@ export default function Home() {
     <main>
       <section className="hero-section">
         <motion.div className="hero-copy" {...mountReveal()}>
-          <p className="eyebrow eyebrow-line">{t("SAAS, POWERED BY EVERYTHING THAT MATTERS", "SaaS، مدعوم بكل ما يهم")}</p>
+          <p className="eyebrow">{t("SAAS, POWERED BY EVERYTHING THAT MATTERS", "SaaS، مدعوم بكل ما يهم")}</p>
           <h1>{t("The operating system for SaaS founders in the Middle East.", "نظام التشغيل لمؤسسي SaaS في الشرق الأوسط.")}</h1>
           <p className="hero-subtitle">{t("The structured education, curated network, and practical tools you need to build, run, and scale a sustainable recurring-revenue business — in one place.", "التعليم المنظم والشبكة المنسقة والأدوات العملية التي تحتاجها لبناء وتشغيل وتوسيع عمل مستدام بإيرادات متكررة، في مكان واحد.")}</p>
           <div className="hero-actions">
@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       <section className="system-section section-pad">
-        <motion.div className="section-head system-heading" {...reveal()}><p className="eyebrow eyebrow-line">{t("THE THREE PILLARS", "الركائز الثلاث")}</p><h2>{t("Education, Community, and Tools.", "التعليم والمجتمع والأدوات.")}<br />{t("Run by one SaaS AI Coach.", "يديرها مرشد SaaS واحد بالذكاء الاصطناعي.")}</h2></motion.div>
+        <motion.div className="section-head system-heading" {...reveal()}><p className="eyebrow">{t("THE THREE PILLARS", "الركائز الثلاث")}</p><h2>{t("Education, Community, and Tools.", "التعليم والمجتمع والأدوات.")}<br />{t("Run by one SaaS AI Coach.", "يديرها مرشد SaaS واحد بالذكاء الاصطناعي.")}</h2></motion.div>
         <div className="system-rows">
           <motion.div className="system-row" {...reveal()}>
             <div className="system-label"><span>{formatNum("01")}</span><h3>{t("Education: learn exactly what your stage needs.", "التعليم: تعلم ما تحتاجه مرحلتك بالضبط.")}</h3></div>

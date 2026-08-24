@@ -6,6 +6,13 @@
 .locale-ar .app-product :is(.section-header > p,.page-hero p,.product-main .workspace-intro > p) { margin-inline-start: 0; margin-inline-end: auto; }
 .locale-ar .app-product :is(.product-actions,.result-actions,.form-actions) { flex-direction: row-reverse; justify-content: flex-start; }
 .locale-ar .app-product :is(.text-link,.button) svg { flex: 0 0 auto; }
+/* ponytail: hundreds of call sites render a plain <ArrowRight>/<ArrowUpRight>/<ChevronRight> with
+   no RTL branch (only some already do `{isRTL ? <ArrowLeft/> : <ArrowRight/>}`, which is why this
+   rule is scoped to lucide's own class names rather than a wrapper - any -right icon still in the
+   DOM under .locale-ar is by definition one nobody swapped yet, so mirroring it here can't double-flip
+   the ones that were already swapped to <ArrowLeft/> etc.). Icons that are direction-neutral
+   (chevron-down, check, calendar-plus...) aren't in this list and stay untouched. */
+.locale-ar .app-product :is(.lucide-arrow-right,.lucide-arrow-up-right,.lucide-chevron-right) { transform: scaleX(-1); }
 @media (max-width: 760px) {
   .app-product .section-header > p,
   .app-product .page-hero p,
