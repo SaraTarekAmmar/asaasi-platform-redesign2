@@ -36,15 +36,12 @@
   transition: transform 180ms var(--ease-out);
 }
 
+/* ponytail: was a growing underline revealed on hover/focus/active (inset-inline-end animating
+   to 0) - already disabled on product pages (asaasi-unified.css sets height:0 there); the user
+   just doesn't want it on the landing header either, so drop it at the source instead of
+   fighting it per-scope. */
 .nav-menu-trigger::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 0;
-  inset-inline-end: 100%;
-  bottom: 9px;
-  height: 2px;
-  background: var(--saffron);
-  transition: inset-inline-end 300ms var(--ease-out);
+  content: none;
 }
 
 .nav-menu-trigger:hover,
