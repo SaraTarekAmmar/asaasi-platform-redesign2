@@ -35,7 +35,9 @@
 }
 
 .app-product .site-header.workspace-header {
-  background: rgba(251, 251, 248, 0.92);
+  /* ponytail: same dark-mode bug as the main site-header in asaasi-unified.css - hardcoded
+     light background never flipped, while its icon buttons do get dark-mode-aware colors. */
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
   box-shadow: none;

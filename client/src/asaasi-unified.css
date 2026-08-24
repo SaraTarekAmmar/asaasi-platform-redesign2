@@ -43,7 +43,11 @@
 /* Header and footer match the standalone landing chrome. */
 .app-product > .site-header {
   min-height: 108px;
-  background: rgba(251, 251, 248, .92);
+  /* ponytail: was a hardcoded rgba(251,251,248,.92) - correct for light mode (matches --paper's
+     light value) but never flipped in dark mode, while the icon/text buttons inside it DO use
+     dark-mode-aware colors. Light icons on a light bar became invisible. --paper already carries
+     the right value for both themes (see site-extras.css's dark override), so reuse it here. */
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
   border-bottom: 1px solid var(--line);
   box-shadow: none;
   backdrop-filter: blur(14px);
@@ -709,7 +713,7 @@
 @media (max-width: 900px) { .app-product .landing-page-intro--providers .landing-page-intro__inner,.app-product .landing-page-intro--support .landing-page-intro__inner { display: block !important; }.app-product .landing-page-intro--providers .landing-page-intro__note,.app-product .landing-page-intro--support .landing-page-intro__note { width: 100%; margin: 22px 0 0; } }
 .app-product .product-shell,
 .app-product .signup-flow { background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; }
-.app-product .product-topbar { background: rgba(251,251,248,.94); border-bottom-color: var(--line); }
+.app-product .product-topbar { background: color-mix(in srgb, var(--paper) 94%, transparent); border-bottom-color: var(--line); }
 .app-product .product-topbar-inner { min-height: 104px; height: auto; }
 .app-product .product-context { border-left-color: var(--line); }
 .app-product .product-context strong,
