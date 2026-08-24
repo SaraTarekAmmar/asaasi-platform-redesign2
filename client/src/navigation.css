@@ -146,15 +146,13 @@
 
 .nav-mega-group a {
   display: block;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(6, 43, 85, 0.09);
+  /* ponytail: was a border-bottom divider between every item - reads as clutter when the panel
+     already spaces items in a gap-based group (.nav-mega-groups). Pure padding does the same
+     visual separation job without a rule. */
+  padding: 10px 0;
   /* ponytail: same fixed-panel/fixed-text pairing as .nav-mega-overview above - var(--ink) would
      go near-white in dark mode against this panel's still-hardcoded-light background. */
   color: #071b3d;
-}
-
-.nav-mega-group a:last-child {
-  border-bottom: 0;
 }
 
 .nav-mega-group a span {
