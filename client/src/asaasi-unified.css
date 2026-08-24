@@ -626,6 +626,16 @@
   }
 }
 
+@media (max-width: 360px) {
+  /* ponytail: even after the 520px tier's cuts, Logo + notification icon + avatar + a text
+     button ("Dashboard"/"Join ASaaSI", longer in English than Arabic) + hamburger still don't
+     fit at 320-360px. The button's destination is already one tap away in the hamburger menu
+     (.mobile-menu-footer), so drop it here same as the toggles above rather than truncate it. */
+  .app-product .landing-site-header .landing-header-actions > .button {
+    display: none;
+  }
+}
+
 /* Connect redesign: a founder-matching map rather than a generic directory hero. */
 .app-product .connect-map-hero { position: relative; overflow: hidden; padding: 82px 0 0; background: var(--surface-dark); color: #fff; }
 .app-product .connect-map-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.03) 1px, transparent 1px) 0 0/42px 42px, radial-gradient(circle at 76% 18%, rgba(202,165,21,.2), transparent 25%), radial-gradient(circle at 18% 72%, rgba(202,165,21,.1), transparent 28%); mask-image: linear-gradient(to bottom, black, transparent 90%); }
