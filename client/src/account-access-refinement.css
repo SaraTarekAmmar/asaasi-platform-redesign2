@@ -96,7 +96,7 @@
 .app-product .account-flow--registrations .account-route-rail > div, .app-product .account-flow--network .account-route-rail > div { min-height: 43px; grid-template-columns: 108px minmax(0,1fr); }
 .app-product .account-flow--registrations .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--network .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
-.app-product .account-flow--registrations .account-route-rail > div:last-child strong, .app-product .account-flow--network .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--registrations .account-route-rail > div:last-child strong, .app-product .account-flow--network .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--registrations .oauth-row, .app-product .account-flow--network .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--registrations .oauth-row::before, .app-product .account-flow--network .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY OPTIONS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--registrations .oauth-row::before, [dir="rtl"] .app-product .account-flow--network .oauth-row::before { content: "خيارات الهوية"; letter-spacing: 0; }
@@ -114,12 +114,12 @@
 .app-product .account-flow--pricing .account-return-object > .mono + ol li.is-active { box-shadow: inset 2px 0 0 var(--saffron); }
 .app-product .account-flow--pricing .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--pricing .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 54px; background: var(--gold); content: ""; }
-.app-product .account-flow--pricing .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "VALUE TEST / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--pricing .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "VALUE TEST / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--pricing .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--pricing .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 62%); }
-.app-product .account-flow--pricing .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }.app-product .account-flow--pricing .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }.app-product .account-flow--pricing .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }.app-product .account-flow--pricing .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--pricing .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }.app-product .account-flow--pricing .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }.app-product .account-flow--pricing .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }.app-product .account-flow--pricing .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--pricing .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }.app-product .account-flow--pricing .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE PRICING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
-.app-product .account-flow--registrations .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "COMMITMENT RETURN / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--registrations .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "COMMITMENT RETURN / IDENTITY CHECKPOINT"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ المشتري المحدد وبديله الحالي"; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(2)::after { content: "اجعل وعد قيمة واحدا وافتراض سعر ظاهرا"; }
 [dir="rtl"] .app-product .account-flow--pricing .account-return-object > .mono + ol li:nth-child(3)::after { content: "سجل الاستجابات الصريحة قبل تغيير العرض"; }
@@ -147,13 +147,13 @@
 .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE SAVED SEVEN-DAY INTERVENTION"; }
 .app-product .account-flow--health .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--health .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--health .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SaaS HEALTH / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--health .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "SaaS HEALTH / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--health .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--health .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--health .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--health .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--health .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
-.app-product .account-flow--health .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--health .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--health .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--health .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED DIAGNOSIS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--health .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد مدخلات المجموعة واتجاهها"; }
@@ -174,13 +174,13 @@
 .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE BOUNDED ONE-WEEK EXPERIMENT"; }
 .app-product .account-flow--diagnostic .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--diagnostic .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--diagnostic .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FOUNDER DIAGNOSTIC / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--diagnostic .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "FOUNDER DIAGNOSTIC / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--diagnostic .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--diagnostic .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--diagnostic .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--diagnostic .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--diagnostic .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
-.app-product .account-flow--diagnostic .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--diagnostic .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--diagnostic .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--diagnostic .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED DIAGNOSIS"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--diagnostic .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد الأبعاد التشغيلية الأربعة"; }
@@ -201,13 +201,13 @@
 .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE PAYBACK EVIDENCE MOVE"; }
 .app-product .account-flow--economics .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--economics .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--economics .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "UNIT ECONOMICS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--economics .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "UNIT ECONOMICS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--economics .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--economics .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--economics .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--economics .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--economics .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
-.app-product .account-flow--economics .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--economics .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--economics .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--economics .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED SCENARIO"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--economics .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد مساهمة ARPA والهامش الإجمالي"; }
@@ -228,13 +228,13 @@
 .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED COHORT INTERVENTION"; }
 .app-product .account-flow--retention .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--retention .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--retention .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "RETENTION RECOVERY / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--retention .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "RETENTION RECOVERY / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--retention .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--retention .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--retention .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--retention .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--retention .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
-.app-product .account-flow--retention .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--retention .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--retention .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--retention .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED RECOVERY TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--retention .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد عدد المجموعة ولحظة التراجع"; }
@@ -255,13 +255,13 @@
 .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED PATH-CHANGE EXPERIMENT"; }
 .app-product .account-flow--activation .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--activation .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--activation .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "ACTIVATION EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--activation .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "ACTIVATION EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 .app-product .account-flow--activation .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--activation .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--activation .account-route-rail > div { min-height: 43px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--activation .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--activation .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.05); }
-.app-product .account-flow--activation .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--activation .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--activation .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--activation .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED FIRST-VALUE TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--activation .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد حدث القيمة والنافذة الزمنية"; }
@@ -282,13 +282,13 @@
 .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(3)::after { content: "KEEP THE RESPONSE THRESHOLD WITH THE SIGNAL"; }
 .app-product .account-flow--gtm .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--gtm .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
-.app-product .account-flow--gtm .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED CHANNEL HYPOTHESIS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--gtm .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "SAVED CHANNEL HYPOTHESIS / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--gtm .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--gtm .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--gtm .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--gtm .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--gtm .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
-.app-product .account-flow--gtm .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--gtm .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--gtm .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--gtm .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED CHANNEL TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--gtm .account-return-object > .mono + ol li:nth-child(1)::after { content: "سمِ سياق المشتري الذي يستحق الاستماع"; }
@@ -309,13 +309,13 @@
 .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED BUYER-LANGUAGE FRAME TEST"; }
 .app-product .account-flow--positioning .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--positioning .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
-.app-product .account-flow--positioning .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED POSITIONING TEST / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--positioning .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "SAVED POSITIONING TEST / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--positioning .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--positioning .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--positioning .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--positioning .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--positioning .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
-.app-product .account-flow--positioning .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--positioning .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--positioning .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--positioning .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED POSITIONING TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--positioning .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد البديل الذي يعرفه المشتري بالفعل"; }
@@ -336,13 +336,13 @@
 .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(3)::after { content: "RESUME THE DATED COMMITMENT THAT EARNS ANOTHER CYCLE"; }
 .app-product .account-flow--customer .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--customer .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
-.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "SAVED CUSTOMER EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "SAVED CUSTOMER EVIDENCE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--customer .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--customer .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.045), transparent 56%); }
 .app-product .account-flow--customer .account-route-rail > div { min-height: 45px; grid-template-columns: 100px minmax(0,1fr); }
 .app-product .account-flow--customer .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
 .app-product .account-flow--customer .account-route-rail > div:nth-child(2) { background: rgba(202,165,21,.055); }
-.app-product .account-flow--customer .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--customer .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--customer .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--customer .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY FOR THE SAVED CUSTOMER FACT"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--customer .account-return-object > .mono + ol li:nth-child(1)::after { content: "استعد اللحظة السابقة خلف الافتراض"; }
@@ -361,10 +361,10 @@
 .app-product .account-flow--workspace .account-route-rail { margin-top: 23px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(7,27,61,.04), transparent 56%); }
 .app-product .account-flow--workspace .account-route-rail > div { min-height: 44px; grid-template-columns: 108px minmax(0,1fr); }
 .app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid var(--ink); }
-.app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--workspace .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--workspace .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--surface-dark); content: ""; }
-.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FOUNDER WORKSPACE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "FOUNDER WORKSPACE / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--workspace .account-form::after { content: "مساحة عمل المؤسس / مكتب العودة"; letter-spacing: 0; }
 .app-product .account-flow--network .account-return-object > .mono + ol { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(223, 227, 234, 0.28); }
 .app-product .account-flow--network .account-return-object > .mono + ol li { min-height: 78px; padding: .75rem .7rem; border-inline-end: 1px solid rgba(223, 227, 234, 0.2); }
@@ -385,10 +385,10 @@
 [dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(2)::after { content: "سمِ الرهان الواحد الذي يستحق تركيزك"; }
 [dir="rtl"] .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3)::after { content: "انقل تعلم الجمعة إلى الخطوة التالية"; }
 .app-product .account-flow--weekly-review .account-route-rail { margin-top: 24px; border-inline-start-width: 2px; }
-.app-product .account-flow--weekly-review .account-route-rail > div:first-child strong, .app-product .account-flow--weekly-review .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--weekly-review .account-route-rail > div:first-child strong, .app-product .account-flow--weekly-review .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--weekly-review .account-form { position: relative; padding: 0 0 2px 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--weekly-review .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 42px; background: var(--gold); content: ""; }
-.app-product .account-flow--weekly-review .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "WEEKLY REVIEW / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
+.app-product .account-flow--weekly-review .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "WEEKLY REVIEW / RETURN DESK"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .11em; }
 [dir="rtl"] .app-product .account-flow--weekly-review .account-form::after { content: "المراجعة الأسبوعية / مكتب العودة"; letter-spacing: 0; }
 .app-product .account-flow--weekly-review .account-form > p { max-width: 31rem; padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--weekly-review .account-route-rail { position: relative; margin-inline-start: -18px; padding-inline-start: 18px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
@@ -516,13 +516,13 @@
 .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(3)::after { content: "DATED RESPONSE THRESHOLD"; }
 .app-product .account-flow--market .account-form { position: relative; padding-inline-start: 18px; border-inline-start: 1px solid var(--line); }
 .app-product .account-flow--market .account-form::before { position: absolute; inset-inline-start: -1px; top: 0; width: 2px; height: 46px; background: var(--gold); content: ""; }
-.app-product .account-flow--market .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "IDENTITY FOR THE SAVED SEGMENT MAP"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--market .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "IDENTITY FOR THE SAVED SEGMENT MAP"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--market .account-form > p { padding-bottom: 13px; border-bottom: 1px solid var(--line); }
 .app-product .account-flow--market .account-route-rail { position: relative; margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.055), transparent 56%); }
 .app-product .account-flow--market .account-route-rail > div { min-height: 43px; grid-template-columns: 118px minmax(0,1fr); }
 .app-product .account-flow--market .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--market .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.028); }
-.app-product .account-flow--market .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--market .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--market .oauth-row { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); }
 .app-product .account-flow--market .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY TO REOPEN THE SEGMENT MAP"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--market .account-return-object > .mono + ol li:nth-child(1)::after { content: "العمل الحي والحل الالتفافي الحالي"; }
@@ -562,12 +562,12 @@
 .app-product .account-flow--workspace .account-form,
 .app-product .account-flow--weekly-review .account-form,
 .app-product .account-flow--customer .account-form { background: linear-gradient(90deg, rgba(7,27,61,.024), transparent 74%); }
-.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "WORKSPACE IDENTITY / RETURN LEDGER"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--workspace .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 20px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "WORKSPACE IDENTITY / RETURN LEDGER"; font: 600 9px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--workspace .account-route-rail { margin-top: 24px; margin-inline-start: -18px; padding-inline-start: 18px; border-inline-start-width: 2px; background: linear-gradient(90deg, rgba(202,165,21,.06), transparent 58%); }
 .app-product .account-flow--workspace .account-route-rail > div { min-height: 46px; grid-template-columns: 112px minmax(0,1fr); }
 .app-product .account-flow--workspace .account-route-rail > div:first-child { border-top: 2px solid var(--gold); }
 .app-product .account-flow--workspace .account-route-rail > div:nth-child(2) { background: rgba(7,27,61,.035); }
-.app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: #8c7110; }
+.app-product .account-flow--workspace .account-route-rail > div:last-child strong { color: var(--gold); }
 .app-product .account-flow--workspace .oauth-row::before { grid-column: 1 / -1; margin-bottom: 2px; color: #6a7688; content: "IDENTITY TO RESUME THE DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 [dir="rtl"] .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(1)::after { content: "طلبات مفتوحة ودليل عمل"; }
 [dir="rtl"] .app-product .account-flow--workspace .account-return-object > .mono + ol li:nth-child(2)::after { content: "أكد سجل المؤسس"; }
@@ -605,7 +605,7 @@
 .app-product .account-flow--registrations .account-form::after,
 .app-product .account-flow--workspace .account-form::after,
 .app-product .account-flow--weekly-review .account-form::after,
-.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "ACCESS DESK / IDENTITY RESTORES THE SAVED ROUTE"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--customer .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "ACCESS DESK / IDENTITY RESTORES THE SAVED ROUTE"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--registrations .account-form::after { content: "COMMITMENT ACCESS / RESTORE EVENT FOLLOW-THROUGH"; }
 .app-product .account-flow--workspace .account-form::after { content: "WORKSPACE ACCESS / RESTORE THE NEXT DECISION"; }
 .app-product .account-flow--weekly-review .account-form::after { content: "REVIEW ACCESS / RESTORE THE PRIMARY BET"; }
@@ -683,7 +683,7 @@
 
 /* Knowledge identity is visibly the restoration mechanism within Claim → Evidence → Test → Return, not a generic sign-in panel. */
 .app-product .account-flow--knowledge .account-form { position: relative; padding: 13px 0 5px 18px; border-top: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg, rgba(7,27,61,.025), transparent 78%); }
-.app-product .account-flow--knowledge .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: #8c7110; content: "FIELD GUIDE ACCESS / RESTORE CLAIM, EVIDENCE, AND NEXT TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+.app-product .account-flow--knowledge .account-form::after { display: block; width: max-content; max-width: 100%; margin-top: 19px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--gold); content: "FIELD GUIDE ACCESS / RESTORE CLAIM, EVIDENCE, AND NEXT TEST"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
 .app-product .account-flow--knowledge .oauth-row { margin-top: 18px; padding: 12px 0 0; border-top: 1px solid var(--line); }
 .app-product .account-flow--knowledge .oauth-row button, .app-product .account-flow--knowledge .account-form input { border-radius: 7px; box-shadow: none; }
 .app-product .account-flow--knowledge .account-form input { background: var(--paper); }
@@ -698,7 +698,7 @@
   .app-product .account-flow--registrations .account-form::before,
   .app-product .account-flow--customer .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(var(--gold) 0 48px,var(--line) 48px 100%); }
   .app-product .account-flow--registrations .account-form::after,
-  .app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border-top: 0; border-bottom: 1px solid var(--line); color: #8c7110; }
+  .app-product .account-flow--customer .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border-top: 0; border-bottom: 1px solid var(--line); color: var(--gold); }
   .app-product .account-flow--registrations .account-form::after { content: "02 / IDENTITY → RETURN TO EVENT COMMITMENT"; }
   .app-product .account-flow--customer .account-form::after { content: "02 / IDENTITY → RETURN TO CUSTOMER LANGUAGE"; }
   .app-product .account-flow--registrations .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE EVENT COMMITMENT"; }
@@ -730,7 +730,7 @@
   .app-product .account-flow--weekly-review .account-return-object > .mono + ol li:nth-child(3) { border-bottom: 2px solid rgba(223,227,234,.36); }
   .app-product .account-flow--weekly-review .account-form { min-height: 455px; margin-top: 14px; padding-top: 43px; }
   .app-product .account-flow--weekly-review .account-form::before { top: 35px; height: calc(100% - 45px); background: linear-gradient(var(--gold) 0 48px,var(--line) 48px 100%); }
-  .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); color: #8c7110; content: "02 / IDENTITY → RETURN TO THIS WEEK'S DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
+  .app-product .account-flow--weekly-review .account-form::after { position: absolute; inset-inline-start: 18px; inset-inline-end: 0; top: 11px; display: flex; align-items: center; min-height: 17px; margin: 0; padding: 0 0 8px; border: 0; border-bottom: 1px solid var(--line); color: var(--gold); content: "02 / IDENTITY → RETURN TO THIS WEEK'S DECISION"; font: 600 8px "DM Sans",sans-serif; letter-spacing: .1em; }
   .app-product .account-flow--weekly-review .oauth-row::before { content: "IDENTITY OPTIONS / CONTINUE THE WEEKLY DECISION"; }
 
   .app-product .account-flow--customer .account-return-object { background: linear-gradient(180deg,rgba(251,251,248,.025),transparent 60%); }
@@ -770,7 +770,7 @@
 
 /* Identity step integration: credentials visibly restore a named operating object, with route-specific language rather than an isolated generic form. */
 .app-product .account-identity-step { display: grid; gap: 5px; margin: 15px 0 0; padding: 11px 12px 11px 14px; border-block: 1px solid var(--line); border-inline-start: 2px solid var(--gold); background: linear-gradient(90deg,rgba(202,165,21,.065),transparent 78%); }
-.app-product .account-identity-step .mono { color: #8c7110; font-size: 8px; letter-spacing: .1em; }
+.app-product .account-identity-step .mono { color: var(--gold); font-size: 8px; letter-spacing: .1em; }
 .app-product .account-identity-step strong { max-width: 48ch; color: var(--ink); font: 600 11px/1.45 "DM Sans",sans-serif; }
 .app-product .account-flow--weekly-review .account-identity-step { background: linear-gradient(90deg,rgba(7,27,61,.045),transparent 78%); border-inline-start-color: var(--ink); }
 .app-product .account-flow--weekly-review .account-identity-step .mono { color: var(--body-muted); }
