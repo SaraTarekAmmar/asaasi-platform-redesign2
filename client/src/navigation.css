@@ -1,6 +1,28 @@
 /* Editorial Operating System, navigation layer: grouped menus, editorial hierarchy, and keyboard-safe responsive behavior. */
 
+/* ponytail: ux-system.css sets `display: inline-flex` on .menu-button unconditionally, as part
+   of a shared alignment rule for a dozen unrelated button-like selectors - it has no opinion on
+   whether the hamburger button should be visible, but declaring `display` at all makes it a
+   same-specificity competitor against this file's own visibility rules for the exact same
+   property. !important here (hidden by default above 1300px) plus on the show-it override
+   below keeps this component's actual show/hide logic living in one place and immune to
+   unrelated utility rules elsewhere landing later in the bundle. */
+.menu-button {
+  display: none !important;
+}
+
 .nav-links {
+  /* ponytail: several other files declare `display` for .menu-button/.nav-links/.mobile-menu
+     too - editorial.css's own older, pre-mega-menu header skeleton (unconditional display:flex,
+     found stomping this file's responsive rule purely by winning a same-specificity, bundle-
+     order tie - the .nav-actions sign-in/CTA area went off-screen at 1240px+ as a result), and
+     ux-system.css's blanket "these controls are flex-aligned" rule (.menu-button among a dozen
+     unrelated selectors, meant only for icon/label alignment, not visibility). Both are single-
+     class selectors tying this file's own, so which one wins was never a deliberate choice -
+     just whichever landed last in the bundle. !important on the display value alone (every
+     other property here stays normal-priority) makes this responsive show/hide the one thing
+     that unconditionally wins, regardless of bundle order or future edits to those other files. */
+  display: flex !important;
   position: relative;
   align-self: stretch;
   overflow: visible;
@@ -247,13 +269,23 @@
   }
 }
 
-@media (max-width: 1160px) {
+/* ponytail: measured directly - .nav-actions (always visible: sign-in, theme/language
+   toggles, CTA) went to a negative, off-screen x-position at 1160-1280px, since .nav-links
+   only hid below the old 1160px threshold and the row (logo + full nav-links + nav-actions)
+   needs ~1260px before it actually fits without overlapping/overflowing. Same root cause and
+   fix as the flint-landing header's nav (that one needed 1260px; this header's content differs
+   slightly, so it gets its own measured value rather than assuming they match). */
+@media (max-width: 1300px) {
+  /* ponytail: !important on the display values in this block only - see the .nav-links comment
+     above for why (editorial.css and ux-system.css both declare `display` for .menu-button/
+     .mobile-menu.open too, for unrelated reasons, and were winning same-specificity bundle-
+     order ties against this file's own responsive rules). */
   .nav-links {
-    display: none;
+    display: none !important;
   }
 
   .menu-button {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 
   .mobile-menu {
@@ -264,7 +296,7 @@
   }
 
   .mobile-menu.open {
-    display: block;
+    display: block !important;
   }
 
   .mobile-nav-group {
