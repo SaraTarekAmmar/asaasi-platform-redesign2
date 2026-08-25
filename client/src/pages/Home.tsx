@@ -42,7 +42,7 @@ const roadmapStages = [
 ] as const;
 
 const quotes = [
-  { number: "01", quote: ["Learn exactly what your stage needs, from people who've built it.", "تعلّم بالضبط ما تحتاجه مرحلتك، من أشخاص بنوا ذلك من قبل."], label: ["Education", "التعليم"], detail: ["Content is never generic — it is mapped to the founder's exact position on the 7-stage roadmap and the function they're stuck on.", "المحتوى ليس عاما أبدا؛ بل يرتبط بموقع المؤسس الدقيق على خريطة الطريق ذات المراحل السبع وبالمجال الذي يواجه فيه التحدي."] },
+  { number: "01", quote: ["Learn exactly what your stage needs, from people who've built it.", "تعلّم بالضبط ما تحتاجه مرحلتك، من أشخاص بنوا ذلك من قبل."], label: ["Education", "التعليم"], detail: ["Content is never generic: it is mapped to the founder's exact position on the 7-stage roadmap and the function they're stuck on.", "المحتوى ليس عاما أبدا؛ بل يرتبط بموقع المؤسس الدقيق على خريطة الطريق ذات المراحل السبع وبالمجال الذي يواجه فيه التحدي."] },
   { number: "02", quote: ["You are not the only SaaS founder in the region figuring this out.", "لست مؤسس SaaS الوحيد في المنطقة الذي يحاول فهم ذلك."], label: ["Community", "المجتمع"], detail: ["A curated network of peers, vetted service providers, and partners replaces WhatsApp-group guesswork with a real ecosystem.", "شبكة منتقاة من الأقران ومزودي الخدمات الموثقين والشركاء تستبدل التخمين في مجموعات واتساب بمنظومة حقيقية."] },
   { number: "03", quote: ["Stop rebuilding the wheel.", "توقف عن إعادة اختراع العجلة."], label: ["Tools", "الأدوات"], detail: ["Ready-to-use founder tools, sheets, and negotiated perks remove friction from problems that have already been solved a hundred times.", "أدوات وقوالب جاهزة للمؤسسين ومزايا متفاوض عليها تزيل الاحتكاك من مشكلات حُلّت مئات المرات من قبل."] },
 ] as const;
@@ -172,7 +172,7 @@ export default function Home() {
         <motion.div className="hero-copy" {...mountReveal()}>
           <p className="eyebrow">{t("SAAS, POWERED BY EVERYTHING THAT MATTERS", "SaaS، مدعوم بكل ما يهم")}</p>
           <h1>{t("The operating system for SaaS founders in the Middle East.", "نظام التشغيل لمؤسسي SaaS في الشرق الأوسط.")}</h1>
-          <p className="hero-subtitle">{t("The structured education, curated network, and practical tools you need to build, run, and scale a sustainable recurring-revenue business — in one place.", "التعليم المنظم والشبكة المنسقة والأدوات العملية التي تحتاجها لبناء وتشغيل وتوسيع عمل مستدام بإيرادات متكررة، في مكان واحد.")}</p>
+          <p className="hero-subtitle">{t("The structured education, curated network, and practical tools you need to build, run, and scale a sustainable recurring-revenue business, in one place.", "التعليم المنظم والشبكة المنسقة والأدوات العملية التي تحتاجها لبناء وتشغيل وتوسيع عمل مستدام بإيرادات متكررة، في مكان واحد.")}</p>
           <div className="hero-actions">
             {isAuthed ? <Link href="/connect" className="btn btn-black">{t("Explore the ecosystem", "استكشف المنظومة")} <DirectionalArrow isRTL={isRTL} /></Link>
               : <Link href="/signup" className="btn btn-black">{t("Join free", "انضم مجانا")} <DirectionalArrow isRTL={isRTL} /></Link>}
