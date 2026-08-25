@@ -169,7 +169,7 @@
    var(--ink)/var(--body-muted), same as .pricing-grid .plan.highlight before it was fixed
    (residual-route-refinement.css) - the literal #fffdf8 forced above never flips, so in dark
    mode this went to ~1.2:1 on the Subscriber/active billing tier. Literal dark to match. */
-.app-product :is(.access-tier-card.is-active, .access-tier-card.subscriber) :is(h2, p, li, small, .tier-price, .tier-state) {
+.app-product :is(.access-tier-card.is-active, .access-tier-card.subscriber) :is(h2, p, li, small, .mono, .tier-price, .tier-state) {
   color: #071b3d !important;
 }
 
