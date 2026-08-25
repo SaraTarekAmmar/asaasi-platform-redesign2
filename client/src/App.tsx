@@ -188,8 +188,8 @@ function Router() {
     <Route path="/courses/roadmap-governance" component={() => <RoadmapCoursePage stageSlug="governance" />} />
     <Route path="/courses" component={Learn} />
     <Route path="/courses/:slug" component={() => <PublicDetailPage type="course" />} />
-    <Route path="/playbooks" component={() => <PublicDetailPage type="course" gated />} />
-    <Route path="/videos" component={() => <PublicDetailPage type="article" />} />
+    <Route path="/playbooks" component={() => <PublicDetailPage type="playbook" />} />
+    <Route path="/videos" component={() => <PublicDetailPage type="video" />} />
     <Route path="/stories" component={() => <PublicDetailPage type="story" />} />
     <Route path="/tools/:slug" component={ToolFlow} />
     <Route path="/tools" component={Tools} />
