@@ -40,7 +40,7 @@
 
 /* Existing directory and startup markup is intentionally re-composed as a rail without changing its links, filters, or view controls. */
 .collection-layout .public-card-grid { display:block; border-top:1px solid var(--ink); }
-.collection-layout .public-card-grid .public-card { display:grid; grid-template-columns:3rem minmax(150px,.8fr) minmax(180px,1.2fr) auto; align-items:center; gap:1rem; min-height:112px; margin:0; padding:1rem 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:transparent; box-shadow:none; }
+.collection-layout .public-card-grid .public-card { display:grid; grid-template-columns:3rem minmax(150px,.8fr) minmax(180px,1.2fr) auto; align-items:center; gap:1rem; min-height:112px; margin:0; padding:1rem 0; border:0; border-radius:0; background:transparent; box-shadow:none; }
 .collection-layout .public-card-grid .public-card:hover { transform:none; background:rgba(7,27,61,.025); }
 .collection-layout .public-card-grid .public-card-top { display:contents; }
 .collection-layout .public-card-grid .public-card-top .directory-avatar { grid-column:1; grid-row:1 / span 3; }
@@ -50,7 +50,7 @@
 .collection-layout .public-card-grid .public-card > p { grid-column:3; grid-row:1 / span 2; margin:0; color:var(--body-muted); font:.78rem/1.45 "DM Sans",sans-serif; }
 
 .missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid { display:block; border-top:1px solid var(--ink); }
-.missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid .public-card { display:grid; grid-template-columns:2rem minmax(150px,.7fr) minmax(190px,1.25fr) minmax(110px,.55fr) auto; align-items:center; gap:1rem; min-height:116px; margin:0; padding:1rem 0; border:0; border-bottom:1px solid var(--line); border-radius:0; background:transparent; box-shadow:none; }
+.missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid .public-card { display:grid; grid-template-columns:2rem minmax(150px,.7fr) minmax(190px,1.25fr) minmax(110px,.55fr) auto; align-items:center; gap:1rem; min-height:116px; margin:0; padding:1rem 0; border:0; border-radius:0; background:transparent; box-shadow:none; }
 .missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid .public-card::before { align-self:start; color:var(--gold); content:"•"; font:1.2rem/1 "DM Sans",sans-serif; }
 .missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid .public-card:hover { transform:none; background:rgba(7,27,61,.025); }
 .missing-public .collection-toolbar:has(.view-toggle) + .public-card-grid .public-card-top { display:contents; }
