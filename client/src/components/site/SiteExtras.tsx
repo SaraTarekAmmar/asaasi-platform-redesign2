@@ -77,14 +77,20 @@ export function FloatingContact() {
   const [thread, setThread] = useState<{ role: "user" | "assistant"; text: string; href?: string; linkLabel?: string }[]>([]);
   const bodyRef = useRef<HTMLDivElement>(null);
   useEffect(() => { if (open) bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight, behavior: "smooth" }); }, [open, thread]);
-  const ask = (value: string) => {
-    const clean = value.trim();
+  const reply = (userText: string, topic?: (typeof SUPPORT_TOPICS)[number]) => {
+    setThread((current) => [...current, { role: "user", text: userText }, topic ? { role: "assistant", text: t(...topic.reply), href: topic.href, linkLabel: t(...topic.linkLabel) } : { role: "assistant", text: t(...SUPPORT_FALLBACK) }]);
+  };
+  // ponytail: chips resolve their topic directly instead of re-matching their own (translated)
+  // label text against the English-only regexes below - matching a chip's Arabic label against
+  // an English pattern would always miss and fall through to the fallback reply.
+  const askTopic = (topic: (typeof SUPPORT_TOPICS)[number]) => reply(t(...topic.linkLabel), topic);
+  const send = (event: FormEvent) => {
+    event.preventDefault();
+    const clean = prompt.trim();
     if (!clean) return;
-    const topic = SUPPORT_TOPICS.find((entry) => entry.match.test(clean));
-    setThread((current) => [...current, { role: "user", text: clean }, topic ? { role: "assistant", text: t(...topic.reply), href: topic.href, linkLabel: t(...topic.linkLabel) } : { role: "assistant", text: t(...SUPPORT_FALLBACK) }]);
+    reply(clean, SUPPORT_TOPICS.find((entry) => entry.match.test(clean)));
     setPrompt("");
   };
-  const send = (event: FormEvent) => { event.preventDefault(); ask(prompt); };
   return (
     <>
       {open && <div className="support-chat-panel" role="dialog" aria-label={t("ASaaSI support assistant", "مساعد دعم أساسي")}>
@@ -98,7 +104,7 @@ export function FloatingContact() {
             ? <div className="coach-message coach-user" key={index}><span className="mono">{t("You", "أنت")}</span><p>{message.text}</p></div>
             : <div className="coach-message coach-system" key={index}><span className="coach-orb"><Sparkles size={13} /></span><div><p>{message.text}</p>{message.href && <Link href={message.href} onClick={() => setOpen(false)} className="text-link">{message.linkLabel} <ArrowRight size={13} /></Link>}</div></div>)}
         </div>
-        {SUPPORT_TOPICS.length > 0 && thread.length === 0 && <div className="support-chat-chips">{SUPPORT_TOPICS.map((topic) => <button type="button" key={topic.href} onClick={() => ask(t(...topic.linkLabel))}>{t(...topic.linkLabel)}</button>)}</div>}
+        {thread.length === 0 && <div className="support-chat-chips">{SUPPORT_TOPICS.map((topic) => <button type="button" key={topic.href} onClick={() => askTopic(topic)}>{t(...topic.linkLabel)}</button>)}</div>}
         <form className="support-chat-composer" onSubmit={send}>
           <input value={prompt} onChange={(event) => setPrompt(event.target.value)} placeholder={t("Type a question...", "اكتب سؤالا...")} aria-label={t("Ask the support assistant", "اسأل مساعد الدعم")} />
           <button type="submit" className="icon-button" aria-label={t("Send", "إرسال")}><Send size={14} /></button>
