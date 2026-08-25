@@ -337,7 +337,16 @@
 
 @keyframes flintStoryScrollRtl { from { transform: translateX(0); } to { transform: translateX(546px); } }
 
-@media (max-width: 850px) {
+/* ponytail: the nav needs ~1240px of clear width to lay out logo + 7 links + sign-in/CTA
+   without wrapping (measured directly: .header-actions went to a negative, off-screen left
+   position at 1180-1240px). That's well above the 850px this used to switch on at, which left a
+   ~390px-wide "tweener" zone (851-1240px - unfolded foldables like the Asus Zenbook Fold at
+   853px, small laptop windows, some tablet-landscape sizes) where the desktop nav rendered but
+   didn't fit: items overlapped and the last one or two were pushed fully off-screen. Split the
+   header/nav-specific rules into their own breakpoint that actually matches the content's real
+   minimum width, instead of changing the single-column-layout breakpoint below (850px is fine
+   for hero/grid/footer stacking - only the header nav was wrong). */
+@media (max-width: 1260px) {
   .flint-landing .site-header { height: 84px; padding: 0 18px; }
   .flint-landing .wordmark img { width: 164px; height: 40px; }
   .flint-landing .desktop-nav, .flint-landing .header-actions { display: none; }
@@ -346,6 +355,8 @@
   .flint-landing .mobile-menu a { color: var(--ink); text-decoration: none; font: 600 17px/1.2 "Manrope", sans-serif; padding: 8px 0; }
   .flint-landing .mobile-menu .mobile-cta { display: flex; justify-content: space-between; background: var(--surface-dark); color: #fff; border-radius: 8px; margin-top: 6px; padding: 14px; font: 600 14px/1 "DM Sans", sans-serif; }
   .flint-landing .hero-section { padding-top: 59px; }
+}
+@media (max-width: 850px) {
   .flint-landing .hero-copy { padding: 0 18px; }
   .flint-landing .hero-copy .eyebrow-line::before, .flint-landing .hero-copy .eyebrow-line::after { width: 26px; }
   .flint-landing .hero-copy .eyebrow { font-size: 8px; letter-spacing: .95px; }
@@ -408,11 +419,13 @@
   .flint-landing .footer-bottom div { flex-wrap: wrap; }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1260px) {
   .flint-landing .mobile-language-toggle { display: flex; align-items: center; justify-content: center; width: max-content; min-width: 70px; color: var(--ink); background: #f7f1d5; border: 1px solid #d6bd65; border-radius: 7px; padding: 9px 12px; margin: 3px 0 2px; font: 700 13px/1 "DM Sans", sans-serif; }
   [dir="rtl"] .flint-landing .mobile-menu { text-align: right; }
   [dir="rtl"] .flint-landing .mobile-menu a, [dir="rtl"] .flint-landing .mobile-menu .mobile-cta, [dir="rtl"] .flint-landing .mobile-language-toggle { font-family: "Cairo", sans-serif; }
   [dir="rtl"] .flint-landing .mobile-language-toggle { align-self: flex-start; }
+}
+@media (max-width: 850px) {
   [dir="rtl"] .flint-landing .story-track { padding-right: 14px; padding-left: 0; }
   [dir="rtl"] .flint-landing .knowledge-flow, [dir="rtl"] .flint-landing .tools-perks-visual, [dir="rtl"] .flint-landing .ecosystem-map, [dir="rtl"] .flint-landing .action-list { margin-right: 0; margin-left: 0; }
   [dir="rtl"] .flint-landing .growth-roadmap { padding-right: 39px; padding-left: 0; }
