@@ -72,11 +72,18 @@
 .locale-ar .hero-proof strong, .locale-ar .hero-proof span { text-align: right; }
 .locale-ar .job-card-bottom, .locale-ar .section-link, .locale-ar .event-meta { direction: rtl; }
 /* Lucide renders each icon with a class of "lucide lucide-<kebab-name>" (no data-lucide
-   attribute exists), so that's the real hook for mirroring directional icons in RTL. */
+   attribute exists), so that's the real hook for mirroring directional icons in RTL.
+   ponytail: only the "-right" variants belong here, never their "-left" counterparts. Most
+   call sites render a plain <ArrowRight>/<ChevronRight> with no RTL branch, but ~229 already
+   do `{isRTL ? <ArrowLeft/> : <ArrowRight/>}` themselves - those render lucide-arrow-left in
+   the DOM specifically because they've already picked the correct RTL icon. Mirroring -left
+   here too (as this rule used to) flipped that already-correct icon a second time, pointing it
+   back the wrong way - exactly the bug bilingual-alignment-refinement.css's newer version of
+   this same rule was written to avoid (see its comment): mirror only -right, since any -right
+   icon still in the DOM under .locale-ar is by definition one nobody swapped yet, so it can
+   never double-flip an already-swapped one. */
 .locale-ar .lucide-arrow-right,
-.locale-ar .lucide-arrow-left,
 .locale-ar .lucide-chevron-right,
-.locale-ar .lucide-chevron-left,
 .locale-ar .lucide-arrow-up-right,
 .locale-ar .lucide-corner-down-right { transform: scaleX(-1); }
 
