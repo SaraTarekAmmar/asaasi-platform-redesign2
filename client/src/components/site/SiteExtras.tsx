@@ -2,9 +2,9 @@
    contact, scroll progress, a first-visit cookie notice, a reusable confirm dialog, and a
    password field with a visibility toggle. Bundled in one file since each is a handful of lines -
    splitting them into their own files would just be more places to look for the same thing. */
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link } from "wouter";
-import { ArrowUp, Eye, EyeOff, MessageCircle, Moon, Sun } from "lucide-react";
+import { ArrowRight, ArrowUp, Eye, EyeOff, MessageCircle, Moon, Send, Sparkles, Sun, X } from "lucide-react";
 import { useLocale } from "../../contexts/LocaleContext";
 import { useTheme } from "../../contexts/ThemeContext";
 import "../../site-extras.css";
@@ -56,12 +56,59 @@ export function BackToTop() {
   );
 }
 
+// ponytail: an honest keyword router, same pattern and same caveat as the dashboard's AI coach
+// (see COACH_TOPICS in ProductFlows.tsx) - not a real model, so it says so, and always keeps a
+// real human-support link visible rather than pretending to be a live agent.
+type SupportBi = [string, string];
+const SUPPORT_TOPICS: { match: RegExp; reply: SupportBi; href: string; linkLabel: SupportBi }[] = [
+  { match: /price|pricing|cost|membership|subscri|plan\b/i, reply: ["Membership starts free - you only move to paid Subscriber access once the full library and guidance would actually help. See the access path and what each stage unlocks.", "العضوية تبدأ مجانا - تنتقل إلى وصول المشترك المدفوع فقط عندما تساعدك المكتبة الكاملة والإرشاد فعلا. اطلع على مسار الوصول وما تفتحه كل مرحلة."], href: "/membership", linkLabel: ["Open the membership path", "افتح مسار العضوية"] },
+  { match: /sign\s?up|register|create.*account|join/i, reply: ["Creating a profile is free and takes about two minutes - it's how the network learns your stage so it can point you at relevant people and tools.", "إنشاء الملف الشخصي مجاني ويستغرق نحو دقيقتين - وهو ما يتيح للشبكة معرفة مرحلتك لتوجيهك إلى الأشخاص والأدوات ذات الصلة."], href: "/signup", linkLabel: ["Create a free profile", "أنشئ ملفا مجانيا"] },
+  { match: /event|workshop|summit|demo day|webinar/i, reply: ["Events are listed with the date, room, and the outcome each one is meant to move - browse what's coming up next.", "الفعاليات مدرجة مع التاريخ والغرفة والنتيجة التي يُقصد بها تحريكها - تصفح ما هو قادم."], href: "/events", linkLabel: ["Browse events", "تصفح الفعاليات"] },
+  { match: /provider|lawyer|legal|accountant|designer|freelanc|hire.*(specialist|expert)/i, reply: ["Verified providers are listed by the specific work they do, not a generic marketplace category - browse by specialty.", "مزودو الخدمات الموثقون مدرجون حسب العمل المحدد الذي يؤدونه، لا فئة سوق عامة - تصفح حسب التخصص."], href: "/providers", linkLabel: ["Browse providers", "تصفح مزودي الخدمة"] },
+  { match: /match|introduc|connect|network|find (a |)(person|founder|mentor|cofounder)/i, reply: ["Matching starts with the decision in front of you, not a browse-everyone directory - it points you to someone who's actually faced it.", "تبدأ المطابقة بالقرار الذي أمامك، لا بدليل تتصفحه بالكامل - إذ توجهك إلى شخص واجه هذا القرار فعلا."], href: "/connect", linkLabel: ["Find people", "ابحث عن أشخاص"] },
+  { match: /learn|course|roadmap|stage|podcast|article/i, reply: ["Learning content is mapped to your stage on the 7-stage roadmap and the function you're stuck on, not a generic course catalog.", "المحتوى التعليمي مرتبط بمرحلتك على خريطة الطريق ذات السبع مراحل وبالوظيفة التي تواجه فيها التحدي، لا فهرس دورات عام."], href: "/learn", linkLabel: ["Open the learning hub", "افتح مركز التعلم"] },
+];
+const SUPPORT_FALLBACK: SupportBi = ["I'm a simple assistant, not a live agent - I can point you to the right page, but for anything specific to your account, a real person on the team can help.", "أنا مساعد بسيط لا وكيل مباشر - يمكنني توجيهك إلى الصفحة المناسبة، لكن لأي أمر خاص بحسابك، يمكن لشخص حقيقي من الفريق المساعدة."];
+
 export function FloatingContact() {
-  const { t } = useLocale();
+  const { t, isRTL } = useLocale();
+  const [open, setOpen] = useState(false);
+  const [prompt, setPrompt] = useState("");
+  const [thread, setThread] = useState<{ role: "user" | "assistant"; text: string; href?: string; linkLabel?: string }[]>([]);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (open) bodyRef.current?.scrollTo({ top: bodyRef.current.scrollHeight, behavior: "smooth" }); }, [open, thread]);
+  const ask = (value: string) => {
+    const clean = value.trim();
+    if (!clean) return;
+    const topic = SUPPORT_TOPICS.find((entry) => entry.match.test(clean));
+    setThread((current) => [...current, { role: "user", text: clean }, topic ? { role: "assistant", text: t(...topic.reply), href: topic.href, linkLabel: t(...topic.linkLabel) } : { role: "assistant", text: t(...SUPPORT_FALLBACK) }]);
+    setPrompt("");
+  };
+  const send = (event: FormEvent) => { event.preventDefault(); ask(prompt); };
   return (
-    <Link href="/contact" className="floating-action floating-contact" aria-label={t("Contact us", "تواصل معنا")}>
-      <MessageCircle size={18} />
-    </Link>
+    <>
+      {open && <div className="support-chat-panel" role="dialog" aria-label={t("ASaaSI support assistant", "مساعد دعم أساسي")}>
+        <div className="support-chat-header">
+          <div><span className="mono">{t("ASaaSI ASSISTANT · AUTOMATED", "مساعد أساسي · آلي")}</span><strong>{t("Ask a quick question", "اطرح سؤالا سريعا")}</strong></div>
+          <button type="button" className="icon-button" onClick={() => setOpen(false)} aria-label={t("Close chat", "إغلاق المحادثة")}><X size={16} /></button>
+        </div>
+        <div className="support-chat-body" ref={bodyRef}>
+          <div className="coach-message coach-system"><span className="coach-orb"><Sparkles size={13} /></span><p>{t("Hi - I'm an automated assistant, not a live person. Ask about pricing, signup, events, providers, or matching, and I'll point you to the right place.", "مرحبا - أنا مساعد آلي، لست شخصا حقيقيا. اسأل عن التسعير أو التسجيل أو الفعاليات أو مزودي الخدمة أو المطابقة، وسأوجهك إلى المكان المناسب.")}</p></div>
+          {thread.map((message, index) => message.role === "user"
+            ? <div className="coach-message coach-user" key={index}><span className="mono">{t("You", "أنت")}</span><p>{message.text}</p></div>
+            : <div className="coach-message coach-system" key={index}><span className="coach-orb"><Sparkles size={13} /></span><div><p>{message.text}</p>{message.href && <Link href={message.href} onClick={() => setOpen(false)} className="text-link">{message.linkLabel} <ArrowRight size={13} /></Link>}</div></div>)}
+        </div>
+        {SUPPORT_TOPICS.length > 0 && thread.length === 0 && <div className="support-chat-chips">{SUPPORT_TOPICS.map((topic) => <button type="button" key={topic.href} onClick={() => ask(t(...topic.linkLabel))}>{t(...topic.linkLabel)}</button>)}</div>}
+        <form className="support-chat-composer" onSubmit={send}>
+          <input value={prompt} onChange={(event) => setPrompt(event.target.value)} placeholder={t("Type a question...", "اكتب سؤالا...")} aria-label={t("Ask the support assistant", "اسأل مساعد الدعم")} />
+          <button type="submit" className="icon-button" aria-label={t("Send", "إرسال")}><Send size={14} /></button>
+        </form>
+        <Link href="/contact" onClick={() => setOpen(false)} className="support-chat-human">{t("Need a real person instead?", "تحتاج شخصا حقيقيا بدلا من ذلك؟")} <ArrowRight size={13} /></Link>
+      </div>}
+      <button type="button" className="floating-action floating-contact" aria-expanded={open} onClick={() => setOpen((value) => !value)} aria-label={open ? t("Close support assistant", "إغلاق مساعد الدعم") : t("Open support assistant", "افتح مساعد الدعم")}>
+        {open ? <X size={18} /> : <MessageCircle size={18} />}
+      </button>
+    </>
   );
 }
 
