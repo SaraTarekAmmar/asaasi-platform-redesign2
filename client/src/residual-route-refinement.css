@@ -3,7 +3,12 @@
 .app-product .pricing-grid .plan { min-height: 0; padding: 26px 22px; border: 0; border-inline-end: 1px solid var(--line); border-radius: 0; box-shadow: none; background: transparent; }
 .app-product .pricing-grid .plan:last-child { border-inline-end: 0; }
 .app-product .pricing-grid .plan.highlight { background: var(--surface-dark); color: var(--surface-dark-text); }
-.app-product .pricing-grid .plan.highlight :is(h3,p,.plan-price,.plan-features) { color: var(--paper); }
+/* ponytail: soft-surface-refinement.css forces this card's own background to a constant light
+   #fffdf8 via !important (the "soft glass" redesign pass), which wins over the var(--surface-dark)
+   above - so these child selectors, being more specific, were still handing out var(--paper)
+   (flips light in light mode) as text color against that same constant-light card, going
+   invisible in light mode specifically (ratio ~1.0) and only working in dark mode by accident. */
+.app-product .pricing-grid .plan.highlight :is(h3,p,.plan-price,.plan-features,.mono) { color: #071b3d; }
 .app-product .pricing-grid .plan::before { content: none; }
 .app-product .pricing-grid .plan.highlight::before { background: var(--saffron); box-shadow: 0 0 0 5px rgba(246,201,21,.12); }
 .app-product .account-return-object--notifications ol li:nth-child(2) { border-inline-start-color: var(--saffron); }

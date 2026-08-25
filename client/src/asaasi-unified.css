@@ -269,6 +269,24 @@
 .app-product .connection-route__step.is-active h3,
 .app-product .connection-route__step.is-active p { color: #fff; }
 .app-product .connection-route__index { border-radius: 50%; background: var(--saffron); color: #071b3d; }
+
+/* ponytail: the shadcn/vaul Drawer component (client/src/components/ui/drawer.tsx) ships with
+   Tailwind utility classes (fixed, inset-y-0, right-0, w-3/4, sm:max-w-sm...), but this project
+   has no Tailwind build - none of those classes resolve to real CSS, so the "drawer" rendered
+   with position:static, dumped into normal document flow a thousand-plus pixels down the page
+   instead of sliding in as a right/left side panel. Writing the equivalent behavior in plain
+   CSS keyed off the component's own data-slot/data-vaul-drawer-direction attributes, which do
+   still get set correctly by the library regardless of Tailwind. */
+[data-slot="drawer-overlay"] { position: fixed; inset: 0; z-index: 50; background: rgba(7, 27, 61, .45); }
+.fit-review-drawer[data-slot="drawer-content"] { position: fixed; top: 0; bottom: 0; z-index: 51; display: flex; flex-direction: column; width: min(420px, 100%); background: var(--white); box-shadow: -20px 0 50px rgba(7, 27, 61, .18); overflow: auto; }
+.fit-review-drawer[data-vaul-drawer-direction="right"] { right: 0; border-left: 1px solid var(--line); }
+.fit-review-drawer[data-vaul-drawer-direction="left"] { left: 0; border-right: 1px solid var(--line); }
+.fit-review-drawer > div:first-child { display: none; }
+.fit-review-header[data-slot="drawer-header"] { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 24px; border-bottom: 1px solid var(--line); }
+.fit-review-footer[data-slot="drawer-footer"] { margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding: 20px 24px; border-top: 1px solid var(--line); }
+.fit-review-drawer [data-slot="drawer-title"] { margin: 4px 0 0; font: 500 20px "Manrope", sans-serif; color: var(--ink); }
+.fit-review-drawer [data-slot="drawer-description"] { margin: 4px 0 0; color: var(--body-muted); font-size: 13px; }
+.fit-review-body { padding: 24px; display: grid; gap: 22px; }
 .app-product .post-list { border-top: 1px solid var(--line-soft); }
 .app-product .post-card { display: grid; grid-template-columns: 52px minmax(0,1fr); gap: 16px; padding: 24px; border-width: 0 0 1px; background: var(--white); }
 .app-product .post-card .avatar { border-radius: 50%; }
