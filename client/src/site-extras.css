@@ -129,10 +129,12 @@ html[data-theme="dark"] .app-product {
    (line ~57) - same specificity as the unconditional 118px rule right above, but earlier in
    source order, so the cascade always picked 118px regardless of viewport width (a rule that
    never actually applied). Moved after the base rule so it wins as intended, and shrunk the
-   card's own footprint (smaller type, tighter padding/gap) since the mobile header is shorter
-   (84px vs. 108px) - a full-size card at a reduced top offset was still tall enough to spill
-   onto a typical hero heading right below it. */
-@media (max-width: 620px) {
+   card's own footprint (smaller type, tighter padding/gap) since the header is shorter below
+   850px (84px vs. 108px, flint-landing.css) - a full-size card at a reduced top offset was
+   still tall enough to spill onto a typical hero heading right below it. 850px (not the more
+   common ~620/760px component breakpoints) matches the header's own breakpoint on purpose -
+   this fix is about clearing the header, so it has to track the same width the header does. */
+@media (max-width: 850px) {
   /* ponytail: stacking (text row, then a separate button row) is what made this tall enough to
      reach a typical hero heading even after shrinking type/padding - forcing one row with the
      paragraph clipped to a single truncated line bounds the banner to a small, predictable
