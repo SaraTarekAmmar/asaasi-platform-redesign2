@@ -1360,7 +1360,7 @@
 
 /* Editorial operating system: Market Map makes one segment, its evidence boundary, and one reversible test legible without charts or decorative geometry. */
 .app-product .market-map-form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
-.app-product .tool-room-hero h1 { display: block; color: var(--paper); opacity: 1; visibility: visible; }
+.app-product .tool-room-hero h1 { display: block; color: var(--surface-dark-text); opacity: 1; visibility: visible; }
 .app-product .market-map-form__context, .app-product .market-map-form__test { display: grid; align-content: start; gap: 15px; padding: 28px; }
 .app-product .market-map-form__context { border-inline-end: 1px solid var(--line); }
 .app-product .market-map-form h2 { margin: -3px 0 4px; color: var(--ink); font: 500 24px/1.16 "Manrope", sans-serif; letter-spacing: -.05em; }

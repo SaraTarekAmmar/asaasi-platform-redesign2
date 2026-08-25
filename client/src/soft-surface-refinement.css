@@ -165,6 +165,13 @@
   background: #fffdf8 !important;
   box-shadow: 0 20px 48px rgba(7, 27, 61, 0.1) !important;
 }
+/* ponytail: .access-tier-card's own h2/p/li/tier-price/tier-state all use the flipping
+   var(--ink)/var(--body-muted), same as .pricing-grid .plan.highlight before it was fixed
+   (residual-route-refinement.css) - the literal #fffdf8 forced above never flips, so in dark
+   mode this went to ~1.2:1 on the Subscriber/active billing tier. Literal dark to match. */
+.app-product :is(.access-tier-card.is-active, .access-tier-card.subscriber) :is(h2, p, li, small, .tier-price, .tier-state) {
+  color: #071b3d !important;
+}
 
 .app-product .roadmap-stage-course {
   background: var(--surface-dark) !important;
