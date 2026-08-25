@@ -1,6 +1,18 @@
 /* Flint-inspired ASaaSI landing page. Scoped entirely under .flint-landing so it
    never touches the shared editorial system used by the rest of the app; this page
    renders its own self-contained header/footer instead of SiteHeader/SiteFooter. */
+/* ponytail: this page's own wrapper (App.tsx) also carries .app-product for the shared button/
+   card/type styles below, which meant html[data-theme="dark"] .app-product's overrides
+   (site-extras.css) leaked in too - text vars flipped light-on-dark-text while every card/button
+   background here stays a literal light color (#fff, rgba(255,255,255,.55), etc.), so buttons and
+   card labels went near-invisible (~1.1-1.3:1 contrast) whenever a visitor had dark mode on.
+   Re-pinning the tokens this page actually uses back to their light values keeps the landing
+   route "intentionally fixed-light" regardless of which wrapper classes surround it. */
+.flint-landing {
+  --ink: #071b3d; --ink-soft: #0c2b5e; --paper: #fbfbf8; --white: #fff; --clay: #f7f7f3;
+  --mint: #f1f5fa; --graphite: #242520; --muted: #74766c; --line: #d5dce6; --line-soft: #d5dce6;
+  --saffron: #f6c915; --surface-dark: #071b3d;
+}
 .flint-landing { overflow: hidden; background: var(--paper); }
 .flint-landing .site-header { height: 108px; display: flex; align-items: center; justify-content: center; padding: 0 30px; border-bottom: 1px solid var(--line); background: rgba(251,251,248,.92); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
 .flint-landing .site-header-inner { width: 100%; max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
