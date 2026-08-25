@@ -213,7 +213,6 @@ function Router() {
     <Route path="/about" component={() => <InformationPage kind="about" />} />
     <Route path="/privacy" component={() => <InformationPage kind="privacy" />} />
     <Route path="/terms" component={() => <InformationPage kind="terms" />} />
-    <Route path="/accessibility" component={() => <InformationPage kind="accessibility" />} />
     <Route path="/403" component={() => <SystemStatePage code="403" />} />
     <Route path="/429" component={() => <SystemStatePage code="429" />} />
     <Route path="/500" component={() => <SystemStatePage code="500" />} />
