@@ -189,7 +189,12 @@
 .app-product .source-linked-event-preparation__heading h2 { max-width: 27ch; margin: 8px 0 9px; color: var(--ink); font: 500 clamp(22px,2.8vw,34px)/1.07 "Manrope",sans-serif; letter-spacing: -.055em; }
 .app-product .source-linked-event-preparation__heading p { margin: 0; color: var(--body-muted); font: 12px/1.6 "DM Sans",sans-serif; }
 .app-product .source-linked-event-preparation__heading > .mono { padding-inline-start: 17px; border-inline-start: 1px solid rgba(7,27,61,.14); color: var(--gold); font-size: 9px; letter-spacing: .1em; }
-.app-product .source-linked-event-preparation__boundary { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 18px; padding: 14px clamp(21px,3vw,31px); border-bottom: 1px solid var(--line); background: #fffdf5; }
+/* ponytail: this file used the literal warm-cream #fffdf5 directly (the same fixed-light-tint
+   mismatch documented on --tint-paper in asaasi-unified.css - founder-operating-desk.css was
+   already migrated to that token, this file was missed). Paired with var(--ink)/var(--body-muted)
+   text, the empty-state heading/copy went near-invisible (~1.16:1) in dark mode. Switched all
+   three spots below to var(--tint-paper), which already has a real dark-mode value. */
+.app-product .source-linked-event-preparation__boundary { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 18px; padding: 14px clamp(21px,3vw,31px); border-bottom: 1px solid var(--line); background: var(--tint-paper); }
 .app-product .source-linked-event-preparation__boundary .mono { color: var(--gold); font-size: 9px; letter-spacing: .09em; }
 .app-product .source-linked-event-preparation__boundary p { max-width: 690px; margin: 0; color: var(--body-muted); font: 11px/1.58 "DM Sans",sans-serif; }
 .app-product .source-linked-event-preparation__body { display: grid; grid-template-columns: minmax(0,.95fr) minmax(300px,1.05fr); }
@@ -215,10 +220,10 @@
 .app-product .source-linked-event-preparation__checks > button strong { color: var(--ink); font: 600 13px "DM Sans",sans-serif; }
 .app-product .source-linked-event-preparation__checks > button p { max-width: 500px; margin: 0; color: var(--body-muted); font: 11px/1.52 "DM Sans",sans-serif; }
 .app-product .source-linked-event-preparation__checks > button em { display: inline-flex; align-items: center; gap: 6px; margin-top: 3px; color: #176b4b; font: 600 10px "DM Sans",sans-serif; font-style: normal; }
-.app-product .source-linked-event-preparation__checks > button.is-marked { box-shadow: inset 2px 0 0 var(--gold); background: #fffdf5; }
+.app-product .source-linked-event-preparation__checks > button.is-marked { box-shadow: inset 2px 0 0 var(--gold); background: var(--tint-paper); }
 .app-product .source-linked-event-preparation > footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 16px clamp(21px,3vw,31px); border-top: 1px solid var(--line); background: var(--paper); }
 .app-product .source-linked-event-preparation > footer p { max-width: 700px; margin: 0; color: var(--body-muted); font: 11px/1.55 "DM Sans",sans-serif; }
-.app-product .source-linked-event-preparation--empty { margin-top: 18px; padding: 22px 24px; border-inline-start: 2px solid var(--gold); background: #fffdf5; }
+.app-product .source-linked-event-preparation--empty { margin-top: 18px; padding: 22px 24px; border-inline-start: 2px solid var(--gold); background: var(--tint-paper); }
 .app-product .source-linked-event-preparation--empty h2 { max-width: 26ch; margin: 8px 0 8px; color: var(--ink); font: 500 24px/1.1 "Manrope",sans-serif; letter-spacing: -.05em; }
 .app-product .source-linked-event-preparation--empty p { max-width: 640px; margin: 0; color: var(--body-muted); font: 12px/1.6 "DM Sans",sans-serif; }
 .app-product .source-linked-event-preparation__handoff-source { display: grid; gap: 8px; max-width: 760px; margin-top: 18px; padding: 16px 0 0 16px; border-top: 1px solid var(--line); border-inline-start: 2px solid var(--gold); }

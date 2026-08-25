@@ -165,9 +165,13 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 @media (max-width: 620px) { .post-detail-card { padding: 1.2rem; } .post-detail-actionbar { flex-wrap: wrap; } .post-detail-actionbar button { min-width: calc(50% - .2rem); } .community-next-move { grid-template-columns: 1fr; padding: 1rem; } .community-next-move > div:last-child { grid-column: auto; flex-wrap: wrap; } .community-next-move-return { grid-template-columns: 1fr; padding: 1rem 0 1rem .85rem; } .community-next-move-return > div:last-child { justify-content: flex-start; } [dir="rtl"] .community-next-move-return { padding: 1rem .85rem 1rem 0; } }
 
 /* Community, "Ask a question" composer: attach-photo control and its preview,
-   styled for the dark .coach-composer background it lives inside. */
+   styled for the dark .coach-composer background it lives inside.
+   ponytail: .coach-composer's own background is the constant var(--surface-dark), never
+   flipped with the theme, but this used var(--paper) for the text - a token that DOES flip,
+   so in dark mode --paper turns dark and the label went dark-on-dark. var(--surface-dark-text)
+   is the token already set up to pair with --surface-dark in both themes. */
 .composer-attach-row { display: flex; align-items: center; gap: .8rem; }
-.composer-attach { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .85rem; border: 1px solid rgba(247, 244, 236, .24); border-radius: var(--radius-pill); color: var(--paper); font-size: .78rem; font-weight: 600; cursor: pointer; transition: background-color .15s ease; }
+.composer-attach { display: inline-flex; align-items: center; gap: .4rem; padding: .5rem .85rem; border: 1px solid rgba(247, 244, 236, .24); border-radius: var(--radius-pill); color: var(--surface-dark-text); font-size: .78rem; font-weight: 600; cursor: pointer; transition: background-color .15s ease; }
 .composer-attach:hover { background: rgba(247, 244, 236, .08); }
 .composer-attach input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 .composer-image-preview { position: relative; display: inline-flex; }
@@ -236,9 +240,12 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 
 .quiz-card { margin-top: 1.4rem; padding: 1.4rem 1.5rem; background: rgba(247, 244, 236, .06); border: 1px solid rgba(247, 244, 236, .18); }
 .quiz-card > .mono { color: var(--saffron); }
-.quiz-card h3 { margin: .4rem 0 1rem; color: var(--paper); }
+/* ponytail: .ai-experience is a .section-dark (constant var(--surface-dark) background, never
+   flips) - these used the flipping var(--paper) for text, going dark-on-dark in dark mode.
+   var(--surface-dark-text) is the token already paired with --surface-dark in both themes. */
+.quiz-card h3 { margin: .4rem 0 1rem; color: var(--surface-dark-text); }
 .quiz-options { display: grid; gap: .6rem; }
-.quiz-options button { display: flex; align-items: center; justify-content: space-between; padding: .8rem 1rem; background: transparent; border: 1px solid rgba(247, 244, 236, .3); color: var(--paper); text-align: start; cursor: pointer; transition: background-color .16s var(--ease-out); }
+.quiz-options button { display: flex; align-items: center; justify-content: space-between; padding: .8rem 1rem; background: transparent; border: 1px solid rgba(247, 244, 236, .3); color: var(--surface-dark-text); text-align: start; cursor: pointer; transition: background-color .16s var(--ease-out); }
 .quiz-options button:hover { background: rgba(247, 244, 236, .1); }
 .quiz-result { display: grid; gap: .8rem; justify-items: start; }
 .quiz-result-resource { display: flex; align-items: center; gap: .5rem; color: var(--saffron); font-weight: 700; }
@@ -249,7 +256,7 @@ a.post-card:hover { background: rgba(12, 35, 66, .03); }
 .framework-recap-stages .mono { color: var(--ink); font-size: .68rem; }
 .framework-recap-pillars { display: flex; flex-wrap: wrap; gap: .5rem; }
 .framework-recap-pillars span { padding: .35rem .7rem; background: var(--surface-dark); color: var(--surface-dark-text); font-size: .75rem; font-weight: 600; }
-.section-dark .framework-recap-stages li { background: rgba(247, 244, 236, .06); border-color: rgba(247, 244, 236, .22); color: var(--paper); }
+.section-dark .framework-recap-stages li { background: rgba(247, 244, 236, .06); border-color: rgba(247, 244, 236, .22); color: var(--surface-dark-text); }
 .section-dark .framework-recap-stages .mono { color: var(--saffron); }
 /* ponytail: var(--ink) flips light in dark mode, but --saffron itself never darkens to match
    (it's a constant bright accent by design) - was producing near-white text on bright yellow.
