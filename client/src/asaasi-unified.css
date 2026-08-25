@@ -205,14 +205,17 @@
 .app-product .button-ghost:hover { background: #f0f3f8; border-color: #9aabc2; }
 .app-product .signal-tag { border-radius: 0; background: #fff8d8; color: #6f5100; font-family: "DM Sans", sans-serif; }
 .app-product .signal-tag.dark { background: var(--surface-dark); color: #fff; }
-/* ponytail: .signal-tag.soft (editorial.css, background: var(--mint)) and several page-specific
-   overrides (.connect-card-top/.event-timeline-main/.past-event-row .signal-tag, background:
-   var(--white)/transparent) only ever changed the background, leaving this rule's literal
-   #6f5100 text - designed for the literal #fff8d8 default - orphaned once the card they sit on
-   flips to a dark surface in dark mode (ratio ~2.4:1: "Verified"/"Featured"/date badges on
-   /connect, /providers, /membership, /events). Higher specificity than either tied 2-class rule,
-   so it wins regardless of source order and keeps the pairing correct in both themes. */
-.app-product .signal-tag.soft,
+/* ponytail: .signal-tag.soft (editorial.css, background: var(--mint)) ties the base rule above
+   on specificity (0,2,0 vs 0,2,0) - which one wins depends on source order alone, and in most
+   bundles the base rule (literal #fff8d8 bg + literal #6f5100 text, a correctly matched pair)
+   wins instead. A few page contexts (.connect-card-top/.event-timeline-main/.past-event-row
+   .signal-tag) independently override JUST the background to var(--white)/transparent, orphaning
+   that same literal #6f5100 text once the surface flips dark (ratio ~2.4:1 on /connect,
+   /providers, /membership, /events "Verified"/"Featured"/date badges). Giving .soft its own
+   unambiguous win (0,3,0, background+color as one matched pair) fixes the tie, and pairing the
+   page-specific background overrides with a matching color fixes the rest - both var(--mint)/
+   var(--white) and var(--ink) flip together, so the pairing stays correct in both themes. */
+.app-product .signal-tag.soft { background: var(--mint); color: var(--ink); }
 .app-product .event-timeline-main .signal-tag,
 .app-product .past-event-row .signal-tag,
 .app-product .connect-card-top .signal-tag { color: var(--ink); }
