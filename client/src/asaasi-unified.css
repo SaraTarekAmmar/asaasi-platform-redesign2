@@ -952,7 +952,12 @@
 .app-product .product-main .product-hero-dashboard,
 .app-product .product-main .product-page-heading { padding-bottom: 34px; }
 .app-product .product-main .lead,
-.app-product .product-main .product-page-heading p { color: #42546f; }
+/* ponytail: literal grey, used on every dashboard/workspace page's intro paragraph
+   (product-page-heading is shared across ProductFlows/ActivityWorkspace/DecisionAccountability/
+   WeeklyDecisionReview/MissingPages) - never flipped with the theme, so it went low-contrast
+   (~2.4:1) everywhere once the page background flipped dark. var(--body-muted) is the token
+   already meant for this exact "muted secondary text" role, and it does flip. */
+.app-product .product-main .product-page-heading p { color: var(--body-muted); }
 .app-product .product-main .heading-stat,
 .app-product .product-main .result-grid,
 .app-product .product-main .org-metrics { border-color: var(--line); background: var(--line); }

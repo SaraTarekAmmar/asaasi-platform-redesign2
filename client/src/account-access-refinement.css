@@ -788,12 +788,17 @@
 .app-product .account-flow--weekly-review .account-route-rail { margin-bottom: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .app-product .account-flow--workspace .oauth-row,
 .app-product .account-flow--weekly-review .oauth-row { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; margin-top: 0; padding: 13px 12px 12px 14px; border-inline-start: 1px solid var(--line); background: linear-gradient(90deg,rgba(7,27,61,.025),transparent 75%); }
+/* ponytail: both of these backgrounds are a literal, always-light rgba(251,251,248,X) glass
+   tint - never flipped with the theme - but neither had its own color, so they inherited
+   .button-ghost's var(--ink) and the page's default text color, both of which DO flip. In dark
+   mode that put light ink on a still-light card (Google/LinkedIn buttons and the email/password
+   labels went to ~1.1:1 contrast). Literal dark text to match the literal light card. */
 .app-product .account-flow--workspace .oauth-row .button,
-.app-product .account-flow--weekly-review .oauth-row .button { justify-content: space-between; min-height: 38px; padding-inline: 12px; border-color: #cfd5df; border-radius: 8px; background: rgba(251,251,248,.72); box-shadow: none; }
+.app-product .account-flow--weekly-review .oauth-row .button { justify-content: space-between; min-height: 38px; padding-inline: 12px; border-color: #cfd5df; border-radius: 8px; background: rgba(251,251,248,.72); color: #071b3d; box-shadow: none; }
 .app-product .account-flow--workspace .form-divider,
 .app-product .account-flow--weekly-review .form-divider { margin-inline-start: 14px; }
 .app-product .account-flow--workspace .account-form > label,
-.app-product .account-flow--weekly-review .account-form > label { margin-inline-start: 14px; padding: 9px 12px 10px; border-inline-start: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(251,251,248,.55); }
+.app-product .account-flow--weekly-review .account-form > label { margin-inline-start: 14px; padding: 9px 12px 10px; border-inline-start: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(251,251,248,.55); color: #071b3d; }
 .app-product .account-flow--workspace .account-form > label input,
 .app-product .account-flow--weekly-review .account-form > label input { border: 0; border-radius: 0; background: transparent; box-shadow: none; }
 .app-product .account-flow--workspace .form-inline,
