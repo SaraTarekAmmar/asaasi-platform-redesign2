@@ -54,7 +54,7 @@ html[data-theme="dark"] .app-product {
 .floating-contact { left: 22px; }
 .locale-ar .back-to-top { right: auto; left: 22px; }
 .locale-ar .floating-contact { left: auto; right: 22px; }
-@media (max-width: 620px) { .floating-action { width: 42px; height: 42px; bottom: 16px; } .back-to-top { right: 16px; } .floating-contact { left: 16px; } .locale-ar .back-to-top { left: 16px; right: auto; } .locale-ar .floating-contact { right: 16px; left: auto; } .cookie-banner { top: 92px; } }
+@media (max-width: 620px) { .floating-action { width: 42px; height: 42px; bottom: 16px; } .back-to-top { right: 16px; } .floating-contact { left: 16px; } .locale-ar .back-to-top { left: 16px; right: auto; } .locale-ar .floating-contact { right: 16px; left: auto; } }
 
 /* Support chat popover, anchored above the floating contact button on the same side. */
 .support-chat-panel {
@@ -124,6 +124,29 @@ html[data-theme="dark"] .app-product {
    big empty gap at the top, so drop straight to the same 16px used everywhere on mobile. */
 .cookie-banner.cookie-banner-no-header {
   top: 16px;
+}
+/* ponytail: this mobile override used to live in the .floating-action media query above
+   (line ~57) - same specificity as the unconditional 118px rule right above, but earlier in
+   source order, so the cascade always picked 118px regardless of viewport width (a rule that
+   never actually applied). Moved after the base rule so it wins as intended, and shrunk the
+   card's own footprint (smaller type, tighter padding/gap) since the mobile header is shorter
+   (84px vs. 108px) - a full-size card at a reduced top offset was still tall enough to spill
+   onto a typical hero heading right below it. */
+@media (max-width: 620px) {
+  .cookie-banner {
+    top: 92px;
+    padding: 12px 14px;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .cookie-banner p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .cookie-banner .button {
+    padding: 8px 11px;
+    font-size: 11px;
+  }
 }
 .cookie-banner p { margin: 0; flex: 1 1 260px; font-size: 13px; line-height: 1.5; color: var(--body-muted, #53627a); }
 .cookie-banner > div { display: flex; gap: 8px; flex: 0 0 auto; }
