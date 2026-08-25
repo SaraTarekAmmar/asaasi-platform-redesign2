@@ -2,7 +2,7 @@
 import { type ReactNode, useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Bell, Calculator, Check, ChevronDown, ChevronLeft, ChevronRight, Menu, Palette, Play, Plus, Scale, Sparkles, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Bell, Calculator, Check, ChevronDown, ChevronLeft, ChevronRight, Menu, Palette, Play, Plus, Quote, Scale, Sparkles, X } from "lucide-react";
 import { Logo, navigationMenus } from "../components/site";
 import { LanguageToggle, useLocale } from "../contexts/LocaleContext";
 import { useAuth } from "../contexts/AuthContext";
@@ -52,6 +52,17 @@ const providerCategories = [
   { icon: Calculator, query: "finance", name: ["Fractional finance", "المالية الجزئية"], copy: ["Specialist finance support for founders who need practical help without adding another cold search to their week.", "دعم مالي متخصص للمؤسسين الذين يحتاجون مساعدة عملية من دون إضافة بحث بارد جديد إلى أسبوعهم."] },
   { icon: Palette, query: "design", name: ["Brand & product design", "تصميم العلامة والمنتج"], copy: ["Listed design studios and specialists who can help make the product and brand clearer at the stage you are in.", "استوديوهات تصميم ومتخصصون مدرجون يمكنهم مساعدة المنتج والعلامة على أن يصبحا أوضح في المرحلة التي تمر بها."] },
 ] as const;
+
+const trustAvatarTones = ["clay", "mint", "gold", "navy", "clay", "mint"] as const;
+
+// ponytail: no real founder testimonials collected yet - empty, clearly-labeled slots rather
+// than inventing quotes/names and presenting them as genuine members. Swap each `null` for
+// { quote, name, role } once real ones come in; the card renders the placeholder until then.
+const testimonials: Array<{ quote: [string, string]; name: string; role: [string, string] } | null> = [
+  null,
+  null,
+  null,
+];
 
 const faqItems = [
   ["Why are providers separate from the peer network?", "لماذا مزودو الخدمة منفصلون عن شبكة الأقران؟", "Providers are vetted before they are listed, so founders can look for specialist help without confusing a service search with peer-to-peer community support.", "يخضع مزودو الخدمة للتحقق قبل إدراجهم، كي يجد المؤسسون المساعدة المتخصصة من دون الخلط بين البحث عن خدمة ودعم المجتمع بين الأقران."],
@@ -179,6 +190,15 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* ponytail: generic avatar-tone circles, not photos of named individuals - we don't have
+          real member photos/quotes to show yet (see the testimonials section below for the same
+          constraint), so this stays an honest "a network of people" motif rather than implying
+          specific real endorsers. */}
+      <section className="trust-strip" aria-label={t("Who's already here", "من هنا بالفعل")}>
+        <div className="trust-strip-avatars" aria-hidden="true">{trustAvatarTones.map((tone, index) => <span className={`trust-avatar trust-avatar--${tone}`} key={index} />)}</div>
+        <p>{t("Founders, operators, mentors, and specialists across the region, already building here.", "مؤسسون ومشغلون ومرشدون ومتخصصون في المنطقة، يبنون هنا بالفعل.")}</p>
+      </section>
+
       <section id="stories" className="stories-section" aria-label={t("ASaaSI ecosystem", "منظومة ASaaSI")}>
         <div className="story-track">
           {[...stories, ...stories].map((story, index) => <Link href={story.href} className="story-card" key={`${story.href}-${index}`}>
@@ -289,6 +309,24 @@ export default function Home() {
           <div className="faq-list">{faqItems.map(([q, qAr, a, aAr], index) => { const isOpen = openFaq === index; return <div className={`faq-item ${isOpen ? "is-open" : ""}`} key={q}><button type="button" onClick={() => setOpenFaq(isOpen ? null : index)} aria-expanded={isOpen}><span>{t(q, qAr)}</span><Plus size={20} /></button>
             <AnimatePresence initial={false}>{isOpen && <motion.p initial={reduceMotion ? false : { height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={reduceMotion ? undefined : { height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: EASE }} style={{ overflow: "hidden" }}>{t(a, aAr)}</motion.p>}</AnimatePresence>
           </div>; })}</div>
+        </div>
+      </section>
+
+      <section className="testimonials-section section-pad" aria-label={t("Founder testimonials", "شهادات المؤسسين")}>
+        <div className="section-head">
+          <p className="eyebrow">{t("IN THEIR WORDS", "بكلماتهم")}</p>
+          <h2>{t("What founders are saying.", "ماذا يقول المؤسسون.")}</h2>
+        </div>
+        <div className="testimonial-grid">{testimonials.map((item, index) => item
+          ? <figure className="testimonial-card" key={index}>
+              <Quote size={20} aria-hidden="true" />
+              <blockquote>{t(item.quote[0], item.quote[1])}</blockquote>
+              <figcaption><strong>{item.name}</strong><span>{t(item.role[0], item.role[1])}</span></figcaption>
+            </figure>
+          : <div className="testimonial-card testimonial-card--empty" key={index}>
+              <Quote size={20} aria-hidden="true" />
+              <p>{t("A founder testimonial is coming soon.", "شهادة مؤسس قادمة قريبا.")}</p>
+            </div>)}
         </div>
       </section>
 
