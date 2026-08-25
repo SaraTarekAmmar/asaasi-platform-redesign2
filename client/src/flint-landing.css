@@ -12,6 +12,11 @@
   --ink: #071b3d; --ink-soft: #0c2b5e; --paper: #fbfbf8; --white: #fff; --clay: #f7f7f3;
   --mint: #f1f5fa; --graphite: #242520; --muted: #74766c; --line: #d5dce6; --line-soft: #d5dce6;
   --saffron: #f6c915; --surface-dark: #071b3d;
+  /* .app-product sets `color: var(--graphite)` directly on itself, so dark mode's own --graphite
+     override resolves to a computed `color` there and inherits straight through .flint-landing
+     (redeclaring the --graphite custom property alone doesn't reopen an already-inherited color).
+     Redeclare `color` here too so it recomputes from the light values just pinned above. */
+  color: var(--graphite);
 }
 .flint-landing { overflow: hidden; background: var(--paper); }
 .flint-landing .site-header { height: 108px; display: flex; align-items: center; justify-content: center; padding: 0 30px; border-bottom: 1px solid var(--line); background: rgba(251,251,248,.92); position: sticky; top: 0; z-index: 20; backdrop-filter: blur(14px); }
