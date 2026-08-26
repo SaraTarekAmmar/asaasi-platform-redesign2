@@ -569,6 +569,7 @@ export function MembershipHubPage() {
   const [teammateEmail, setTeammateEmail] = useState("");
   const inviteTeammate = (event: FormEvent) => { event.preventDefault(); if (!teammateEmail.trim() || teammates.length >= 5) return; setTeammates((current) => [...current, teammateEmail.trim()]); setTeammateEmail(""); showToast(t("Invitation sent.", "تم إرسال الدعوة.")); };
   return <ProductShell title={t("Membership perks", "مزايا العضوية")} active="/dashboard/perks"><div className="workspace-route-page">
+    <nav className="request-tabs" aria-label={t("Membership view", "طريقة عرض العضوية")}><Link href="/dashboard/billing">{t("Overview", "نظرة عامة")}</Link><Link href="/dashboard/perks" className="active">{t("Benefits", "المزايا")}</Link></nav>
     {/* ponytail: only renamed the tier tag/heading here (Free Member/Member -> Registered/Subscriber,
         matching Pricing.tsx and BillingWorkspace). Left the perks/masterminds/mentor-matching/market-
         reports/team-seats feature content itself untouched - the approved Business Foundation docs
