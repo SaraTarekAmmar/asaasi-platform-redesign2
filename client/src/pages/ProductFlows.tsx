@@ -25,27 +25,52 @@ const people = [
 const stageLabels: Record<string, string> = { Validate: "تحقق", Build: "ابنِ", Scale: "توسع" };
 const focusLabels: Record<string, string> = { "Pricing systems": "أنظمة التسعير", "Enterprise motion": "حركة المؤسسات", "Product discovery": "اكتشاف المنتج" };
 
-const dashboardLinks = [
-  ["/dashboard", "Home", LayoutDashboard],
-  ["/dashboard/learner", "Learning path", BookOpen],
-  ["/dashboard/coach", "AI coach", Sparkles],
-  ["/matching", "Find people", Users],
-  ["/dashboard/network", "Network", Users],
-  ["/dashboard/discussions", "Community", MessagesSquare],
-  ["/dashboard/professionals", "Professionals", BriefcaseBusiness],
-  ["/dashboard/rooms", "Events", Compass],
-  ["/dashboard/events", "My events", Compass],
-  ["/dashboard/requests", "Requests", MessageCircle],
-  ["/dashboard/invitations", "Invitations", Mail],
-  ["/dashboard/billing", "Membership", CreditCard],
-  ["/dashboard/perks", "Membership perks", Gift],
-  ["/dashboard/saved", "Saved", Save],
-  ["/dashboard/following", "Following", Heart],
-  ["/dashboard/registrations", "Activity", Check],
-  ["/dashboard/notifications", "Notifications", Bell],
-  ["/dashboard/organizations", "Organizations", BriefcaseBusiness],
-  ["/dashboard/profile", "My profile", Users],
-  ["/dashboard/settings", "Settings", Settings]
+// ponytail: was one flat 20-item list (the exact "sidebar contains every database entity at the
+// same level" problem named in the remediation brief - Find People/Network/Professionals/Events/
+// My events/Membership/Perks/Saved/Following/Activity all competing as equal top-level links).
+// Grouped by job, matching the brief's target IA (Overview/Build/Network/Events/Library/
+// Organization/Account). No route was removed or renamed - every href below still resolves to
+// its existing page - this only changes how the list presents them.
+// /dashboard/professionals and /dashboard/network render the identical WorkspaceDirectoryPage
+// component (confirmed: the `professionals` prop only swaps the heading copy, not the data or
+// filters) - a duplicate destination, not two features. Kept /dashboard/professionals as a real,
+// working route for any existing link/bookmark, just dropped its redundant second sidebar entry;
+// "People" already reaches the same page and the same content.
+const dashboardGroups = [
+  { label: "Overview", labelAr: "نظرة عامة", links: [
+    ["/dashboard", "Home", LayoutDashboard],
+  ] },
+  { label: "Build", labelAr: "التنفيذ", links: [
+    ["/dashboard/learner", "Learning path", BookOpen],
+    ["/dashboard/coach", "AI coach", Sparkles],
+    ["/tools", "Tools", Target],
+  ] },
+  { label: "Network", labelAr: "الشبكة", links: [
+    ["/matching", "Find people", Search],
+    ["/dashboard/network", "People", Users],
+    ["/dashboard/discussions", "Community", MessagesSquare],
+    ["/dashboard/requests", "Requests", MessageCircle],
+  ] },
+  { label: "Events", labelAr: "الفعاليات", links: [
+    ["/dashboard/rooms", "Discover events", Compass],
+    ["/dashboard/events", "My events", Compass],
+  ] },
+  { label: "Library", labelAr: "المكتبة", links: [
+    ["/dashboard/saved", "Saved", Save],
+    ["/dashboard/following", "Following", Heart],
+    ["/dashboard/registrations", "Activity", Check],
+  ] },
+  { label: "Organization", labelAr: "المنظمة", links: [
+    ["/dashboard/organizations", "Organizations", BriefcaseBusiness],
+  ] },
+  { label: "Account", labelAr: "الحساب", links: [
+    ["/dashboard/billing", "Membership", CreditCard],
+    ["/dashboard/perks", "Perks", Gift],
+    ["/dashboard/invitations", "Invitations", Mail],
+    ["/dashboard/notifications", "Notifications", Bell],
+    ["/dashboard/profile", "My profile", Users],
+    ["/dashboard/settings", "Settings", Settings],
+  ] },
 ] as const;
 
 const learnerLinks = [
@@ -86,7 +111,15 @@ function WorkspaceSidebar({ active = "/dashboard", onClose }: { active?: string;
   return <aside className="workspace-sidebar">
     <div className="workspace-profile"><div className="avatar avatar-yellow">{founderInitials(profile.name)}</div><div><strong>{profile.name}</strong><span>{t("Founder · Cairo", "مؤسسة · القاهرة")}</span></div><button type="button" className="icon-button mobile-only" onClick={onClose} aria-label={t("Close workspace menu", "إغلاق قائمة مساحة العمل")}><X size={16} /></button></div>
     <div className="mode-switcher"><span className="mono">{t("Active view", "العرض النشط")}</span><button type="button" className="mode-switcher-current" aria-expanded={modeOpen} aria-haspopup="true" onClick={() => setModeOpen((value) => !value)}>{mode === "learner" ? <BookOpen size={15} /> : <BriefcaseBusiness size={15} />} {mode === "learner" ? t("Learner view", "عرض المتعلم") : t("Founder workspace", "مساحة المؤسس")} <ChevronRight size={14} style={{ transform: modeOpen ? "rotate(90deg)" : undefined, transition: "transform 160ms" }} /></button>{modeOpen && <div className="mode-switcher-menu" role="menu"><Link href="/dashboard" role="menuitem" className={mode === "founder" ? "mode-switcher-option is-active" : "mode-switcher-option"} onClick={() => { setModeOpen(false); onClose?.(); }}><BriefcaseBusiness size={14} /> {t("Founder workspace", "مساحة المؤسس")} {mode === "founder" && <Check size={14} />}</Link><Link href="/dashboard/learner" role="menuitem" className={mode === "learner" ? "mode-switcher-option is-active" : "mode-switcher-option"} onClick={() => { setModeOpen(false); onClose?.(); }}><BookOpen size={14} /> {t("Learner view", "عرض المتعلم")} {mode === "learner" && <Check size={14} />}</Link></div>}<p>{t("Switch modes without losing your place.", "بدل المساحات دون أن تفقد مكانك.")}</p></div>
-    <nav className="workspace-nav" aria-label={t("Workspace navigation", "تنقل مساحة العمل")}>{(mode === "learner" ? learnerLinks : dashboardLinks).map(([href, label, Icon]) => { const isActive = location === href || (href !== "/dashboard" && location.startsWith(href)); const labels: Record<string, string> = { Home: t("Home", "الرئيسية"), "Learning path": t("Learning path", "مسار التعلم"), "AI coach": t("AI coach", "مساعد الذكاء الاصطناعي"), "Find people": t("Find people", "ابحث عن أشخاص"), Network: t("Network", "شبكتك"), Community: t("Community", "المجتمع"), Professionals: t("Professionals", "المتخصصون"), Events: t("Events", "الفعاليات"), "My events": t("My events", "فعالياتي"), Requests: t("Requests", "الطلبات"), Invitations: t("Invitations", "الدعوات"), Membership: t("Membership", "العضوية"), "Membership perks": t("Membership perks", "مزايا العضوية"), Saved: t("Saved", "المحفوظات"), Following: t("Following", "المتابَعون"), Activity: t("Activity", "النشاط"), Notifications: t("Notifications", "الإشعارات"), Organizations: t("Organizations", "المنظمات"), "My profile": t("My profile", "ملفي الشخصي"), Settings: t("Settings", "الإعدادات") }; return <Link key={href} href={href} onClick={onClose} className={isActive ? "active" : ""} aria-current={isActive ? "page" : undefined}><Icon size={16} /><span>{labels[label] ?? label}</span>{label === "Saved" && savedCount > 0 && <small aria-label={t(`${savedCount} saved items`, `${savedCount} عناصر محفوظة`)}>{savedCount}</small>}</Link>; })}</nav>
+    <nav className="workspace-nav" aria-label={t("Workspace navigation", "تنقل مساحة العمل")}>{(() => {
+      const labels: Record<string, string> = { Home: t("Home", "الرئيسية"), "Learning path": t("Learning path", "مسار التعلم"), "AI coach": t("AI coach", "مساعد الذكاء الاصطناعي"), Tools: t("Tools", "الأدوات"), "Find people": t("Find people", "ابحث عن أشخاص"), People: t("People", "الأشخاص"), Community: t("Community", "المجتمع"), "Discover events": t("Discover events", "اكتشف فعاليات"), "My events": t("My events", "فعالياتي"), Requests: t("Requests", "الطلبات"), Invitations: t("Invitations", "الدعوات"), Membership: t("Membership", "العضوية"), Perks: t("Perks", "المزايا"), Saved: t("Saved", "المحفوظات"), Following: t("Following", "المتابَعون"), Activity: t("Activity", "النشاط"), Notifications: t("Notifications", "الإشعارات"), Organizations: t("Organizations", "المنظمات"), "My profile": t("My profile", "ملفي الشخصي"), Settings: t("Settings", "الإعدادات") };
+      const renderLink = ([href, label, Icon]: readonly [string, string, typeof Users]) => {
+        const isActive = location === href || (href !== "/dashboard" && href !== "/tools" && location.startsWith(href));
+        return <Link key={href} href={href} onClick={onClose} className={isActive ? "active" : ""} aria-current={isActive ? "page" : undefined}><Icon size={16} /><span>{labels[label] ?? label}</span>{label === "Saved" && savedCount > 0 && <small aria-label={t(`${savedCount} saved items`, `${savedCount} عناصر محفوظة`)}>{savedCount}</small>}</Link>;
+      };
+      if (mode === "learner") return learnerLinks.map(renderLink);
+      return dashboardGroups.map((group) => <div className="workspace-nav-group" key={group.label}><span className="mono workspace-nav-group-label">{t(group.label, group.labelAr)}</span>{group.links.map(renderLink)}</div>);
+    })()}</nav>
     <div className="sidebar-brief"><SectionLabel>{t("Next signal", "الإشارة التالية")}</SectionLabel><strong>{t("Review your pricing brief", "راجع ملخص التسعير")}</strong><p>{t("12 min · based on your founder stage.", "١٢ دقيقة · وفق مرحلة مؤسستك.")}</p><Link href="/tools/pricing">{t("Open tool", "فتح الأداة")} <ArrowRight size={13} /></Link></div>
   </aside>;
 }
